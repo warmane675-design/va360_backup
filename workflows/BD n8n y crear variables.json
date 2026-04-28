@@ -1,0 +1,186 @@
+{
+  "updatedAt": "2026-04-17T08:56:28.614Z",
+  "createdAt": "2026-04-06T10:41:45.275Z",
+  "id": "7AoBqZZ6xizydpuE",
+  "name": "BD n8n y crear variables",
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "contacta",
+        "formDescription": "trigger",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "nombre"
+            },
+            {
+              "fieldLabel": "email"
+            },
+            {
+              "fieldLabel": "telefono",
+              "fieldType": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.5,
+      "position": [
+        -80,
+        112
+      ],
+      "id": "6ab445d1-0078-43b9-ab64-da93f17313dd",
+      "name": "On form submission",
+      "webhookId": "05a4c5b9-8023-486e-b1fe-2be29aee317e"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a6fd856a-916e-428d-b36f-f0548346164c",
+              "name": "nombre_completo",
+              "value": "={{ $('On form submission').item.json.nombre }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        464,
+        112
+      ],
+      "id": "19006b06-5588-4e07-a093-8463bcc43668",
+      "name": "variables"
+    },
+    {
+      "parameters": {
+        "dataTableId": {
+          "__rl": true,
+          "value": "D2vRxx3UQwHvY747",
+          "mode": "list",
+          "cachedResultName": "formularios",
+          "cachedResultUrl": "/projects/JoN2JTiYqtJQ4ZAc/datatables/D2vRxx3UQwHvY747"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "nombre": "={{ $json.nombre }}",
+            "email": "={{ $json.email }}",
+            "telefono": "={{ $json.telefono }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "nombre",
+              "displayName": "nombre",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "telefono",
+              "displayName": "telefono",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        192,
+        112
+      ],
+      "id": "2cd709e8-9c93-409a-89a4-e578d3a87d18",
+      "name": "Insert row"
+    }
+  ],
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Insert row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert row": {
+      "main": [
+        [
+          {
+            "node": "variables",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {
+    "On form submission": [
+      {
+        "json": {
+          "nombre": "adrian",
+          "email": "ma@gmao.copm",
+          "telefono": 432424243,
+          "submittedAt": "2026-04-06T12:53:46.891+02:00",
+          "formMode": "test"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "versionId": "9c64f0f7-be45-45a6-ab31-dc7ea9c3bfb1",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2026-04-06T10:41:45.298Z",
+      "createdAt": "2026-04-06T10:41:45.298Z",
+      "role": "workflow:owner",
+      "workflowId": "7AoBqZZ6xizydpuE",
+      "projectId": "JoN2JTiYqtJQ4ZAc"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
