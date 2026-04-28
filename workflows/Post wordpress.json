@@ -1,0 +1,494 @@
+{
+  "updatedAt": "2026-04-27T06:28:52.304Z",
+  "createdAt": "2026-04-09T08:32:29.041Z",
+  "id": "Qgmil188can2RjHs",
+  "name": "Post wordpress",
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -704,
+        -16
+      ],
+      "id": "83941501-7531-4c01-845c-b1a8a3d6308f",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "https://gizmodo.com/feed",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1.2,
+      "position": [
+        -496,
+        -16
+      ],
+      "id": "a4efbdab-ae83-4d3f-bf2c-eac12f14108f",
+      "name": "RSS Read"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "9f11b7ba-f7b5-48e6-88eb-df51947040ff",
+              "leftValue": "={{ $json.categories }}",
+              "rightValue": "=Artificial Intelligence",
+              "operator": {
+                "type": "array",
+                "operation": "contains",
+                "rightType": "any"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        -288,
+        -16
+      ],
+      "id": "5bef1782-3be3-4335-b89a-817cb9ff9af1",
+      "name": "Filter"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Titulo de la noticia:  {{ $json.title }}\nContenido: {{ $json.content }}\nLink: {{ $json.link }}\nImagen: {{ $json.enclosure.url }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "Comportate como un experto redactor de contenido de categoria inteligencia artificial que traduce y amplia informacion sobre la noticia que le envia el usuario y la mejora en español para publicarla en una web con todos los controles SEO necesarios\n\nTienes a tu disposicion la herramienta de Perplexity para buscar y ampliar la informacion necesaria de la noticia.\n\nQueremos las noticias en español."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        -80,
+        -16
+      ],
+      "id": "bcc99e31-ea37-452a-8519-739a3a028787",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n\t\"titulo\": \"titulo de la noticia en español\",\n\t\"contenido\": \"Conenido de la noticia en html\",\n  \"categoria\":\"categoria de la noticia\", \n  \"tags\":\"tags de la noticia\",\n  \"meta-descripcion\":\"meta descripcion para SEO\",\n  \"meta-tittle\":\"titulo meta para SEO\"\n}",
+        "autoFix": true
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        80,
+        192
+      ],
+      "id": "31b6bc3c-37cb-40ae-a18d-5c89ec202593",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "model": "llama-3.3-70b-versatile",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        -208,
+        176
+      ],
+      "id": "cdea5911-42f4-424c-8f07-ff7b88c95855",
+      "name": "Groq Chat Model",
+      "credentials": {
+        "groqApi": {
+          "id": "LZwftT7lD2IP0iVn",
+          "name": "Groq account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "openai/gpt-oss-120b:free",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        96,
+        368
+      ],
+      "id": "79cac6fa-621a-4a19-8b5d-1950954b6e94",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "8DGn892MwpIeSqyd",
+          "name": "OpenRouter account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "query": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Query', ``, 'string') }}",
+        "options": {}
+      },
+      "type": "@tavily/n8n-nodes-tavily.tavilyTool",
+      "typeVersion": 1,
+      "position": [
+        -32,
+        224
+      ],
+      "id": "e488fa07-afaa-4799-9d5f-fcd73e954261",
+      "name": "Search in Tavily",
+      "credentials": {
+        "tavilyApi": {
+          "id": "xMX0R5Nt8vSRaxH2",
+          "name": "Tavily account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "d9a252b4-d882-4920-a035-4ce5e618d080",
+              "leftValue": "={{ $json.output.titulo }}",
+              "rightValue": "Candidato",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        272,
+        -16
+      ],
+      "id": "9078c436-57d1-4669-a5eb-9cbc4c2e948a",
+      "name": "Filter1"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=En base a este post de noticia gener el promt en ingles para nano banana para que genere la imagen perfecta que debe acompañar a esta noticia en un periodico online. No debe llevar texto, solo debe ser una imagen ilustrativa con caracter y realista.\n{{ $json.output.contenido }}\n\nDevuelve solo el prompt para nano banana en ingles sin dirigirte a mi",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        480,
+        -16
+      ],
+      "id": "bd5a3fd5-b365-4d2a-8e43-3cfcaf6adf97",
+      "name": "AI Agent1"
+    },
+    {
+      "parameters": {
+        "model": "llama-3.3-70b-versatile",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        480,
+        160
+      ],
+      "id": "31fe71bb-2c85-43c3-bc2a-a9453e355193",
+      "name": "Groq Chat Model2",
+      "credentials": {
+        "groqApi": {
+          "id": "LZwftT7lD2IP0iVn",
+          "name": "Groq account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "modelId": {
+          "__rl": true,
+          "value": "models/gemini-2.5-flash-image",
+          "mode": "list",
+          "cachedResultName": "models/gemini-2.5-flash-image (Nano Banana)"
+        },
+        "prompt": "={{ $json.output }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        880,
+        -288
+      ],
+      "id": "15816fce-b5a0-45ab-80f2-315a9eb4bcbb",
+      "name": "Generate an image",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "myaWeBiunKMboJJC",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googlePalmApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"contents\": [\n    {\n      \"parts\": [{ \"text\": {{ $json.output }} }]\n    }\n  ],\n  \"generationConfig\": {\n    \"responseModalities\": [\"IMAGE\", \"TEXT\"]\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        880,
+        -464
+      ],
+      "id": "cd9d932f-8a68-4c7c-b270-9e9f5d263741",
+      "name": "HTTP Request",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "myaWeBiunKMboJJC",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "title": "={{ $('AI Agent').item.json.output.titulo }}",
+        "additionalFields": {
+          "content": "={{ $('AI Agent').item.json.output.contenido }}",
+          "status": "draft"
+        }
+      },
+      "type": "n8n-nodes-base.wordpress",
+      "typeVersion": 1,
+      "position": [
+        848,
+        -16
+      ],
+      "id": "69ceb455-efe4-45b2-94bd-6b1459c44b33",
+      "name": "Create a post",
+      "credentials": {
+        "wordpressApi": {
+          "id": "tfjLAXjm9b0jtWuZ",
+          "name": "Wordpress account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "RSS Read",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RSS Read": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Structured Output Parser",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search in Tavily": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Filter1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent1": {
+      "main": [
+        [
+          {
+            "node": "Create a post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {
+    "AI Agent": [
+      {
+        "json": {
+          "output": {
+            "titulo": "Candidato a la Cámara de Representantes presenta plan para ayudar a trabajadores desplazados por la IA",
+            "contenido": "Un candidato a la Cámara de Representantes ha presentado un plan para ayudar a los estadounidenses que pierdan su empleo debido a la automatización y la inteligencia artificial. El plan propone crear un fondo para apoyar a los trabajadores desplazados, financiado por un impuesto modesto a la IA. Esta medida busca mitigar el impacto negativo de la automatización en el mercado laboral y garantizar que los trabajadores que pierdan su empleo debido a la IA tengan acceso a recursos y apoyo para reconstruir sus carreras. El plan también busca fomentar la innovación y el desarrollo de la IA de manera responsable, para que sus beneficios sean compartidos por toda la sociedad.",
+            "categoria": "Inteligencia Artificial",
+            "tags": "Inteligencia Artificial, Automatización, Empleo, IA",
+            "meta-descripcion": "Un candidato a la Cámara de Representantes presenta un plan para ayudar a los trabajadores desplazados por la IA",
+            "meta-tittle": "Plan para ayudar a trabajadores desplazados por la IA"
+          }
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      },
+      {
+        "json": {
+          "output": {
+            "titulo": "Tesla Lanza Robotaxis en Dallas y Houston: Un Paso Hacia la Movilidad del Futuro",
+            "contenido": "Tesla ha lanzado oficialmente su servicio de Robotaxis en Dallas y Houston, aunque de manera técnica. Esta lanzamiento ha coincidido con el anuncio de los resultados trimestrales de la empresa. Aunque el servicio aún no está disponible para el público en general, se espera que sea una opción más asequible para los accionistas. El servicio de Robotaxis de Tesla utiliza vehículos eléctricos autónomos para transportar a los pasajeros de manera segura y eficiente. Con este lanzamiento, Tesla busca consolidar su posición en el mercado de la movilidad autónoma y ofrecer una opción innovadora y sostenible para los viajes urbanos.",
+            "categoria": "Inteligencia Artificial",
+            "tags": "Tesla, Robotaxis, Inteligencia Artificial, Movilidad Autónoma",
+            "meta-descripcion": "Tesla lanza su servicio de Robotaxis en Dallas y Houston, una opción innovadora y sostenible para los viajes urbanos.",
+            "meta-tittle": "Tesla Lanza Robotaxis en Dallas y Houston"
+          }
+        },
+        "pairedItem": {
+          "item": 1
+        }
+      }
+    ],
+    "AI Agent1": [
+      {
+        "json": {
+          "output": "Generate a realistic and character-driven illustration of a worker standing in front of a cityscape with robots and artificial intelligence systems in the background, with a subtle hint of a support system or safety net, conveying a sense of hope and resilience in the face of technological change, with a neutral color palette and a focus on the human element."
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "versionId": "cd5fe2b8-3e6d-486b-a2c3-1324940fae5b",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2026-04-09T08:32:29.049Z",
+      "createdAt": "2026-04-09T08:32:29.049Z",
+      "role": "workflow:owner",
+      "workflowId": "Qgmil188can2RjHs",
+      "projectId": "JoN2JTiYqtJQ4ZAc"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
