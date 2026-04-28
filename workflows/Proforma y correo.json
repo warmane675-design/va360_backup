@@ -1,0 +1,546 @@
+{
+  "updatedAt": "2026-04-13T11:28:12.945Z",
+  "createdAt": "2026-04-09T10:28:46.235Z",
+  "id": "p9rcqZmFyscnskPp",
+  "name": "Proforma y correo",
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "sendTo": "={{ $('Calculo de dias restantes').item.json['Email Cliente'] }}",
+        "subject": "={{ $('Calculo de dias restantes').item.json.diasRestantes > 0 ? 'Tu dominio ' + $('Calculo de dias restantes').item.json.Dominio + ' vence en ' + $('Calculo de dias restantes').item.json.diasRestantes + ' días — ' + $('Calculo de dias restantes').item.json.nombreTramo : 'URGENTE: Tu dominio ' + $('Calculo de dias restantes').item.json.dominio + ' ha vencido — acción requerida' }}",
+        "message": "=<p>Hola,</p>\n\n<p>Te contactamos porque el dominio <strong>{{ $('Calculo de dias restantes').item.json.Dominio }}</strong> \n{{ $('Calculo de dias restantes').item.json.diasRestantes > 0 ? 'vence en <strong>' + $('Calculo de dias restantes').item.json.diasRestantes + ' días</strong>' : 'venció hace <strong>' + Math.abs($('Calculo de dias restantes').item.json.diasRestantes) + ' días</strong>' }}.</p>\n\n<p>Adjuntamos factura proforma con el precio actual:</p>\n\n<table style=\"border-collapse:collapse;width:100%;max-width:400px\">\n<tr><td style=\"padding:8px;border:1px solid #ddd\">Precio base</td>\n<td style=\"padding:8px;border:1px solid #ddd;text-align:right\"><strong>{{ $('Calculo de dias restantes').item.json['Precio Base (€)'] }}€</strong></td></tr>\n<tr><td style=\"padding:8px;border:1px solid #ddd\">Recargo ({{ $('Calculo de dias restantes').item.json.nombreTramo }})</td>\n<td style=\"padding:8px;border:1px solid #ddd;text-align:right;color:#c0392b\"><strong>+{{ $('Calculo de dias restantes').item.json.recargo }}€</strong></td></tr>\n<tr style=\"background:#f8f8f8\"><td style=\"padding:8px;border:1px solid #ddd\"><strong>TOTAL</strong></td>\n<td style=\"padding:8px;border:1px solid #ddd;text-align:right\"><strong>{{ $('Calculo de dias restantes').item.json.precioFinal }}€</strong></td></tr>\n</table>\n\n<p style=\"color:#888;font-size:12px;margin-top:20px\">Este precio corresponde al tramo <em>{{ $('Calculo de dias restantes').item.json.nombreTramo }}</em> según nuestra política de renovaciones {{ new Date().getFullYear() }}. El precio se actualiza automáticamente según la fecha de vencimiento.</p>\n\n\n<div style=\"margin-top:24px;text-align:center\">\n  <a href=\"https://n8n-n8n.jynsvq.easypanel.host/webhook/pago-confirmado?dominio={{ $('Calculo de dias restantes').item.json.Dominio }}&idpresupuesto={{ $json.lines[0].idpresupuesto }}&codcliente={{ $json.doc.codcliente }}\" style=\"background:#27AE60;color:white;padding:12px 24px;border-radius:6px;text-decoration:none;font-weight:bold;display:inline-block\">\n    Confirmar pago recibido\n  </a>\n</div>\n\n\n<p>Para cualquier consulta, responde a este email.</p>",
+        "options": {
+          "appendAttribution": false,
+          "attachmentsUi": {
+            "attachmentsBinary": [
+              {}
+            ]
+          }
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        480,
+        16
+      ],
+      "id": "d0857cc6-fdb8-4f20-8686-47e03d647769",
+      "name": "Send a message",
+      "webhookId": "cc026627-efbd-48f7-be8b-5fe53bef1bcc",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "7IQtRfUpY9LH2Jji",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json['Email Cliente'] }}",
+        "subject": "=Renueva {{ $json.Dominio }} al mejor precio",
+        "message": "=Tu dominio vence en {{ $json.diasRestantes }} días. Renuévalo ahora al precio mínimo de {{ $json.precioFinal }}€.\n\n",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        480,
+        -144
+      ],
+      "id": "5e912e35-aa4e-49b7-9855-c48763a9174c",
+      "name": "Send a message1",
+      "webhookId": "a3578c52-6823-4157-82a3-59446dbba3ad",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "7IQtRfUpY9LH2Jji",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 9
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -1072,
+        -64
+      ],
+      "id": "cff9cd5c-540a-42e1-a76c-eb36e7029fb8",
+      "name": "Trigger diario"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1p8AcIfz1D3OFm1s04bvIcqhHU5QGUkHArT34ykAjzf0",
+          "mode": "list",
+          "cachedResultName": "renovaciones_prueba",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1p8AcIfz1D3OFm1s04bvIcqhHU5QGUkHArT34ykAjzf0/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1743362210,
+          "mode": "list",
+          "cachedResultName": "Dominios_Renovaciones",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1p8AcIfz1D3OFm1s04bvIcqhHU5QGUkHArT34ykAjzf0/edit#gid=1743362210"
+        },
+        "filtersUI": {
+          "values": []
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -864,
+        -64
+      ],
+      "id": "204d6a7a-dc43-4090-8d78-c434e2e7c77e",
+      "name": "Datos del Excel",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Y66ON0yRX2dc3w46",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "e1b9feef-197b-4004-8b8f-4fd52263a43f",
+              "leftValue": "={{ $json['Estado Sered'] }}",
+              "rightValue": "Auto",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        -656,
+        -64
+      ],
+      "id": "e8480588-835e-463b-b428-c53819d673c2",
+      "name": "Filtro de estado Auto"
+    },
+    {
+      "parameters": {
+        "jsCode": "const hoy = new Date();\nhoy.setHours(0, 0, 0, 0);\n\nconst resultado = [];\n\nfor (const item of $input.all()) {\n  const datos = item.json;\n\n  const fechaVenc = new Date(datos[\"Fecha Vencimiento\"]);\n  fechaVenc.setHours(0, 0, 0, 0);\n\n  const diffMs   = fechaVenc - hoy;\n  const diasRest = Math.round(diffMs / (1000 * 60 * 60 * 24));\n\n  // Filtro: ignorar si faltan más de 60 días\n  if (diasRest > 60) continue;\n\n  // Calcular tramo y recargo\n  let tramo, recargo, nombreTramo;\n  if (diasRest > 45) {\n    tramo = \"pronto_pago\";   recargo = 0;  nombreTramo = \"Pronto Pago\";\n  } else if (diasRest >= 31) {\n    tramo = \"gestion\";       recargo = 10; nombreTramo = \"Gestión Estándar\";\n  } else if (diasRest >= 15) {\n    tramo = \"urgencia\";      recargo = 25; nombreTramo = \"Recargo por Urgencia\";\n  } else {\n    tramo = \"recuperacion\";  recargo = 50; nombreTramo = \"Tasa de Recuperación\";\n  }\n\n  const precioBase  = parseFloat(datos[\"Precio Base (€)\"]) || 0;\n  const precioFinal = precioBase + recargo;\n\n  resultado.push({\n    json: {\n      ...datos,\n      diasRestantes: diasRest,\n      tramo,\n      nombreTramo,\n      recargo,\n      precioBase,\n      precioFinal,\n    }\n  });\n}\n\nreturn resultado;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -448,
+        -64
+      ],
+      "id": "28caa518-9928-454d-b0d8-3e22d6ead20c",
+      "name": "Calculo de dias restantes"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.tramo }}",
+                    "rightValue": "pronto_pago",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "13470673-869e-46cf-862d-131f74e62638"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "ade6d66c-ad6d-4003-8836-29aa28a20684",
+                    "leftValue": "={{ $json.tramo }}",
+                    "rightValue": "gestion",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "74f11d9a-e6fc-48f2-8c06-78e09c486201",
+                    "leftValue": "={{ $json.tramo }}",
+                    "rightValue": "urgencia",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "8eedf4a6-3997-473c-a10c-f5992dbb48dd",
+                    "leftValue": "={{ $json.tramo }}",
+                    "rightValue": "recuperacion",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        -240,
+        -112
+      ],
+      "id": "0a6b6275-e7be-407e-92dd-f0a5c9eb4dc9",
+      "name": "Switch Tramos de recargo"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://space-1q21-1b.facturas.live/pruebas/api/3/crearPresupuestoCliente",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": []
+        },
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "codcliente",
+              "value": "={{ $('Datos del Excel').item.json['ID Cliente Factura'] }}"
+            },
+            {
+              "name": "fecha",
+              "value": "={{ new Date().toISOString().split('T')[0] }}"
+            },
+            {
+              "name": "descripcion",
+              "value": "=Renovación dominio {{ $json.Dominio }} - {{ $json.tramo }}"
+            },
+            {
+              "name": "lineas",
+              "value": "=[{\"descripcion\": \"Renovación dominio {{ $json.Dominio }} - {{ $json.nombreTramo }}\", \"cantidad\": 1, \"pvpunitario\": {{ $json.precioFinal }}}]"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        0,
+        -64
+      ],
+      "id": "d860615a-8203-4deb-87a0-21c65f174c8b",
+      "name": "Crear proforma en factura.city",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "DpVPFfj4RqEPNKMC",
+          "name": "Facturascript Pruebas"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Recoger, Filtrar y Formatear datos\n",
+        "height": 368,
+        "width": 608,
+        "color": "#776A18"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -912,
+        -192
+      ],
+      "typeVersion": 1,
+      "id": "32b3934d-70b9-4901-af76-2c1c6db967bc",
+      "name": "Sticky Note",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "content": "## Separar segun Recargo\n",
+        "height": 368,
+        "width": 192,
+        "color": "#275928"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -288,
+        -192
+      ],
+      "typeVersion": 1,
+      "id": "0bffc5d2-611a-4078-8fbf-0031068f2e4c",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "##  Crear presupuesto y descargarlo aqui\n",
+        "height": 368,
+        "width": 480,
+        "color": "#6045A1"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -80,
+        -192
+      ],
+      "typeVersion": 1,
+      "id": "34ea3cf0-738c-4017-96cd-cfefd9bc2cae",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "url": "=https://space-1q21-1b.facturas.live/pruebas/api/3/exportarPresupuestoCliente/{{ $json.lines[0].idpresupuesto }}\n",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "token",
+              "value": "w7CVLwRE94qN6cru1nDn"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        240,
+        -64
+      ],
+      "id": "48905e3d-e022-44f7-933b-1c4445633bc4",
+      "name": "Pdf presupuesto factura.city",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "DpVPFfj4RqEPNKMC",
+          "name": "Facturascript Pruebas"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Enviar correo cliente",
+        "height": 368,
+        "width": 256,
+        "color": "#A44141"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        416,
+        -192
+      ],
+      "typeVersion": 1,
+      "id": "56a2843e-296d-4dc2-b082-16868874b8eb",
+      "name": "Sticky Note3"
+    }
+  ],
+  "connections": {
+    "Send a message": {
+      "main": [
+        []
+      ]
+    },
+    "Trigger diario": {
+      "main": [
+        [
+          {
+            "node": "Datos del Excel",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Datos del Excel": {
+      "main": [
+        [
+          {
+            "node": "Filtro de estado Auto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filtro de estado Auto": {
+      "main": [
+        [
+          {
+            "node": "Calculo de dias restantes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculo de dias restantes": {
+      "main": [
+        [
+          {
+            "node": "Switch Tramos de recargo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch Tramos de recargo": {
+      "main": [
+        [
+          {
+            "node": "Send a message1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Crear proforma en factura.city",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Crear proforma en factura.city",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Crear proforma en factura.city",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Crear proforma en factura.city": {
+      "main": [
+        [
+          {
+            "node": "Pdf presupuesto factura.city",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pdf presupuesto factura.city": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "9306dce0-67a7-4b2c-b4f4-ac5fa9167f2f",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2026-04-09T10:28:46.241Z",
+      "createdAt": "2026-04-09T10:28:46.241Z",
+      "role": "workflow:owner",
+      "workflowId": "p9rcqZmFyscnskPp",
+      "projectId": "JoN2JTiYqtJQ4ZAc"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
