@@ -1,0 +1,803 @@
+{
+  "updatedAt": "2026-04-16T08:20:02.899Z",
+  "createdAt": "2026-04-13T07:20:38.629Z",
+  "id": "Ctnk8eampfhqdeIv",
+  "name": "Confirmacion de pago cliente",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "path": "pago-confirmado",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -1120,
+        -16
+      ],
+      "id": "6b18a54c-07e1-48d7-bb0f-8f697cbb259f",
+      "name": "Webhook",
+      "webhookId": "31b4a300-5029-4f4f-9019-9fab3ea57988"
+    },
+    {
+      "parameters": {
+        "sendTo": "warmane675@gmail.com",
+        "subject": "=Dominio {{ $('Webhook').item.json.query.dominio }} — PAGADO",
+        "message": "=El dominio {{ $('Webhook').item.json.query.dominio }} ha sido pagado. Click en el boton para crear factura en FacturaScripts. Acción: mantener renovación automática en Sered.\n\n<div style=\"margin-top:24px;text-align:center\">\n  <a href=\"https://n8n-n8n.jynsvq.easypanel.host/webhook/confirmacion_pago_interno?dominio={{ $('Webhook').item.json.query.dominio }}&codcliente={{ $('Webhook').item.json.query.codcliente }}&pvpunitario={{ $('Webhook').item.json.query.pvpunitario }}\" style=\"background:#27AE60;color:white;padding:12px 24px;border-radius:6px;text-decoration:none;font-weight:bold;display:inline-block\">\n    Renovar ahora al precio mínimo\n  </a>\n</div>",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        -176,
+        -32
+      ],
+      "id": "3299e785-1b54-4f4e-8b35-2b50dffb67bc",
+      "name": "Send a message",
+      "webhookId": "15ca6598-523f-4810-a0fe-7023c42e079a",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "7IQtRfUpY9LH2Jji",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Webhook desde correo cliente\n",
+        "height": 256,
+        "width": 256,
+        "color": "#3A3636"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1200,
+        -96
+      ],
+      "typeVersion": 1,
+      "id": "fd33505a-56fd-424e-8507-b3f5c2309eb7",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Enviar correo interno \n",
+        "height": 256,
+        "width": 272,
+        "color": "#873636"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -256,
+        -112
+      ],
+      "typeVersion": 1,
+      "id": "d671a653-879e-45bc-9840-66df2c76fb1f",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1aV0k8akb8Bg65svTa5GPj_KHllcg2U2PuvvBkaNVLSk",
+          "mode": "list",
+          "cachedResultName": "renovaciones_v2",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aV0k8akb8Bg65svTa5GPj_KHllcg2U2PuvvBkaNVLSk/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aV0k8akb8Bg65svTa5GPj_KHllcg2U2PuvvBkaNVLSk/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "ID Cliente",
+              "lookupValue": "={{ $json.query.codcliente }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -912,
+        -16
+      ],
+      "id": "c72a7673-2dd8-473d-b436-38e8a19e7da5",
+      "name": "Datos del Excel",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Y66ON0yRX2dc3w46",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "41abf936-6221-48fd-a875-8f3e48b79d78",
+              "leftValue": "={{ $json[\"Última Acción\"] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -752,
+        -16
+      ],
+      "id": "682bf80a-6198-4cb0-a2f4-c0fb0522c41c",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\n  \"data\":\"Ya se está procesando\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        -464,
+        176
+      ],
+      "id": "92150149-d409-4aa6-9684-54f575c8675f",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1aV0k8akb8Bg65svTa5GPj_KHllcg2U2PuvvBkaNVLSk",
+          "mode": "list",
+          "cachedResultName": "renovaciones_v2",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aV0k8akb8Bg65svTa5GPj_KHllcg2U2PuvvBkaNVLSk/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aV0k8akb8Bg65svTa5GPj_KHllcg2U2PuvvBkaNVLSk/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ID Cliente": "={{ $json[\"ID Cliente\"] }}",
+            "Última Acción": "PENDIENTE"
+          },
+          "matchingColumns": [
+            "ID Cliente"
+          ],
+          "schema": [
+            {
+              "id": "Dominio",
+              "displayName": "Dominio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Email Cliente",
+              "displayName": "Email Cliente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Fecha Vencimiento",
+              "displayName": "Fecha Vencimiento",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Estado",
+              "displayName": "Estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Precio Base (€)",
+              "displayName": "Precio Base (€)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "ID Cliente",
+              "displayName": "ID Cliente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Nombre Cliente",
+              "displayName": "Nombre Cliente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Última Acción",
+              "displayName": "Última Acción",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -464,
+        -32
+      ],
+      "id": "c2c65a87-3d5e-4138-8166-a175ddb04053",
+      "name": "Datos del Excel1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Y66ON0yRX2dc3w46",
+          "name": "Google Sheets account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Datos del Excel",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Datos del Excel": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Datos del Excel1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Datos del Excel1": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n-n8n.jynsvq.easypanel.host",
+            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+            "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "accept-language": "es-ES,es;q=0.9,en;q=0.8",
+            "cookie": "rl_page_init_referrer=RudderEncrypt%3AU2FsdGVkX19Kc%2F4pkMy1J0YBL3b2yFq4ZI1s%2FqPehokmZbgyMHB%2FX0OMkdWJibT%2F; rl_page_init_referring_domain=RudderEncrypt%3AU2FsdGVkX1%2FEWSnPzgsxiL7Io2hNqaSjaOQfHIp4fqAeZPyic7Yi6L7VtTak48Kp; rl_anonymous_id=RudderEncrypt%3AU2FsdGVkX1%2B6rG1YbC4rUgjq1BgnSNhCySctVILWfZlCBWcOlTWdm6T1g8Lr%2BTYGX8F8D0ZIjbXlT9hBANpgyA%3D%3D; rl_user_id=RudderEncrypt%3AU2FsdGVkX19oTVnhrHj8r1kXYZh7bO8P69VDlOGgr1Ir4t%2B1d8mHX8vRwofxKGGmEI0ElHc%2Bp3VafktfpEHbl483LJ%2FGRfSG%2BmyYLN9MYdlbEXjJ2OUizxVOBANWnBnZztNRdkyVm%2F6REdZDbzSpfXriCWe1D%2B6q7PanzjXWowI%3D; rl_trait=RudderEncrypt%3AU2FsdGVkX1%2FI0lrQuc7IUxdINowD0HQfHvq51svWIkxM7gw%2Baa3z3gYmXbpe9K0aW%2BQDNj6U9k1DM3nZhvTdQLpT%2B1j76V7zykbBnA%2BrDDOe3Wk%2Fn9bPu%2F8r0xEi3ZTEUeh1kSvpJr%2BXM0yUppc%2FOBwLdaV677Oy5DAqDzXaN2s%3D; ph_phc_4URIAm1uYfJO7j8kWSe0J8lc8IqnstRLS7Jx8NcakHo_posthog=%7B%22%24device_id%22%3A%22019d6242-a470-727a-8ac1-89effe9608d4%22%2C%22distinct_id%22%3A%2298226dcc35d48050afb3a5f5d599b6974506af0692468ea8c5e3eaa6507fb99f%2301cb36f5-2634-42b0-ae49-e3263aadab33%22%2C%22%24sesid%22%3A%5B1776327187157%2C%22019d954c-136e-743c-b6f5-1775b1825a72%22%2C1776326284142%5D%2C%22%24epp%22%3Atrue%2C%22%24initial_person_info%22%3A%7B%22r%22%3A%22http%3A%2F%2F157.173.115.195%3A3000%2F%22%2C%22u%22%3A%22https%3A%2F%2Fn8n-n8n.jynsvq.easypanel.host%2Fsetup%22%7D%2C%22%24user_state%22%3A%22identified%22%7D; rl_session=RudderEncrypt%3AU2FsdGVkX19s4CjYrViId%2Fum%2BL76%2BrySRAFXqpKEalXl%2B4Yhh30kYlqC9xoQlZz6uiyNoc4Sma3S6cyDprcTHnlVZKsBPJEpETmb5L2o5o5aWlhmD%2FnaWQgWXOQoTwMmtWVgShNCpC7fwlg85H67cw%3D%3D",
+            "priority": "u=0, i",
+            "sec-ch-ua": "\"Google Chrome\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"",
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": "\"Windows\"",
+            "sec-fetch-dest": "document",
+            "sec-fetch-mode": "navigate",
+            "sec-fetch-site": "cross-site",
+            "sec-fetch-user": "?1",
+            "upgrade-insecure-requests": "1",
+            "x-forwarded-for": "78.30.9.5",
+            "x-forwarded-host": "n8n-n8n.jynsvq.easypanel.host",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "d65dc1bef85c",
+            "x-real-ip": "78.30.9.5"
+          },
+          "params": {},
+          "query": {
+            "dominio": "prueba-oro.com",
+            "idpresupuesto": "421",
+            "codcliente": "CLI-003",
+            "pvpunitario": "11.7"
+          },
+          "body": {},
+          "webhookUrl": "https://n8n-n8n.jynsvq.easypanel.host/webhook/pago-confirmado",
+          "executionMode": "production"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "versionId": "352dd0bf-9ea3-46a5-9457-2d3cc8e0d7fa",
+  "activeVersionId": "352dd0bf-9ea3-46a5-9457-2d3cc8e0d7fa",
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2026-04-13T07:20:38.640Z",
+      "createdAt": "2026-04-13T07:20:38.640Z",
+      "role": "workflow:owner",
+      "workflowId": "Ctnk8eampfhqdeIv",
+      "projectId": "JoN2JTiYqtJQ4ZAc"
+    }
+  ],
+  "activeVersion": {
+    "updatedAt": "2026-04-16T08:20:11.000Z",
+    "createdAt": "2026-04-16T08:20:02.901Z",
+    "versionId": "352dd0bf-9ea3-46a5-9457-2d3cc8e0d7fa",
+    "workflowId": "Ctnk8eampfhqdeIv",
+    "nodes": [
+      {
+        "parameters": {
+          "path": "pago-confirmado",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          -1120,
+          -16
+        ],
+        "id": "6b18a54c-07e1-48d7-bb0f-8f697cbb259f",
+        "name": "Webhook",
+        "webhookId": "31b4a300-5029-4f4f-9019-9fab3ea57988"
+      },
+      {
+        "parameters": {
+          "sendTo": "warmane675@gmail.com",
+          "subject": "=Dominio {{ $('Webhook').item.json.query.dominio }} — PAGADO",
+          "message": "=El dominio {{ $('Webhook').item.json.query.dominio }} ha sido pagado. Click en el boton para crear factura en FacturaScripts. Acción: mantener renovación automática en Sered.\n\n<div style=\"margin-top:24px;text-align:center\">\n  <a href=\"https://n8n-n8n.jynsvq.easypanel.host/webhook/confirmacion_pago_interno?dominio={{ $('Webhook').item.json.query.dominio }}&codcliente={{ $('Webhook').item.json.query.codcliente }}&pvpunitario={{ $('Webhook').item.json.query.pvpunitario }}\" style=\"background:#27AE60;color:white;padding:12px 24px;border-radius:6px;text-decoration:none;font-weight:bold;display:inline-block\">\n    Renovar ahora al precio mínimo\n  </a>\n</div>",
+          "options": {
+            "appendAttribution": false
+          }
+        },
+        "type": "n8n-nodes-base.gmail",
+        "typeVersion": 2.2,
+        "position": [
+          -176,
+          -32
+        ],
+        "id": "3299e785-1b54-4f4e-8b35-2b50dffb67bc",
+        "name": "Send a message",
+        "webhookId": "15ca6598-523f-4810-a0fe-7023c42e079a",
+        "credentials": {
+          "gmailOAuth2": {
+            "id": "7IQtRfUpY9LH2Jji",
+            "name": "Gmail account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "content": "## Webhook desde correo cliente\n",
+          "height": 256,
+          "width": 256,
+          "color": "#3A3636"
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -1200,
+          -96
+        ],
+        "typeVersion": 1,
+        "id": "fd33505a-56fd-424e-8507-b3f5c2309eb7",
+        "name": "Sticky Note"
+      },
+      {
+        "parameters": {
+          "content": "## Enviar correo interno \n",
+          "height": 256,
+          "width": 272,
+          "color": "#873636"
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          -256,
+          -112
+        ],
+        "typeVersion": 1,
+        "id": "d671a653-879e-45bc-9840-66df2c76fb1f",
+        "name": "Sticky Note2"
+      },
+      {
+        "parameters": {
+          "documentId": {
+            "__rl": true,
+            "value": "1aV0k8akb8Bg65svTa5GPj_KHllcg2U2PuvvBkaNVLSk",
+            "mode": "list",
+            "cachedResultName": "renovaciones_v2",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aV0k8akb8Bg65svTa5GPj_KHllcg2U2PuvvBkaNVLSk/edit?usp=drivesdk"
+          },
+          "sheetName": {
+            "__rl": true,
+            "value": "gid=0",
+            "mode": "list",
+            "cachedResultName": "Hoja 1",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aV0k8akb8Bg65svTa5GPj_KHllcg2U2PuvvBkaNVLSk/edit#gid=0"
+          },
+          "filtersUI": {
+            "values": [
+              {
+                "lookupColumn": "ID Cliente",
+                "lookupValue": "={{ $json.query.codcliente }}"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleSheets",
+        "typeVersion": 4.7,
+        "position": [
+          -912,
+          -16
+        ],
+        "id": "c72a7673-2dd8-473d-b436-38e8a19e7da5",
+        "name": "Datos del Excel",
+        "credentials": {
+          "googleSheetsOAuth2Api": {
+            "id": "Y66ON0yRX2dc3w46",
+            "name": "Google Sheets account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "41abf936-6221-48fd-a875-8f3e48b79d78",
+                "leftValue": "={{ $json[\"Última Acción\"] }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals"
+                }
+              }
+            ],
+            "combinator": "or"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          -752,
+          -16
+        ],
+        "id": "682bf80a-6198-4cb0-a2f4-c0fb0522c41c",
+        "name": "If"
+      },
+      {
+        "parameters": {
+          "respondWith": "json",
+          "responseBody": "{\n  \"data\":\"Ya se está procesando\"\n}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.5,
+        "position": [
+          -464,
+          176
+        ],
+        "id": "92150149-d409-4aa6-9684-54f575c8675f",
+        "name": "Respond to Webhook"
+      },
+      {
+        "parameters": {
+          "operation": "update",
+          "documentId": {
+            "__rl": true,
+            "value": "1aV0k8akb8Bg65svTa5GPj_KHllcg2U2PuvvBkaNVLSk",
+            "mode": "list",
+            "cachedResultName": "renovaciones_v2",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aV0k8akb8Bg65svTa5GPj_KHllcg2U2PuvvBkaNVLSk/edit?usp=drivesdk"
+          },
+          "sheetName": {
+            "__rl": true,
+            "value": "gid=0",
+            "mode": "list",
+            "cachedResultName": "Hoja 1",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aV0k8akb8Bg65svTa5GPj_KHllcg2U2PuvvBkaNVLSk/edit#gid=0"
+          },
+          "columns": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "ID Cliente": "={{ $json[\"ID Cliente\"] }}",
+              "Última Acción": "PENDIENTE"
+            },
+            "matchingColumns": [
+              "ID Cliente"
+            ],
+            "schema": [
+              {
+                "id": "Dominio",
+                "displayName": "Dominio",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": true
+              },
+              {
+                "id": "Email Cliente",
+                "displayName": "Email Cliente",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": true
+              },
+              {
+                "id": "Fecha Vencimiento",
+                "displayName": "Fecha Vencimiento",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": true
+              },
+              {
+                "id": "Estado",
+                "displayName": "Estado",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": true
+              },
+              {
+                "id": "Precio Base (€)",
+                "displayName": "Precio Base (€)",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": true
+              },
+              {
+                "id": "ID Cliente",
+                "displayName": "ID Cliente",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "Nombre Cliente",
+                "displayName": "Nombre Cliente",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": true
+              },
+              {
+                "id": "Última Acción",
+                "displayName": "Última Acción",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true
+              },
+              {
+                "id": "row_number",
+                "displayName": "row_number",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "number",
+                "canBeUsedToMatch": true,
+                "readOnly": true,
+                "removed": true
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleSheets",
+        "typeVersion": 4.7,
+        "position": [
+          -464,
+          -32
+        ],
+        "id": "c2c65a87-3d5e-4138-8166-a175ddb04053",
+        "name": "Datos del Excel1",
+        "credentials": {
+          "googleSheetsOAuth2Api": {
+            "id": "Y66ON0yRX2dc3w46",
+            "name": "Google Sheets account"
+          }
+        }
+      }
+    ],
+    "connections": {
+      "Webhook": {
+        "main": [
+          [
+            {
+              "node": "Datos del Excel",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Datos del Excel": {
+        "main": [
+          [
+            {
+              "node": "If",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "If": {
+        "main": [
+          [
+            {
+              "node": "Respond to Webhook",
+              "type": "main",
+              "index": 0
+            },
+            {
+              "node": "Datos del Excel1",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Respond to Webhook",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Datos del Excel1": {
+        "main": [
+          [
+            {
+              "node": "Send a message",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Haz Marca Marketing",
+    "name": "Version 352dd0bf",
+    "description": "",
+    "autosaved": true
+  },
+  "tags": []
+}
