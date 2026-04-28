@@ -1,0 +1,180 @@
+{
+  "updatedAt": "2026-04-17T08:57:08.386Z",
+  "createdAt": "2026-04-07T08:05:31.214Z",
+  "id": "4QTTaZP0TYsnmiyK",
+  "name": "Error Workflow",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "3fdbfd5c-f2e4-47bd-aea5-551903b1151b",
+      "name": "Error Trigger"
+    },
+    {
+      "parameters": {
+        "chatId": "1518965662",
+        "text": "=Error en n8n {{ $json.workflow.name }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "2cc47522-3a59-40d5-bbe3-94c8ad6a5768",
+      "name": "Send a text message",
+      "webhookId": "d35db65e-b373-4ee6-863a-6a586b3fd4e3",
+      "credentials": {
+        "telegramApi": {
+          "id": "QuJbPs5IyGMTK7MO",
+          "name": "ErroresBotTelegram"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Error Trigger": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {
+    "Error Trigger": [
+      {
+        "json": {
+          "execution": {
+            "id": "44",
+            "url": "https://n8n-n8n.jynsvq.easypanel.host/workflow/wcRLx5Asp7gB3LHj/executions/44",
+            "error": {
+              "level": "error",
+              "tags": {},
+              "description": "SyntaxError",
+              "message": "missing ) after argument list ",
+              "stack": "evalmachine.<anonymous>:2\n  .filter(item => item.json.categoria === \"Pantalones\"#)\n                                          ^^^^^^^^^^^^\n\nSyntaxError: missing ) after argument list\n    at new Script (node:vm:117:7)\n    at createScript (node:vm:269:10)\n    at runInContext (node:vm:300:10)\n    at result (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/@n8n+task-runner@file+packages+@n8n+task-runner_@opentelemetry+api@1.9.0_@opentelemetry_abc4e288c7f66f0b9b114d073d3c169d/node_modules/@n8n/task-runner/dist/js-task-runner/js-task-runner.js:216:61)\n    at new Promise (<anonymous>)\n    at JsTaskRunner.runForAllItems (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/@n8n+task-runner@file+packages+@n8n+task-runner_@opentelemetry+api@1.9.0_@opentelemetry_abc4e288c7f66f0b9b114d073d3c169d/node_modules/@n8n/task-runner/dist/js-task-runner/js-task-runner.js:209:34)\n    at JsTaskRunner.executeTask (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/@n8n+task-runner@file+packages+@n8n+task-runner_@opentelemetry+api@1.9.0_@opentelemetry_abc4e288c7f66f0b9b114d073d3c169d/node_modules/@n8n/task-runner/dist/js-task-runner/js-task-runner.js:144:26)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async Object.waitingForSettings (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/@n8n+task-runner@file+packages+@n8n+task-runner_@opentelemetry+api@1.9.0_@opentelemetry_abc4e288c7f66f0b9b114d073d3c169d/node_modules/@n8n/task-runner/dist/task-runner.js:267:17)\n    at async TaskState.caseOf (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/@n8n+task-runner@file+packages+@n8n+task-runner_@opentelemetry+api@1.9.0_@opentelemetry_abc4e288c7f66f0b9b114d073d3c169d/node_modules/@n8n/task-runner/dist/task-state.js:56:16)"
+            },
+            "lastNodeExecuted": "Code in JavaScript",
+            "mode": "trigger",
+            "executionContext": {
+              "version": 1,
+              "establishedAt": 1775549916045,
+              "source": "trigger",
+              "redaction": {
+                "version": 1,
+                "policy": "none"
+              },
+              "triggerNode": {
+                "name": "Schedule Trigger",
+                "type": "n8n-nodes-base.scheduleTrigger"
+              }
+            }
+          },
+          "workflow": {
+            "id": "wcRLx5Asp7gB3LHj",
+            "name": "My workflow 3"
+          }
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "versionId": "cbcae9e5-f470-4875-9d82-9bf4d16b7340",
+  "activeVersionId": "cbcae9e5-f470-4875-9d82-9bf4d16b7340",
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2026-04-07T08:05:31.226Z",
+      "createdAt": "2026-04-07T08:05:31.226Z",
+      "role": "workflow:owner",
+      "workflowId": "4QTTaZP0TYsnmiyK",
+      "projectId": "JoN2JTiYqtJQ4ZAc"
+    }
+  ],
+  "activeVersion": {
+    "updatedAt": "2026-04-07T08:28:35.000Z",
+    "createdAt": "2026-04-07T08:28:23.207Z",
+    "versionId": "cbcae9e5-f470-4875-9d82-9bf4d16b7340",
+    "workflowId": "4QTTaZP0TYsnmiyK",
+    "nodes": [
+      {
+        "parameters": {},
+        "type": "n8n-nodes-base.errorTrigger",
+        "typeVersion": 1,
+        "position": [
+          0,
+          0
+        ],
+        "id": "3fdbfd5c-f2e4-47bd-aea5-551903b1151b",
+        "name": "Error Trigger"
+      },
+      {
+        "parameters": {
+          "chatId": "1518965662",
+          "text": "=Error en n8n {{ $json.workflow.name }}",
+          "additionalFields": {
+            "appendAttribution": false
+          }
+        },
+        "type": "n8n-nodes-base.telegram",
+        "typeVersion": 1.2,
+        "position": [
+          208,
+          0
+        ],
+        "id": "2cc47522-3a59-40d5-bbe3-94c8ad6a5768",
+        "name": "Send a text message",
+        "webhookId": "d35db65e-b373-4ee6-863a-6a586b3fd4e3",
+        "credentials": {
+          "telegramApi": {
+            "id": "QuJbPs5IyGMTK7MO",
+            "name": "ErroresBotTelegram"
+          }
+        }
+      }
+    ],
+    "connections": {
+      "Error Trigger": {
+        "main": [
+          [
+            {
+              "node": "Send a text message",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Haz Marca Marketing",
+    "name": "Version cbcae9e5",
+    "description": "",
+    "autosaved": true
+  },
+  "tags": []
+}
