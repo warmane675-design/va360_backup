@@ -1,0 +1,264 @@
+{
+  "updatedAt": "2026-04-17T08:56:26.961Z",
+  "createdAt": "2026-04-07T07:21:18.769Z",
+  "id": "qlvK9kUkGkLeYgV6",
+  "name": "pruebas loop con json de noticias",
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -928,
+        -16
+      ],
+      "id": "ef10e004-9c9e-4717-b1f7-cea1983963af",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "https://techcrunch.com/feed/",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1.2,
+      "position": [
+        -720,
+        -16
+      ],
+      "id": "18c09e20-56ca-42ff-a5c5-dfa1aae8deea",
+      "name": "RSS Read"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "464c6365-c601-49fb-85b2-78e22a84215d",
+              "leftValue": "={{ $json.creator }}",
+              "rightValue": "Jagmeet Singh",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "5f6a1aa8-fea2-4850-aa62-ec69d8d15f33",
+              "leftValue": "={{ $json.content }}",
+              "rightValue": "inte",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            },
+            {
+              "id": "7c22e4a2-b8d4-429d-a393-f682a0de16bb",
+              "leftValue": "={{ $json.pubDate }}",
+              "rightValue": "jan",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -272,
+        -400
+      ],
+      "id": "74d802cf-75b6-4e99-ae23-8689d0db0089",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.creator }}",
+                    "rightValue": "Jagmeet Singh",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "cca812cf-8498-48ff-9c37-e8a546eda76a"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Jagmeet Singh"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "8ae0406b-5a3d-483a-b995-60fe62276544",
+                    "leftValue": "={{ $json.creator }}",
+                    "rightValue": "Aisha Malik",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Aisha Malik"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        -272,
+        -224
+      ],
+      "id": "a4d1a1d9-c63a-4e20-a9da-8aea9466d34b",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "options": {
+          "reset": false
+        }
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -224,
+        48
+      ],
+      "id": "d9b502f6-513e-4861-8568-951e96d25b3e",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "name": "Replace Me",
+      "typeVersion": 1,
+      "position": [
+        48,
+        128
+      ],
+      "id": "2752d2f7-29e2-42c3-8cf7-7f48401c7522",
+      "placeholder": true
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        256,
+        -48
+      ],
+      "id": "422e96b4-21ee-42ed-bdfd-1a7ab9e450ec",
+      "name": "No Operation, do nothing"
+    }
+  ],
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "RSS Read",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RSS Read": {
+      "main": [
+        []
+      ]
+    },
+    "If": {
+      "main": [
+        []
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Replace Me",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Replace Me": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {},
+  "versionId": "13d03270-6e4e-4521-b1f8-f9f807283120",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2026-04-07T07:21:18.779Z",
+      "createdAt": "2026-04-07T07:21:18.779Z",
+      "role": "workflow:owner",
+      "workflowId": "qlvK9kUkGkLeYgV6",
+      "projectId": "JoN2JTiYqtJQ4ZAc"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
