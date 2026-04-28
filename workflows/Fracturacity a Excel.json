@@ -1,0 +1,319 @@
+{
+  "updatedAt": "2026-04-13T08:18:59.946Z",
+  "createdAt": "2026-04-10T07:37:45.815Z",
+  "id": "vNUBeFzXNUv6gN5P",
+  "name": "Fracturacity a Excel",
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -704,
+        -48
+      ],
+      "id": "327b48c7-a243-4bfd-a4fd-3e72319c4e9f",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "https://space-1q21-1b.facturas.live/pruebas/api/3/clientes",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": []
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -400,
+        -48
+      ],
+      "id": "29bf86a4-edc8-496b-97fb-ec98509fe147",
+      "name": "HTTP Request",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "DpVPFfj4RqEPNKMC",
+          "name": "Facturascript Pruebas"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\n\nreturn items\n  .filter(item => item !== null && item !== undefined)\n  .map(item => {\n    const cliente = item.json;\n    const datos = {};\n    const obs = cliente.observaciones || \"\";\n    obs.split(\"|\").forEach(par => {\n      const [clave, valor] = par.split(\":\");\n      if (clave && valor) {\n        datos[clave.trim()] = valor.trim();\n      }\n    });\n    return {\n      json: {\n        \"Dominio\":            datos[\"DOMINIO\"]             || \"\",\n        \"Email Cliente\":      cliente.email                || \"\",\n        \"Fecha Vencimiento\":  datos[\"VENCIMIENTO\"]         || \"\",\n        \"Estado Sered\":       datos[\"SERED\"]               || \"Manual\",\n        \"Precio Base (€)\":    parseFloat(datos[\"PRECIO\"])  || \"\",\n        \"ID Cliente Factura\": cliente.codcliente           || \"\",\n        \"Scripts\":            datos[\"SCRIPTS\"]             || \"\",\n        \"Nombre Cliente\":     cliente.nombre               || \"\",\n        \"Teléfono\":           cliente.telefono1            || \"\",\n        \"Última Acción\":      \"Importado de FacturaScripts\"\n      }\n    };\n  });"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -48,
+        -48
+      ],
+      "id": "4e3f7e6a-2717-4291-bdb6-3634378469df",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1p8AcIfz1D3OFm1s04bvIcqhHU5QGUkHArT34ykAjzf0",
+          "mode": "list",
+          "cachedResultName": "renovaciones_prueba",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1p8AcIfz1D3OFm1s04bvIcqhHU5QGUkHArT34ykAjzf0/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1743362210,
+          "mode": "list",
+          "cachedResultName": "Dominios_Renovaciones",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1p8AcIfz1D3OFm1s04bvIcqhHU5QGUkHArT34ykAjzf0/edit#gid=1743362210"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ID Cliente Factura": "={{ $json['ID Cliente Factura'] }}",
+            "Email Cliente": "={{ $json['Email Cliente'] }}",
+            "Telefono": "={{ $json['Teléfono'] }}",
+            "Nombre Cliente": "={{ $json['Nombre Cliente'] }}",
+            "Dominio": "={{ $json.Dominio }}",
+            "Fecha Vencimiento": "={{ $json['Fecha Vencimiento'] }}",
+            "Estado Sered": "={{ $json['Estado Sered'] }}",
+            "Precio Base (€)": "={{ $json['Precio Base (€)'] }}",
+            "Última Acción": "={{ $json['Última Acción'] }}"
+          },
+          "matchingColumns": [
+            "ID Cliente Factura"
+          ],
+          "schema": [
+            {
+              "id": "Dominio",
+              "displayName": "Dominio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email Cliente",
+              "displayName": "Email Cliente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Fecha Vencimiento",
+              "displayName": "Fecha Vencimiento",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Estado Sered",
+              "displayName": "Estado Sered",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Precio Base (€)",
+              "displayName": "Precio Base (€)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ID Cliente Factura",
+              "displayName": "ID Cliente Factura",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Nombre Cliente",
+              "displayName": "Nombre Cliente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Telefono",
+              "displayName": "Telefono",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Última Acción",
+              "displayName": "Última Acción",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        288,
+        -48
+      ],
+      "id": "ea9ec305-ba92-4679-b74f-613aa0cab0ee",
+      "name": "Append or update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Y66ON0yRX2dc3w46",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Recoger datos clientes de Factura.city\n",
+        "height": 336,
+        "width": 288,
+        "color": "#36386D"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -496,
+        -144
+      ],
+      "typeVersion": 1,
+      "id": "edc3b4a4-21c0-4764-917a-6f1dc5364e1a",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Formatear datos y Separar datos de Observaciones",
+        "height": 336,
+        "width": 336,
+        "color": "#76732E"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -176,
+        -144
+      ],
+      "typeVersion": 1,
+      "id": "fc838e0d-d201-4387-9c7d-e0fe69e616f9",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## Actualizar Sheet",
+        "height": 336,
+        "width": 288,
+        "color": "#2C7D4B"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        192,
+        -144
+      ],
+      "typeVersion": 1,
+      "id": "db7bcb95-3c40-4590-982b-5129a22d3682",
+      "name": "Sticky Note2"
+    }
+  ],
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Append or update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append or update row in sheet": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {
+    "When clicking ‘Execute workflow’": [
+      {
+        "json": {},
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "versionId": "30f42235-aa20-4db5-afe4-bc8d9c56d944",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2026-04-10T07:37:45.824Z",
+      "createdAt": "2026-04-10T07:37:45.824Z",
+      "role": "workflow:owner",
+      "workflowId": "vNUBeFzXNUv6gN5P",
+      "projectId": "JoN2JTiYqtJQ4ZAc"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
