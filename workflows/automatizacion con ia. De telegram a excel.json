@@ -1,0 +1,800 @@
+{
+  "updatedAt": "2026-04-17T08:56:22.071Z",
+  "createdAt": "2026-04-07T10:15:57.475Z",
+  "id": "i3l3vk8itf11QZo4",
+  "name": "automatizacion con ia. De telegram a excel",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -544,
+        320
+      ],
+      "id": "beee13a7-6bcd-4681-bf51-d8c25378f01b",
+      "name": "Telegram Trigger",
+      "webhookId": "6a9aa77f-b953-4ef4-b005-72992ed8d07c",
+      "credentials": {
+        "telegramApi": {
+          "id": "QuJbPs5IyGMTK7MO",
+          "name": "ErroresBotTelegram"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1Unz8IRsFZNif7syBPze6_4c3yJrntclNomeyjrO72Nw",
+          "mode": "list",
+          "cachedResultName": "post n8n",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Unz8IRsFZNif7syBPze6_4c3yJrntclNomeyjrO72Nw/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Unz8IRsFZNif7syBPze6_4c3yJrntclNomeyjrO72Nw/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "peticion": "={{ $('Telegram Trigger').item.json.message.text }}",
+            "resultado": "={{ $json.output }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "peticion",
+              "displayName": "peticion",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "resultado",
+              "displayName": "resultado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        144,
+        -48
+      ],
+      "id": "0e285899-8cce-4af8-be05-aecab2542622",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Y66ON0yRX2dc3w46",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $('AI Agent').item.json.output }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        352,
+        -48
+      ],
+      "id": "219a93d0-e0de-4b11-84f9-652d1eaa3d7c",
+      "name": "Send a text message",
+      "webhookId": "ee2591a3-027d-4cea-bdbd-1faf7b3e7cfb",
+      "credentials": {
+        "telegramApi": {
+          "id": "QuJbPs5IyGMTK7MO",
+          "name": "ErroresBotTelegram"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.message.text }}",
+        "options": {
+          "systemMessage": "You are a helpful assistant"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        -208,
+        -48
+      ],
+      "id": "1bf04ed3-8d32-4a3b-9ffa-6cf39dc51d68",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": "llama-3.3-70b-versatile",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        -208,
+        128
+      ],
+      "id": "c8bd75d6-482e-4546-aa99-96e5e1609793",
+      "name": "Groq Chat Model",
+      "credentials": {
+        "groqApi": {
+          "id": "LZwftT7lD2IP0iVn",
+          "name": "Groq account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.message.text }}",
+        "options": {
+          "systemMessage": "Actua como un asistente virtual capaz de llevar a cabo las tareas que te solicita el usuario.\n\n**TAREA: POST LINKEDIN **\nElabora del mensaje del usuario un post para linkedin que sea controvertido y genere interaccion con los usuarios para que dejen comentarios y likes\n\n** TAREA APUNTA EN SHEET **\nSi el usuario lo solicita, puedes guardar en google sheet la informacion usando la tool adecuada.\n\nResponde siempre con mensajes cortos, sin caracteres raros, ni markdown."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        -208,
+        304
+      ],
+      "id": "e1ea7f54-4570-4c34-86f4-d7ad68fd8071",
+      "name": "AI Agent1"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1Unz8IRsFZNif7syBPze6_4c3yJrntclNomeyjrO72Nw",
+          "mode": "list",
+          "cachedResultName": "post n8n",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Unz8IRsFZNif7syBPze6_4c3yJrntclNomeyjrO72Nw/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Unz8IRsFZNif7syBPze6_4c3yJrntclNomeyjrO72Nw/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "peticion": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('peticion', ``, 'string') }}",
+            "resultado": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('resultado', ``, 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "peticion",
+              "displayName": "peticion",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "resultado",
+              "displayName": "resultado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        64,
+        512
+      ],
+      "id": "f58e0892-8e42-4daf-85e1-5f761c34ee01",
+      "name": "Append row in sheet in Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Y66ON0yRX2dc3w46",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        144,
+        304
+      ],
+      "id": "346ce107-2016-435e-9364-451d864f8308",
+      "name": "Send a text message1",
+      "webhookId": "f589fc2f-d5d8-4da6-9849-0f3882c9f39b",
+      "credentials": {
+        "telegramApi": {
+          "id": "QuJbPs5IyGMTK7MO",
+          "name": "ErroresBotTelegram"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "llama-3.3-70b-versatile",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        -240,
+        512
+      ],
+      "id": "bda8c2cf-d4eb-455a-af87-89a207b932c1",
+      "name": "Groq Chat Model1",
+      "credentials": {
+        "groqApi": {
+          "id": "LZwftT7lD2IP0iVn",
+          "name": "Groq account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Telegram Trigger').item.json.message.from.id }}",
+        "contextWindowLength": 15
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -96,
+        512
+      ],
+      "id": "8171ba52-9110-4b24-b415-7d91c41f828a",
+      "name": "Simple Memory"
+    }
+  ],
+  "connections": {
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet in Google Sheets": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent1": {
+      "main": [
+        [
+          {
+            "node": "Send a text message1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "4c8ac80f-fda2-45de-abbf-d1cd0a511fc2",
+  "activeVersionId": "4c8ac80f-fda2-45de-abbf-d1cd0a511fc2",
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2026-04-07T10:15:57.483Z",
+      "createdAt": "2026-04-07T10:15:57.483Z",
+      "role": "workflow:owner",
+      "workflowId": "i3l3vk8itf11QZo4",
+      "projectId": "JoN2JTiYqtJQ4ZAc"
+    }
+  ],
+  "activeVersion": {
+    "updatedAt": "2026-04-08T08:30:39.000Z",
+    "createdAt": "2026-04-07T11:27:05.143Z",
+    "versionId": "4c8ac80f-fda2-45de-abbf-d1cd0a511fc2",
+    "workflowId": "i3l3vk8itf11QZo4",
+    "nodes": [
+      {
+        "parameters": {
+          "updates": [
+            "message"
+          ],
+          "additionalFields": {}
+        },
+        "type": "n8n-nodes-base.telegramTrigger",
+        "typeVersion": 1.2,
+        "position": [
+          -544,
+          320
+        ],
+        "id": "beee13a7-6bcd-4681-bf51-d8c25378f01b",
+        "name": "Telegram Trigger",
+        "webhookId": "6a9aa77f-b953-4ef4-b005-72992ed8d07c",
+        "credentials": {
+          "telegramApi": {
+            "id": "QuJbPs5IyGMTK7MO",
+            "name": "ErroresBotTelegram"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "append",
+          "documentId": {
+            "__rl": true,
+            "value": "1Unz8IRsFZNif7syBPze6_4c3yJrntclNomeyjrO72Nw",
+            "mode": "list",
+            "cachedResultName": "post n8n",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Unz8IRsFZNif7syBPze6_4c3yJrntclNomeyjrO72Nw/edit?usp=drivesdk"
+          },
+          "sheetName": {
+            "__rl": true,
+            "value": "gid=0",
+            "mode": "list",
+            "cachedResultName": "Hoja 1",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Unz8IRsFZNif7syBPze6_4c3yJrntclNomeyjrO72Nw/edit#gid=0"
+          },
+          "columns": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "peticion": "={{ $('Telegram Trigger').item.json.message.text }}",
+              "resultado": "={{ $json.output }}"
+            },
+            "matchingColumns": [],
+            "schema": [
+              {
+                "id": "peticion",
+                "displayName": "peticion",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true
+              },
+              {
+                "id": "resultado",
+                "displayName": "resultado",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleSheets",
+        "typeVersion": 4.7,
+        "position": [
+          144,
+          -48
+        ],
+        "id": "0e285899-8cce-4af8-be05-aecab2542622",
+        "name": "Append row in sheet",
+        "credentials": {
+          "googleSheetsOAuth2Api": {
+            "id": "Y66ON0yRX2dc3w46",
+            "name": "Google Sheets account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+          "text": "={{ $('AI Agent').item.json.output }}",
+          "additionalFields": {
+            "appendAttribution": false
+          }
+        },
+        "type": "n8n-nodes-base.telegram",
+        "typeVersion": 1.2,
+        "position": [
+          352,
+          -48
+        ],
+        "id": "219a93d0-e0de-4b11-84f9-652d1eaa3d7c",
+        "name": "Send a text message",
+        "webhookId": "ee2591a3-027d-4cea-bdbd-1faf7b3e7cfb",
+        "credentials": {
+          "telegramApi": {
+            "id": "QuJbPs5IyGMTK7MO",
+            "name": "ErroresBotTelegram"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "={{ $json.message.text }}",
+          "options": {
+            "systemMessage": "You are a helpful assistant"
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.agent",
+        "typeVersion": 3.1,
+        "position": [
+          -208,
+          -48
+        ],
+        "id": "1bf04ed3-8d32-4a3b-9ffa-6cf39dc51d68",
+        "name": "AI Agent"
+      },
+      {
+        "parameters": {
+          "model": "llama-3.3-70b-versatile",
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+        "typeVersion": 1,
+        "position": [
+          -208,
+          128
+        ],
+        "id": "c8bd75d6-482e-4546-aa99-96e5e1609793",
+        "name": "Groq Chat Model",
+        "credentials": {
+          "groqApi": {
+            "id": "LZwftT7lD2IP0iVn",
+            "name": "Groq account 2"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "={{ $json.message.text }}",
+          "options": {
+            "systemMessage": "Actua como un asistente virtual capaz de llevar a cabo las tareas que te solicita el usuario.\n\n**TAREA: POST LINKEDIN **\nElabora del mensaje del usuario un post para linkedin que sea controvertido y genere interaccion con los usuarios para que dejen comentarios y likes\n\n** TAREA APUNTA EN SHEET **\nSi el usuario lo solicita, puedes guardar en google sheet la informacion usando la tool adecuada.\n\nResponde siempre con mensajes cortos, sin caracteres raros, ni markdown."
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.agent",
+        "typeVersion": 3.1,
+        "position": [
+          -208,
+          304
+        ],
+        "id": "e1ea7f54-4570-4c34-86f4-d7ad68fd8071",
+        "name": "AI Agent1"
+      },
+      {
+        "parameters": {
+          "operation": "append",
+          "documentId": {
+            "__rl": true,
+            "value": "1Unz8IRsFZNif7syBPze6_4c3yJrntclNomeyjrO72Nw",
+            "mode": "list",
+            "cachedResultName": "post n8n",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Unz8IRsFZNif7syBPze6_4c3yJrntclNomeyjrO72Nw/edit?usp=drivesdk"
+          },
+          "sheetName": {
+            "__rl": true,
+            "value": "gid=0",
+            "mode": "list",
+            "cachedResultName": "Hoja 1",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Unz8IRsFZNif7syBPze6_4c3yJrntclNomeyjrO72Nw/edit#gid=0"
+          },
+          "columns": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "peticion": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('peticion', ``, 'string') }}",
+              "resultado": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('resultado', ``, 'string') }}"
+            },
+            "matchingColumns": [],
+            "schema": [
+              {
+                "id": "peticion",
+                "displayName": "peticion",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true
+              },
+              {
+                "id": "resultado",
+                "displayName": "resultado",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleSheetsTool",
+        "typeVersion": 4.7,
+        "position": [
+          64,
+          512
+        ],
+        "id": "f58e0892-8e42-4daf-85e1-5f761c34ee01",
+        "name": "Append row in sheet in Google Sheets",
+        "credentials": {
+          "googleSheetsOAuth2Api": {
+            "id": "Y66ON0yRX2dc3w46",
+            "name": "Google Sheets account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+          "text": "={{ $json.output }}",
+          "additionalFields": {
+            "appendAttribution": false
+          }
+        },
+        "type": "n8n-nodes-base.telegram",
+        "typeVersion": 1.2,
+        "position": [
+          144,
+          304
+        ],
+        "id": "346ce107-2016-435e-9364-451d864f8308",
+        "name": "Send a text message1",
+        "webhookId": "f589fc2f-d5d8-4da6-9849-0f3882c9f39b",
+        "credentials": {
+          "telegramApi": {
+            "id": "QuJbPs5IyGMTK7MO",
+            "name": "ErroresBotTelegram"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "model": "llama-3.3-70b-versatile",
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+        "typeVersion": 1,
+        "position": [
+          -240,
+          512
+        ],
+        "id": "bda8c2cf-d4eb-455a-af87-89a207b932c1",
+        "name": "Groq Chat Model1",
+        "credentials": {
+          "groqApi": {
+            "id": "LZwftT7lD2IP0iVn",
+            "name": "Groq account 2"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "sessionIdType": "customKey",
+          "sessionKey": "={{ $('Telegram Trigger').item.json.message.from.id }}",
+          "contextWindowLength": 15
+        },
+        "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+        "typeVersion": 1.3,
+        "position": [
+          -96,
+          512
+        ],
+        "id": "8171ba52-9110-4b24-b415-7d91c41f828a",
+        "name": "Simple Memory"
+      }
+    ],
+    "connections": {
+      "Telegram Trigger": {
+        "main": [
+          [
+            {
+              "node": "AI Agent1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Append row in sheet": {
+        "main": [
+          [
+            {
+              "node": "Send a text message",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI Agent": {
+        "main": [
+          [
+            {
+              "node": "Append row in sheet",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Groq Chat Model": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Append row in sheet in Google Sheets": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent1",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI Agent1": {
+        "main": [
+          [
+            {
+              "node": "Send a text message1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Groq Chat Model1": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "AI Agent1",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Simple Memory": {
+        "ai_memory": [
+          [
+            {
+              "node": "AI Agent1",
+              "type": "ai_memory",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Haz Marca Marketing",
+    "name": "Version 4c8ac80f",
+    "description": "",
+    "autosaved": true
+  },
+  "tags": []
+}
