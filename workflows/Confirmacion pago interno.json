@@ -1,0 +1,598 @@
+{
+  "updatedAt": "2026-04-15T11:35:49.326Z",
+  "createdAt": "2026-04-15T09:38:53.784Z",
+  "id": "2gAakaGSNs0fWE68",
+  "name": "Confirmacion pago interno",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://space-1q21-1b.facturas.live/pruebas/api/3/crearFacturaCliente",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "=codcliente",
+              "value": "={{ $json.query.codcliente }}"
+            },
+            {
+              "name": "lineas",
+              "value": "=[{\"descripcion\": \"Renovación dominio {{ $json.query.dominio }}\", \"cantidad\": 1, \"pvpunitario\": {{ $json.query.pvpunitario }}}]"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        96,
+        0
+      ],
+      "id": "aba968ad-21d3-461c-8797-911df362cece",
+      "name": "HTTP Request",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "DpVPFfj4RqEPNKMC",
+          "name": "Facturascript Pruebas"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Crear factura",
+        "height": 256,
+        "width": 272,
+        "color": "#412D4E"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        16,
+        -80
+      ],
+      "typeVersion": 1,
+      "id": "70bca55a-86be-4aa6-8e94-1c1160784c81",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "path": "confirmacion_pago_interno",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -240,
+        96
+      ],
+      "id": "2faef32a-3a27-49ae-aeec-8ebd245685ea",
+      "name": "Webhook",
+      "webhookId": "45f850f4-fb67-4ed2-a441-380ae3b99e5c"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1aV0k8akb8Bg65svTa5GPj_KHllcg2U2PuvvBkaNVLSk",
+          "mode": "list",
+          "cachedResultName": "renovaciones_v2",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aV0k8akb8Bg65svTa5GPj_KHllcg2U2PuvvBkaNVLSk/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aV0k8akb8Bg65svTa5GPj_KHllcg2U2PuvvBkaNVLSk/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ID Cliente": "={{ $json.query.codcliente }}",
+            "row_number": 0,
+            "Última Acción": "PAGADO"
+          },
+          "matchingColumns": [
+            "ID Cliente"
+          ],
+          "schema": [
+            {
+              "id": "Dominio",
+              "displayName": "Dominio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Email Cliente",
+              "displayName": "Email Cliente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Fecha Vencimiento",
+              "displayName": "Fecha Vencimiento",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Estado",
+              "displayName": "Estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Precio Base (€)",
+              "displayName": "Precio Base (€)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "ID Cliente",
+              "displayName": "ID Cliente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Nombre Cliente",
+              "displayName": "Nombre Cliente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Última Acción",
+              "displayName": "Última Acción",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        96,
+        256
+      ],
+      "id": "f1c98a91-5d2e-46f2-8368-5cf8f727282e",
+      "name": "Update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Y66ON0yRX2dc3w46",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://space-1q21-1b.facturas.live/pruebas/api/3/pagarFacturaCliente/{{ $json.doc.idfactura }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "fechapago",
+              "value": "={{ new Date().toISOString().split('T')[0] }}"
+            },
+            {
+              "name": "codpago",
+              "value": "CONT"
+            },
+            {
+              "name": "pagada",
+              "value": "1"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        320,
+        0
+      ],
+      "id": "bef30189-1ace-4050-8685-8dd005017106",
+      "name": "HTTP Request1",
+      "alwaysOutputData": true,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "DpVPFfj4RqEPNKMC",
+          "name": "Facturascript Pruebas"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {},
+  "versionId": "914e9417-1070-4f3a-b3b1-b925f332f91a",
+  "activeVersionId": "914e9417-1070-4f3a-b3b1-b925f332f91a",
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2026-04-15T09:38:53.794Z",
+      "createdAt": "2026-04-15T09:38:53.794Z",
+      "role": "workflow:owner",
+      "workflowId": "2gAakaGSNs0fWE68",
+      "projectId": "JoN2JTiYqtJQ4ZAc"
+    }
+  ],
+  "activeVersion": {
+    "updatedAt": "2026-04-15T10:56:38.000Z",
+    "createdAt": "2026-04-15T10:56:04.326Z",
+    "versionId": "914e9417-1070-4f3a-b3b1-b925f332f91a",
+    "workflowId": "2gAakaGSNs0fWE68",
+    "nodes": [
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://space-1q21-1b.facturas.live/pruebas/api/3/crearFacturaCliente",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "httpHeaderAuth",
+          "sendBody": true,
+          "contentType": "form-urlencoded",
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "=codcliente",
+                "value": "={{ $json.query.codcliente }}"
+              },
+              {
+                "name": "lineas",
+                "value": "=[{\"descripcion\": \"Renovación dominio {{ $json.query.dominio }}\", \"cantidad\": 1, \"pvpunitario\": {{ $json.query.pvpunitario }}}]"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.4,
+        "position": [
+          96,
+          0
+        ],
+        "id": "aba968ad-21d3-461c-8797-911df362cece",
+        "name": "HTTP Request",
+        "credentials": {
+          "httpHeaderAuth": {
+            "id": "DpVPFfj4RqEPNKMC",
+            "name": "Facturascript Pruebas"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "content": "## Crear factura",
+          "height": 256,
+          "width": 272,
+          "color": "#412D4E"
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          16,
+          -80
+        ],
+        "typeVersion": 1,
+        "id": "70bca55a-86be-4aa6-8e94-1c1160784c81",
+        "name": "Sticky Note1"
+      },
+      {
+        "parameters": {
+          "path": "confirmacion_pago_interno",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          -240,
+          96
+        ],
+        "id": "2faef32a-3a27-49ae-aeec-8ebd245685ea",
+        "name": "Webhook",
+        "webhookId": "45f850f4-fb67-4ed2-a441-380ae3b99e5c"
+      },
+      {
+        "parameters": {
+          "operation": "update",
+          "documentId": {
+            "__rl": true,
+            "value": "1aV0k8akb8Bg65svTa5GPj_KHllcg2U2PuvvBkaNVLSk",
+            "mode": "list",
+            "cachedResultName": "renovaciones_v2",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aV0k8akb8Bg65svTa5GPj_KHllcg2U2PuvvBkaNVLSk/edit?usp=drivesdk"
+          },
+          "sheetName": {
+            "__rl": true,
+            "value": "gid=0",
+            "mode": "list",
+            "cachedResultName": "Hoja 1",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aV0k8akb8Bg65svTa5GPj_KHllcg2U2PuvvBkaNVLSk/edit#gid=0"
+          },
+          "columns": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "ID Cliente": "={{ $json.query.codcliente }}",
+              "row_number": 0,
+              "Última Acción": "PAGADO"
+            },
+            "matchingColumns": [
+              "ID Cliente"
+            ],
+            "schema": [
+              {
+                "id": "Dominio",
+                "displayName": "Dominio",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": true
+              },
+              {
+                "id": "Email Cliente",
+                "displayName": "Email Cliente",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": true
+              },
+              {
+                "id": "Fecha Vencimiento",
+                "displayName": "Fecha Vencimiento",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": true
+              },
+              {
+                "id": "Estado",
+                "displayName": "Estado",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": true
+              },
+              {
+                "id": "Precio Base (€)",
+                "displayName": "Precio Base (€)",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": true
+              },
+              {
+                "id": "ID Cliente",
+                "displayName": "ID Cliente",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "Nombre Cliente",
+                "displayName": "Nombre Cliente",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": true
+              },
+              {
+                "id": "Última Acción",
+                "displayName": "Última Acción",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true
+              },
+              {
+                "id": "row_number",
+                "displayName": "row_number",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "number",
+                "canBeUsedToMatch": true,
+                "readOnly": true,
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleSheets",
+        "typeVersion": 4.7,
+        "position": [
+          96,
+          256
+        ],
+        "id": "f1c98a91-5d2e-46f2-8368-5cf8f727282e",
+        "name": "Update row in sheet",
+        "credentials": {
+          "googleSheetsOAuth2Api": {
+            "id": "Y66ON0yRX2dc3w46",
+            "name": "Google Sheets account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "=https://space-1q21-1b.facturas.live/pruebas/api/3/pagarFacturaCliente/{{ $json.doc.idfactura }}",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "httpHeaderAuth",
+          "sendBody": true,
+          "contentType": "form-urlencoded",
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "fechapago",
+                "value": "={{ new Date().toISOString().split('T')[0] }}"
+              },
+              {
+                "name": "codpago",
+                "value": "CONT"
+              },
+              {
+                "name": "pagada",
+                "value": "1"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.4,
+        "position": [
+          320,
+          0
+        ],
+        "id": "bef30189-1ace-4050-8685-8dd005017106",
+        "name": "HTTP Request1",
+        "alwaysOutputData": true,
+        "credentials": {
+          "httpHeaderAuth": {
+            "id": "DpVPFfj4RqEPNKMC",
+            "name": "Facturascript Pruebas"
+          }
+        }
+      }
+    ],
+    "connections": {
+      "Webhook": {
+        "main": [
+          [
+            {
+              "node": "HTTP Request",
+              "type": "main",
+              "index": 0
+            },
+            {
+              "node": "Update row in sheet",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "HTTP Request": {
+        "main": [
+          [
+            {
+              "node": "HTTP Request1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Haz Marca Marketing",
+    "name": "Version 914e9417",
+    "description": "",
+    "autosaved": true
+  },
+  "tags": []
+}
