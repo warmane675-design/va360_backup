@@ -1,0 +1,144 @@
+{
+  "updatedAt": "2026-04-17T08:56:40.575Z",
+  "createdAt": "2026-04-07T08:33:06.449Z",
+  "id": "oCWTkFlPVwz5uwDx",
+  "name": "HTTP",
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -400,
+        -288
+      ],
+      "id": "0423d6d7-3875-4b7f-8e80-4efa859b033f",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "https://imdb236.p.rapidapi.com/api/imdb/top250-movies",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-rapidapi-host",
+              "value": "imdb236.p.rapidapi.com"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -160,
+        -96
+      ],
+      "id": "a2ff91ae-7052-470a-8351-abc0749f325e",
+      "name": "250movies",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "Ccmw9ymiIJYsBHqO",
+          "name": "Header Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "path": "webhookpruebas",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -400,
+        32
+      ],
+      "id": "8f7592c0-29e1-43bf-81a7-daafc6d5fe76",
+      "name": "Webhook",
+      "webhookId": "ec7442fb-5ab3-42b3-91c3-0a255ff69a60"
+    },
+    {
+      "parameters": {
+        "respondWith": "allIncomingItems",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        48,
+        -96
+      ],
+      "id": "c4938995-94d1-4d35-9a3c-6c729a91cc52",
+      "name": "Respond to Webhook"
+    }
+  ],
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "250movies",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "250movies",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "250movies": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {},
+  "versionId": "87ea8ae1-5370-4754-832f-1124e83a8a2a",
+  "activeVersionId": null,
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2026-04-07T08:33:06.455Z",
+      "createdAt": "2026-04-07T08:33:06.455Z",
+      "role": "workflow:owner",
+      "workflowId": "oCWTkFlPVwz5uwDx",
+      "projectId": "JoN2JTiYqtJQ4ZAc"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
