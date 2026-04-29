@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-04-21T08:13:39.170Z",
+  "updatedAt": "2026-04-28T10:00:55.652Z",
   "createdAt": "2026-04-09T07:22:23.448Z",
   "id": "bNAuFXzDSF6qWel0",
   "name": "AAA MCP claude / correo",
-  "active": true,
+  "active": false,
   "isArchived": false,
   "nodes": [
     {
@@ -78,8 +78,8 @@
       "type": "@n8n/n8n-nodes-langchain.chatTrigger",
       "typeVersion": 1.4,
       "position": [
-        -16,
-        -32
+        288,
+        -64
       ],
       "id": "2561b3a5-a50e-44e3-8f82-8597e1f813a3",
       "name": "When chat message received",
@@ -92,8 +92,8 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 3.1,
       "position": [
-        192,
-        -32
+        496,
+        -64
       ],
       "id": "1c1f673b-17fa-4fd6-89c0-b65a5d2efb7e",
       "name": "AI Agent"
@@ -107,8 +107,8 @@
       "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
       "typeVersion": 1.2,
       "position": [
-        448,
-        160
+        752,
+        128
       ],
       "id": "0a7a941b-1937-4c6d-8a89-a2411195a86f",
       "name": "MCP Client",
@@ -126,8 +126,8 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        288,
-        176
+        592,
+        144
       ],
       "id": "0947f1fc-84d2-43fb-91c9-8d07ad9e154f",
       "name": "Simple Memory"
@@ -140,8 +140,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        64,
-        176
+        368,
+        144
       ],
       "id": "f04bbd2a-fd77-4f64-b942-2098b03c3f3c",
       "name": "OpenRouter Chat Model",
@@ -268,8 +268,8 @@
     "templateCredsSetupCompleted": true
   },
   "pinData": {},
-  "versionId": "010c8849-b79c-48f8-a0c8-9705f393f24d",
-  "activeVersionId": "010c8849-b79c-48f8-a0c8-9705f393f24d",
+  "versionId": "248cc3fb-d356-43a6-8a61-4b7e006d451b",
+  "activeVersionId": null,
   "triggerCount": 2,
   "shared": [
     {
@@ -280,269 +280,6 @@
       "projectId": "JoN2JTiYqtJQ4ZAc"
     }
   ],
-  "activeVersion": {
-    "updatedAt": "2026-04-21T06:32:22.000Z",
-    "createdAt": "2026-04-21T06:32:20.297Z",
-    "versionId": "010c8849-b79c-48f8-a0c8-9705f393f24d",
-    "workflowId": "bNAuFXzDSF6qWel0",
-    "nodes": [
-      {
-        "parameters": {
-          "path": "6f143806-68f5-461c-9435-e59a484286f3"
-        },
-        "type": "@n8n/n8n-nodes-langchain.mcpTrigger",
-        "typeVersion": 2,
-        "position": [
-          -528,
-          -32
-        ],
-        "id": "2568554d-6820-46cc-b63f-c3bcaba3ad53",
-        "name": "MCP Server Trigger",
-        "webhookId": "6f143806-68f5-461c-9435-e59a484286f3"
-      },
-      {
-        "parameters": {
-          "operation": "getAll",
-          "calendar": {
-            "__rl": true,
-            "value": "9e303b9ae09b4a3351731b434b2ec697ee4a30d5d1afb0337699d8aa38fa8abc@group.calendar.google.com",
-            "mode": "list",
-            "cachedResultName": "prueba"
-          },
-          "timeMin": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('After', ``, 'string') }}",
-          "timeMax": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Before', ``, 'string') }}",
-          "options": {}
-        },
-        "type": "n8n-nodes-base.googleCalendarTool",
-        "typeVersion": 1.3,
-        "position": [
-          -544,
-          160
-        ],
-        "id": "1733daa8-9c63-4bc7-9608-44e7b8d6813e",
-        "name": "Get many events in Google Calendar",
-        "credentials": {
-          "googleCalendarOAuth2Api": {
-            "id": "x4iIyan7LlmKH2vd",
-            "name": "Google Calendar account"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "sendTo": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('To', ``, 'string') }}",
-          "subject": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Subject', ``, 'string') }}",
-          "message": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Message', ``, 'string') }}",
-          "options": {}
-        },
-        "type": "n8n-nodes-base.gmailTool",
-        "typeVersion": 2.2,
-        "position": [
-          -224,
-          160
-        ],
-        "id": "f9877b8a-6672-47ca-b6aa-e90681c55439",
-        "name": "Send a message in Gmail",
-        "webhookId": "ae6f7346-94ab-4e0f-8462-45d83a7dfe57",
-        "credentials": {
-          "gmailOAuth2": {
-            "id": "7IQtRfUpY9LH2Jji",
-            "name": "Gmail account"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "options": {}
-        },
-        "type": "@n8n/n8n-nodes-langchain.chatTrigger",
-        "typeVersion": 1.4,
-        "position": [
-          -16,
-          -32
-        ],
-        "id": "2561b3a5-a50e-44e3-8f82-8597e1f813a3",
-        "name": "When chat message received",
-        "webhookId": "4c22d161-6d32-4639-8636-2362320712db"
-      },
-      {
-        "parameters": {
-          "options": {}
-        },
-        "type": "@n8n/n8n-nodes-langchain.agent",
-        "typeVersion": 3.1,
-        "position": [
-          192,
-          -32
-        ],
-        "id": "1c1f673b-17fa-4fd6-89c0-b65a5d2efb7e",
-        "name": "AI Agent"
-      },
-      {
-        "parameters": {
-          "endpointUrl": "https://mcp.notion.com/mcp",
-          "authentication": "mcpOAuth2Api",
-          "options": {}
-        },
-        "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
-        "typeVersion": 1.2,
-        "position": [
-          448,
-          160
-        ],
-        "id": "0a7a941b-1937-4c6d-8a89-a2411195a86f",
-        "name": "MCP Client",
-        "credentials": {
-          "mcpOAuth2Api": {
-            "id": "1z2vDibLLgf4XeG0",
-            "name": "notion"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "contextWindowLength": 25
-        },
-        "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
-        "typeVersion": 1.3,
-        "position": [
-          288,
-          176
-        ],
-        "id": "0947f1fc-84d2-43fb-91c9-8d07ad9e154f",
-        "name": "Simple Memory"
-      },
-      {
-        "parameters": {
-          "model": "openai/gpt-oss-120b:free",
-          "options": {}
-        },
-        "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
-        "typeVersion": 1,
-        "position": [
-          64,
-          176
-        ],
-        "id": "f04bbd2a-fd77-4f64-b942-2098b03c3f3c",
-        "name": "OpenRouter Chat Model",
-        "credentials": {
-          "openRouterApi": {
-            "id": "8DGn892MwpIeSqyd",
-            "name": "OpenRouter account 2"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "calendar": {
-            "__rl": true,
-            "value": "9e303b9ae09b4a3351731b434b2ec697ee4a30d5d1afb0337699d8aa38fa8abc@group.calendar.google.com",
-            "mode": "list",
-            "cachedResultName": "prueba"
-          },
-          "start": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Start', ``, 'string') }}",
-          "end": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('End', ``, 'string') }}",
-          "additionalFields": {}
-        },
-        "type": "n8n-nodes-base.googleCalendarTool",
-        "typeVersion": 1.3,
-        "position": [
-          -384,
-          160
-        ],
-        "id": "1244fc5c-b1bb-4771-a60b-491c2c8378e2",
-        "name": "Create an event in Google Calendar",
-        "credentials": {
-          "googleCalendarOAuth2Api": {
-            "id": "x4iIyan7LlmKH2vd",
-            "name": "Google Calendar account"
-          }
-        }
-      }
-    ],
-    "connections": {
-      "Get many events in Google Calendar": {
-        "ai_tool": [
-          [
-            {
-              "node": "MCP Server Trigger",
-              "type": "ai_tool",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Send a message in Gmail": {
-        "ai_tool": [
-          [
-            {
-              "node": "MCP Server Trigger",
-              "type": "ai_tool",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "When chat message received": {
-        "main": [
-          [
-            {
-              "node": "AI Agent",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "MCP Client": {
-        "ai_tool": [
-          [
-            {
-              "node": "AI Agent",
-              "type": "ai_tool",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Simple Memory": {
-        "ai_memory": [
-          [
-            {
-              "node": "AI Agent",
-              "type": "ai_memory",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "OpenRouter Chat Model": {
-        "ai_languageModel": [
-          [
-            {
-              "node": "AI Agent",
-              "type": "ai_languageModel",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Create an event in Google Calendar": {
-        "ai_tool": [
-          [
-            {
-              "node": "MCP Server Trigger",
-              "type": "ai_tool",
-              "index": 0
-            }
-          ]
-        ]
-      }
-    },
-    "authors": "Haz Marca Marketing",
-    "name": "Version 010c8849",
-    "description": "",
-    "autosaved": true
-  },
+  "activeVersion": null,
   "tags": []
 }
