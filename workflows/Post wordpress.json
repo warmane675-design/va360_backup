@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-27T06:28:52.304Z",
+  "updatedAt": "2026-04-28T08:30:30.895Z",
   "createdAt": "2026-04-09T08:32:29.041Z",
   "id": "Qgmil188can2RjHs",
   "name": "Post wordpress",
@@ -289,7 +289,7 @@
       "type": "n8n-nodes-base.wordpress",
       "typeVersion": 1,
       "position": [
-        848,
+        1264,
         -16
       ],
       "id": "69ceb455-efe4-45b2-94bd-6b1459c44b33",
@@ -477,7 +477,7 @@
       }
     ]
   },
-  "versionId": "cd5fe2b8-3e6d-486b-a2c3-1324940fae5b",
+  "versionId": "cebd526a-3e64-4c9e-9142-48c6817fb29d",
   "activeVersionId": null,
   "triggerCount": 0,
   "shared": [
