@@ -1,0 +1,237 @@
+{
+  "updatedAt": "2026-04-28T09:28:45.378Z",
+  "createdAt": "2026-04-28T09:03:27.468Z",
+  "id": "YWv5Fo4D3d01DL4K",
+  "name": "Manychat",
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "mensajemanychat",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        32,
+        0
+      ],
+      "id": "5694f500-c5cc-4b23-b423-d8c11eb42562",
+      "name": "mensaje_instagram",
+      "webhookId": "b8cee2d9-4a2e-4206-813d-7d6db29401fd"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"mensaje\": {{ JSON.stringify( $json.output ) }}\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        720,
+        0
+      ],
+      "id": "e842c4b6-dbff-45e5-95ea-e6475e41236a",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Nombre: {{ $json.body.nombre }} o {{ $json.body.nombre_usuario }}\nMensaje: {{ $json.body.mensaje }}",
+        "options": {
+          "systemMessage": "Eres el asistente virtual de Valentín Ayesa (Propietario de VA360.pro y VA360.academy) en instagram. Envías mensajes cortos de respuesta al usuario. El usuario te enviará su nombre y un mensaje. \n\nTu objetivo es resolver las posibles dudas que tenga el usuario siendo cercano, sincero y honesto. \nActúa como si fueras Valen y no como si fueras una IA.\n\nTienes acceso a una base de datos de conocimiento donde está toda la información acerca de VA360.academy.\n\nSi el nombre de usuario es algo como \"{{full_name}}\" usa el nombre de usuario.\nLos mensajes deben ser cortos y directos, sin saltos de linea. "
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        320,
+        0
+      ],
+      "id": "f45cdbec-5b7a-4b67-9724-fbac130505ef",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolDescription": "Tienes toda la información sobre las preguntas frecuentes de VA360.academy",
+        "pineconeIndex": {
+          "__rl": true,
+          "value": "va360academy",
+          "mode": "list",
+          "cachedResultName": "va360academy"
+        },
+        "includeDocumentMetadata": false,
+        "options": {
+          "pineconeNamespace": "FAQ-VA360-Academy.pdf"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "typeVersion": 1.3,
+      "position": [
+        576,
+        240
+      ],
+      "id": "dc2bc012-4b78-447d-9024-c9b92b5a2155",
+      "name": "Pinecone Vector Store",
+      "credentials": {
+        "pineconeApi": {
+          "id": "SmGcTnvsajKgKnYm",
+          "name": "Pinecone account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {
+          "temperature": 0.2,
+          "topP": 0.2
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        240,
+        208
+      ],
+      "id": "5e204a4f-32af-4562-b4a2-c35d7f78609b",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "myaWeBiunKMboJJC",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.body.nombre_usuario }}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        416,
+        208
+      ],
+      "id": "1ab484ad-3104-4876-b7ee-734f909fa019",
+      "name": "Simple Memory"
+    }
+  ],
+  "connections": {
+    "mensaje_instagram": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pinecone Vector Store": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {
+    "mensaje_instagram": [
+      {
+        "json": {
+          "headers": {
+            "host": "produccion-n8n.879h99.easypanel.host",
+            "user-agent": "ManyChat",
+            "content-length": "157",
+            "content-type": "application/json; charset=utf-8",
+            "x-forwarded-for": "18.185.83.57",
+            "x-forwarded-host": "produccion-n8n.879h99.easypanel.host",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "c65914a14e5f",
+            "x-real-ip": "18.185.83.57",
+            "accept-encoding": "gzip"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "nombre": "PERSONALIZADOS.TOP",
+            "nombre_usuario": "personaliza_productos",
+            "mensaje": "Hola me gustaría tener algo de info sobre los cursos de va360"
+          },
+          "webhookUrl": "https://produccion-n8n.879h99.easypanel.host/webhook/mensajemanychat",
+          "executionMode": "production"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "versionId": "1ce53753-3aaa-4e61-b81b-784168dbf868",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2026-04-28T09:03:27.483Z",
+      "createdAt": "2026-04-28T09:03:27.483Z",
+      "role": "workflow:owner",
+      "workflowId": "YWv5Fo4D3d01DL4K",
+      "projectId": "JoN2JTiYqtJQ4ZAc"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
