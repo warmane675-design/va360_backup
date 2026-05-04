@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-28T08:34:12.472Z",
+  "updatedAt": "2026-04-30T08:33:23.141Z",
   "createdAt": "2026-04-28T08:30:58.090Z",
   "id": "pSIKk7imBuVB6ezO",
   "name": "Post wordpress v2",
@@ -25,7 +25,7 @@
       "type": "n8n-nodes-base.rssFeedRead",
       "typeVersion": 1.2,
       "position": [
-        -496,
+        -480,
         -16
       ],
       "id": "2ee69d0a-1e2b-4135-ac73-be766a185594",
@@ -59,7 +59,7 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.3,
       "position": [
-        -288,
+        -256,
         -16
       ],
       "id": "5128c72c-9300-4a4b-b399-b4ea17e3e3eb",
@@ -77,7 +77,7 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 3.1,
       "position": [
-        -80,
+        32,
         -16
       ],
       "id": "ecb1fc83-85e5-4201-b4c2-4cdf05335b63",
@@ -91,8 +91,8 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        80,
-        192
+        224,
+        208
       ],
       "id": "414419c5-a9eb-45cb-b565-48626ab978a7",
       "name": "Structured Output Parser"
@@ -105,8 +105,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
       "typeVersion": 1,
       "position": [
-        -208,
-        176
+        -32,
+        208
       ],
       "id": "f5d26977-dddf-44a7-bee0-f1e9a7cac41e",
       "name": "Groq Chat Model",
@@ -125,8 +125,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        96,
-        368
+        304,
+        416
       ],
       "id": "6c2fc78e-dc17-40af-86cc-74537822f61b",
       "name": "OpenRouter Chat Model",
@@ -145,8 +145,8 @@
       "type": "@tavily/n8n-nodes-tavily.tavilyTool",
       "typeVersion": 1,
       "position": [
-        -32,
-        224
+        96,
+        208
       ],
       "id": "aaf901a2-8f88-4cb2-b239-24743428fcee",
       "name": "Search in Tavily",
@@ -170,10 +170,20 @@
             {
               "id": "d9a252b4-d882-4920-a035-4ce5e618d080",
               "leftValue": "={{ $json.output.titulo }}",
-              "rightValue": "Candidato",
+              "rightValue": "Google",
               "operator": {
                 "type": "string",
                 "operation": "contains"
+              }
+            },
+            {
+              "id": "41b56310-69cd-4229-bce0-432638441eea",
+              "leftValue": "",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
               }
             }
           ],
@@ -184,7 +194,7 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.3,
       "position": [
-        272,
+        592,
         -16
       ],
       "id": "64f68333-7bb3-4bbc-8f4e-664de7816558",
@@ -193,13 +203,13 @@
     {
       "parameters": {
         "promptType": "define",
-        "text": "=En base a este post de noticia gener el promt en ingles para nano banana para que genere la imagen perfecta que debe acompañar a esta noticia en un periodico online. No debe llevar texto, solo debe ser una imagen ilustrativa con caracter y realista.\n{{ $json.output.contenido }}\n\nDevuelve solo el prompt para nano banana en ingles sin dirigirte a mi",
+        "text": "=En base a este post de noticia genera el promt en ingles para nano banana para que genere la imagen perfecta que debe acompañar a esta noticia en un periodico online. No debe llevar texto, solo debe ser una imagen ilustrativa con caracter y realista.\n{{ $json.output.contenido }}\n\nDevuelve solo el prompt para nano banana en ingles sin dirigirte a mi",
         "options": {}
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 3.1,
       "position": [
-        480,
+        816,
         -16
       ],
       "id": "2c607ea4-8cf3-4cf0-8aba-4a07f34bccc0",
@@ -213,8 +223,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
       "typeVersion": 1,
       "position": [
-        480,
-        160
+        896,
+        208
       ],
       "id": "94835bdc-e162-4230-9fdc-a491569e731e",
       "name": "Groq Chat Model2",
@@ -222,59 +232,6 @@
         "groqApi": {
           "id": "LZwftT7lD2IP0iVn",
           "name": "Groq account 2"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "resource": "image",
-        "modelId": {
-          "__rl": true,
-          "value": "models/gemini-2.5-flash-image",
-          "mode": "list",
-          "cachedResultName": "models/gemini-2.5-flash-image (Nano Banana)"
-        },
-        "prompt": "={{ $json.output }}",
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.googleGemini",
-      "typeVersion": 1.1,
-      "position": [
-        880,
-        -288
-      ],
-      "id": "b1159799-b1d2-4325-bbdc-2f4f97fb9a3b",
-      "name": "Generate an image",
-      "credentials": {
-        "googlePalmApi": {
-          "id": "myaWeBiunKMboJJC",
-          "name": "Google Gemini(PaLM) Api account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent",
-        "authentication": "predefinedCredentialType",
-        "nodeCredentialType": "googlePalmApi",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={\n  \"contents\": [\n    {\n      \"parts\": [{ \"text\": {{ $json.output }} }]\n    }\n  ],\n  \"generationConfig\": {\n    \"responseModalities\": [\"IMAGE\", \"TEXT\"]\n  }\n}",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.4,
-      "position": [
-        880,
-        -464
-      ],
-      "id": "6bbe3828-217e-4ae8-be86-14584b77635e",
-      "name": "HTTP Request",
-      "credentials": {
-        "googlePalmApi": {
-          "id": "myaWeBiunKMboJJC",
-          "name": "Google Gemini(PaLM) Api account"
         }
       }
     },
@@ -289,7 +246,7 @@
       "type": "n8n-nodes-base.wordpress",
       "typeVersion": 1,
       "position": [
-        1264,
+        1392,
         -16
       ],
       "id": "784c2b9f-a352-4ded-bfc5-6b93795e1eed",
@@ -303,36 +260,134 @@
     },
     {
       "parameters": {
-        "promptType": "define",
-        "text": "={{ $json.output }}",
-        "options": {}
+        "url": "=https://image.pollinations.ai/prompt/{{ $json.output }}?width=1024&height=1024&model=flux&nologo=true",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
       },
-      "type": "@n8n/n8n-nodes-langchain.agent",
-      "typeVersion": 3.1,
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
       "position": [
-        832,
+        1168,
         -16
       ],
-      "id": "d4601f4d-baf3-4565-9067-e0f9c012e387",
-      "name": "AI Agent2"
+      "id": "47877778-e87e-4f3f-9b02-eb21c4a10f05",
+      "name": "HTTP Request1"
     },
     {
       "parameters": {
-        "model": "nvidia/nemotron-3-nano-30b-a3b:free",
+        "assignments": {
+          "assignments": [
+            {
+              "id": "37f9d416-d2cb-47b7-b270-ca47416583d8",
+              "name": "data",
+              "value": "={{ $('HTTP Request1').item.binary.data }}",
+              "type": "binary"
+            }
+          ]
+        },
         "options": {}
       },
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1616,
+        -16
+      ],
+      "id": "5d0013f3-e04a-4034-bfa9-5cd67228f98b",
+      "name": "recupero-imagen"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://n8n-wppruebas.jynsvq.easypanel.host/wp-json/wp/v2/media",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "wordpressApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Disposition",
+              "value": "=attachment; filename={{ $('AI Agent').item.json.output['meta-tittle'] }}.jpg"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "binaryData",
+        "inputDataFieldName": "data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        1840,
+        -16
+      ],
+      "id": "5a4a2923-7aff-466d-9c87-c953013b509d",
+      "name": "subir-imagen",
+      "credentials": {
+        "wordpressApi": {
+          "id": "tfjLAXjm9b0jtWuZ",
+          "name": "Wordpress account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://n8n-wppruebas.jynsvq.easypanel.host/wp-json/wp/v2/posts/{{ $('Create a post').item.json.id }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "wordpressApi",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "featured_media",
+              "value": "={{ $json.id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        2064,
+        -16
+      ],
+      "id": "1033780d-8e5e-4c6c-b3af-950af819eee3",
+      "name": "Asignar imagen",
+      "credentials": {
+        "wordpressApi": {
+          "id": "tfjLAXjm9b0jtWuZ",
+          "name": "Wordpress account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "postId": "={{ $('Create a post').item.json.id }}",
+        "updateFields": {
+          "status": "publish"
+        }
+      },
+      "type": "n8n-nodes-base.wordpress",
       "typeVersion": 1,
       "position": [
-        816,
-        240
+        2288,
+        -16
       ],
-      "id": "6847f8a4-e12d-49f0-9456-58154367ee7e",
-      "name": "OpenRouter Chat Model1",
+      "id": "65ff1b60-9adb-4d0e-91ee-85200397ebc9",
+      "name": "Update a post",
       "credentials": {
-        "openRouterApi": {
-          "id": "8DGn892MwpIeSqyd",
-          "name": "OpenRouter account 2"
+        "wordpressApi": {
+          "id": "tfjLAXjm9b0jtWuZ",
+          "name": "Wordpress account"
         }
       }
     }
@@ -452,19 +507,25 @@
       "main": [
         [
           {
-            "node": "AI Agent2",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Generate an image",
+            "node": "HTTP Request1",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "AI Agent2": {
+    "Create a post": {
+      "main": [
+        [
+          {
+            "node": "recupero-imagen",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
       "main": [
         [
           {
@@ -475,12 +536,34 @@
         ]
       ]
     },
-    "OpenRouter Chat Model1": {
-      "ai_languageModel": [
+    "recupero-imagen": {
+      "main": [
         [
           {
-            "node": "AI Agent2",
-            "type": "ai_languageModel",
+            "node": "subir-imagen",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "subir-imagen": {
+      "main": [
+        [
+          {
+            "node": "Asignar imagen",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Asignar imagen": {
+      "main": [
+        [
+          {
+            "node": "Update a post",
+            "type": "main",
             "index": 0
           }
         ]
@@ -496,51 +579,8 @@
   "meta": {
     "templateCredsSetupCompleted": true
   },
-  "pinData": {
-    "AI Agent": [
-      {
-        "json": {
-          "output": {
-            "titulo": "Candidato a la Cámara de Representantes presenta plan para ayudar a trabajadores desplazados por la IA",
-            "contenido": "Un candidato a la Cámara de Representantes ha presentado un plan para ayudar a los estadounidenses que pierdan su empleo debido a la automatización y la inteligencia artificial. El plan propone crear un fondo para apoyar a los trabajadores desplazados, financiado por un impuesto modesto a la IA. Esta medida busca mitigar el impacto negativo de la automatización en el mercado laboral y garantizar que los trabajadores que pierdan su empleo debido a la IA tengan acceso a recursos y apoyo para reconstruir sus carreras. El plan también busca fomentar la innovación y el desarrollo de la IA de manera responsable, para que sus beneficios sean compartidos por toda la sociedad.",
-            "categoria": "Inteligencia Artificial",
-            "tags": "Inteligencia Artificial, Automatización, Empleo, IA",
-            "meta-descripcion": "Un candidato a la Cámara de Representantes presenta un plan para ayudar a los trabajadores desplazados por la IA",
-            "meta-tittle": "Plan para ayudar a trabajadores desplazados por la IA"
-          }
-        },
-        "pairedItem": {
-          "item": 0
-        }
-      },
-      {
-        "json": {
-          "output": {
-            "titulo": "Tesla Lanza Robotaxis en Dallas y Houston: Un Paso Hacia la Movilidad del Futuro",
-            "contenido": "Tesla ha lanzado oficialmente su servicio de Robotaxis en Dallas y Houston, aunque de manera técnica. Esta lanzamiento ha coincidido con el anuncio de los resultados trimestrales de la empresa. Aunque el servicio aún no está disponible para el público en general, se espera que sea una opción más asequible para los accionistas. El servicio de Robotaxis de Tesla utiliza vehículos eléctricos autónomos para transportar a los pasajeros de manera segura y eficiente. Con este lanzamiento, Tesla busca consolidar su posición en el mercado de la movilidad autónoma y ofrecer una opción innovadora y sostenible para los viajes urbanos.",
-            "categoria": "Inteligencia Artificial",
-            "tags": "Tesla, Robotaxis, Inteligencia Artificial, Movilidad Autónoma",
-            "meta-descripcion": "Tesla lanza su servicio de Robotaxis en Dallas y Houston, una opción innovadora y sostenible para los viajes urbanos.",
-            "meta-tittle": "Tesla Lanza Robotaxis en Dallas y Houston"
-          }
-        },
-        "pairedItem": {
-          "item": 1
-        }
-      }
-    ],
-    "AI Agent1": [
-      {
-        "json": {
-          "output": "Generate a realistic and character-driven illustration of a worker standing in front of a cityscape with robots and artificial intelligence systems in the background, with a subtle hint of a support system or safety net, conveying a sense of hope and resilience in the face of technological change, with a neutral color palette and a focus on the human element."
-        },
-        "pairedItem": {
-          "item": 0
-        }
-      }
-    ]
-  },
-  "versionId": "372d0a54-3a72-4f31-b7b0-be4f7e1fbce3",
+  "pinData": {},
+  "versionId": "2405834c-d81f-40c3-9763-18bd8ad0f9b3",
   "activeVersionId": null,
   "triggerCount": 0,
   "shared": [
