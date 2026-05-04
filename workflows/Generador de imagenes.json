@@ -1,0 +1,137 @@
+{
+  "updatedAt": "2026-04-29T11:54:07.281Z",
+  "createdAt": "2026-04-29T11:48:02.231Z",
+  "id": "9CQC9lNzHqBWBEYp",
+  "name": "Generador de imagenes",
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -608,
+        -64
+      ],
+      "id": "dc0bf32e-5bb0-4403-98fc-dc73c334eeb3",
+      "name": "When chat message received",
+      "webhookId": "00ed277f-5d88-4e7d-868f-a0edc7d4e974"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "Eres un asistente que prepara promts para pollinations AI a partir del mensaje del usuario. no te dirijas a mi. solo devuelveme un promt en ingles"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        -336,
+        -64
+      ],
+      "id": "4150c660-c291-438a-ac84-fa9eed83185e",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": "openai/gpt-oss-20b:free",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        -336,
+        144
+      ],
+      "id": "842eb0bb-5c6a-45ec-9493-d119f646c509",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "8DGn892MwpIeSqyd",
+          "name": "OpenRouter account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://image.pollinations.ai/prompt/{{ $json.output }}?width=1024&height=1024&model=flux&nologo=true",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        16,
+        -64
+      ],
+      "id": "dd3bc519-bc24-45de-9b6c-aa13b22a3c02",
+      "name": "HTTP Request"
+    }
+  ],
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "2700d56d-7d41-4fba-b7eb-f93dfb7abf70",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2026-04-29T11:48:02.248Z",
+      "createdAt": "2026-04-29T11:48:02.248Z",
+      "role": "workflow:owner",
+      "workflowId": "9CQC9lNzHqBWBEYp",
+      "projectId": "JoN2JTiYqtJQ4ZAc"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
