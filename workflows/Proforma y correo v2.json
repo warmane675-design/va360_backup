@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-16T09:53:59.161Z",
+  "updatedAt": "2026-04-30T11:12:36.135Z",
   "createdAt": "2026-04-14T08:18:19.975Z",
   "id": "p2BWuTnul0s7aFBn",
   "name": "Proforma y correo v2",
@@ -102,71 +102,6 @@
       ],
       "id": "6e1f6ac4-a893-45b5-8c39-51226c0939de",
       "name": "Calculo de dias restantes"
-    },
-    {
-      "parameters": {
-        "content": "## Recoger, Filtrar y Formatear datos\n",
-        "height": 368,
-        "width": 608,
-        "color": "#776A18"
-      },
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        -928,
-        -944
-      ],
-      "typeVersion": 1,
-      "id": "de453d08-4a97-465e-a389-29b1f70b31cf",
-      "name": "Sticky Note",
-      "disabled": true
-    },
-    {
-      "parameters": {
-        "content": "## Separar segun Recargo\n",
-        "height": 368,
-        "width": 192,
-        "color": "#275928"
-      },
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        -288,
-        -944
-      ],
-      "typeVersion": 1,
-      "id": "4320909f-3bb1-4248-979c-ce320f4060d4",
-      "name": "Sticky Note1"
-    },
-    {
-      "parameters": {
-        "content": "##  Crear presupuesto y descargarlo aqui\n",
-        "height": 368,
-        "width": 480,
-        "color": "#6045A1"
-      },
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        -64,
-        -944
-      ],
-      "typeVersion": 1,
-      "id": "1afc6499-d2ff-4b27-b61b-8edc9d38432c",
-      "name": "Sticky Note2"
-    },
-    {
-      "parameters": {
-        "content": "## Enviar correo cliente",
-        "height": 368,
-        "width": 256,
-        "color": "#A44141"
-      },
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        448,
-        -944
-      ],
-      "typeVersion": 1,
-      "id": "e9626f77-1ec4-4924-a879-a5b837644eda",
-      "name": "Sticky Note3"
     },
     {
       "parameters": {
@@ -671,7 +606,7 @@
     "templateCredsSetupCompleted": true
   },
   "pinData": {},
-  "versionId": "cc6dc25a-6afb-43ce-b2fd-a7d9ea32b4d7",
+  "versionId": "56a1c7af-6a05-4d5a-be7d-4f2dd87fe8b8",
   "activeVersionId": null,
   "triggerCount": 0,
   "shared": [
