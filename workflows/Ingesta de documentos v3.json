@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-30T09:26:53.681Z",
+  "updatedAt": "2026-05-04T09:03:36.634Z",
   "createdAt": "2026-04-30T08:57:33.660Z",
   "id": "5EPBDtwr3ciJiQ1x",
   "name": "Ingesta de documentos v3",
@@ -186,11 +186,14 @@
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate",
-    "availableInMCP": false
+    "availableInMCP": false,
+    "timeSavedMode": "fixed",
+    "errorWorkflow": "4QTTaZP0TYsnmiyK",
+    "callerPolicy": "workflowsFromSameOwner"
   },
   "staticData": {
     "node:Google Drive Trigger": {
-      "lastTimeChecked": "2026-04-30T10:12:46Z"
+      "lastTimeChecked": "2026-05-04T09:03:36Z"
     }
   },
   "meta": {
