@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-27T09:15:10.549Z",
+  "updatedAt": "2026-04-30T08:51:57.365Z",
   "createdAt": "2026-04-27T08:11:22.192Z",
   "id": "l5V47lvQHAVVqNc4",
   "name": "Ingesta de documentos v2",
@@ -40,7 +40,9 @@
           "mode": "list",
           "cachedResultName": "va360"
         },
-        "options": {}
+        "options": {
+          "clearNamespace": true
+        }
       },
       "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
       "typeVersion": 1.3,
@@ -188,15 +190,15 @@
   },
   "staticData": {
     "node:Google Drive Trigger": {
-      "lastTimeChecked": "2026-04-27T09:52:26Z"
+      "lastTimeChecked": "2026-04-30T08:52:03Z"
     }
   },
   "meta": {
     "templateCredsSetupCompleted": true
   },
   "pinData": {},
-  "versionId": "a4fcd448-9cbc-43f8-8a33-9ad9e20baee6",
-  "activeVersionId": "a4fcd448-9cbc-43f8-8a33-9ad9e20baee6",
+  "versionId": "5e5fa4a3-21d9-4731-8473-21d656aa18b0",
+  "activeVersionId": "5e5fa4a3-21d9-4731-8473-21d656aa18b0",
   "triggerCount": 1,
   "shared": [
     {
@@ -208,9 +210,9 @@
     }
   ],
   "activeVersion": {
-    "updatedAt": "2026-04-27T09:15:13.000Z",
-    "createdAt": "2026-04-27T09:15:10.553Z",
-    "versionId": "a4fcd448-9cbc-43f8-8a33-9ad9e20baee6",
+    "updatedAt": "2026-04-30T08:52:03.000Z",
+    "createdAt": "2026-04-30T08:51:57.367Z",
+    "versionId": "5e5fa4a3-21d9-4731-8473-21d656aa18b0",
     "workflowId": "l5V47lvQHAVVqNc4",
     "nodes": [
       {
@@ -247,7 +249,9 @@
             "mode": "list",
             "cachedResultName": "va360"
           },
-          "options": {}
+          "options": {
+            "clearNamespace": true
+          }
         },
         "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
         "typeVersion": 1.3,
@@ -389,7 +393,7 @@
       }
     },
     "authors": "Haz Marca Marketing",
-    "name": "Version a4fcd448",
+    "name": "Version 5e5fa4a3",
     "description": "",
     "autosaved": true
   },
