@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-29T10:46:38.385Z",
+  "updatedAt": "2026-05-04T09:03:07.363Z",
   "createdAt": "2026-04-29T10:37:41.648Z",
   "id": "xqtu3kywbT7dity8",
   "name": "Facturas Gmail v2",
@@ -443,15 +443,18 @@
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate",
-    "availableInMCP": false
+    "availableInMCP": false,
+    "timeSavedMode": "fixed",
+    "errorWorkflow": "4QTTaZP0TYsnmiyK",
+    "callerPolicy": "workflowsFromSameOwner"
   },
   "staticData": {
     "node:Gmail Trigger": {
       "Gmail Trigger": {
-        "lastTimeChecked": 1777867369,
+        "lastTimeChecked": 1777890094,
         "possibleDuplicates": [
-          "19df1272e1f2e359",
-          "19deb62282b45717"
+          "19df281f399bb173",
+          "19df280656355a0f"
         ]
       }
     }
