@@ -1,0 +1,336 @@
+{
+  "updatedAt": "2026-04-30T10:53:06.398Z",
+  "createdAt": "2026-04-30T10:45:29.255Z",
+  "id": "MjAOHWRgSPpVGRhm",
+  "name": "Fracturacity a Excel v3",
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -800,
+        80
+      ],
+      "id": "98fc0dd5-8f06-4830-a57d-52693bc46524",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "jsCode": "const clientes = $('HTTP Clientes').all();\nconst productos = $('HTTP Productos').all();\n\n// Crear mapa de productos: descripcion -> precio\nconst mapaProductos = {};\nproductos.forEach(item => {\n  const p = item.json;\n  if (p.descripcion && p.precio !== undefined) {\n    mapaProductos[p.descripcion.trim()] = p.precio;\n  }\n});\n\nreturn clientes\n  .filter(item => item !== null && item !== undefined)\n  .map(item => {\n    const cliente = item.json;\n\n    const datos = {};\n    const obs = cliente.observaciones || \"\";\n    obs.split(\"|\").forEach(par => {\n      const [clave, valor] = par.split(\":\");\n      if (clave && valor) {\n        datos[clave.trim()] = valor.trim();\n      }\n    });\n\n    const nombreProducto = datos[\"PRODUCTO\"] || \"\";\n    const precioBase = mapaProductos[nombreProducto] || 0;\n\n    return {\n      json: {\n        \"Dominio\":            datos[\"DOMINIO\"]     || \"\",\n        \"Email Cliente\":      cliente.email        || \"\",\n        \"Fecha Vencimiento\":  datos[\"VENCIMIENTO\"] || \"\",\n        \"Estado\":             datos[\"ESTADO\"]      || \"Manual\",\n        \"Producto\":           nombreProducto,\n        \"Precio Base (€)\":    precioBase,\n        \"ID Cliente\":         cliente.codcliente   || \"\",\n        \"Nombre Cliente\":     cliente.nombre       || \"\",\n        \"Teléfono\":           cliente.telefono1    || \"\"\n      }\n    };\n  });"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -48,
+        80
+      ],
+      "id": "b8d12c10-a650-47d9-b076-514cfbd60b83",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1QVP5U6uNJ7FdkoUwh4XXP_pZKzGfBbc8BZCSF_d_vs8",
+          "mode": "list",
+          "cachedResultName": "n8nRenovaciones",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QVP5U6uNJ7FdkoUwh4XXP_pZKzGfBbc8BZCSF_d_vs8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aV0k8akb8Bg65svTa5GPj_KHllcg2U2PuvvBkaNVLSk/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Dominio": "={{ $json.Dominio }}",
+            "Email Cliente": "={{ $json[\"Email Cliente\"] }}",
+            "Fecha Vencimiento": "={{ $json[\"Fecha Vencimiento\"] }}",
+            "ID Cliente": "={{ $json[\"ID Cliente\"] }}",
+            "Estado": "={{ $json.Estado }}",
+            "Precio Base (€)": "={{ $json[\"Precio Base (€)\"] }}",
+            "Nombre Cliente": "={{ $json[\"Nombre Cliente\"] }}"
+          },
+          "matchingColumns": [
+            "ID Cliente"
+          ],
+          "schema": [
+            {
+              "id": "Dominio",
+              "displayName": "Dominio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email Cliente",
+              "displayName": "Email Cliente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Fecha Vencimiento",
+              "displayName": "Fecha Vencimiento",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Estado",
+              "displayName": "Estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Precio Base (€)",
+              "displayName": "Precio Base (€)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "ID Cliente",
+              "displayName": "ID Cliente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Nombre Cliente",
+              "displayName": "Nombre Cliente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Última Acción",
+              "displayName": "Última Acción",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        304,
+        80
+      ],
+      "id": "eb7390c1-d13c-4d4e-9a97-ef716fb761eb",
+      "name": "Append or update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "XXWgTkrgGGVSqKJR",
+          "name": "Google Sheets contacta"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Recoger datos clientes de Factura.city\n",
+        "height": 320,
+        "width": 448,
+        "color": "#36386D"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -640,
+        -32
+      ],
+      "typeVersion": 1,
+      "id": "e5247aac-1884-4280-86df-c451016783e8",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Formatear datos y Separar datos de Observaciones",
+        "height": 320,
+        "width": 336,
+        "color": "#76732E"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -160,
+        -32
+      ],
+      "typeVersion": 1,
+      "id": "d9d26c63-5c7e-498e-b26b-105d3575871a",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## Actualizar Sheet",
+        "height": 320,
+        "width": 304,
+        "color": "#2C7D4B"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        208,
+        -32
+      ],
+      "typeVersion": 1,
+      "id": "275a7a10-f637-449e-9825-786f32a49d1d",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "url": "https://space-1q21-1b.facturas.live/pruebas/api/3/clientes",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": []
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -576,
+        80
+      ],
+      "id": "471a6f2a-8a9e-457b-8ffe-bfbdff562c15",
+      "name": "HTTP Clientes",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "DpVPFfj4RqEPNKMC",
+          "name": "Facturascript Pruebas"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://space-1q21-1b.facturas.live/pruebas/api/3/productos",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": []
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -368,
+        80
+      ],
+      "id": "49cd3680-1984-4a51-9cad-e7a1b69f38a0",
+      "name": "HTTP Productos",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "DpVPFfj4RqEPNKMC",
+          "name": "Facturascript Pruebas"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTP Clientes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Append or update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append or update row in sheet": {
+      "main": [
+        []
+      ]
+    },
+    "HTTP Clientes": {
+      "main": [
+        [
+          {
+            "node": "HTTP Productos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Productos": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "d3184f6e-b4bd-491f-8fdc-3d051b2be135",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2026-04-30T10:45:29.278Z",
+      "createdAt": "2026-04-30T10:45:29.278Z",
+      "role": "workflow:owner",
+      "workflowId": "MjAOHWRgSPpVGRhm",
+      "projectId": "JoN2JTiYqtJQ4ZAc"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
