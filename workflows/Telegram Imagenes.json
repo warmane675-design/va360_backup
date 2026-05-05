@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-04T11:24:12.452Z",
+  "updatedAt": "2026-05-05T07:04:21.040Z",
   "createdAt": "2026-05-04T09:12:53.886Z",
   "id": "fRDrFNSRXGixJjls",
   "name": "Telegram Imagenes",
@@ -16,7 +16,7 @@
       "type": "n8n-nodes-base.telegramTrigger",
       "typeVersion": 1.2,
       "position": [
-        -768,
+        -800,
         48
       ],
       "id": "a35178c9-a409-44b6-8b8a-ba9cb789060a",
@@ -806,9 +806,9 @@
     "Telegram Trigger": [
       {
         "json": {
-          "update_id": 610187121,
+          "update_id": 610187117,
           "message": {
-            "message_id": 6,
+            "message_id": 102,
             "from": {
               "id": 1518965662,
               "is_bot": false,
@@ -817,12 +817,36 @@
               "language_code": "es"
             },
             "chat": {
-              "id": -1003945823915,
-              "title": "Yo que se",
-              "type": "supergroup"
+              "id": 1518965662,
+              "first_name": "Adri",
+              "username": "nairda12345",
+              "type": "private"
             },
-            "date": 1777893610,
-            "text": "Unos perros jugando poker"
+            "date": 1777891684,
+            "photo": [
+              {
+                "file_id": "AgACAgQAAxkBAANaafh4uEkkcHzVJQX2-cfNo0YyoA8AAw9rGy2MwFPDG03gWBbAMAEAAwIAA3MAAzsE",
+                "file_unique_id": "AQAED2sbLYzAU3g",
+                "file_size": 1708,
+                "width": 90,
+                "height": 90
+              },
+              {
+                "file_id": "AgACAgQAAxkBAANaafh4uEkkcHzVJQX2-cfNo0YyoA8AAw9rGy2MwFPDG03gWBbAMAEAAwIAA20AAzsE",
+                "file_unique_id": "AQAED2sbLYzAU3I",
+                "file_size": 21111,
+                "width": 320,
+                "height": 320
+              },
+              {
+                "file_id": "AgACAgQAAxkBAANaafh4uEkkcHzVJQX2-cfNo0YyoA8AAw9rGy2MwFPDG03gWBbAMAEAAwIAA3gAAzsE",
+                "file_unique_id": "AQAED2sbLYzAU30",
+                "file_size": 66932,
+                "width": 768,
+                "height": 768
+              }
+            ],
+            "caption": "Change the dog to black hair dog"
           }
         },
         "pairedItem": {
@@ -831,8 +855,8 @@
       }
     ]
   },
-  "versionId": "9c964532-0b27-4ffd-989d-7d37763af072",
-  "activeVersionId": "9c964532-0b27-4ffd-989d-7d37763af072",
+  "versionId": "68eca905-5aa0-4929-8119-338bc1fbd90f",
+  "activeVersionId": "68eca905-5aa0-4929-8119-338bc1fbd90f",
   "triggerCount": 1,
   "shared": [
     {
@@ -844,9 +868,9 @@
     }
   ],
   "activeVersion": {
-    "updatedAt": "2026-05-04T11:23:17.000Z",
-    "createdAt": "2026-05-04T11:22:31.443Z",
-    "versionId": "9c964532-0b27-4ffd-989d-7d37763af072",
+    "updatedAt": "2026-05-05T07:11:56.000Z",
+    "createdAt": "2026-05-05T07:04:21.045Z",
+    "versionId": "68eca905-5aa0-4929-8119-338bc1fbd90f",
     "workflowId": "fRDrFNSRXGixJjls",
     "nodes": [
       {
@@ -859,7 +883,7 @@
         "type": "n8n-nodes-base.telegramTrigger",
         "typeVersion": 1.2,
         "position": [
-          -768,
+          -800,
           48
         ],
         "id": "a35178c9-a409-44b6-8b8a-ba9cb789060a",
@@ -1638,7 +1662,7 @@
       }
     },
     "authors": "Haz Marca Marketing",
-    "name": "Version 9c964532",
+    "name": "Version 68eca905",
     "description": "",
     "autosaved": true
   },
