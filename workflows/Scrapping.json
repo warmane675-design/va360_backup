@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-11T08:45:38.194Z",
+  "updatedAt": "2026-05-12T11:28:11.400Z",
   "createdAt": "2026-05-11T08:32:25.687Z",
   "id": "hLRH41Yz6hL0xVlW",
   "name": "Scrapping",
@@ -121,7 +121,13 @@
         416
       ],
       "id": "005b1029-a6d9-4ba7-a05a-f3cdd89af5ad",
-      "name": "Google Gemini Chat Model"
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "1IvicPhw881dGd64",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
     },
     {
       "parameters": {
@@ -216,7 +222,9 @@
     "binaryMode": "separate"
   },
   "staticData": null,
-  "meta": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
   "pinData": {
     "HTTP Request": [
       {
@@ -229,7 +237,7 @@
       }
     ]
   },
-  "versionId": "b961283a-2bb4-4f98-be52-50ae136a071f",
+  "versionId": "fec6943a-24bb-4f97-bb64-33ebdb91fd7c",
   "activeVersionId": null,
   "triggerCount": 0,
   "shared": [
