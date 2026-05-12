@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-12T07:22:47.165Z",
+  "updatedAt": "2026-05-12T08:42:10.289Z",
   "createdAt": "2026-05-11T08:31:30.249Z",
   "id": "6WPxQeYlPWlb91Fj",
   "name": "Proforma y correo v3",
@@ -598,7 +598,11 @@
   },
   "settings": {
     "executionOrder": "v1",
-    "binaryMode": "separate"
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "errorWorkflow": "jWOwPrw3rbQy2Doq",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
   },
   "staticData": {
     "node:Trigger diario": {
@@ -610,7 +614,7 @@
   },
   "pinData": {},
   "versionId": "4a066515-6884-4530-a778-9b8dd905e3c0",
-  "activeVersionId": "70b6ac7a-348b-459e-89f7-613f336ab3f3",
+  "activeVersionId": "4a066515-6884-4530-a778-9b8dd905e3c0",
   "triggerCount": 1,
   "shared": [
     {
@@ -622,9 +626,9 @@
     }
   ],
   "activeVersion": {
-    "updatedAt": "2026-05-12T07:12:59.000Z",
-    "createdAt": "2026-05-12T07:12:57.986Z",
-    "versionId": "70b6ac7a-348b-459e-89f7-613f336ab3f3",
+    "updatedAt": "2026-05-12T08:42:03.000Z",
+    "createdAt": "2026-05-12T07:22:47.166Z",
+    "versionId": "4a066515-6884-4530-a778-9b8dd905e3c0",
     "workflowId": "6WPxQeYlPWlb91Fj",
     "nodes": [
       {
@@ -812,7 +816,7 @@
         "parameters": {
           "sendTo": "={{ $('Loop Over Items').item.json['Email Cliente'] }}",
           "subject": "=URGENTE: Tu dominio {{ $('Loop Over Items').item.json.Dominio }} en riesgo — acción requerida antes de perderlo",
-          "message": "=<p>Hola {{ $('Loop Over Items').item.json['Nombre Cliente'] }},</p>\n<p>Te contactamos porque el dominio <strong>{{ $('Loop Over Items').item.json['Dominio'] }}</strong> \nha superado la fecha límite de renovación sin coste adicional (<strong>{{ $('Loop Over Items').item.json['fechaLimite'] }}</strong>).</p>\n<p>Para recuperar el dominio es necesario aplicar una tasa de recuperación. Adjuntamos factura proforma con el desglose:</p>\n<table style=\"border-collapse:collapse;width:100%;max-width:400px\">\n<tr><td style=\"padding:8px;border:1px solid #ddd\">Precio base</td>\n<td style=\"padding:8px;border:1px solid #ddd;text-align:right\"><strong>{{ $('Loop Over Items').item.json['precioBase'] }}€</strong></td></tr>\n<tr><td style=\"padding:8px;border:1px solid #ddd;color:#c0392b\">Tasa de Recuperación</td>\n<td style=\"padding:8px;border:1px solid #ddd;text-align:right;color:#c0392b\"><strong>+{{ $('Loop Over Items').item.json['recargo'] }}€</strong></td></tr>\n<tr style=\"background:#f8f8f8\"><td style=\"padding:8px;border:1px solid #ddd\"><strong>TOTAL</strong></td>\n<td style=\"padding:8px;border:1px solid #ddd;text-align:right\"><strong>{{ $('Loop Over Items').item.json['precioFinal'] }}€</strong></td></tr>\n</table>\n<p style=\"color:#c0392b;font-size:13px;margin-top:16px\"><strong>Atención:</strong> Si no se realiza el pago en los próximos días, el dominio podría perderse definitivamente.</p>\n<p style=\"color:#888;font-size:12px;margin-top:8px\">Este recargo se aplica automáticamente según nuestra política de renovaciones {{ new Date().getFullYear() }}.</p>\n<div style=\"margin-top:24px;text-align:center\">\n  <a href=\"https://proyecton8n-n8n.yq3yuy.easypanel.host/webhook/aviso-de-pago?dominio={{ $('Loop Over Items').item.json['Dominio'] }}&idpresupuesto={{ $json.lines[0].idpresupuesto }}&codcliente={{ $json.doc.codcliente }}\" style=\"background:#c0392b;color:white;padding:12px 24px;border-radius:6px;text-decoration:none;font-weight:bold;display:inline-block\">\n    Recuperar dominio ahora\n  </a>\n</div>\n<p>Para cualquier consulta, responde a este email.</p>",
+          "message": "=<p>Hola {{ $('Loop Over Items').item.json['Nombre Cliente'] }},</p>\n<p>Te contactamos porque el dominio <strong>{{ $('Loop Over Items').item.json['Dominio'] }}</strong> \nha superado la fecha límite de renovación sin coste adicional (<strong>{{ $('Loop Over Items').item.json['fechaLimite'] }}</strong>).</p>\n<p>Para recuperar el dominio es necesario aplicar una tasa de recuperación. Adjuntamos factura proforma con el desglose:</p>\n<table style=\"border-collapse:collapse;width:100%;max-width:400px\">\n<tr><td style=\"padding:8px;border:1px solid #ddd\">Precio base</td>\n<td style=\"padding:8px;border:1px solid #ddd;text-align:right\"><strong>{{ $('Loop Over Items').item.json['precioBase'] }}€</strong></td></tr>\n<tr><td style=\"padding:8px;border:1px solid #ddd;color:#c0392b\">Tasa de Recuperación</td>\n<td style=\"padding:8px;border:1px solid #ddd;text-align:right;color:#c0392b\"><strong>+{{ $('Loop Over Items').item.json['recargo'] }}€</strong></td></tr>\n<tr style=\"background:#f8f8f8\"><td style=\"padding:8px;border:1px solid #ddd\"><strong>TOTAL</strong></td>\n<td style=\"padding:8px;border:1px solid #ddd;text-align:right\"><strong>{{ $('Loop Over Items').item.json['precioFinal'] }}€</strong></td></tr>\n</table>\n<p style=\"color:#c0392b;font-size:13px;margin-top:16px\"><strong>Atención:</strong> Si no se realiza el pago en los próximos días, el dominio podría perderse definitivamente.</p>\n<p style=\"color:#888;font-size:12px;margin-top:8px\">Este recargo se aplica automáticamente según nuestra política de renovaciones {{ new Date().getFullYear() }}.</p>\n<div style=\"margin-top:24px;text-align:center\">\n  <a href=\"https://proyecton8n-n8n.yq3yuy.easypanel.host/webhook/aviso-de-pago?dominio={{ $('Loop Over Items').item.json['Dominio'] }}&idpresupuesto={{ $json.lines[0].idpresupuesto }}&codcliente={{ $json.doc.codcliente }}&pvpunitario={{ $json.lines[0].pvpunitario }}\" style=\"background:#c0392b;color:white;padding:12px 24px;border-radius:6px;text-decoration:none;font-weight:bold;display:inline-block\">\n    Recuperar dominio ahora\n  </a>\n</div>\n<p>Para cualquier consulta, responde a este email.</p>",
           "options": {
             "appendAttribution": false,
             "attachmentsUi": {
@@ -1218,7 +1222,7 @@
       }
     },
     "authors": "Leandro Martinez",
-    "name": "Version 70b6ac7a",
+    "name": "Version 4a066515",
     "description": "",
     "autosaved": true
   },
