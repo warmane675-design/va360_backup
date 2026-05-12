@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-05-04T09:01:17.393Z",
-  "createdAt": "2026-04-30T11:40:54.466Z",
-  "id": "ofQbse35hb722QfF",
+  "updatedAt": "2026-05-12T07:25:52.694Z",
+  "createdAt": "2026-05-11T08:26:59.304Z",
+  "id": "yqM7j235DDoxpRah",
   "name": "Confirmacion de pago cliente v3",
   "active": true,
   "isArchived": false,
@@ -15,10 +15,10 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2.1,
       "position": [
-        -1120,
-        -16
+        -864,
+        96
       ],
-      "id": "d31d9986-d63d-46d8-9dfe-743f118db9ff",
+      "id": "7733efcb-c73b-4ca5-a9fa-54e9937e171c",
       "name": "Webhook",
       "webhookId": "d7e0a9fd-b3cc-40cd-b632-29af77f8a0c6"
     },
@@ -26,7 +26,7 @@
       "parameters": {
         "sendTo": "contacta@hazmarca.es",
         "subject": "=Dominio {{ $('Webhook').item.json.query.dominio }} — PAGADO",
-        "message": "=El dominio {{ $('Webhook').item.json.query.dominio }} ha sido pagado. Click en el boton para crear factura en FacturaScripts. Acción: mantener renovación automática en Sered.\n\n<div style=\"margin-top:24px;text-align:center\">\n  <a href=\"https://n8n-n8n.jynsvq.easypanel.host/webhook/registrar-pagado?dominio={{ $('Webhook').item.json.query.dominio }}&codcliente={{ $('Webhook').item.json.query.codcliente }}&pvpunitario={{ $('Webhook').item.json.query.pvpunitario }}\" style=\"background:#27AE60;color:white;padding:12px 24px;border-radius:6px;text-decoration:none;font-weight:bold;display:inline-block\">\n    Ya ha pagado al precio mínimo\n  </a>\n</div>",
+        "message": "=El dominio {{ $('Webhook').item.json.query.dominio }} ha sido pagado. Click en el boton para crear factura en FacturaScripts. Acción: mantener renovación automática en Sered.\n\n<div style=\"margin-top:24px;text-align:center\">\n  <a href=\"https://proyecton8n-n8n.yq3yuy.easypanel.host/webhook/registrar-pagado?dominio={{ $('Webhook').item.json.query.dominio }}&codcliente={{ $('Webhook').item.json.query.codcliente }}&pvpunitario={{ $('Webhook').item.json.query.pvpunitario }}\" style=\"background:#27AE60;color:white;padding:12px 24px;border-radius:6px;text-decoration:none;font-weight:bold;display:inline-block\">\n    Ya ha pagado al precio mínimo\n  </a>\n</div>",
         "options": {
           "appendAttribution": false
         }
@@ -34,15 +34,15 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.2,
       "position": [
-        -176,
-        -32
+        80,
+        80
       ],
-      "id": "d58b528a-0a9f-45d8-8967-f20cf51eade7",
+      "id": "82a6f29c-0618-4e29-967d-7075f299b47d",
       "name": "Send a message",
       "webhookId": "e67bd13a-d5c7-4aea-87ba-5fc52cf065cf",
       "credentials": {
         "gmailOAuth2": {
-          "id": "3vK2HHs9emcsnRE2",
+          "id": "K88Ro02qAPLqoTbF",
           "name": "Gmail contacta"
         }
       }
@@ -56,11 +56,11 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -1200,
-        -96
+        -944,
+        16
       ],
       "typeVersion": 1,
-      "id": "afeedd8b-afed-47fa-a314-304e0e4c88c0",
+      "id": "93102475-3dd9-4122-88a1-5219c56ec1c0",
       "name": "Sticky Note"
     },
     {
@@ -72,11 +72,11 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -256,
-        -112
+        0,
+        0
       ],
       "typeVersion": 1,
-      "id": "ae4db8ed-804f-4c5e-9045-514550d11664",
+      "id": "90b34998-ed8f-49d2-8b86-3c974d007d28",
       "name": "Sticky Note2"
     },
     {
@@ -108,15 +108,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        -912,
-        -16
+        -656,
+        96
       ],
-      "id": "0d6eba79-7999-4310-bb68-1631636933e8",
+      "id": "39e59829-142c-4c67-aa46-2b2344eb9066",
       "name": "Datos del Excel",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "XXWgTkrgGGVSqKJR",
-          "name": "Google Sheets contacta"
+          "id": "tlryTl2TVc3G1dVp",
+          "name": "Google Sheets account"
         }
       }
     },
@@ -147,10 +147,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        -752,
-        -16
+        -496,
+        96
       ],
-      "id": "8a18a6dd-1d4b-4bd4-9a29-f5ad3cbc7731",
+      "id": "3782ca64-50a0-42ee-8727-9526a801ee50",
       "name": "If"
     },
     {
@@ -162,10 +162,10 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.5,
       "position": [
-        -464,
-        176
+        -208,
+        288
       ],
-      "id": "59b2183a-bfe1-4681-9f68-c5a163e46b33",
+      "id": "e58e18a7-519e-4066-a5f6-7ae2112c0a73",
       "name": "Respond to Webhook"
     },
     {
@@ -294,15 +294,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        -464,
-        -32
+        -208,
+        80
       ],
-      "id": "1d77424d-4b07-4fd2-aa2c-6ba3913c1095",
+      "id": "3d88c7a5-6117-4de0-898c-3d320ed38f36",
       "name": "Datos del Excel1",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "XXWgTkrgGGVSqKJR",
-          "name": "Google Sheets contacta"
+          "id": "tlryTl2TVc3G1dVp",
+          "name": "Google Sheets account"
         }
       }
     }
@@ -367,11 +367,7 @@
   },
   "settings": {
     "executionOrder": "v1",
-    "binaryMode": "separate",
-    "availableInMCP": false,
-    "timeSavedMode": "fixed",
-    "errorWorkflow": "4QTTaZP0TYsnmiyK",
-    "callerPolicy": "workflowsFromSameOwner"
+    "binaryMode": "separate"
   },
   "staticData": null,
   "meta": {
@@ -382,12 +378,16 @@
       {
         "json": {
           "headers": {
-            "host": "n8n-n8n.jynsvq.easypanel.host",
+            "host": "proyecton8n-n8n.yq3yuy.easypanel.host",
             "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
             "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
             "accept-encoding": "gzip, deflate, br, zstd",
             "accept-language": "es-ES,es;q=0.9,en;q=0.8",
-            "cookie": "rl_page_init_referrer=RudderEncrypt%3AU2FsdGVkX19Kc%2F4pkMy1J0YBL3b2yFq4ZI1s%2FqPehokmZbgyMHB%2FX0OMkdWJibT%2F; rl_page_init_referring_domain=RudderEncrypt%3AU2FsdGVkX1%2FEWSnPzgsxiL7Io2hNqaSjaOQfHIp4fqAeZPyic7Yi6L7VtTak48Kp; rl_anonymous_id=RudderEncrypt%3AU2FsdGVkX19tecl9usCg83sjjWmIVIPv89vAxK5Kf8WX7mpz7MQcugn0oCmY2mb5796RT9KXy%2BBTocKQbzLWmg%3D%3D; rl_user_id=RudderEncrypt%3AU2FsdGVkX19sUG2DUy90MBHikHgkNDsMQ1T2zyRiOuzpV4DvbD5K%2B2eDvWOYNX7Vn%2F0n%2BH%2FgfDOKDxI2jIUgtWOrZwZ3BR7Mr3wh5C%2FzoDxcRRfZcxtghWZa9YtY8JQP4hg17dVvas4%2BjydXjn26O7UxPkgyxX5X8WQ8B20tHz8%3D; rl_trait=RudderEncrypt%3AU2FsdGVkX1%2BZq4ais0oRCtw7LoszyB0g0a77fETowGidnWBL3XKM%2B6HlsHa5epIBE%2F7%2FasKRWx3%2BDuEe4FvK2%2B7nIc8%2FSuHChmFyV6CQNRx9EPTusCKcrlR3x9xJlD8Fcuv6rbIGDI0fFTFcfDmv76dH5Bmx0E%2F58HyLPD%2BRE7g%3D; ph_phc_4URIAm1uYfJO7j8kWSe0J8lc8IqnstRLS7Jx8NcakHo_posthog=%7B%22%24device_id%22%3A%22019d6242-a470-727a-8ac1-89effe9608d4%22%2C%22distinct_id%22%3A%2298226dcc35d48050afb3a5f5d599b6974506af0692468ea8c5e3eaa6507fb99f%2301cb36f5-2634-42b0-ae49-e3263aadab33%22%2C%22%24sesid%22%3A%5B1777879440628%2C%22019df1ad-bb7d-7c16-b14f-3dc6e38cb22d%22%2C1777876188018%5D%2C%22%24epp%22%3Atrue%2C%22%24initial_person_info%22%3A%7B%22r%22%3A%22http%3A%2F%2F157.173.115.195%3A3000%2F%22%2C%22u%22%3A%22https%3A%2F%2Fn8n-n8n.jynsvq.easypanel.host%2Fsetup%22%7D%2C%22%24user_state%22%3A%22identified%22%7D; rl_session=RudderEncrypt%3AU2FsdGVkX1%2FR06%2BAv9mp%2BObGOfJaALZ%2FlSWh4TqdVJgZdF4nsURXE4v8KRrcXmE7Rvzvtik8ynejlC6mpXAB7u%2FCyD3ZVK763lJQM1zQe%2FM6V1cP1JUV66qc2t8S1d%2BP%2B9O0%2Bo5jVJHrOSFb8Y6rvQ%3D%3D",
+            "cookie": {
+              "__redacted": true,
+              "reason": "node_defined_field",
+              "canReveal": false
+            },
             "priority": "u=0, i",
             "sec-ch-ua": "\"Google Chrome\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"",
             "sec-ch-ua-mobile": "?0",
@@ -398,21 +398,21 @@
             "sec-fetch-user": "?1",
             "upgrade-insecure-requests": "1",
             "x-forwarded-for": "78.30.9.5",
-            "x-forwarded-host": "n8n-n8n.jynsvq.easypanel.host",
+            "x-forwarded-host": "proyecton8n-n8n.yq3yuy.easypanel.host",
             "x-forwarded-port": "443",
             "x-forwarded-proto": "https",
-            "x-forwarded-server": "d65dc1bef85c",
+            "x-forwarded-server": "946ec7fcaaf0",
             "x-real-ip": "78.30.9.5"
           },
           "params": {},
           "query": {
-            "dominio": "nuevaprueba.com",
-            "idpresupuesto": "428",
-            "codcliente": "1",
-            "pvpunitario": "11.7"
+            "dominio": "prueba-oro.com",
+            "idpresupuesto": "443",
+            "codcliente": "C0004",
+            "pvpunitario": "65"
           },
           "body": {},
-          "webhookUrl": "https://n8n-n8n.jynsvq.easypanel.host/webhook/aviso-de-pago",
+          "webhookUrl": "https://proyecton8n-n8n.yq3yuy.easypanel.host/webhook/aviso-de-pago",
           "executionMode": "production"
         },
         "pairedItem": {
@@ -421,23 +421,23 @@
       }
     ]
   },
-  "versionId": "7f9688b3-ce93-4cb5-93f3-d2e26235ab95",
-  "activeVersionId": "7f9688b3-ce93-4cb5-93f3-d2e26235ab95",
+  "versionId": "b12638ce-a27f-4c98-b4c8-981a1c5bebfa",
+  "activeVersionId": "b12638ce-a27f-4c98-b4c8-981a1c5bebfa",
   "triggerCount": 1,
   "shared": [
     {
-      "updatedAt": "2026-04-30T11:40:54.689Z",
-      "createdAt": "2026-04-30T11:40:54.689Z",
+      "updatedAt": "2026-05-11T08:26:59.305Z",
+      "createdAt": "2026-05-11T08:26:59.305Z",
       "role": "workflow:owner",
-      "workflowId": "ofQbse35hb722QfF",
-      "projectId": "JoN2JTiYqtJQ4ZAc"
+      "workflowId": "yqM7j235DDoxpRah",
+      "projectId": "HySVhA2Rl8waskJL"
     }
   ],
   "activeVersion": {
-    "updatedAt": "2026-05-04T07:27:34.000Z",
-    "createdAt": "2026-05-04T07:27:29.379Z",
-    "versionId": "7f9688b3-ce93-4cb5-93f3-d2e26235ab95",
-    "workflowId": "ofQbse35hb722QfF",
+    "updatedAt": "2026-05-12T07:16:38.000Z",
+    "createdAt": "2026-05-12T07:16:34.247Z",
+    "versionId": "b12638ce-a27f-4c98-b4c8-981a1c5bebfa",
+    "workflowId": "yqM7j235DDoxpRah",
     "nodes": [
       {
         "parameters": {
@@ -448,10 +448,10 @@
         "type": "n8n-nodes-base.webhook",
         "typeVersion": 2.1,
         "position": [
-          -1120,
-          -16
+          -864,
+          96
         ],
-        "id": "d31d9986-d63d-46d8-9dfe-743f118db9ff",
+        "id": "7733efcb-c73b-4ca5-a9fa-54e9937e171c",
         "name": "Webhook",
         "webhookId": "d7e0a9fd-b3cc-40cd-b632-29af77f8a0c6"
       },
@@ -459,7 +459,7 @@
         "parameters": {
           "sendTo": "contacta@hazmarca.es",
           "subject": "=Dominio {{ $('Webhook').item.json.query.dominio }} — PAGADO",
-          "message": "=El dominio {{ $('Webhook').item.json.query.dominio }} ha sido pagado. Click en el boton para crear factura en FacturaScripts. Acción: mantener renovación automática en Sered.\n\n<div style=\"margin-top:24px;text-align:center\">\n  <a href=\"https://n8n-n8n.jynsvq.easypanel.host/webhook/registrar-pagado?dominio={{ $('Webhook').item.json.query.dominio }}&codcliente={{ $('Webhook').item.json.query.codcliente }}&pvpunitario={{ $('Webhook').item.json.query.pvpunitario }}\" style=\"background:#27AE60;color:white;padding:12px 24px;border-radius:6px;text-decoration:none;font-weight:bold;display:inline-block\">\n    Ya ha pagado al precio mínimo\n  </a>\n</div>",
+          "message": "=El dominio {{ $('Webhook').item.json.query.dominio }} ha sido pagado. Click en el boton para crear factura en FacturaScripts. Acción: mantener renovación automática en Sered.\n\n<div style=\"margin-top:24px;text-align:center\">\n  <a href=\"https://proyecton8n-n8n.yq3yuy.easypanel.host/webhook/registrar-pagado?dominio={{ $('Webhook').item.json.query.dominio }}&codcliente={{ $('Webhook').item.json.query.codcliente }}&pvpunitario={{ $('Webhook').item.json.query.pvpunitario }}\" style=\"background:#27AE60;color:white;padding:12px 24px;border-radius:6px;text-decoration:none;font-weight:bold;display:inline-block\">\n    Ya ha pagado al precio mínimo\n  </a>\n</div>",
           "options": {
             "appendAttribution": false
           }
@@ -467,15 +467,15 @@
         "type": "n8n-nodes-base.gmail",
         "typeVersion": 2.2,
         "position": [
-          -176,
-          -32
+          80,
+          80
         ],
-        "id": "d58b528a-0a9f-45d8-8967-f20cf51eade7",
+        "id": "82a6f29c-0618-4e29-967d-7075f299b47d",
         "name": "Send a message",
         "webhookId": "e67bd13a-d5c7-4aea-87ba-5fc52cf065cf",
         "credentials": {
           "gmailOAuth2": {
-            "id": "3vK2HHs9emcsnRE2",
+            "id": "K88Ro02qAPLqoTbF",
             "name": "Gmail contacta"
           }
         }
@@ -489,11 +489,11 @@
         },
         "type": "n8n-nodes-base.stickyNote",
         "position": [
-          -1200,
-          -96
+          -944,
+          16
         ],
         "typeVersion": 1,
-        "id": "afeedd8b-afed-47fa-a314-304e0e4c88c0",
+        "id": "93102475-3dd9-4122-88a1-5219c56ec1c0",
         "name": "Sticky Note"
       },
       {
@@ -505,11 +505,11 @@
         },
         "type": "n8n-nodes-base.stickyNote",
         "position": [
-          -256,
-          -112
+          0,
+          0
         ],
         "typeVersion": 1,
-        "id": "ae4db8ed-804f-4c5e-9045-514550d11664",
+        "id": "90b34998-ed8f-49d2-8b86-3c974d007d28",
         "name": "Sticky Note2"
       },
       {
@@ -541,15 +541,15 @@
         "type": "n8n-nodes-base.googleSheets",
         "typeVersion": 4.7,
         "position": [
-          -912,
-          -16
+          -656,
+          96
         ],
-        "id": "0d6eba79-7999-4310-bb68-1631636933e8",
+        "id": "39e59829-142c-4c67-aa46-2b2344eb9066",
         "name": "Datos del Excel",
         "credentials": {
           "googleSheetsOAuth2Api": {
-            "id": "XXWgTkrgGGVSqKJR",
-            "name": "Google Sheets contacta"
+            "id": "tlryTl2TVc3G1dVp",
+            "name": "Google Sheets account"
           }
         }
       },
@@ -580,10 +580,10 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          -752,
-          -16
+          -496,
+          96
         ],
-        "id": "8a18a6dd-1d4b-4bd4-9a29-f5ad3cbc7731",
+        "id": "3782ca64-50a0-42ee-8727-9526a801ee50",
         "name": "If"
       },
       {
@@ -595,10 +595,10 @@
         "type": "n8n-nodes-base.respondToWebhook",
         "typeVersion": 1.5,
         "position": [
-          -464,
-          176
+          -208,
+          288
         ],
-        "id": "59b2183a-bfe1-4681-9f68-c5a163e46b33",
+        "id": "e58e18a7-519e-4066-a5f6-7ae2112c0a73",
         "name": "Respond to Webhook"
       },
       {
@@ -727,15 +727,15 @@
         "type": "n8n-nodes-base.googleSheets",
         "typeVersion": 4.7,
         "position": [
-          -464,
-          -32
+          -208,
+          80
         ],
-        "id": "1d77424d-4b07-4fd2-aa2c-6ba3913c1095",
+        "id": "3d88c7a5-6117-4de0-898c-3d320ed38f36",
         "name": "Datos del Excel1",
         "credentials": {
           "googleSheetsOAuth2Api": {
-            "id": "XXWgTkrgGGVSqKJR",
-            "name": "Google Sheets contacta"
+            "id": "tlryTl2TVc3G1dVp",
+            "name": "Google Sheets account"
           }
         }
       }
@@ -798,8 +798,8 @@
         ]
       }
     },
-    "authors": "Haz Marca Marketing",
-    "name": "Version 7f9688b3",
+    "authors": "Leandro Martinez",
+    "name": "Version b12638ce",
     "description": "",
     "autosaved": true
   },
