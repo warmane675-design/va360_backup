@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-04-30T11:12:36.135Z",
-  "createdAt": "2026-04-14T08:18:19.975Z",
-  "id": "p2BWuTnul0s7aFBn",
+  "updatedAt": "2026-05-11T08:59:28.291Z",
+  "createdAt": "2026-05-11T08:31:20.290Z",
+  "id": "qPJbzOkMwY9jrkNj",
   "name": "Proforma y correo v2",
   "active": false,
   "isArchived": false,
@@ -26,17 +26,11 @@
       "typeVersion": 2.2,
       "position": [
         992,
-        -224
+        32
       ],
-      "id": "9238c552-adbc-4b74-99ba-d66d0a34ad47",
+      "id": "bb46df02-cd29-4794-a58b-5f72dd41a738",
       "name": "Send a message1",
-      "webhookId": "66ad4b25-b6ec-4e3f-894a-aa0671f93d51",
-      "credentials": {
-        "gmailOAuth2": {
-          "id": "7IQtRfUpY9LH2Jji",
-          "name": "Gmail account"
-        }
-      }
+      "webhookId": "66ad4b25-b6ec-4e3f-894a-aa0671f93d51"
     },
     {
       "parameters": {
@@ -52,9 +46,9 @@
       "typeVersion": 1.3,
       "position": [
         -1360,
-        -48
+        208
       ],
-      "id": "72f61ec5-981c-4e5b-9749-339b443d5bc3",
+      "id": "28800061-4634-4891-8eec-90b881ac5c52",
       "name": "Trigger diario"
     },
     {
@@ -79,16 +73,10 @@
       "typeVersion": 4.7,
       "position": [
         -1152,
-        -48
+        208
       ],
-      "id": "29642690-99de-4b05-a48f-98def467885f",
-      "name": "Datos del Excel",
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "Y66ON0yRX2dc3w46",
-          "name": "Google Sheets account"
-        }
-      }
+      "id": "6626ae5c-8eeb-4993-b635-0df3b5a84e3d",
+      "name": "Datos del Excel"
     },
     {
       "parameters": {
@@ -98,9 +86,9 @@
       "typeVersion": 2,
       "position": [
         -736,
-        -48
+        208
       ],
-      "id": "6e1f6ac4-a893-45b5-8c39-51226c0939de",
+      "id": "eb5c9576-966a-489e-97f6-c3bf7557a4d0",
       "name": "Calculo de dias restantes"
     },
     {
@@ -141,20 +129,14 @@
       "typeVersion": 4.4,
       "position": [
         272,
-        -160
+        96
       ],
-      "id": "cd5ca0d1-5191-4ae2-a925-707b2156f46f",
+      "id": "3ca50b82-9027-4eaa-926a-248b532be184",
       "name": "Crear proforma en factura.city1",
       "alwaysOutputData": true,
       "executeOnce": false,
       "retryOnFail": true,
-      "waitBetweenTries": 2000,
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "DpVPFfj4RqEPNKMC",
-          "name": "Facturascript Pruebas"
-        }
-      }
+      "waitBetweenTries": 2000
     },
     {
       "parameters": {
@@ -176,16 +158,10 @@
       "typeVersion": 4.4,
       "position": [
         480,
-        -160
+        96
       ],
-      "id": "cc19dab9-4187-4d93-9f12-b1933989f5ce",
-      "name": "Pdf presupuesto factura.city1",
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "DpVPFfj4RqEPNKMC",
-          "name": "Facturascript Pruebas"
-        }
-      }
+      "id": "4147c3c6-306b-41a6-990f-271e8f47e755",
+      "name": "Pdf presupuesto factura.city1"
     },
     {
       "parameters": {
@@ -205,17 +181,11 @@
       "typeVersion": 2.2,
       "position": [
         992,
-        -32
+        224
       ],
-      "id": "93481d30-4b54-4e55-876b-17c859cd9fbf",
+      "id": "2f434f01-619f-4fa0-bc36-5739ba9b9c05",
       "name": "Send a message",
-      "webhookId": "0bc0d01a-2d89-4cca-ba94-ae5f6dc57c3c",
-      "credentials": {
-        "gmailOAuth2": {
-          "id": "7IQtRfUpY9LH2Jji",
-          "name": "Gmail account"
-        }
-      }
+      "webhookId": "0bc0d01a-2d89-4cca-ba94-ae5f6dc57c3c"
     },
     {
       "parameters": {
@@ -225,9 +195,9 @@
       "typeVersion": 3,
       "position": [
         -176,
-        -64
+        192
       ],
-      "id": "95a45232-8950-48a5-b1dc-d25a0eed1cbf",
+      "id": "d069032c-a906-4ca8-b0eb-1e9493edfd7c",
       "name": "Loop Over Items"
     },
     {
@@ -238,9 +208,9 @@
       "typeVersion": 1.1,
       "position": [
         1168,
-        -32
+        224
       ],
-      "id": "30c4cbb8-bb64-4d0e-993a-628978ed6435",
+      "id": "f54c8db6-5aee-42bb-bb09-93c1f05fad27",
       "name": "Wait",
       "webhookId": "e4cfd145-6436-416a-a367-c3bc1a5ee55b"
     },
@@ -324,9 +294,9 @@
       "typeVersion": 3.4,
       "position": [
         704,
-        -192
+        64
       ],
-      "id": "187eeffd-47cb-4779-8f41-50967b1a0bd9",
+      "id": "6e7a6859-7566-45ac-bf55-f48117cb32de",
       "name": "Switch"
     },
     {
@@ -335,9 +305,9 @@
       "typeVersion": 1,
       "position": [
         0,
-        -256
+        0
       ],
-      "id": "e4e473c0-ba1b-467c-99a6-6da09fc8321b",
+      "id": "160a864c-07d7-4fdf-b5c0-ac7949abd4cc",
       "name": "No Operation, do nothing"
     },
     {
@@ -386,9 +356,9 @@
       "typeVersion": 2.3,
       "position": [
         -512,
-        -48
+        208
       ],
-      "id": "55630be6-ec53-4dae-929e-5f9051928710",
+      "id": "8952dfc6-834e-46e3-8200-0391baa881fb",
       "name": "If"
     },
     {
@@ -428,9 +398,9 @@
       "typeVersion": 2.3,
       "position": [
         -944,
-        -48
+        208
       ],
-      "id": "773d7aa0-e8e8-44f8-bfd3-6049f1b454de",
+      "id": "be311a7a-c1ee-43c4-9e88-fd41ee77fe9c",
       "name": "Filtro de estado Auto y PAGADO"
     }
   ],
@@ -598,33 +568,23 @@
   },
   "settings": {
     "executionOrder": "v1",
-    "binaryMode": "separate",
-    "availableInMCP": false
+    "binaryMode": "separate"
   },
   "staticData": null,
-  "meta": {
-    "templateCredsSetupCompleted": true
-  },
+  "meta": null,
   "pinData": {},
-  "versionId": "56a1c7af-6a05-4d5a-be7d-4f2dd87fe8b8",
+  "versionId": "d5814d12-fb4a-4734-acca-1cf4294f0c3b",
   "activeVersionId": null,
   "triggerCount": 0,
   "shared": [
     {
-      "updatedAt": "2026-04-14T08:18:19.993Z",
-      "createdAt": "2026-04-14T08:18:19.993Z",
+      "updatedAt": "2026-05-11T08:31:20.292Z",
+      "createdAt": "2026-05-11T08:31:20.292Z",
       "role": "workflow:owner",
-      "workflowId": "p2BWuTnul0s7aFBn",
-      "projectId": "JoN2JTiYqtJQ4ZAc"
+      "workflowId": "qPJbzOkMwY9jrkNj",
+      "projectId": "HySVhA2Rl8waskJL"
     }
   ],
   "activeVersion": null,
-  "tags": [
-    {
-      "updatedAt": "2026-04-14T08:18:04.926Z",
-      "createdAt": "2026-04-14T08:18:04.926Z",
-      "id": "2tZauu1zmahq77QR",
-      "name": "Facturascript_v2"
-    }
-  ]
+  "tags": []
 }
