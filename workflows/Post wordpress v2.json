@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-11T08:45:59.647Z",
+  "updatedAt": "2026-05-12T08:43:39.770Z",
   "createdAt": "2026-05-11T08:30:56.813Z",
   "id": "PHW5Jq9HXvonE1d4",
   "name": "Post wordpress v2",
@@ -109,7 +109,13 @@
         224
       ],
       "id": "ba61ac3c-0591-4d48-bf63-83367dc762eb",
-      "name": "Groq Chat Model"
+      "name": "Groq Chat Model",
+      "credentials": {
+        "groqApi": {
+          "id": "uxd7GIuBIp7XGhrv",
+          "name": "Groq account"
+        }
+      }
     },
     {
       "parameters": {
@@ -123,7 +129,13 @@
         432
       ],
       "id": "2980050b-c1cf-48e8-89a2-a9bbad543d8e",
-      "name": "OpenRouter Chat Model"
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "WmMNHiHPh4aQe9KT",
+          "name": "OpenRouter account"
+        }
+      }
     },
     {
       "parameters": {
@@ -137,8 +149,7 @@
         224
       ],
       "id": "4652069e-c88e-4ad8-bbc3-0b4ebe170c8b",
-      "name": "Search in Tavily",
-      "credentials": {}
+      "name": "Search in Tavily"
     },
     {
       "parameters": {
@@ -206,11 +217,17 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
       "typeVersion": 1,
       "position": [
-        1600,
-        224
+        1520,
+        240
       ],
       "id": "66d803af-28a5-437d-a0f0-3608b358f961",
-      "name": "Groq Chat Model2"
+      "name": "Groq Chat Model2",
+      "credentials": {
+        "groqApi": {
+          "id": "uxd7GIuBIp7XGhrv",
+          "name": "Groq account"
+        }
+      }
     },
     {
       "parameters": {
@@ -227,7 +244,13 @@
         0
       ],
       "id": "7840b5ec-5647-4013-b85e-b5ac7183339d",
-      "name": "Create a post"
+      "name": "Create a post",
+      "credentials": {
+        "wordpressApi": {
+          "id": "KAOetuegWWEGQDaa",
+          "name": "Wordpress account"
+        }
+      }
     },
     {
       "parameters": {
@@ -275,7 +298,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://n8n-wppruebas.jynsvq.easypanel.host/wp-json/wp/v2/media",
+        "url": "https://proyecton8n-wordpress.yq3yuy.easypanel.host/wp-json/wp/v2/media",
         "authentication": "predefinedCredentialType",
         "nodeCredentialType": "wordpressApi",
         "sendHeaders": true,
@@ -299,12 +322,18 @@
         0
       ],
       "id": "51ac8570-0437-4acb-9028-4252708530ef",
-      "name": "subir-imagen"
+      "name": "subir-imagen",
+      "credentials": {
+        "wordpressApi": {
+          "id": "KAOetuegWWEGQDaa",
+          "name": "Wordpress account"
+        }
+      }
     },
     {
       "parameters": {
         "method": "POST",
-        "url": "=https://n8n-wppruebas.jynsvq.easypanel.host/wp-json/wp/v2/posts/{{ $('Create a post').item.json.id }}",
+        "url": "=https://proyecton8n-wordpress.yq3yuy.easypanel.host//wp-json/wp/v2/posts/{{ $('Create a post').item.json.id }}",
         "authentication": "predefinedCredentialType",
         "nodeCredentialType": "wordpressApi",
         "sendBody": true,
@@ -325,7 +354,13 @@
         0
       ],
       "id": "866d6d4a-5c03-4249-b12f-fa8cb5e7c955",
-      "name": "Asignar imagen"
+      "name": "Asignar imagen",
+      "credentials": {
+        "wordpressApi": {
+          "id": "KAOetuegWWEGQDaa",
+          "name": "Wordpress account"
+        }
+      }
     },
     {
       "parameters": {
@@ -342,7 +377,13 @@
         0
       ],
       "id": "bd8597a5-e6e9-4d3c-a6f8-a3127bd8c7dd",
-      "name": "Update a post"
+      "name": "Update a post",
+      "credentials": {
+        "wordpressApi": {
+          "id": "KAOetuegWWEGQDaa",
+          "name": "Wordpress account"
+        }
+      }
     }
   ],
   "connections": {
@@ -525,12 +566,16 @@
   },
   "settings": {
     "executionOrder": "v1",
-    "binaryMode": "separate"
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "errorWorkflow": "jWOwPrw3rbQy2Doq",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
   },
   "staticData": null,
   "meta": null,
   "pinData": {},
-  "versionId": "9047d72e-5df1-46e2-9092-a597ababce35",
+  "versionId": "d9b29760-9c81-44c9-825d-438fac5c839d",
   "activeVersionId": null,
   "triggerCount": 0,
   "shared": [
