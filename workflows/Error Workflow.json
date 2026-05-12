@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-05-11T08:46:50.575Z",
+  "updatedAt": "2026-05-12T08:50:30.067Z",
   "createdAt": "2026-05-11T08:28:04.622Z",
   "id": "jWOwPrw3rbQy2Doq",
   "name": "Error Workflow",
-  "active": false,
+  "active": true,
   "isArchived": false,
   "nodes": [
     {
@@ -20,7 +20,7 @@
     {
       "parameters": {
         "chatId": "1518965662",
-        "text": "=Error en n8n {{ $json.workflow.name }}",
+        "text": "=Error en n8n {{ $json.workflow.name }} -- {{ $json.execution.error.description }} -- {{ $json.execution.error.message }} -- last node executed: {{ $json.execution.lastNodeExecuted }}",
         "additionalFields": {
           "appendAttribution": false
         }
@@ -33,7 +33,13 @@
       ],
       "id": "227ff7ba-abbf-4e17-b709-6a1782244989",
       "name": "Send a text message",
-      "webhookId": "d35db65e-b373-4ee6-863a-6a586b3fd4e3"
+      "webhookId": "d35db65e-b373-4ee6-863a-6a586b3fd4e3",
+      "credentials": {
+        "telegramApi": {
+          "id": "E8lwn8iovkWfgtTM",
+          "name": "Telegram bot errores"
+        }
+      }
     }
   ],
   "connections": {
@@ -54,50 +60,12 @@
     "binaryMode": "separate"
   },
   "staticData": null,
-  "meta": null,
-  "pinData": {
-    "Error Trigger": [
-      {
-        "json": {
-          "execution": {
-            "id": "44",
-            "url": "https://n8n-n8n.jynsvq.easypanel.host/workflow/wcRLx5Asp7gB3LHj/executions/44",
-            "error": {
-              "level": "error",
-              "tags": {},
-              "description": "SyntaxError",
-              "message": "missing ) after argument list ",
-              "stack": "evalmachine.<anonymous>:2\n  .filter(item => item.json.categoria === \"Pantalones\"#)\n                                          ^^^^^^^^^^^^\n\nSyntaxError: missing ) after argument list\n    at new Script (node:vm:117:7)\n    at createScript (node:vm:269:10)\n    at runInContext (node:vm:300:10)\n    at result (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/@n8n+task-runner@file+packages+@n8n+task-runner_@opentelemetry+api@1.9.0_@opentelemetry_abc4e288c7f66f0b9b114d073d3c169d/node_modules/@n8n/task-runner/dist/js-task-runner/js-task-runner.js:216:61)\n    at new Promise (<anonymous>)\n    at JsTaskRunner.runForAllItems (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/@n8n+task-runner@file+packages+@n8n+task-runner_@opentelemetry+api@1.9.0_@opentelemetry_abc4e288c7f66f0b9b114d073d3c169d/node_modules/@n8n/task-runner/dist/js-task-runner/js-task-runner.js:209:34)\n    at JsTaskRunner.executeTask (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/@n8n+task-runner@file+packages+@n8n+task-runner_@opentelemetry+api@1.9.0_@opentelemetry_abc4e288c7f66f0b9b114d073d3c169d/node_modules/@n8n/task-runner/dist/js-task-runner/js-task-runner.js:144:26)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async Object.waitingForSettings (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/@n8n+task-runner@file+packages+@n8n+task-runner_@opentelemetry+api@1.9.0_@opentelemetry_abc4e288c7f66f0b9b114d073d3c169d/node_modules/@n8n/task-runner/dist/task-runner.js:267:17)\n    at async TaskState.caseOf (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/@n8n+task-runner@file+packages+@n8n+task-runner_@opentelemetry+api@1.9.0_@opentelemetry_abc4e288c7f66f0b9b114d073d3c169d/node_modules/@n8n/task-runner/dist/task-state.js:56:16)"
-            },
-            "lastNodeExecuted": "Code in JavaScript",
-            "mode": "trigger",
-            "executionContext": {
-              "version": 1,
-              "establishedAt": 1775549916045,
-              "source": "trigger",
-              "redaction": {
-                "version": 1,
-                "policy": "none"
-              },
-              "triggerNode": {
-                "name": "Schedule Trigger",
-                "type": "n8n-nodes-base.scheduleTrigger"
-              }
-            }
-          },
-          "workflow": {
-            "id": "wcRLx5Asp7gB3LHj",
-            "name": "My workflow 3"
-          }
-        },
-        "pairedItem": {
-          "item": 0
-        }
-      }
-    ]
+  "meta": {
+    "templateCredsSetupCompleted": true
   },
-  "versionId": "712f0488-0cd1-4330-9a0c-1c9932f92efa",
-  "activeVersionId": null,
+  "pinData": {},
+  "versionId": "d0a841cf-a5bd-47a2-98fc-2a5c4fee6c7f",
+  "activeVersionId": "d0a841cf-a5bd-47a2-98fc-2a5c4fee6c7f",
   "triggerCount": 0,
   "shared": [
     {
@@ -108,6 +76,65 @@
       "projectId": "HySVhA2Rl8waskJL"
     }
   ],
-  "activeVersion": null,
+  "activeVersion": {
+    "updatedAt": "2026-05-12T08:33:50.000Z",
+    "createdAt": "2026-05-12T08:33:38.322Z",
+    "versionId": "d0a841cf-a5bd-47a2-98fc-2a5c4fee6c7f",
+    "workflowId": "jWOwPrw3rbQy2Doq",
+    "nodes": [
+      {
+        "parameters": {},
+        "type": "n8n-nodes-base.errorTrigger",
+        "typeVersion": 1,
+        "position": [
+          0,
+          0
+        ],
+        "id": "ed362129-9cb1-4e9b-851d-08c822e60316",
+        "name": "Error Trigger"
+      },
+      {
+        "parameters": {
+          "chatId": "1518965662",
+          "text": "=Error en n8n {{ $json.workflow.name }} -- {{ $json.execution.error.description }} -- {{ $json.execution.error.message }} -- last node executed: {{ $json.execution.lastNodeExecuted }}",
+          "additionalFields": {
+            "appendAttribution": false
+          }
+        },
+        "type": "n8n-nodes-base.telegram",
+        "typeVersion": 1.2,
+        "position": [
+          208,
+          0
+        ],
+        "id": "227ff7ba-abbf-4e17-b709-6a1782244989",
+        "name": "Send a text message",
+        "webhookId": "d35db65e-b373-4ee6-863a-6a586b3fd4e3",
+        "credentials": {
+          "telegramApi": {
+            "id": "E8lwn8iovkWfgtTM",
+            "name": "Telegram bot errores"
+          }
+        }
+      }
+    ],
+    "connections": {
+      "Error Trigger": {
+        "main": [
+          [
+            {
+              "node": "Send a text message",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Leandro Martinez",
+    "name": "Version d0a841cf",
+    "description": "",
+    "autosaved": true
+  },
   "tags": []
 }
