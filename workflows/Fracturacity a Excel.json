@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-04-13T08:18:59.946Z",
-  "createdAt": "2026-04-10T07:37:45.815Z",
-  "id": "vNUBeFzXNUv6gN5P",
+  "updatedAt": "2026-05-11T08:46:35.616Z",
+  "createdAt": "2026-05-11T08:29:07.574Z",
+  "id": "kPyQKPad5MVFRcRz",
   "name": "Fracturacity a Excel",
   "active": false,
   "isArchived": false,
@@ -11,10 +11,10 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        -704,
-        -48
+        -208,
+        96
       ],
-      "id": "327b48c7-a243-4bfd-a4fd-3e72319c4e9f",
+      "id": "ed8c0f30-40e6-47a0-8901-63998ee59177",
       "name": "When clicking ‘Execute workflow’"
     },
     {
@@ -31,17 +31,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
       "position": [
-        -400,
-        -48
+        96,
+        96
       ],
-      "id": "29bf86a4-edc8-496b-97fb-ec98509fe147",
-      "name": "HTTP Request",
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "DpVPFfj4RqEPNKMC",
-          "name": "Facturascript Pruebas"
-        }
-      }
+      "id": "9fdaf70e-83bf-4ccf-b0ef-e682e362a128",
+      "name": "HTTP Request"
     },
     {
       "parameters": {
@@ -50,10 +44,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -48,
-        -48
+        448,
+        96
       ],
-      "id": "4e3f7e6a-2717-4291-bdb6-3634378469df",
+      "id": "4ec84ed3-cc29-4f27-b7a0-d1b178b94b2d",
       "name": "Code in JavaScript"
     },
     {
@@ -183,17 +177,11 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        288,
-        -48
+        784,
+        96
       ],
-      "id": "ea9ec305-ba92-4679-b74f-613aa0cab0ee",
-      "name": "Append or update row in sheet",
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "Y66ON0yRX2dc3w46",
-          "name": "Google Sheets account"
-        }
-      }
+      "id": "4be1a1b3-3899-4b45-8a31-40372dcfac14",
+      "name": "Append or update row in sheet"
     },
     {
       "parameters": {
@@ -204,11 +192,11 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -496,
-        -144
+        0,
+        0
       ],
       "typeVersion": 1,
-      "id": "edc3b4a4-21c0-4764-917a-6f1dc5364e1a",
+      "id": "f3af7030-b028-4ff5-9bf6-c0f112d9d702",
       "name": "Sticky Note"
     },
     {
@@ -220,11 +208,11 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -176,
-        -144
+        320,
+        0
       ],
       "typeVersion": 1,
-      "id": "fc838e0d-d201-4387-9c7d-e0fe69e616f9",
+      "id": "918344c8-897a-4e09-9454-7ef53eab2f7f",
       "name": "Sticky Note1"
     },
     {
@@ -236,11 +224,11 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        192,
-        -144
+        688,
+        0
       ],
       "typeVersion": 1,
-      "id": "db7bcb95-3c40-4590-982b-5129a22d3682",
+      "id": "3b4af9bf-1e2e-40c3-8a4f-bbbb4fd5c53f",
       "name": "Sticky Note2"
     }
   ],
@@ -277,11 +265,6 @@
           }
         ]
       ]
-    },
-    "Append or update row in sheet": {
-      "main": [
-        []
-      ]
     }
   },
   "settings": {
@@ -289,9 +272,7 @@
     "binaryMode": "separate"
   },
   "staticData": null,
-  "meta": {
-    "templateCredsSetupCompleted": true
-  },
+  "meta": null,
   "pinData": {
     "When clicking ‘Execute workflow’": [
       {
@@ -302,16 +283,16 @@
       }
     ]
   },
-  "versionId": "30f42235-aa20-4db5-afe4-bc8d9c56d944",
+  "versionId": "8546f419-9cca-455a-9238-bb539828a489",
   "activeVersionId": null,
   "triggerCount": 0,
   "shared": [
     {
-      "updatedAt": "2026-04-10T07:37:45.824Z",
-      "createdAt": "2026-04-10T07:37:45.824Z",
+      "updatedAt": "2026-05-11T08:29:07.575Z",
+      "createdAt": "2026-05-11T08:29:07.575Z",
       "role": "workflow:owner",
-      "workflowId": "vNUBeFzXNUv6gN5P",
-      "projectId": "JoN2JTiYqtJQ4ZAc"
+      "workflowId": "kPyQKPad5MVFRcRz",
+      "projectId": "HySVhA2Rl8waskJL"
     }
   ],
   "activeVersion": null,
