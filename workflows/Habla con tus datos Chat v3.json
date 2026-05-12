@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-12T08:44:20.569Z",
+  "updatedAt": "2026-05-12T14:08:11.198Z",
   "createdAt": "2026-05-11T08:29:29.280Z",
   "id": "3pmhMn56F8ZCXAL3",
   "name": "Habla con tus datos Chat v3",
@@ -30,7 +30,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
       "position": [
-        224,
+        144,
         224
       ],
       "id": "6cb9af82-2586-4f00-9ad7-667fc48999b6",
@@ -131,8 +131,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        352,
-        224
+        320,
+        240
       ],
       "id": "69425b0e-4870-4813-b123-d46b72114b86",
       "name": "OpenRouter Chat Model",
@@ -225,7 +225,7 @@
     "templateCredsSetupCompleted": true
   },
   "pinData": {},
-  "versionId": "87198de8-4b6c-462b-8915-a0ead8ae3371",
+  "versionId": "9437064e-f0a5-4eb5-bd94-b25c78d03ba2",
   "activeVersionId": "87198de8-4b6c-462b-8915-a0ead8ae3371",
   "triggerCount": 1,
   "shared": [
