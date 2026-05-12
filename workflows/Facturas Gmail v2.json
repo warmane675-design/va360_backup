@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-05-11T08:46:47.090Z",
+  "updatedAt": "2026-05-12T08:45:18.232Z",
   "createdAt": "2026-05-11T08:28:16.674Z",
   "id": "D4t2vLp7rgaYwpBR",
   "name": "Facturas Gmail v2",
-  "active": false,
+  "active": true,
   "isArchived": false,
   "nodes": [
     {
@@ -33,7 +33,13 @@
       ],
       "id": "9efc7053-761d-4037-8349-f21a39ca30ff",
       "name": "Get many messages",
-      "webhookId": "819aa1d2-6351-4c65-b5df-7e69dd4a9b52"
+      "webhookId": "819aa1d2-6351-4c65-b5df-7e69dd4a9b52",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "K88Ro02qAPLqoTbF",
+          "name": "Gmail contacta"
+        }
+      }
     },
     {
       "parameters": {
@@ -65,7 +71,13 @@
       ],
       "id": "5776362f-0211-422c-9793-864ad1ce4005",
       "name": "Get a message",
-      "webhookId": "e2bd8a6a-a9d9-4230-93ef-0bf0bbd85f43"
+      "webhookId": "e2bd8a6a-a9d9-4230-93ef-0bf0bbd85f43",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "K88Ro02qAPLqoTbF",
+          "name": "Gmail contacta"
+        }
+      }
     },
     {
       "parameters": {
@@ -158,7 +170,13 @@
         464
       ],
       "id": "336f1e66-599a-45d5-b314-120769b03911",
-      "name": "OpenRouter Chat Model"
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "WmMNHiHPh4aQe9KT",
+          "name": "OpenRouter account"
+        }
+      }
     },
     {
       "parameters": {
@@ -208,7 +226,13 @@
         224
       ],
       "id": "19380a42-6d80-4b23-8803-f9ce9c764192",
-      "name": "Upload file"
+      "name": "Upload file",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "kjAHWBgsL4LvNzuN",
+          "name": "Google Drive account"
+        }
+      }
     },
     {
       "parameters": {
@@ -245,7 +269,13 @@
         0
       ],
       "id": "96450f7a-6d96-4dd5-967b-9ab913aea90e",
-      "name": "Gmail Trigger"
+      "name": "Gmail Trigger",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "K88Ro02qAPLqoTbF",
+          "name": "Gmail contacta"
+        }
+      }
     }
   ],
   "connections": {
@@ -412,54 +442,31 @@
   },
   "settings": {
     "executionOrder": "v1",
-    "binaryMode": "separate"
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "errorWorkflow": "jWOwPrw3rbQy2Doq",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
   },
-  "staticData": null,
-  "meta": null,
-  "pinData": {
-    "Gmail Trigger": [
-      {
-        "json": {
-          "id": "19dcdb11bfab302c",
-          "threadId": "19dcdb0ec17bcc4f",
-          "snippet": "hola",
-          "payload": {
-            "mimeType": "multipart/mixed"
-          },
-          "sizeEstimate": 67974,
-          "historyId": "50498",
-          "internalDate": "1777272436000",
-          "labels": [
-            {
-              "id": "SENT",
-              "name": "SENT"
-            },
-            {
-              "id": "INBOX",
-              "name": "INBOX"
-            },
-            {
-              "id": "IMPORTANT",
-              "name": "IMPORTANT"
-            },
-            {
-              "id": "UNREAD",
-              "name": "UNREAD"
-            }
-          ],
-          "Subject": "sii",
-          "From": "warmane <warmane675@gmail.com>",
-          "To": "warmane <warmane675@gmail.com>"
-        },
-        "pairedItem": {
-          "item": 0
-        }
+  "staticData": {
+    "node:Gmail Trigger": {
+      "Gmail Trigger": {
+        "lastTimeChecked": 1778582433,
+        "possibleDuplicates": [
+          "19e1bc62fd9e509a",
+          "19e1bc62eb22a132",
+          "19e1b89046004306"
+        ]
       }
-    ]
+    }
   },
-  "versionId": "dd3c5f47-5035-4a0e-9290-ba270002f7a1",
-  "activeVersionId": null,
-  "triggerCount": 0,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "22ceba89-2a3c-46e7-b606-83cd8daf146d",
+  "activeVersionId": "22ceba89-2a3c-46e7-b606-83cd8daf146d",
+  "triggerCount": 1,
   "shared": [
     {
       "updatedAt": "2026-05-11T08:28:16.686Z",
@@ -469,6 +476,450 @@
       "projectId": "HySVhA2Rl8waskJL"
     }
   ],
-  "activeVersion": null,
+  "activeVersion": {
+    "updatedAt": "2026-05-12T07:44:44.000Z",
+    "createdAt": "2026-05-12T07:44:24.595Z",
+    "versionId": "22ceba89-2a3c-46e7-b606-83cd8daf146d",
+    "workflowId": "D4t2vLp7rgaYwpBR",
+    "nodes": [
+      {
+        "parameters": {},
+        "type": "n8n-nodes-base.manualTrigger",
+        "typeVersion": 1,
+        "position": [
+          -208,
+          192
+        ],
+        "id": "98c17f1d-3aa2-47f3-a452-cbf456d174f4",
+        "name": "When clicking ‘Execute workflow’"
+      },
+      {
+        "parameters": {
+          "operation": "getAll",
+          "returnAll": true,
+          "filters": {
+            "q": "has:attachment (factura OR invoice OR recibo)"
+          }
+        },
+        "type": "n8n-nodes-base.gmail",
+        "typeVersion": 2.2,
+        "position": [
+          0,
+          192
+        ],
+        "id": "9efc7053-761d-4037-8349-f21a39ca30ff",
+        "name": "Get many messages",
+        "webhookId": "819aa1d2-6351-4c65-b5df-7e69dd4a9b52",
+        "credentials": {
+          "gmailOAuth2": {
+            "id": "K88Ro02qAPLqoTbF",
+            "name": "Gmail contacta"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "options": {}
+        },
+        "type": "n8n-nodes-base.splitInBatches",
+        "typeVersion": 3,
+        "position": [
+          208,
+          192
+        ],
+        "id": "a068b920-1218-42f4-9a37-4daab1d08d6e",
+        "name": "Loop Over Items"
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "messageId": "={{ $json.id }}",
+          "simple": false,
+          "options": {
+            "downloadAttachments": true
+          }
+        },
+        "type": "n8n-nodes-base.gmail",
+        "typeVersion": 2.2,
+        "position": [
+          480,
+          208
+        ],
+        "id": "5776362f-0211-422c-9793-864ad1ce4005",
+        "name": "Get a message",
+        "webhookId": "e2bd8a6a-a9d9-4230-93ef-0bf0bbd85f43",
+        "credentials": {
+          "gmailOAuth2": {
+            "id": "K88Ro02qAPLqoTbF",
+            "name": "Gmail contacta"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "jsCode": "const items = [];\nfor (const item of $input.all()) {\n  const binaryKeys = Object.keys(item.binary || {});\n  for (const key of binaryKeys) {\n    const file = item.binary[key];\n    items.push({\n      json: {\n        emailId: item.json.id,\n        from: item.json.From,\n        subject: item.json.Subject,\n        date: item.json.internalDate,\n        filename: file.fileName,\n        mimeType: file.mimeType,\n      },\n      binary: { data: file }\n    });\n  }\n}\nreturn items;"
+        },
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          688,
+          208
+        ],
+        "id": "80e1da18-9eca-4c95-9e76-c6fa5bd35f06",
+        "name": "Code in JavaScript"
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "8f12a2b4-3f70-484c-856c-1d1942ee4e70",
+                "leftValue": "={{ $json.mimeType }}",
+                "rightValue": "pdf",
+                "operator": {
+                  "type": "string",
+                  "operation": "contains"
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          912,
+          96
+        ],
+        "id": "6f357680-ccd1-42ae-b8d3-6bed4d485c76",
+        "name": "If"
+      },
+      {
+        "parameters": {
+          "operation": "pdf",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.extractFromFile",
+        "typeVersion": 1.1,
+        "position": [
+          1104,
+          208
+        ],
+        "id": "9df449a9-7f29-4253-a12b-6e5bc1c90b67",
+        "name": "Extract from File"
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "=Analiza esta factura y devuelve el JSON según las reglas.\n\nMETADATOS DEL EMAIL:\n- Remitente: {{ $('Get a message').item.json.from }}\n- Asunto: {{ $('Get a message').item.json.subject }}\n- Nombre del archivo: {{ $('Code in JavaScript').item.json.filename }}\n- Fecha del email: {{ $('Get a message').item.json.date }}\n\nCONTENIDO EXTRAÍDO DEL PDF:\n{{ $json.text }}",
+          "options": {
+            "systemMessage": "Eres un clasificador contable experto para MI EMPRESA, una agencia de \nmarketing digital y diseño web en España.\n\nDATOS DE MI EMPRESA (el receptor o emisor según el caso):\n- Nombre: HAZ MARCA\n- NIF/CIF: B72913460\n- Email: contacta@hazmarca.es\n\nTU TAREA:\nAnalizar una factura y devolver un JSON estructurado clasificándola.\n\nREGLAS DE CLASIFICACIÓN:\n\n1. \"proveedor\" → Alguien ME factura A MÍ. \n   MI empresa aparece como RECEPTOR/CLIENTE en la factura.\n   Ejemplos típicos en mi sector:\n   - Suministros: luz, internet, teléfono (Endesa, Movistar, Vodafone)\n   - Software y SaaS: Adobe, Figma, Canva, Notion, Slack, ChatGPT\n   - Hosting y dominios: SiteGround, Hostinger, Namecheap, GoDaddy\n   - Publicidad: Meta Ads, Google Ads, TikTok Ads, LinkedIn Ads\n   - Servicios profesionales: asesoría, gestoría, abogados\n   - Herramientas marketing: Mailchimp, ActiveCampaign, Semrush, Ahrefs\n\n2. \"cliente\" → YO facturo a alguien.\n   MI empresa aparece como EMISOR en la factura.\n   Ejemplos típicos:\n   - Servicios de diseño web\n   - Mantenimiento web mensual\n   - Gestión de redes sociales\n   - Campañas publicitarias\n   - Renovación de dominio/hosting que cobro al cliente\n   - Consultoría de marketing\n\n3. \"no_es_factura\" → Presupuestos, albaranes, emails promocionales, \n   confirmaciones de pedido sin datos fiscales completos.\n\n4. \"rectificativa\" → Factura de abono o rectificativa (importes negativos).\n\nCATEGORÍAS:\n- suministros, software, hosting_dominios, publicidad_pagada, \n  servicios_profesionales, herramientas_marketing, material_oficina,\n  venta_servicios_web, venta_marketing, venta_mantenimiento, otro\n\nIMPORTANTE:\n- Si el EMISOR es mi empresa → es \"cliente\" (factura emitida).\n- Si el RECEPTOR es mi empresa → es \"proveedor\" (factura recibida).\n- Facturas de Stripe, Google, Meta, Adobe suelen emitirse desde Irlanda \n  → marca \"intracomunitaria\": true.\n- Si detectas importes negativos o palabra \"abono\"/\"rectificativa\" \n  → tipo \"rectificativa\".\n- Si confianza < 85, marca \"revision_manual\": true.\n\nFORMATO DE SALIDA (solo JSON, sin texto adicional, sin markdown):\n{\n  \"tipo\": \"proveedor|cliente|no_es_factura|rectificativa\",\n  \"categoria\": \"...\",\n  \"emisor_nombre\": \"...\",\n  \"emisor_nif\": \"...\",\n  \"receptor_nombre\": \"...\",\n  \"receptor_nif\": \"...\",\n  \"numero_factura\": \"...\",\n  \"fecha_emision\": \"YYYY-MM-DD\",\n  \"fecha_vencimiento\": \"YYYY-MM-DD o null\",\n  \"base_imponible\": 0.00,\n  \"iva_porcentaje\": 21,\n  \"iva_importe\": 0.00,\n  \"irpf_importe\": 0.00,\n  \"total\": 0.00,\n  \"moneda\": \"EUR\",\n  \"concepto_corto\": \"descripción en 10 palabras máx\",\n  \"intracomunitaria\": false,\n  \"confianza\": 0-100,\n  \"revision_manual\": false,\n  \"motivo_revision\": \"null o razón si aplica\"\n}"
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.agent",
+        "typeVersion": 3.1,
+        "position": [
+          1312,
+          208
+        ],
+        "id": "c18dfa64-9d1b-4125-9772-f7cd5ca27b74",
+        "name": "AI Agent"
+      },
+      {
+        "parameters": {
+          "model": "openai/gpt-oss-120b:free",
+          "options": {
+            "temperature": 0
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+        "typeVersion": 1,
+        "position": [
+          1248,
+          464
+        ],
+        "id": "336f1e66-599a-45d5-b314-120769b03911",
+        "name": "OpenRouter Chat Model",
+        "credentials": {
+          "openRouterApi": {
+            "id": "WmMNHiHPh4aQe9KT",
+            "name": "OpenRouter account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "jsCode": "const items = [];\n\nfor (const item of $input.all()) {\n  // Buscar la respuesta de la IA en las rutas posibles\n  let aiResponse = \n       item.json.message?.content \n    || item.json.content?.[0]?.text \n    || item.json.choices?.[0]?.message?.content\n    || item.json.text\n    || item.json.output\n    || '';\n  \n  // Limpiar posibles envoltorios markdown ```json ... ```\n  aiResponse = String(aiResponse).replace(/```json|```/g, '').trim();\n  \n  try {\n    const parsed = JSON.parse(aiResponse);\n    \n    items.push({\n      json: parsed,\n      binary: item.binary  // mantener el PDF adjunto para subir a Drive después\n    });\n  } catch (e) {\n    items.push({\n      json: {\n        error: 'No se pudo parsear el JSON',\n        raw: aiResponse,\n        message: e.message\n      },\n      binary: item.binary\n    });\n  }\n}\n\nreturn items;"
+        },
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          1696,
+          208
+        ],
+        "id": "70c1d665-43e0-404d-852e-9cc654fa444a",
+        "name": "Code in JavaScript1"
+      },
+      {
+        "parameters": {
+          "jsCode": "// ═══════════════════════════════════════════\n// CONFIGURA TUS IDs DE CARPETA AQUÍ\n// Los sacas de la URL: drive.google.com/drive/folders/ESTE_ES_EL_ID\n// ═══════════════════════════════════════════\nconst CARPETAS = {\n  proveedor: '1QPL7ZWWudNq5U7AbY5BcE4ygpqwdVI2p',\n  cliente: '19g2p4FDu25GwAlDHGNvUgiPz3AGVleAp',\n  rectificativa: '1r91NP8BsQ8ImYGrspxT2gtQgAZrW5RH6',\n  revision: '1yqwQFR-RjphkT8fpVqHdW0deKatzYDmC',\n};\n\nconst items = [];\n\nfor (const item of $input.all()) {\n  const data = item.json;\n  \n  // ─── Parsear fecha ───\n  const fechaStr = data.fecha_emision || new Date().toISOString().split('T')[0];\n  const fecha = new Date(fechaStr);\n  const año = fecha.getFullYear();\n  const mes = String(fecha.getMonth() + 1).padStart(2, '0');\n  const nombresMes = ['Enero','Febrero','Marzo','Abril','Mayo','Junio',\n                      'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];\n  const carpetaMes = `${mes}-${nombresMes[fecha.getMonth()]}`;\n  \n  // ─── Limpiar nombre del emisor ───\n  const emisorLimpio = (data.emisor_nombre || 'SinEmisor')\n    .replace(/[^a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]/g, '')\n    .replace(/\\s+/g, '-')\n    .substring(0, 30);\n  \n  // ─── Construir nombre del archivo ───\n  const numFactura = (data.numero_factura || 'SN').replace(/[^a-zA-Z0-9-]/g, '');\n  const total = data.total ? `${data.total}€` : '';\n  const nombreArchivo = `${fechaStr}_${emisorLimpio}_${numFactura}_${total}.pdf`;\n  \n  // ─── Ruta destino (informativa, para Sheets/logs) ───\n  const carpetaTipo = data.tipo === 'proveedor' ? 'Proveedores' \n                    : data.tipo === 'cliente' ? 'Clientes'\n                    : data.tipo === 'rectificativa' ? 'Rectificativas'\n                    : 'Revision';\n  const rutaDestino = `Facturas/${carpetaTipo}/${año}/${carpetaMes}`;\n  \n  // ─── CALCULAR FOLDER ID (lo que usa Drive) ───\n  let folderId;\n  if (data.revision_manual === true) {\n    folderId = CARPETAS.revision;\n  } else if (data.tipo === 'proveedor') {\n    folderId = CARPETAS.proveedor;\n  } else if (data.tipo === 'cliente') {\n    folderId = CARPETAS.cliente;\n  } else if (data.tipo === 'rectificativa') {\n    folderId = CARPETAS.rectificativa;\n  } else {\n    folderId = CARPETAS.revision; // fallback: todo lo raro a revisión\n  }\n  \n  items.push({\n    json: {\n      ...data,\n      nombre_archivo: nombreArchivo,\n      ruta_destino: rutaDestino,\n      año: año,\n      mes: carpetaMes,\n      folder_id: folderId,        // ← esto es lo que usa el nodo Drive\n    },\n    binary: item.binary\n  });\n}\n\nreturn items;"
+        },
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          1888,
+          208
+        ],
+        "id": "33464eb7-f711-44a8-8061-f9985dfa99c4",
+        "name": "Code in JavaScript3"
+      },
+      {
+        "parameters": {
+          "name": "={{ $json.nombre_archivo }}",
+          "driveId": {
+            "__rl": true,
+            "mode": "list",
+            "value": "My Drive"
+          },
+          "folderId": {
+            "__rl": true,
+            "value": "={{ $json.folder_id }}",
+            "mode": "id"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3,
+        "position": [
+          2416,
+          224
+        ],
+        "id": "19380a42-6d80-4b23-8803-f9ce9c764192",
+        "name": "Upload file",
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "kjAHWBgsL4LvNzuN",
+            "name": "Google Drive account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "mode": "combine",
+          "combineBy": "combineByPosition",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.merge",
+        "typeVersion": 3.2,
+        "position": [
+          2192,
+          64
+        ],
+        "id": "49185e97-12fb-4779-8192-1a551adedb71",
+        "name": "Merge"
+      },
+      {
+        "parameters": {
+          "pollTimes": {
+            "item": [
+              {
+                "mode": "everyMinute"
+              }
+            ]
+          },
+          "filters": {
+            "q": "has:attachment (factura OR invoice OR recibo)"
+          }
+        },
+        "type": "n8n-nodes-base.gmailTrigger",
+        "typeVersion": 1.3,
+        "position": [
+          0,
+          0
+        ],
+        "id": "96450f7a-6d96-4dd5-967b-9ab913aea90e",
+        "name": "Gmail Trigger",
+        "credentials": {
+          "gmailOAuth2": {
+            "id": "K88Ro02qAPLqoTbF",
+            "name": "Gmail contacta"
+          }
+        }
+      }
+    ],
+    "connections": {
+      "When clicking ‘Execute workflow’": {
+        "main": [
+          [
+            {
+              "node": "Get many messages",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Get many messages": {
+        "main": [
+          [
+            {
+              "node": "Loop Over Items",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Loop Over Items": {
+        "main": [
+          [],
+          [
+            {
+              "node": "Get a message",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Get a message": {
+        "main": [
+          [
+            {
+              "node": "Code in JavaScript",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Code in JavaScript": {
+        "main": [
+          [
+            {
+              "node": "If",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "If": {
+        "main": [
+          [
+            {
+              "node": "Extract from File",
+              "type": "main",
+              "index": 0
+            },
+            {
+              "node": "Merge",
+              "type": "main",
+              "index": 1
+            }
+          ]
+        ]
+      },
+      "Extract from File": {
+        "main": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI Agent": {
+        "main": [
+          [
+            {
+              "node": "Code in JavaScript1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "OpenRouter Chat Model": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Code in JavaScript1": {
+        "main": [
+          [
+            {
+              "node": "Code in JavaScript3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Code in JavaScript3": {
+        "main": [
+          [
+            {
+              "node": "Merge",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Upload file": {
+        "main": [
+          [
+            {
+              "node": "Loop Over Items",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Merge": {
+        "main": [
+          [
+            {
+              "node": "Upload file",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Gmail Trigger": {
+        "main": [
+          [
+            {
+              "node": "Loop Over Items",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Leandro Martinez",
+    "name": "Version 22ceba89",
+    "description": "",
+    "autosaved": true
+  },
   "tags": []
 }
