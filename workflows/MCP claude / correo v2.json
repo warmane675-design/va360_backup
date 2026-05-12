@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-05-11T08:45:07.467Z",
+  "updatedAt": "2026-05-12T08:45:00.809Z",
   "createdAt": "2026-05-11T08:33:13.777Z",
   "id": "zaQoLeEailx1wBmK",
   "name": "MCP claude / correo v2",
-  "active": false,
+  "active": true,
   "isArchived": false,
   "nodes": [
     {
@@ -22,69 +22,6 @@
     },
     {
       "parameters": {
-        "operation": "getAll",
-        "calendar": {
-          "__rl": true,
-          "value": "9e303b9ae09b4a3351731b434b2ec697ee4a30d5d1afb0337699d8aa38fa8abc@group.calendar.google.com",
-          "mode": "list",
-          "cachedResultName": "prueba"
-        },
-        "timeMin": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('After', ``, 'string') }}",
-        "timeMax": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Before', ``, 'string') }}",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.googleCalendarTool",
-      "typeVersion": 1.3,
-      "position": [
-        -640,
-        272
-      ],
-      "id": "d3a04340-52f7-4f8a-8828-34294039b649",
-      "name": "Get many events in Google Calendar"
-    },
-    {
-      "parameters": {
-        "calendar": {
-          "__rl": true,
-          "value": "9e303b9ae09b4a3351731b434b2ec697ee4a30d5d1afb0337699d8aa38fa8abc@group.calendar.google.com",
-          "mode": "list",
-          "cachedResultName": "prueba"
-        },
-        "start": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Start', ``, 'string') }}",
-        "end": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('End', ``, 'string') }}",
-        "additionalFields": {}
-      },
-      "type": "n8n-nodes-base.googleCalendarTool",
-      "typeVersion": 1.3,
-      "position": [
-        -480,
-        272
-      ],
-      "id": "df58d891-dd39-4fa7-8b45-e9f5fcd9af26",
-      "name": "Create an event in Google Calendar"
-    },
-    {
-      "parameters": {
-        "fromEmail": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('From_Email', ``, 'string') }}",
-        "toEmail": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('To_Email', ``, 'string') }}",
-        "subject": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Subject', ``, 'string') }}",
-        "html": "={{ $fromAI('HTML', ``, 'string') }}\n\n\n<br><br>\n<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"font-family: Arial, sans-serif; border-collapse: collapse;\">\n  <tr>\n    <td style=\"padding-right: 16px; border-right: 3px solid #8BC34A; vertical-align: middle;\">\n      <img src=\"https://hazmarca.marketing/wp-content/uploads/2021/04/cropped-hazmarcalogo-1.png\" alt=\"Haz Marca\" width=\"70\" style=\"display: block;\">\n    </td>\n    <td style=\"padding-left: 16px; vertical-align: middle;\">\n      <p style=\"margin: 0 0 6px 0; font-size: 14px; color: #222;\"><strong>Leandro — Haz Marca Marketing Digital</strong></p>\n      <p style=\"margin: 0 0 4px 0; font-size: 12px; color: #555;\">\n        <strong>dir:</strong> Torneo Parque Empresarial, Edificio Vilamar 2, 2ª planta, oficina 3. Calle Biología, 12, 41015 Sevilla\n      </p>\n      <p style=\"margin: 0; font-size: 12px; color: #555;\">\n        <strong>web:</strong> <a href=\"http://hazmarca.marketing\" style=\"color: #8BC34A; text-decoration: none;\">hazmarca.marketing</a>\n        &nbsp;&nbsp;\n        <strong>e:</strong> <a href=\"mailto:practicas.hazmarca@gmail.com\" style=\"color: #8BC34A; text-decoration: none;\">contacta@hazmarca.es</a>\n      </p>\n    </td>\n  </tr>\n</table>\n\n<p style=\"font-family: Arial, sans-serif; font-size: 9px; color: #999; line-height: 1.4; margin-top: 16px; max-width: 700px;\">\nEste mensaje y sus archivos adjuntos van dirigidos exclusivamente a su destinatario, pudiendo contener información confidencial sometida a secreto profesional. No está permitida su reproducción o distribución sin la autorización expresa de HAZ MARCA MARKETING DIGITAL, S.L. Si usted no es el destinatario final por favor elimínelo e infórmenos por esta vía. Le informamos que tratamos sus datos personales con la finalidad de realizar la gestión administrativa, contable y fiscal, así como enviarle comunicaciones comerciales sobre nuestros servicios. Los datos proporcionados se conservarán mientras se mantenga la relación comercial o durante los años necesarios para cumplir con las obligaciones legales. Los datos no se cederán a terceros salvo en los casos en que exista una obligación legal.\n</p>",
-        "options": {
-          "appendAttribution": false
-        }
-      },
-      "type": "n8n-nodes-base.emailSendTool",
-      "typeVersion": 2.1,
-      "position": [
-        -160,
-        272
-      ],
-      "id": "00f91397-f3a7-4e7f-84d9-7dad191676df",
-      "name": "Send an Email in Send Email",
-      "webhookId": "6b1dc8cb-11e4-43d5-95ca-0c84a793f7b2"
-    },
-    {
-      "parameters": {
         "sendTo": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('To', ``, 'string') }}",
         "subject": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Subject', ``, 'string') }}",
         "message": "={{ $fromAI('HTML', ``, 'string') }}\n\n\n<br><br>\n<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"font-family: Arial, sans-serif; border-collapse: collapse;\">\n  <tr>\n    <td style=\"padding-right: 16px; border-right: 3px solid #8BC34A; vertical-align: middle;\">\n      <img src=\"https://hazmarca.marketing/wp-content/uploads/2021/04/cropped-hazmarcalogo-1.png\" alt=\"Haz Marca\" width=\"70\" style=\"display: block;\">\n    </td>\n    <td style=\"padding-left: 16px; vertical-align: middle;\">\n      <p style=\"margin: 0 0 6px 0; font-size: 14px; color: #222;\"><strong>Leandro — Haz Marca Marketing Digital</strong></p>\n      <p style=\"margin: 0 0 4px 0; font-size: 12px; color: #555;\">\n        <strong>dir:</strong> Torneo Parque Empresarial, Edificio Vilamar 2, 2ª planta, oficina 3. Calle Biología, 12, 41015 Sevilla\n      </p>\n      <p style=\"margin: 0; font-size: 12px; color: #555;\">\n        <strong>web:</strong> <a href=\"http://hazmarca.marketing\" style=\"color: #8BC34A; text-decoration: none;\">hazmarca.marketing</a>\n        &nbsp;&nbsp;\n        <strong>e:</strong> <a href=\"mailto:practicas.hazmarca@gmail.com\" style=\"color: #8BC34A; text-decoration: none;\">contacta@hazmarca.es</a>\n      </p>\n    </td>\n  </tr>\n</table>\n\n<p style=\"font-family: Arial, sans-serif; font-size: 9px; color: #999; line-height: 1.4; margin-top: 16px; max-width: 700px;\">\nEste mensaje y sus archivos adjuntos van dirigidos exclusivamente a su destinatario, pudiendo contener información confidencial sometida a secreto profesional. No está permitida su reproducción o distribución sin la autorización expresa de HAZ MARCA MARKETING DIGITAL, S.L. Si usted no es el destinatario final por favor elimínelo e infórmenos por esta vía. Le informamos que tratamos sus datos personales con la finalidad de realizar la gestión administrativa, contable y fiscal, así como enviarle comunicaciones comerciales sobre nuestros servicios. Los datos proporcionados se conservarán mientras se mantenga la relación comercial o durante los años necesarios para cumplir con las obligaciones legales. Los datos no se cederán a terceros salvo en los casos en que exista una obligación legal.\n</p>",
@@ -100,24 +37,13 @@
       ],
       "id": "6f2c0b46-62ff-4407-b333-b7fd39718282",
       "name": "Send a message in Gmail",
-      "webhookId": "258c3fdc-36e3-44fc-8ca2-d6821027473c"
-    },
-    {
-      "parameters": {
-        "sendTo": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('To', ``, 'string') }}",
-        "subject": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Subject', ``, 'string') }}",
-        "message": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Message', ``, 'string') }}",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.gmailTool",
-      "typeVersion": 2.2,
-      "position": [
-        -320,
-        272
-      ],
-      "id": "fff1b555-e25d-4eb8-a07b-34f31e838178",
-      "name": "Send a message in Gmail1",
-      "webhookId": "258c3fdc-36e3-44fc-8ca2-d6821027473c"
+      "webhookId": "258c3fdc-36e3-44fc-8ca2-d6821027473c",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "K88Ro02qAPLqoTbF",
+          "name": "Gmail contacta"
+        }
+      }
     }
   ],
   "connections": {
@@ -135,14 +61,20 @@
   },
   "settings": {
     "executionOrder": "v1",
-    "binaryMode": "separate"
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "errorWorkflow": "jWOwPrw3rbQy2Doq",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
   },
   "staticData": null,
-  "meta": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
   "pinData": {},
-  "versionId": "3b2efdaa-6f4c-4144-a085-194c0036f232",
-  "activeVersionId": null,
-  "triggerCount": 0,
+  "versionId": "b94f560c-7eba-4874-9602-b456313665b6",
+  "activeVersionId": "b94f560c-7eba-4874-9602-b456313665b6",
+  "triggerCount": 1,
   "shared": [
     {
       "updatedAt": "2026-05-11T08:33:13.778Z",
@@ -152,6 +84,69 @@
       "projectId": "HySVhA2Rl8waskJL"
     }
   ],
-  "activeVersion": null,
+  "activeVersion": {
+    "updatedAt": "2026-05-12T07:50:33.000Z",
+    "createdAt": "2026-05-12T07:50:29.693Z",
+    "versionId": "b94f560c-7eba-4874-9602-b456313665b6",
+    "workflowId": "zaQoLeEailx1wBmK",
+    "nodes": [
+      {
+        "parameters": {
+          "path": "7eab83c2-aacf-4cb0-a17b-c1b78375be4e"
+        },
+        "type": "@n8n/n8n-nodes-langchain.mcpTrigger",
+        "typeVersion": 2,
+        "position": [
+          0,
+          0
+        ],
+        "id": "b824a595-289a-425a-b3ae-0673059bdced",
+        "name": "MCP Server Trigger",
+        "webhookId": "7eab83c2-aacf-4cb0-a17b-c1b78375be4e"
+      },
+      {
+        "parameters": {
+          "sendTo": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('To', ``, 'string') }}",
+          "subject": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Subject', ``, 'string') }}",
+          "message": "={{ $fromAI('HTML', ``, 'string') }}\n\n\n<br><br>\n<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"font-family: Arial, sans-serif; border-collapse: collapse;\">\n  <tr>\n    <td style=\"padding-right: 16px; border-right: 3px solid #8BC34A; vertical-align: middle;\">\n      <img src=\"https://hazmarca.marketing/wp-content/uploads/2021/04/cropped-hazmarcalogo-1.png\" alt=\"Haz Marca\" width=\"70\" style=\"display: block;\">\n    </td>\n    <td style=\"padding-left: 16px; vertical-align: middle;\">\n      <p style=\"margin: 0 0 6px 0; font-size: 14px; color: #222;\"><strong>Leandro — Haz Marca Marketing Digital</strong></p>\n      <p style=\"margin: 0 0 4px 0; font-size: 12px; color: #555;\">\n        <strong>dir:</strong> Torneo Parque Empresarial, Edificio Vilamar 2, 2ª planta, oficina 3. Calle Biología, 12, 41015 Sevilla\n      </p>\n      <p style=\"margin: 0; font-size: 12px; color: #555;\">\n        <strong>web:</strong> <a href=\"http://hazmarca.marketing\" style=\"color: #8BC34A; text-decoration: none;\">hazmarca.marketing</a>\n        &nbsp;&nbsp;\n        <strong>e:</strong> <a href=\"mailto:practicas.hazmarca@gmail.com\" style=\"color: #8BC34A; text-decoration: none;\">contacta@hazmarca.es</a>\n      </p>\n    </td>\n  </tr>\n</table>\n\n<p style=\"font-family: Arial, sans-serif; font-size: 9px; color: #999; line-height: 1.4; margin-top: 16px; max-width: 700px;\">\nEste mensaje y sus archivos adjuntos van dirigidos exclusivamente a su destinatario, pudiendo contener información confidencial sometida a secreto profesional. No está permitida su reproducción o distribución sin la autorización expresa de HAZ MARCA MARKETING DIGITAL, S.L. Si usted no es el destinatario final por favor elimínelo e infórmenos por esta vía. Le informamos que tratamos sus datos personales con la finalidad de realizar la gestión administrativa, contable y fiscal, así como enviarle comunicaciones comerciales sobre nuestros servicios. Los datos proporcionados se conservarán mientras se mantenga la relación comercial o durante los años necesarios para cumplir con las obligaciones legales. Los datos no se cederán a terceros salvo en los casos en que exista una obligación legal.\n</p>",
+          "options": {
+            "appendAttribution": false
+          }
+        },
+        "type": "n8n-nodes-base.gmailTool",
+        "typeVersion": 2.2,
+        "position": [
+          144,
+          224
+        ],
+        "id": "6f2c0b46-62ff-4407-b333-b7fd39718282",
+        "name": "Send a message in Gmail",
+        "webhookId": "258c3fdc-36e3-44fc-8ca2-d6821027473c",
+        "credentials": {
+          "gmailOAuth2": {
+            "id": "K88Ro02qAPLqoTbF",
+            "name": "Gmail contacta"
+          }
+        }
+      }
+    ],
+    "connections": {
+      "Send a message in Gmail": {
+        "ai_tool": [
+          [
+            {
+              "node": "MCP Server Trigger",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Leandro Martinez",
+    "name": "Version b94f560c",
+    "description": "",
+    "autosaved": true
+  },
   "tags": []
 }
