@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-12T06:35:05.888Z",
+  "updatedAt": "2026-05-12T10:45:57.478Z",
   "createdAt": "2026-05-11T09:32:03.413Z",
   "id": "szRubO0grfGzlKbv",
   "name": "Pruebas FacturaScript",
@@ -11,8 +11,8 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        -224,
-        32
+        -128,
+        144
       ],
       "id": "74d2a30a-0901-42e1-bb82-884e35b24ac2",
       "name": "When clicking ‘Execute workflow’"
@@ -46,7 +46,7 @@
       "typeVersion": 2.3,
       "position": [
         272,
-        32
+        -128
       ],
       "id": "490f61dc-e841-40f9-bb11-7d9aef038692",
       "name": "Filter"
@@ -73,8 +73,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
       "position": [
-        32,
-        32
+        64,
+        -160
       ],
       "id": "d86eda29-2720-45c8-bc55-6d4595c83efe",
       "name": "HTTP Clientes1",
@@ -84,6 +84,20 @@
           "name": "FacturaScript API"
         }
       }
+    },
+    {
+      "parameters": {
+        "url": "https://api.ipify.org",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        80,
+        144
+      ],
+      "id": "6a9375e6-9b6a-45da-84b2-f3e18bb13f3a",
+      "name": "HTTP Request"
     }
   ],
   "connections": {
@@ -91,7 +105,7 @@
       "main": [
         [
           {
-            "node": "HTTP Clientes1",
+            "node": "HTTP Request",
             "type": "main",
             "index": 0
           }
@@ -117,7 +131,7 @@
   "staticData": null,
   "meta": null,
   "pinData": {},
-  "versionId": "ddd6faa4-9b40-4ae8-902c-59cea1d9594f",
+  "versionId": "ea0270d3-116b-40f7-8e28-96afed030a23",
   "activeVersionId": null,
   "triggerCount": 0,
   "shared": [
