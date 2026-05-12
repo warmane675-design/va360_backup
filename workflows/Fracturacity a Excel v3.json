@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-05-04T09:02:27.153Z",
-  "createdAt": "2026-04-30T10:45:29.255Z",
-  "id": "MjAOHWRgSPpVGRhm",
+  "updatedAt": "2026-05-12T06:52:51.262Z",
+  "createdAt": "2026-05-11T08:28:57.975Z",
+  "id": "YfmgbH7Ay5WjUPqa",
   "name": "Fracturacity a Excel v3",
   "active": false,
   "isArchived": false,
@@ -11,10 +11,10 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        -800,
-        80
+        -160,
+        112
       ],
-      "id": "98fc0dd5-8f06-4830-a57d-52693bc46524",
+      "id": "1a4ad6bf-d129-4a1f-97a8-f9a21e63b3eb",
       "name": "When clicking ‘Execute workflow’"
     },
     {
@@ -24,10 +24,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -48,
-        80
+        592,
+        112
       ],
-      "id": "b8d12c10-a650-47d9-b076-514cfbd60b83",
+      "id": "09f314ee-80d6-44ef-96b8-d7f08486010b",
       "name": "Code in JavaScript"
     },
     {
@@ -145,15 +145,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        304,
-        80
+        944,
+        112
       ],
-      "id": "eb7390c1-d13c-4d4e-9a97-ef716fb761eb",
+      "id": "ef53adaa-f406-4abf-800a-8dce2a6bbb27",
       "name": "Append or update row in sheet",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "XXWgTkrgGGVSqKJR",
-          "name": "Google Sheets contacta"
+          "id": "tlryTl2TVc3G1dVp",
+          "name": "Google Sheets account"
         }
       }
     },
@@ -166,11 +166,11 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -640,
-        -32
+        0,
+        0
       ],
       "typeVersion": 1,
-      "id": "e5247aac-1884-4280-86df-c451016783e8",
+      "id": "111fccf1-ba9f-4323-99f7-a2b59d141dd1",
       "name": "Sticky Note"
     },
     {
@@ -182,11 +182,11 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -160,
-        -32
+        480,
+        0
       ],
       "typeVersion": 1,
-      "id": "d9d26c63-5c7e-498e-b26b-105d3575871a",
+      "id": "5152444b-134d-454c-a330-14a7a6e34ae2",
       "name": "Sticky Note1"
     },
     {
@@ -198,11 +198,11 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        208,
-        -32
+        848,
+        0
       ],
       "typeVersion": 1,
-      "id": "275a7a10-f637-449e-9825-786f32a49d1d",
+      "id": "597929ad-c7e1-4fd2-b246-c9b69fd4d180",
       "name": "Sticky Note2"
     },
     {
@@ -219,15 +219,15 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
       "position": [
-        -576,
-        80
+        64,
+        112
       ],
-      "id": "471a6f2a-8a9e-457b-8ffe-bfbdff562c15",
+      "id": "021afde3-8b29-42dc-9b70-24315b9b4676",
       "name": "HTTP Clientes",
       "credentials": {
         "httpHeaderAuth": {
-          "id": "DpVPFfj4RqEPNKMC",
-          "name": "Facturascript Pruebas"
+          "id": "h1q5CvfA7svrUbQP",
+          "name": "Factura pruebas"
         }
       }
     },
@@ -245,15 +245,15 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
       "position": [
-        -368,
-        80
+        272,
+        112
       ],
-      "id": "49cd3680-1984-4a51-9cad-e7a1b69f38a0",
+      "id": "67376c87-2ec8-4cff-b645-bbe8ea0a6b4f",
       "name": "HTTP Productos",
       "credentials": {
         "httpHeaderAuth": {
-          "id": "DpVPFfj4RqEPNKMC",
-          "name": "Facturascript Pruebas"
+          "id": "h1q5CvfA7svrUbQP",
+          "name": "Factura pruebas"
         }
       }
     }
@@ -281,11 +281,6 @@
         ]
       ]
     },
-    "Append or update row in sheet": {
-      "main": [
-        []
-      ]
-    },
     "HTTP Clientes": {
       "main": [
         [
@@ -311,27 +306,23 @@
   },
   "settings": {
     "executionOrder": "v1",
-    "binaryMode": "separate",
-    "availableInMCP": false,
-    "timeSavedMode": "fixed",
-    "errorWorkflow": "4QTTaZP0TYsnmiyK",
-    "callerPolicy": "workflowsFromSameOwner"
+    "binaryMode": "separate"
   },
   "staticData": null,
   "meta": {
     "templateCredsSetupCompleted": true
   },
   "pinData": {},
-  "versionId": "d3184f6e-b4bd-491f-8fdc-3d051b2be135",
+  "versionId": "e57b43e5-f33b-4537-ae6a-e355c58b5341",
   "activeVersionId": null,
   "triggerCount": 0,
   "shared": [
     {
-      "updatedAt": "2026-04-30T10:45:29.278Z",
-      "createdAt": "2026-04-30T10:45:29.278Z",
+      "updatedAt": "2026-05-11T08:28:57.976Z",
+      "createdAt": "2026-05-11T08:28:57.976Z",
       "role": "workflow:owner",
-      "workflowId": "MjAOHWRgSPpVGRhm",
-      "projectId": "JoN2JTiYqtJQ4ZAc"
+      "workflowId": "YfmgbH7Ay5WjUPqa",
+      "projectId": "HySVhA2Rl8waskJL"
     }
   ],
   "activeVersion": null,
