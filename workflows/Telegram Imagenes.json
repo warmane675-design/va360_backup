@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-05-05T07:04:21.040Z",
-  "createdAt": "2026-05-04T09:12:53.886Z",
-  "id": "fRDrFNSRXGixJjls",
+  "updatedAt": "2026-05-11T08:45:33.327Z",
+  "createdAt": "2026-05-11T08:32:35.410Z",
+  "id": "CyJoPPg1wehCdckN",
   "name": "Telegram Imagenes",
-  "active": true,
+  "active": false,
   "isArchived": false,
   "nodes": [
     {
@@ -16,18 +16,12 @@
       "type": "n8n-nodes-base.telegramTrigger",
       "typeVersion": 1.2,
       "position": [
-        -800,
-        48
+        -784,
+        304
       ],
-      "id": "a35178c9-a409-44b6-8b8a-ba9cb789060a",
+      "id": "eb547538-2ce6-4868-b332-a22a58321839",
       "name": "Telegram Trigger",
-      "webhookId": "03870d8a-64bd-4190-82c1-2937c22ac12c",
-      "credentials": {
-        "telegramApi": {
-          "id": "1jYBdd7EtSLOF7ze",
-          "name": "Nuevo_imagenes"
-        }
-      }
+      "webhookId": "03870d8a-64bd-4190-82c1-2937c22ac12c"
     },
     {
       "parameters": {
@@ -167,10 +161,10 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.4,
       "position": [
-        -368,
-        -16
+        -352,
+        240
       ],
-      "id": "634fe11a-d1e1-4b72-a6a8-0fd9327b3c9c",
+      "id": "6458024b-37dc-4a8c-842b-947d046e1c6d",
       "name": "Switch"
     },
     {
@@ -210,18 +204,12 @@
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
       "position": [
-        -16,
-        -256
+        0,
+        0
       ],
-      "id": "e46aed34-2349-4a57-8510-384fea87b7b5",
+      "id": "532828af-7234-49ae-901b-7fad2490403b",
       "name": "Send a text message",
-      "webhookId": "d2847c15-a8d0-4bff-9a84-b0944efabbb0",
-      "credentials": {
-        "telegramApi": {
-          "id": "1jYBdd7EtSLOF7ze",
-          "name": "Nuevo_imagenes"
-        }
-      }
+      "webhookId": "d2847c15-a8d0-4bff-9a84-b0944efabbb0"
     },
     {
       "parameters": {
@@ -234,18 +222,12 @@
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
       "position": [
-        -16,
-        -80
+        0,
+        176
       ],
-      "id": "6fb44a2c-b89f-4197-ac5a-a7a2986ce22d",
+      "id": "0d02e722-db1b-4235-b52d-206766c52f82",
       "name": "Send a text message1",
-      "webhookId": "d7d5d7be-e079-406b-a825-d38c2833b4e2",
-      "credentials": {
-        "telegramApi": {
-          "id": "1jYBdd7EtSLOF7ze",
-          "name": "Nuevo_imagenes"
-        }
-      }
+      "webhookId": "d7d5d7be-e079-406b-a825-d38c2833b4e2"
     },
     {
       "parameters": {
@@ -257,17 +239,11 @@
       "type": "n8n-nodes-base.redis",
       "typeVersion": 1,
       "position": [
-        -592,
-        48
+        -576,
+        304
       ],
-      "id": "e6a3bf66-053d-4f15-a8ff-6b9de4cf0634",
-      "name": "Redis",
-      "credentials": {
-        "redis": {
-          "id": "1ZFBZTuKCE2exGSy",
-          "name": "Redis account"
-        }
-      }
+      "id": "87ed91f1-7619-485b-b252-d01bb58ca6e6",
+      "name": "Redis"
     },
     {
       "parameters": {
@@ -278,17 +254,11 @@
       "type": "n8n-nodes-base.redis",
       "typeVersion": 1,
       "position": [
-        192,
-        -80
+        208,
+        176
       ],
-      "id": "87485594-fb13-4588-a072-fe0dcf126b6b",
-      "name": "Redis1",
-      "credentials": {
-        "redis": {
-          "id": "1ZFBZTuKCE2exGSy",
-          "name": "Redis account"
-        }
-      }
+      "id": "1157ffbe-8d85-4205-afcd-93d235846d05",
+      "name": "Redis1"
     },
     {
       "parameters": {
@@ -304,10 +274,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
       "position": [
-        -16,
-        160
+        0,
+        416
       ],
-      "id": "e7496ef1-6ebb-45f2-b263-74288719f10c",
+      "id": "f4238461-fbd0-4c42-b1ea-ab3ba682833d",
       "name": "Crear imagen"
     },
     {
@@ -322,18 +292,12 @@
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
       "position": [
-        192,
-        160
+        208,
+        416
       ],
-      "id": "3ecae777-5ca8-4de4-9e51-4ceac8665d42",
+      "id": "0755e505-ec98-4200-900a-0b3fe24dc72a",
       "name": "Send a photo message",
-      "webhookId": "747ddfa0-ab7d-4f3b-ae67-fe5801d384e2",
-      "credentials": {
-        "telegramApi": {
-          "id": "1jYBdd7EtSLOF7ze",
-          "name": "Nuevo_imagenes"
-        }
-      }
+      "webhookId": "747ddfa0-ab7d-4f3b-ae67-fe5801d384e2"
     },
     {
       "parameters": {
@@ -343,17 +307,11 @@
       "type": "n8n-nodes-base.redis",
       "typeVersion": 1,
       "position": [
-        400,
-        160
+        416,
+        416
       ],
-      "id": "8e399cc9-a30a-4424-ab6c-0d720a6848ef",
-      "name": "Redis2",
-      "credentials": {
-        "redis": {
-          "id": "1ZFBZTuKCE2exGSy",
-          "name": "Redis account"
-        }
-      }
+      "id": "26322526-789e-45af-b2c0-d672dc45bb63",
+      "name": "Redis2"
     },
     {
       "parameters": {
@@ -392,18 +350,12 @@
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
       "position": [
-        -16,
-        544
+        0,
+        800
       ],
-      "id": "e0a18e57-f8c7-4e13-becf-1d9ee0fb0469",
+      "id": "6bffce99-eefe-4d48-be91-a519e76a2514",
       "name": "Send a text message2",
-      "webhookId": "d2847c15-a8d0-4bff-9a84-b0944efabbb0",
-      "credentials": {
-        "telegramApi": {
-          "id": "1jYBdd7EtSLOF7ze",
-          "name": "Nuevo_imagenes"
-        }
-      }
+      "webhookId": "d2847c15-a8d0-4bff-9a84-b0944efabbb0"
     },
     {
       "parameters": {
@@ -416,18 +368,12 @@
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
       "position": [
-        1072,
-        32
+        1088,
+        288
       ],
-      "id": "cbe74853-7136-47d9-a440-3385efd05a7e",
+      "id": "98fe5d96-74eb-40b6-88f3-879c4d15cbe9",
       "name": "Send a text message3",
-      "webhookId": "d7d5d7be-e079-406b-a825-d38c2833b4e2",
-      "credentials": {
-        "telegramApi": {
-          "id": "1jYBdd7EtSLOF7ze",
-          "name": "Nuevo_imagenes"
-        }
-      }
+      "webhookId": "d7d5d7be-e079-406b-a825-d38c2833b4e2"
     },
     {
       "parameters": {
@@ -438,17 +384,11 @@
       "type": "n8n-nodes-base.redis",
       "typeVersion": 1,
       "position": [
-        1280,
-        32
+        1296,
+        288
       ],
-      "id": "ba4820a1-abe3-4d15-b46f-20390e1df883",
-      "name": "Redis3",
-      "credentials": {
-        "redis": {
-          "id": "1ZFBZTuKCE2exGSy",
-          "name": "Redis account"
-        }
-      }
+      "id": "e52da21d-bb4d-4648-9da1-3ad90bccd570",
+      "name": "Redis3"
     },
     {
       "parameters": {
@@ -457,10 +397,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -16,
-        368
+        0,
+        624
       ],
-      "id": "b0a6cc18-ceb4-4f59-9988-74857f5ff03c",
+      "id": "c80add1c-147c-4159-a28e-dc77c8eec825",
       "name": "Code in JavaScript"
     },
     {
@@ -490,10 +430,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        192,
-        368
+        208,
+        624
       ],
-      "id": "435b82bc-d8c7-4127-b45a-2a6f1056aaba",
+      "id": "4e7c0b3f-4b40-46cd-b14e-0a8e6e73459a",
       "name": "If"
     },
     {
@@ -505,18 +445,12 @@
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
       "position": [
-        448,
-        384
+        464,
+        640
       ],
-      "id": "3bde91a5-cb02-4584-b4d3-1035f22e5d06",
+      "id": "468a1e1e-0741-4dfb-a938-cb63091badd6",
       "name": "Get a file",
-      "webhookId": "2a673f20-676b-4452-b5e2-5ccfe5fb3f83",
-      "credentials": {
-        "telegramApi": {
-          "id": "1jYBdd7EtSLOF7ze",
-          "name": "Nuevo_imagenes"
-        }
-      }
+      "webhookId": "2a673f20-676b-4452-b5e2-5ccfe5fb3f83"
     },
     {
       "parameters": {
@@ -532,10 +466,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
       "position": [
-        864,
-        384
+        880,
+        640
       ],
-      "id": "58abad7b-d806-4f58-b2ba-ad5b97eb28f4",
+      "id": "d90a7b15-fff3-4bcc-ae9d-1f46a4ba5a0e",
       "name": "Crear imagen1"
     },
     {
@@ -555,10 +489,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        656,
-        384
+        672,
+        640
       ],
-      "id": "780105cd-7dbf-497d-858a-c68ffc5124e6",
+      "id": "72b71b39-c28b-4440-950b-ce8a89d37b30",
       "name": "Edit Fields"
     },
     {
@@ -573,18 +507,12 @@
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
       "position": [
-        1072,
-        384
+        1088,
+        640
       ],
-      "id": "a6b22924-4250-4d04-8b6c-ab7a911566ed",
+      "id": "aec67275-c780-4023-83d1-82cd78cc1c0c",
       "name": "Send a photo message1",
-      "webhookId": "747ddfa0-ab7d-4f3b-ae67-fe5801d384e2",
-      "credentials": {
-        "telegramApi": {
-          "id": "1jYBdd7EtSLOF7ze",
-          "name": "Nuevo_imagenes"
-        }
-      }
+      "webhookId": "747ddfa0-ab7d-4f3b-ae67-fe5801d384e2"
     },
     {
       "parameters": {
@@ -594,17 +522,11 @@
       "type": "n8n-nodes-base.redis",
       "typeVersion": 1,
       "position": [
-        1280,
-        384
+        1296,
+        640
       ],
-      "id": "55d6152f-99e1-4c3e-a771-da48ecf60de6",
-      "name": "Redis4",
-      "credentials": {
-        "redis": {
-          "id": "1ZFBZTuKCE2exGSy",
-          "name": "Redis account"
-        }
-      }
+      "id": "579dcaed-9409-4ffd-80b1-a2acf7bffd7c",
+      "name": "Redis4"
     }
   ],
   "connections": {
@@ -799,9 +721,7 @@
     "binaryMode": "separate"
   },
   "staticData": null,
-  "meta": {
-    "templateCredsSetupCompleted": true
-  },
+  "meta": null,
   "pinData": {
     "Telegram Trigger": [
       {
@@ -855,816 +775,18 @@
       }
     ]
   },
-  "versionId": "68eca905-5aa0-4929-8119-338bc1fbd90f",
-  "activeVersionId": "68eca905-5aa0-4929-8119-338bc1fbd90f",
-  "triggerCount": 1,
+  "versionId": "9b47bbdb-812a-43ec-9592-91a29c28ffd6",
+  "activeVersionId": null,
+  "triggerCount": 0,
   "shared": [
     {
-      "updatedAt": "2026-05-04T09:12:53.903Z",
-      "createdAt": "2026-05-04T09:12:53.903Z",
+      "updatedAt": "2026-05-11T08:32:35.411Z",
+      "createdAt": "2026-05-11T08:32:35.411Z",
       "role": "workflow:owner",
-      "workflowId": "fRDrFNSRXGixJjls",
-      "projectId": "JoN2JTiYqtJQ4ZAc"
+      "workflowId": "CyJoPPg1wehCdckN",
+      "projectId": "HySVhA2Rl8waskJL"
     }
   ],
-  "activeVersion": {
-    "updatedAt": "2026-05-05T07:11:56.000Z",
-    "createdAt": "2026-05-05T07:04:21.045Z",
-    "versionId": "68eca905-5aa0-4929-8119-338bc1fbd90f",
-    "workflowId": "fRDrFNSRXGixJjls",
-    "nodes": [
-      {
-        "parameters": {
-          "updates": [
-            "message"
-          ],
-          "additionalFields": {}
-        },
-        "type": "n8n-nodes-base.telegramTrigger",
-        "typeVersion": 1.2,
-        "position": [
-          -800,
-          48
-        ],
-        "id": "a35178c9-a409-44b6-8b8a-ba9cb789060a",
-        "name": "Telegram Trigger",
-        "webhookId": "03870d8a-64bd-4190-82c1-2937c22ac12c",
-        "credentials": {
-          "telegramApi": {
-            "id": "1jYBdd7EtSLOF7ze",
-            "name": "Nuevo_imagenes"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "rules": {
-            "values": [
-              {
-                "conditions": {
-                  "options": {
-                    "caseSensitive": true,
-                    "leftValue": "",
-                    "typeValidation": "loose",
-                    "version": 3
-                  },
-                  "conditions": [
-                    {
-                      "leftValue": "={{ $('Telegram Trigger').item.json.message.text }}",
-                      "rightValue": "/start",
-                      "operator": {
-                        "type": "string",
-                        "operation": "equals"
-                      },
-                      "id": "3863822b-e89b-411b-ac65-ec0b2ed7a236"
-                    }
-                  ],
-                  "combinator": "and"
-                },
-                "renameOutput": true,
-                "outputKey": "menu"
-              },
-              {
-                "conditions": {
-                  "options": {
-                    "caseSensitive": true,
-                    "leftValue": "",
-                    "typeValidation": "loose",
-                    "version": 3
-                  },
-                  "conditions": [
-                    {
-                      "id": "db5b2fb7-4d98-400f-92f3-e25df27dedc9",
-                      "leftValue": "={{ $('Telegram Trigger').item.json.message.text }}",
-                      "rightValue": "Generar una imagen",
-                      "operator": {
-                        "type": "string",
-                        "operation": "equals",
-                        "name": "filter.operator.equals"
-                      }
-                    }
-                  ],
-                  "combinator": "and"
-                },
-                "renameOutput": true,
-                "outputKey": "Generar una imagen"
-              },
-              {
-                "conditions": {
-                  "options": {
-                    "caseSensitive": true,
-                    "leftValue": "",
-                    "typeValidation": "loose",
-                    "version": 3
-                  },
-                  "conditions": [
-                    {
-                      "id": "63d302d8-2407-42e8-9182-e063046098c5",
-                      "leftValue": "={{ $('Telegram Trigger').item.json.message.text }}",
-                      "rightValue": "Modificar imagen",
-                      "operator": {
-                        "type": "string",
-                        "operation": "equals",
-                        "name": "filter.operator.equals"
-                      }
-                    }
-                  ],
-                  "combinator": "and"
-                },
-                "renameOutput": true,
-                "outputKey": "Modificar imagen"
-              },
-              {
-                "conditions": {
-                  "options": {
-                    "caseSensitive": true,
-                    "leftValue": "",
-                    "typeValidation": "loose",
-                    "version": 3
-                  },
-                  "conditions": [
-                    {
-                      "id": "8f1b9e7d-9ef2-42be-880c-e0b95e7b98a6",
-                      "leftValue": "={{ $json.accion }}",
-                      "rightValue": "accion_generar",
-                      "operator": {
-                        "type": "string",
-                        "operation": "equals",
-                        "name": "filter.operator.equals"
-                      }
-                    }
-                  ],
-                  "combinator": "and"
-                },
-                "renameOutput": true,
-                "outputKey": "accion_generar"
-              },
-              {
-                "conditions": {
-                  "options": {
-                    "caseSensitive": true,
-                    "leftValue": "",
-                    "typeValidation": "loose",
-                    "version": 3
-                  },
-                  "conditions": [
-                    {
-                      "id": "27eb5a80-d44d-493e-bb71-b74a25c895d9",
-                      "leftValue": "={{ $json.accion }}",
-                      "rightValue": "=accion_modificar",
-                      "operator": {
-                        "type": "string",
-                        "operation": "equals",
-                        "name": "filter.operator.equals"
-                      }
-                    }
-                  ],
-                  "combinator": "and"
-                },
-                "renameOutput": true,
-                "outputKey": "accion_modificar"
-              }
-            ]
-          },
-          "looseTypeValidation": true,
-          "options": {
-            "fallbackOutput": "extra"
-          }
-        },
-        "type": "n8n-nodes-base.switch",
-        "typeVersion": 3.4,
-        "position": [
-          -368,
-          -16
-        ],
-        "id": "634fe11a-d1e1-4b72-a6a8-0fd9327b3c9c",
-        "name": "Switch"
-      },
-      {
-        "parameters": {
-          "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
-          "text": "=🙌 Hola {{ $('Telegram Trigger').item.json.message.from.first_name }}\n\nEncantado de estar aqui, ¿qué te gustaría hacer ahora?",
-          "replyMarkup": "replyKeyboard",
-          "replyKeyboard": {
-            "rows": [
-              {
-                "row": {
-                  "buttons": [
-                    {
-                      "text": "Generar una imagen",
-                      "additionalFields": {}
-                    }
-                  ]
-                }
-              },
-              {
-                "row": {
-                  "buttons": [
-                    {
-                      "text": "Modificar imagen",
-                      "additionalFields": {}
-                    }
-                  ]
-                }
-              }
-            ]
-          },
-          "replyKeyboardOptions": {},
-          "additionalFields": {
-            "appendAttribution": false
-          }
-        },
-        "type": "n8n-nodes-base.telegram",
-        "typeVersion": 1.2,
-        "position": [
-          -16,
-          -256
-        ],
-        "id": "e46aed34-2349-4a57-8510-384fea87b7b5",
-        "name": "Send a text message",
-        "webhookId": "d2847c15-a8d0-4bff-9a84-b0944efabbb0",
-        "credentials": {
-          "telegramApi": {
-            "id": "1jYBdd7EtSLOF7ze",
-            "name": "Nuevo_imagenes"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
-          "text": "👌 Estupendo!! Dime que imagen quieres generar.",
-          "additionalFields": {
-            "appendAttribution": false
-          }
-        },
-        "type": "n8n-nodes-base.telegram",
-        "typeVersion": 1.2,
-        "position": [
-          -16,
-          -80
-        ],
-        "id": "6fb44a2c-b89f-4197-ac5a-a7a2986ce22d",
-        "name": "Send a text message1",
-        "webhookId": "d7d5d7be-e079-406b-a825-d38c2833b4e2",
-        "credentials": {
-          "telegramApi": {
-            "id": "1jYBdd7EtSLOF7ze",
-            "name": "Nuevo_imagenes"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "operation": "get",
-          "propertyName": "accion",
-          "key": "=ultima_accion:{{ $json.message.chat.id }}",
-          "options": {}
-        },
-        "type": "n8n-nodes-base.redis",
-        "typeVersion": 1,
-        "position": [
-          -592,
-          48
-        ],
-        "id": "e6a3bf66-053d-4f15-a8ff-6b9de4cf0634",
-        "name": "Redis",
-        "credentials": {
-          "redis": {
-            "id": "1ZFBZTuKCE2exGSy",
-            "name": "Redis account"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "operation": "set",
-          "key": "=ultima_accion:{{ $('Telegram Trigger').item.json.message.chat.id }}",
-          "value": "accion_generar"
-        },
-        "type": "n8n-nodes-base.redis",
-        "typeVersion": 1,
-        "position": [
-          192,
-          -80
-        ],
-        "id": "87485594-fb13-4588-a072-fe0dcf126b6b",
-        "name": "Redis1",
-        "credentials": {
-          "redis": {
-            "id": "1ZFBZTuKCE2exGSy",
-            "name": "Redis account"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "url": "=https://image.pollinations.ai/prompt/{{ $('Telegram Trigger').item.json.message.text }}?width=1024&height=1024&model=flux&nologo=true",
-          "options": {
-            "response": {
-              "response": {
-                "responseFormat": "file"
-              }
-            }
-          }
-        },
-        "type": "n8n-nodes-base.httpRequest",
-        "typeVersion": 4.4,
-        "position": [
-          -16,
-          160
-        ],
-        "id": "e7496ef1-6ebb-45f2-b263-74288719f10c",
-        "name": "Crear imagen"
-      },
-      {
-        "parameters": {
-          "operation": "sendPhoto",
-          "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
-          "binaryData": true,
-          "additionalFields": {
-            "caption": "={{ $('Telegram Trigger').item.json.message.text }}"
-          }
-        },
-        "type": "n8n-nodes-base.telegram",
-        "typeVersion": 1.2,
-        "position": [
-          192,
-          160
-        ],
-        "id": "3ecae777-5ca8-4de4-9e51-4ceac8665d42",
-        "name": "Send a photo message",
-        "webhookId": "747ddfa0-ab7d-4f3b-ae67-fe5801d384e2",
-        "credentials": {
-          "telegramApi": {
-            "id": "1jYBdd7EtSLOF7ze",
-            "name": "Nuevo_imagenes"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "operation": "delete",
-          "key": "=ultima_accion:{{ $('Telegram Trigger').item.json.message.chat.id }}"
-        },
-        "type": "n8n-nodes-base.redis",
-        "typeVersion": 1,
-        "position": [
-          400,
-          160
-        ],
-        "id": "8e399cc9-a30a-4424-ab6c-0d720a6848ef",
-        "name": "Redis2",
-        "credentials": {
-          "redis": {
-            "id": "1ZFBZTuKCE2exGSy",
-            "name": "Redis account"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
-          "text": "=🙌 Hola {{ $('Telegram Trigger').item.json.message.from.first_name }}\n\nEncantado de estar aqui, ¿qué te gustaría hacer ahora?",
-          "replyMarkup": "replyKeyboard",
-          "replyKeyboard": {
-            "rows": [
-              {
-                "row": {
-                  "buttons": [
-                    {
-                      "text": "Generar una imagen",
-                      "additionalFields": {}
-                    }
-                  ]
-                }
-              },
-              {
-                "row": {
-                  "buttons": [
-                    {
-                      "text": "Modificar imagen",
-                      "additionalFields": {}
-                    }
-                  ]
-                }
-              }
-            ]
-          },
-          "replyKeyboardOptions": {},
-          "additionalFields": {
-            "appendAttribution": false
-          }
-        },
-        "type": "n8n-nodes-base.telegram",
-        "typeVersion": 1.2,
-        "position": [
-          -16,
-          544
-        ],
-        "id": "e0a18e57-f8c7-4e13-becf-1d9ee0fb0469",
-        "name": "Send a text message2",
-        "webhookId": "d2847c15-a8d0-4bff-9a84-b0944efabbb0",
-        "credentials": {
-          "telegramApi": {
-            "id": "1jYBdd7EtSLOF7ze",
-            "name": "Nuevo_imagenes"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
-          "text": "👌 Vamos a ello!! Envíame una imagen para modificarla.",
-          "additionalFields": {
-            "appendAttribution": false
-          }
-        },
-        "type": "n8n-nodes-base.telegram",
-        "typeVersion": 1.2,
-        "position": [
-          1072,
-          32
-        ],
-        "id": "cbe74853-7136-47d9-a440-3385efd05a7e",
-        "name": "Send a text message3",
-        "webhookId": "d7d5d7be-e079-406b-a825-d38c2833b4e2",
-        "credentials": {
-          "telegramApi": {
-            "id": "1jYBdd7EtSLOF7ze",
-            "name": "Nuevo_imagenes"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "operation": "set",
-          "key": "=ultima_accion:{{ $('Telegram Trigger').item.json.message.chat.id }}",
-          "value": "accion_modificar"
-        },
-        "type": "n8n-nodes-base.redis",
-        "typeVersion": 1,
-        "position": [
-          1280,
-          32
-        ],
-        "id": "ba4820a1-abe3-4d15-b46f-20390e1df883",
-        "name": "Redis3",
-        "credentials": {
-          "redis": {
-            "id": "1ZFBZTuKCE2exGSy",
-            "name": "Redis account"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "jsCode": "// Acceder directamente al nodo Telegram Trigger por su nombre\nconst message = $('Telegram Trigger').first().json.message || {};\nconst photos = message.photo || [];\nconst caption = message.caption || message.text || '';\n\n// Caso 1: No hay imágenes\nif (photos.length === 0) {\n  return [\n    {\n      json: {\n        data: 'no hay imagenes',\n        caption: caption,\n        chat_id: message.chat?.id,\n        message_id: message.message_id\n      }\n    }\n  ];\n}\n\n// Caso 2: Hay imágenes → devolver la de mayor resolución\nconst largestPhoto = photos.reduce((max, photo) => {\n  return (photo.width * photo.height) > (max.width * max.height) ? photo : max;\n});\n\nreturn [\n  {\n    json: {\n      data: 'imagen existente',\n      file_id: largestPhoto.file_id,\n      file_unique_id: largestPhoto.file_unique_id,\n      file_size: largestPhoto.file_size,\n      width: largestPhoto.width,\n      height: largestPhoto.height,\n      caption: caption,\n      chat_id: message.chat?.id,\n      message_id: message.message_id\n    }\n  }\n];"
-        },
-        "type": "n8n-nodes-base.code",
-        "typeVersion": 2,
-        "position": [
-          -16,
-          368
-        ],
-        "id": "b0a6cc18-ceb4-4f59-9988-74857f5ff03c",
-        "name": "Code in JavaScript"
-      },
-      {
-        "parameters": {
-          "conditions": {
-            "options": {
-              "caseSensitive": true,
-              "leftValue": "",
-              "typeValidation": "strict",
-              "version": 3
-            },
-            "conditions": [
-              {
-                "id": "d0f6a3c7-d01d-48d2-b881-9d3639a73c5d",
-                "leftValue": "={{ $json.data }}",
-                "rightValue": "imagen existente",
-                "operator": {
-                  "type": "string",
-                  "operation": "notEquals"
-                }
-              }
-            ],
-            "combinator": "and"
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.if",
-        "typeVersion": 2.3,
-        "position": [
-          192,
-          368
-        ],
-        "id": "435b82bc-d8c7-4127-b45a-2a6f1056aaba",
-        "name": "If"
-      },
-      {
-        "parameters": {
-          "resource": "file",
-          "fileId": "={{ $json.file_id }}",
-          "additionalFields": {}
-        },
-        "type": "n8n-nodes-base.telegram",
-        "typeVersion": 1.2,
-        "position": [
-          448,
-          384
-        ],
-        "id": "3bde91a5-cb02-4584-b4d3-1035f22e5d06",
-        "name": "Get a file",
-        "webhookId": "2a673f20-676b-4452-b5e2-5ccfe5fb3f83",
-        "credentials": {
-          "telegramApi": {
-            "id": "1jYBdd7EtSLOF7ze",
-            "name": "Nuevo_imagenes"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "url": "=https://image.pollinations.ai/prompt/{{ $('If').item.json.caption }}?width=1024&height=1024&model=flux&nologo=true",
-          "options": {
-            "response": {
-              "response": {
-                "responseFormat": "file"
-              }
-            }
-          }
-        },
-        "type": "n8n-nodes-base.httpRequest",
-        "typeVersion": 4.4,
-        "position": [
-          864,
-          384
-        ],
-        "id": "58abad7b-d806-4f58-b2ba-ad5b97eb28f4",
-        "name": "Crear imagen1"
-      },
-      {
-        "parameters": {
-          "assignments": {
-            "assignments": [
-              {
-                "id": "98763cee-69b8-4cc7-936e-5473bf6580bc",
-                "name": "image_url",
-                "value": "=https://api.telegram.org/file/bot8631923612:AAE3y8ge_FV3v0DSH_CY146yElBylLTwIc8/{{ $json.result.file_path }}",
-                "type": "string"
-              }
-            ]
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.set",
-        "typeVersion": 3.4,
-        "position": [
-          656,
-          384
-        ],
-        "id": "780105cd-7dbf-497d-858a-c68ffc5124e6",
-        "name": "Edit Fields"
-      },
-      {
-        "parameters": {
-          "operation": "sendPhoto",
-          "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
-          "binaryData": true,
-          "additionalFields": {
-            "caption": "={{ $('Code in JavaScript').item.json.caption }}"
-          }
-        },
-        "type": "n8n-nodes-base.telegram",
-        "typeVersion": 1.2,
-        "position": [
-          1072,
-          384
-        ],
-        "id": "a6b22924-4250-4d04-8b6c-ab7a911566ed",
-        "name": "Send a photo message1",
-        "webhookId": "747ddfa0-ab7d-4f3b-ae67-fe5801d384e2",
-        "credentials": {
-          "telegramApi": {
-            "id": "1jYBdd7EtSLOF7ze",
-            "name": "Nuevo_imagenes"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "operation": "delete",
-          "key": "=ultima_accion:{{ $('Telegram Trigger').item.json.message.chat.id }}"
-        },
-        "type": "n8n-nodes-base.redis",
-        "typeVersion": 1,
-        "position": [
-          1280,
-          384
-        ],
-        "id": "55d6152f-99e1-4c3e-a771-da48ecf60de6",
-        "name": "Redis4",
-        "credentials": {
-          "redis": {
-            "id": "1ZFBZTuKCE2exGSy",
-            "name": "Redis account"
-          }
-        }
-      }
-    ],
-    "connections": {
-      "Telegram Trigger": {
-        "main": [
-          [
-            {
-              "node": "Redis",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Switch": {
-        "main": [
-          [
-            {
-              "node": "Send a text message",
-              "type": "main",
-              "index": 0
-            }
-          ],
-          [
-            {
-              "node": "Send a text message1",
-              "type": "main",
-              "index": 0
-            }
-          ],
-          [
-            {
-              "node": "Send a text message3",
-              "type": "main",
-              "index": 0
-            }
-          ],
-          [
-            {
-              "node": "Crear imagen",
-              "type": "main",
-              "index": 0
-            }
-          ],
-          [
-            {
-              "node": "Code in JavaScript",
-              "type": "main",
-              "index": 0
-            }
-          ],
-          [
-            {
-              "node": "Send a text message2",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Redis": {
-        "main": [
-          [
-            {
-              "node": "Switch",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Send a text message1": {
-        "main": [
-          [
-            {
-              "node": "Redis1",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Crear imagen": {
-        "main": [
-          [
-            {
-              "node": "Send a photo message",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Send a photo message": {
-        "main": [
-          [
-            {
-              "node": "Redis2",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Send a text message3": {
-        "main": [
-          [
-            {
-              "node": "Redis3",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Code in JavaScript": {
-        "main": [
-          [
-            {
-              "node": "If",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "If": {
-        "main": [
-          [
-            {
-              "node": "Send a text message3",
-              "type": "main",
-              "index": 0
-            }
-          ],
-          [
-            {
-              "node": "Get a file",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Get a file": {
-        "main": [
-          [
-            {
-              "node": "Edit Fields",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Edit Fields": {
-        "main": [
-          [
-            {
-              "node": "Crear imagen1",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Send a photo message1": {
-        "main": [
-          [
-            {
-              "node": "Redis4",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Crear imagen1": {
-        "main": [
-          [
-            {
-              "node": "Send a photo message1",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      }
-    },
-    "authors": "Haz Marca Marketing",
-    "name": "Version 68eca905",
-    "description": "",
-    "autosaved": true
-  },
+  "activeVersion": null,
   "tags": []
 }
