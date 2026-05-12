@@ -1,0 +1,134 @@
+{
+  "updatedAt": "2026-05-12T06:35:05.888Z",
+  "createdAt": "2026-05-11T09:32:03.413Z",
+  "id": "szRubO0grfGzlKbv",
+  "name": "Pruebas FacturaScript",
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -224,
+        32
+      ],
+      "id": "74d2a30a-0901-42e1-bb82-884e35b24ac2",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "c7492b1b-f662-45e1-9096-1583ca67e2d3",
+              "leftValue": "={{ $json.idproduct }}",
+              "rightValue": null,
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        272,
+        32
+      ],
+      "id": "490f61dc-e841-40f9-bb11-7d9aef038692",
+      "name": "Filter"
+    },
+    {
+      "parameters": {
+        "url": "https://hazmarca.marketing/slu/api/3/variantes?filter[idproducto]=43",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": []
+        },
+        "options": {
+          "pagination": {
+            "pagination": {
+              "parameters": {
+                "parameters": []
+              }
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        32,
+        32
+      ],
+      "id": "d86eda29-2720-45c8-bc55-6d4595c83efe",
+      "name": "HTTP Clientes1",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "qoKa7RcJ4cB8mSzv",
+          "name": "FacturaScript API"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTP Clientes1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Clientes1": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {},
+  "versionId": "ddd6faa4-9b40-4ae8-902c-59cea1d9594f",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2026-05-11T09:32:03.416Z",
+      "createdAt": "2026-05-11T09:32:03.416Z",
+      "role": "workflow:owner",
+      "workflowId": "szRubO0grfGzlKbv",
+      "projectId": "HySVhA2Rl8waskJL"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
