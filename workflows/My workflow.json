@@ -1,0 +1,100 @@
+{
+  "updatedAt": "2026-05-12T11:53:57.150Z",
+  "createdAt": "2026-05-12T11:49:59.861Z",
+  "id": "0sAVdw08PDJUFod1",
+  "name": "My workflow",
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -352,
+        -32
+      ],
+      "id": "5ac6f7c5-36d8-4b4a-a190-921db9350cae",
+      "name": "When chat message received",
+      "webhookId": "8be13693-fc78-4be4-abe7-f2dda221588b"
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "modelId": {
+          "__rl": true,
+          "value": "models/gemini-2.5-flash-image",
+          "mode": "list",
+          "cachedResultName": "models/gemini-2.5-flash-image (Nano Banana)"
+        },
+        "prompt": "={{ $json.chatInput }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1.2,
+      "position": [
+        -80,
+        -32
+      ],
+      "id": "cd775741-8b6e-45eb-bcc2-7fe904ba0979",
+      "name": "Generate an image",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "1IvicPhw881dGd64",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Generate an image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {
+    "When chat message received": [
+      {
+        "json": {
+          "action": "sendMessage",
+          "sessionId": "b6b8b19884834f1086967b0cd7391fb6",
+          "chatInput": "genera un gato haciendo surf"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "versionId": "8022a8de-4899-4420-9741-57f6962d7f6a",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2026-05-12T11:49:59.864Z",
+      "createdAt": "2026-05-12T11:49:59.864Z",
+      "role": "workflow:owner",
+      "workflowId": "0sAVdw08PDJUFod1",
+      "projectId": "HySVhA2Rl8waskJL"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
