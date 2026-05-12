@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-04-17T08:56:28.614Z",
-  "createdAt": "2026-04-06T10:41:45.275Z",
-  "id": "7AoBqZZ6xizydpuE",
+  "updatedAt": "2026-05-11T08:47:11.440Z",
+  "createdAt": "2026-05-11T08:26:49.957Z",
+  "id": "lJDZCmj3VuNML2SB",
   "name": "BD n8n y crear variables",
   "active": false,
   "isArchived": false,
@@ -29,12 +29,12 @@
       "type": "n8n-nodes-base.formTrigger",
       "typeVersion": 2.5,
       "position": [
-        -80,
-        112
+        0,
+        0
       ],
-      "id": "6ab445d1-0078-43b9-ab64-da93f17313dd",
+      "id": "2526865d-7609-494c-afa0-ed3661ae6e35",
       "name": "On form submission",
-      "webhookId": "05a4c5b9-8023-486e-b1fe-2be29aee317e"
+      "webhookId": "b55e4331-a5b3-44d3-88b0-4c19cdd71255"
     },
     {
       "parameters": {
@@ -53,10 +53,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        464,
-        112
+        544,
+        0
       ],
-      "id": "19006b06-5588-4e07-a093-8463bcc43668",
+      "id": "99be079a-e8b2-405e-bed9-c420028cb8e0",
       "name": "variables"
     },
     {
@@ -116,10 +116,10 @@
       "type": "n8n-nodes-base.dataTable",
       "typeVersion": 1.1,
       "position": [
-        192,
-        112
+        272,
+        0
       ],
-      "id": "2cd709e8-9c93-409a-89a4-e578d3a87d18",
+      "id": "8467f0a9-36c1-4d01-a348-7bc21f508cce",
       "name": "Insert row"
     }
   ],
@@ -169,16 +169,16 @@
       }
     ]
   },
-  "versionId": "9c64f0f7-be45-45a6-ab31-dc7ea9c3bfb1",
+  "versionId": "4f12dc9f-e5f4-476b-b8a8-489ab7b617e2",
   "activeVersionId": null,
   "triggerCount": 0,
   "shared": [
     {
-      "updatedAt": "2026-04-06T10:41:45.298Z",
-      "createdAt": "2026-04-06T10:41:45.298Z",
+      "updatedAt": "2026-05-11T08:26:49.958Z",
+      "createdAt": "2026-05-11T08:26:49.958Z",
       "role": "workflow:owner",
-      "workflowId": "7AoBqZZ6xizydpuE",
-      "projectId": "JoN2JTiYqtJQ4ZAc"
+      "workflowId": "lJDZCmj3VuNML2SB",
+      "projectId": "HySVhA2Rl8waskJL"
     }
   ],
   "activeVersion": null,
