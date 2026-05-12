@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-04-29T11:54:07.281Z",
-  "createdAt": "2026-04-29T11:48:02.231Z",
-  "id": "9CQC9lNzHqBWBEYp",
+  "updatedAt": "2026-05-11T08:46:33.319Z",
+  "createdAt": "2026-05-11T08:29:18.251Z",
+  "id": "346hCccGAciNuSq7",
   "name": "Generador de imagenes",
   "active": false,
   "isArchived": false,
@@ -13,10 +13,10 @@
       "type": "@n8n/n8n-nodes-langchain.chatTrigger",
       "typeVersion": 1.4,
       "position": [
-        -608,
-        -64
+        0,
+        0
       ],
-      "id": "dc0bf32e-5bb0-4403-98fc-dc73c334eeb3",
+      "id": "d62d0291-227e-4fe6-b557-a53cbb5811fd",
       "name": "When chat message received",
       "webhookId": "00ed277f-5d88-4e7d-868f-a0edc7d4e974"
     },
@@ -29,10 +29,10 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 3.1,
       "position": [
-        -336,
-        -64
+        272,
+        0
       ],
-      "id": "4150c660-c291-438a-ac84-fa9eed83185e",
+      "id": "f82945ba-575e-4514-9b4f-fc9e71cf4a5a",
       "name": "AI Agent"
     },
     {
@@ -43,17 +43,11 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        -336,
-        144
+        272,
+        208
       ],
-      "id": "842eb0bb-5c6a-45ec-9493-d119f646c509",
-      "name": "OpenRouter Chat Model",
-      "credentials": {
-        "openRouterApi": {
-          "id": "8DGn892MwpIeSqyd",
-          "name": "OpenRouter account 2"
-        }
-      }
+      "id": "c80fb2cc-08f7-4198-a18c-5285b90404ee",
+      "name": "OpenRouter Chat Model"
     },
     {
       "parameters": {
@@ -69,10 +63,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
       "position": [
-        16,
-        -64
+        624,
+        0
       ],
-      "id": "dd3bc519-bc24-45de-9b6c-aa13b22a3c02",
+      "id": "7a1c9d16-a7b8-4a7a-9418-93b792b5b273",
       "name": "HTTP Request"
     }
   ],
@@ -116,20 +110,18 @@
     "binaryMode": "separate"
   },
   "staticData": null,
-  "meta": {
-    "templateCredsSetupCompleted": true
-  },
+  "meta": null,
   "pinData": {},
-  "versionId": "2700d56d-7d41-4fba-b7eb-f93dfb7abf70",
+  "versionId": "e9625319-120f-4798-89eb-8990b1e4edef",
   "activeVersionId": null,
   "triggerCount": 0,
   "shared": [
     {
-      "updatedAt": "2026-04-29T11:48:02.248Z",
-      "createdAt": "2026-04-29T11:48:02.248Z",
+      "updatedAt": "2026-05-11T08:29:18.252Z",
+      "createdAt": "2026-05-11T08:29:18.252Z",
       "role": "workflow:owner",
-      "workflowId": "9CQC9lNzHqBWBEYp",
-      "projectId": "JoN2JTiYqtJQ4ZAc"
+      "workflowId": "346hCccGAciNuSq7",
+      "projectId": "HySVhA2Rl8waskJL"
     }
   ],
   "activeVersion": null,
