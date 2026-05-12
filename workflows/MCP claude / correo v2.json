@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-05-04T09:04:38.552Z",
-  "createdAt": "2026-04-28T10:06:39.163Z",
-  "id": "n3eePJs3XW2DOXFn",
+  "updatedAt": "2026-05-11T08:45:07.467Z",
+  "createdAt": "2026-05-11T08:33:13.777Z",
+  "id": "zaQoLeEailx1wBmK",
   "name": "MCP claude / correo v2",
-  "active": true,
+  "active": false,
   "isArchived": false,
   "nodes": [
     {
@@ -13,10 +13,10 @@
       "type": "@n8n/n8n-nodes-langchain.mcpTrigger",
       "typeVersion": 2,
       "position": [
-        -224,
-        -48
+        0,
+        0
       ],
-      "id": "bd6fea90-cf34-47f2-8412-8bc92cf2be62",
+      "id": "b824a595-289a-425a-b3ae-0673059bdced",
       "name": "MCP Server Trigger",
       "webhookId": "7eab83c2-aacf-4cb0-a17b-c1b78375be4e"
     },
@@ -36,17 +36,11 @@
       "type": "n8n-nodes-base.googleCalendarTool",
       "typeVersion": 1.3,
       "position": [
-        -864,
-        224
+        -640,
+        272
       ],
-      "id": "e66f7297-ed3a-430e-9aee-99418128488d",
-      "name": "Get many events in Google Calendar",
-      "credentials": {
-        "googleCalendarOAuth2Api": {
-          "id": "x4iIyan7LlmKH2vd",
-          "name": "Google Calendar account"
-        }
-      }
+      "id": "d3a04340-52f7-4f8a-8828-34294039b649",
+      "name": "Get many events in Google Calendar"
     },
     {
       "parameters": {
@@ -63,17 +57,11 @@
       "type": "n8n-nodes-base.googleCalendarTool",
       "typeVersion": 1.3,
       "position": [
-        -704,
-        224
+        -480,
+        272
       ],
-      "id": "510c99d0-d5d2-4db8-ab1c-9dc2ce245637",
-      "name": "Create an event in Google Calendar",
-      "credentials": {
-        "googleCalendarOAuth2Api": {
-          "id": "x4iIyan7LlmKH2vd",
-          "name": "Google Calendar account"
-        }
-      }
+      "id": "df58d891-dd39-4fa7-8b45-e9f5fcd9af26",
+      "name": "Create an event in Google Calendar"
     },
     {
       "parameters": {
@@ -88,18 +76,12 @@
       "type": "n8n-nodes-base.emailSendTool",
       "typeVersion": 2.1,
       "position": [
-        -384,
-        224
+        -160,
+        272
       ],
-      "id": "3298cded-b861-4b0e-9adf-f2580d74a9bb",
+      "id": "00f91397-f3a7-4e7f-84d9-7dad191676df",
       "name": "Send an Email in Send Email",
-      "webhookId": "6b1dc8cb-11e4-43d5-95ca-0c84a793f7b2",
-      "credentials": {
-        "smtp": {
-          "id": "BvcQlABK9nldTRa1",
-          "name": "SMTP account"
-        }
-      }
+      "webhookId": "6b1dc8cb-11e4-43d5-95ca-0c84a793f7b2"
     },
     {
       "parameters": {
@@ -113,18 +95,12 @@
       "type": "n8n-nodes-base.gmailTool",
       "typeVersion": 2.2,
       "position": [
-        -80,
-        176
+        144,
+        224
       ],
-      "id": "e3d35483-5a0a-4f2e-9b74-ec68c1084a31",
+      "id": "6f2c0b46-62ff-4407-b333-b7fd39718282",
       "name": "Send a message in Gmail",
-      "webhookId": "258c3fdc-36e3-44fc-8ca2-d6821027473c",
-      "credentials": {
-        "gmailOAuth2": {
-          "id": "3vK2HHs9emcsnRE2",
-          "name": "Gmail contacta"
-        }
-      }
+      "webhookId": "258c3fdc-36e3-44fc-8ca2-d6821027473c"
     },
     {
       "parameters": {
@@ -136,36 +112,15 @@
       "type": "n8n-nodes-base.gmailTool",
       "typeVersion": 2.2,
       "position": [
-        -544,
-        224
+        -320,
+        272
       ],
-      "id": "94df0451-6dca-4210-b606-d8a6ed60329e",
+      "id": "fff1b555-e25d-4eb8-a07b-34f31e838178",
       "name": "Send a message in Gmail1",
-      "webhookId": "258c3fdc-36e3-44fc-8ca2-d6821027473c",
-      "credentials": {
-        "gmailOAuth2": {
-          "id": "7IQtRfUpY9LH2Jji",
-          "name": "Gmail account"
-        }
-      }
+      "webhookId": "258c3fdc-36e3-44fc-8ca2-d6821027473c"
     }
   ],
   "connections": {
-    "Get many events in Google Calendar": {
-      "ai_tool": [
-        []
-      ]
-    },
-    "Create an event in Google Calendar": {
-      "ai_tool": [
-        []
-      ]
-    },
-    "Send an Email in Send Email": {
-      "ai_tool": [
-        []
-      ]
-    },
     "Send a message in Gmail": {
       "ai_tool": [
         [
@@ -180,211 +135,23 @@
   },
   "settings": {
     "executionOrder": "v1",
-    "binaryMode": "separate",
-    "availableInMCP": false,
-    "timeSavedMode": "fixed",
-    "errorWorkflow": "4QTTaZP0TYsnmiyK",
-    "callerPolicy": "workflowsFromSameOwner"
+    "binaryMode": "separate"
   },
   "staticData": null,
-  "meta": {
-    "templateCredsSetupCompleted": true
-  },
+  "meta": null,
   "pinData": {},
-  "versionId": "095f9332-b514-4f29-94ca-4e34ff6915b1",
-  "activeVersionId": "095f9332-b514-4f29-94ca-4e34ff6915b1",
-  "triggerCount": 1,
+  "versionId": "3b2efdaa-6f4c-4144-a085-194c0036f232",
+  "activeVersionId": null,
+  "triggerCount": 0,
   "shared": [
     {
-      "updatedAt": "2026-04-28T10:06:39.173Z",
-      "createdAt": "2026-04-28T10:06:39.173Z",
+      "updatedAt": "2026-05-11T08:33:13.778Z",
+      "createdAt": "2026-05-11T08:33:13.778Z",
       "role": "workflow:owner",
-      "workflowId": "n3eePJs3XW2DOXFn",
-      "projectId": "JoN2JTiYqtJQ4ZAc"
+      "workflowId": "zaQoLeEailx1wBmK",
+      "projectId": "HySVhA2Rl8waskJL"
     }
   ],
-  "activeVersion": {
-    "updatedAt": "2026-04-29T07:18:37.000Z",
-    "createdAt": "2026-04-29T07:00:03.359Z",
-    "versionId": "095f9332-b514-4f29-94ca-4e34ff6915b1",
-    "workflowId": "n3eePJs3XW2DOXFn",
-    "nodes": [
-      {
-        "parameters": {
-          "path": "7eab83c2-aacf-4cb0-a17b-c1b78375be4e"
-        },
-        "type": "@n8n/n8n-nodes-langchain.mcpTrigger",
-        "typeVersion": 2,
-        "position": [
-          -224,
-          -48
-        ],
-        "id": "bd6fea90-cf34-47f2-8412-8bc92cf2be62",
-        "name": "MCP Server Trigger",
-        "webhookId": "7eab83c2-aacf-4cb0-a17b-c1b78375be4e"
-      },
-      {
-        "parameters": {
-          "operation": "getAll",
-          "calendar": {
-            "__rl": true,
-            "value": "9e303b9ae09b4a3351731b434b2ec697ee4a30d5d1afb0337699d8aa38fa8abc@group.calendar.google.com",
-            "mode": "list",
-            "cachedResultName": "prueba"
-          },
-          "timeMin": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('After', ``, 'string') }}",
-          "timeMax": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Before', ``, 'string') }}",
-          "options": {}
-        },
-        "type": "n8n-nodes-base.googleCalendarTool",
-        "typeVersion": 1.3,
-        "position": [
-          -864,
-          224
-        ],
-        "id": "e66f7297-ed3a-430e-9aee-99418128488d",
-        "name": "Get many events in Google Calendar",
-        "credentials": {
-          "googleCalendarOAuth2Api": {
-            "id": "x4iIyan7LlmKH2vd",
-            "name": "Google Calendar account"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "calendar": {
-            "__rl": true,
-            "value": "9e303b9ae09b4a3351731b434b2ec697ee4a30d5d1afb0337699d8aa38fa8abc@group.calendar.google.com",
-            "mode": "list",
-            "cachedResultName": "prueba"
-          },
-          "start": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Start', ``, 'string') }}",
-          "end": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('End', ``, 'string') }}",
-          "additionalFields": {}
-        },
-        "type": "n8n-nodes-base.googleCalendarTool",
-        "typeVersion": 1.3,
-        "position": [
-          -704,
-          224
-        ],
-        "id": "510c99d0-d5d2-4db8-ab1c-9dc2ce245637",
-        "name": "Create an event in Google Calendar",
-        "credentials": {
-          "googleCalendarOAuth2Api": {
-            "id": "x4iIyan7LlmKH2vd",
-            "name": "Google Calendar account"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "fromEmail": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('From_Email', ``, 'string') }}",
-          "toEmail": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('To_Email', ``, 'string') }}",
-          "subject": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Subject', ``, 'string') }}",
-          "html": "={{ $fromAI('HTML', ``, 'string') }}\n\n\n<br><br>\n<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"font-family: Arial, sans-serif; border-collapse: collapse;\">\n  <tr>\n    <td style=\"padding-right: 16px; border-right: 3px solid #8BC34A; vertical-align: middle;\">\n      <img src=\"https://hazmarca.marketing/wp-content/uploads/2021/04/cropped-hazmarcalogo-1.png\" alt=\"Haz Marca\" width=\"70\" style=\"display: block;\">\n    </td>\n    <td style=\"padding-left: 16px; vertical-align: middle;\">\n      <p style=\"margin: 0 0 6px 0; font-size: 14px; color: #222;\"><strong>Leandro — Haz Marca Marketing Digital</strong></p>\n      <p style=\"margin: 0 0 4px 0; font-size: 12px; color: #555;\">\n        <strong>dir:</strong> Torneo Parque Empresarial, Edificio Vilamar 2, 2ª planta, oficina 3. Calle Biología, 12, 41015 Sevilla\n      </p>\n      <p style=\"margin: 0; font-size: 12px; color: #555;\">\n        <strong>web:</strong> <a href=\"http://hazmarca.marketing\" style=\"color: #8BC34A; text-decoration: none;\">hazmarca.marketing</a>\n        &nbsp;&nbsp;\n        <strong>e:</strong> <a href=\"mailto:practicas.hazmarca@gmail.com\" style=\"color: #8BC34A; text-decoration: none;\">contacta@hazmarca.es</a>\n      </p>\n    </td>\n  </tr>\n</table>\n\n<p style=\"font-family: Arial, sans-serif; font-size: 9px; color: #999; line-height: 1.4; margin-top: 16px; max-width: 700px;\">\nEste mensaje y sus archivos adjuntos van dirigidos exclusivamente a su destinatario, pudiendo contener información confidencial sometida a secreto profesional. No está permitida su reproducción o distribución sin la autorización expresa de HAZ MARCA MARKETING DIGITAL, S.L. Si usted no es el destinatario final por favor elimínelo e infórmenos por esta vía. Le informamos que tratamos sus datos personales con la finalidad de realizar la gestión administrativa, contable y fiscal, así como enviarle comunicaciones comerciales sobre nuestros servicios. Los datos proporcionados se conservarán mientras se mantenga la relación comercial o durante los años necesarios para cumplir con las obligaciones legales. Los datos no se cederán a terceros salvo en los casos en que exista una obligación legal.\n</p>",
-          "options": {
-            "appendAttribution": false
-          }
-        },
-        "type": "n8n-nodes-base.emailSendTool",
-        "typeVersion": 2.1,
-        "position": [
-          -384,
-          224
-        ],
-        "id": "3298cded-b861-4b0e-9adf-f2580d74a9bb",
-        "name": "Send an Email in Send Email",
-        "webhookId": "6b1dc8cb-11e4-43d5-95ca-0c84a793f7b2",
-        "credentials": {
-          "smtp": {
-            "id": "BvcQlABK9nldTRa1",
-            "name": "SMTP account"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "sendTo": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('To', ``, 'string') }}",
-          "subject": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Subject', ``, 'string') }}",
-          "message": "={{ $fromAI('HTML', ``, 'string') }}\n\n\n<br><br>\n<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"font-family: Arial, sans-serif; border-collapse: collapse;\">\n  <tr>\n    <td style=\"padding-right: 16px; border-right: 3px solid #8BC34A; vertical-align: middle;\">\n      <img src=\"https://hazmarca.marketing/wp-content/uploads/2021/04/cropped-hazmarcalogo-1.png\" alt=\"Haz Marca\" width=\"70\" style=\"display: block;\">\n    </td>\n    <td style=\"padding-left: 16px; vertical-align: middle;\">\n      <p style=\"margin: 0 0 6px 0; font-size: 14px; color: #222;\"><strong>Leandro — Haz Marca Marketing Digital</strong></p>\n      <p style=\"margin: 0 0 4px 0; font-size: 12px; color: #555;\">\n        <strong>dir:</strong> Torneo Parque Empresarial, Edificio Vilamar 2, 2ª planta, oficina 3. Calle Biología, 12, 41015 Sevilla\n      </p>\n      <p style=\"margin: 0; font-size: 12px; color: #555;\">\n        <strong>web:</strong> <a href=\"http://hazmarca.marketing\" style=\"color: #8BC34A; text-decoration: none;\">hazmarca.marketing</a>\n        &nbsp;&nbsp;\n        <strong>e:</strong> <a href=\"mailto:practicas.hazmarca@gmail.com\" style=\"color: #8BC34A; text-decoration: none;\">contacta@hazmarca.es</a>\n      </p>\n    </td>\n  </tr>\n</table>\n\n<p style=\"font-family: Arial, sans-serif; font-size: 9px; color: #999; line-height: 1.4; margin-top: 16px; max-width: 700px;\">\nEste mensaje y sus archivos adjuntos van dirigidos exclusivamente a su destinatario, pudiendo contener información confidencial sometida a secreto profesional. No está permitida su reproducción o distribución sin la autorización expresa de HAZ MARCA MARKETING DIGITAL, S.L. Si usted no es el destinatario final por favor elimínelo e infórmenos por esta vía. Le informamos que tratamos sus datos personales con la finalidad de realizar la gestión administrativa, contable y fiscal, así como enviarle comunicaciones comerciales sobre nuestros servicios. Los datos proporcionados se conservarán mientras se mantenga la relación comercial o durante los años necesarios para cumplir con las obligaciones legales. Los datos no se cederán a terceros salvo en los casos en que exista una obligación legal.\n</p>",
-          "options": {
-            "appendAttribution": false
-          }
-        },
-        "type": "n8n-nodes-base.gmailTool",
-        "typeVersion": 2.2,
-        "position": [
-          -80,
-          176
-        ],
-        "id": "e3d35483-5a0a-4f2e-9b74-ec68c1084a31",
-        "name": "Send a message in Gmail",
-        "webhookId": "258c3fdc-36e3-44fc-8ca2-d6821027473c",
-        "credentials": {
-          "gmailOAuth2": {
-            "id": "3vK2HHs9emcsnRE2",
-            "name": "Gmail contacta"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "sendTo": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('To', ``, 'string') }}",
-          "subject": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Subject', ``, 'string') }}",
-          "message": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Message', ``, 'string') }}",
-          "options": {}
-        },
-        "type": "n8n-nodes-base.gmailTool",
-        "typeVersion": 2.2,
-        "position": [
-          -544,
-          224
-        ],
-        "id": "94df0451-6dca-4210-b606-d8a6ed60329e",
-        "name": "Send a message in Gmail1",
-        "webhookId": "258c3fdc-36e3-44fc-8ca2-d6821027473c",
-        "credentials": {
-          "gmailOAuth2": {
-            "id": "7IQtRfUpY9LH2Jji",
-            "name": "Gmail account"
-          }
-        }
-      }
-    ],
-    "connections": {
-      "Get many events in Google Calendar": {
-        "ai_tool": [
-          []
-        ]
-      },
-      "Create an event in Google Calendar": {
-        "ai_tool": [
-          []
-        ]
-      },
-      "Send an Email in Send Email": {
-        "ai_tool": [
-          []
-        ]
-      },
-      "Send a message in Gmail": {
-        "ai_tool": [
-          [
-            {
-              "node": "MCP Server Trigger",
-              "type": "ai_tool",
-              "index": 0
-            }
-          ]
-        ]
-      }
-    },
-    "authors": "Haz Marca Marketing",
-    "name": "Version 095f9332",
-    "description": "",
-    "autosaved": true
-  },
+  "activeVersion": null,
   "tags": []
 }
