@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-04-17T08:56:26.961Z",
-  "createdAt": "2026-04-07T07:21:18.769Z",
-  "id": "qlvK9kUkGkLeYgV6",
+  "updatedAt": "2026-05-11T08:45:41.125Z",
+  "createdAt": "2026-05-11T08:32:07.570Z",
+  "id": "UyRzyDGVAMBNbhPo",
   "name": "pruebas loop con json de noticias",
   "active": false,
   "isArchived": false,
@@ -11,10 +11,10 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        -928,
-        -16
+        -656,
+        384
       ],
-      "id": "ef10e004-9c9e-4717-b1f7-cea1983963af",
+      "id": "3ab547f1-a2a9-43d7-88a8-0b4d31c51034",
       "name": "When clicking ‘Execute workflow’"
     },
     {
@@ -25,10 +25,10 @@
       "type": "n8n-nodes-base.rssFeedRead",
       "typeVersion": 1.2,
       "position": [
-        -720,
-        -16
+        -448,
+        384
       ],
-      "id": "18c09e20-56ca-42ff-a5c5-dfa1aae8deea",
+      "id": "e712f095-6bd3-4399-8fdc-611333e84df1",
       "name": "RSS Read"
     },
     {
@@ -76,10 +76,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        -272,
-        -400
+        0,
+        0
       ],
-      "id": "74d802cf-75b6-4e99-ae23-8689d0db0089",
+      "id": "fd3da143-bb98-49d3-a19c-51030b87ce3f",
       "name": "If"
     },
     {
@@ -143,10 +143,10 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.4,
       "position": [
-        -272,
-        -224
+        0,
+        176
       ],
-      "id": "a4d1a1d9-c63a-4e20-a9da-8aea9466d34b",
+      "id": "38c9f3da-0dc3-4efa-adcd-acfab09f1d55",
       "name": "Switch"
     },
     {
@@ -158,10 +158,10 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        -224,
-        48
+        48,
+        448
       ],
-      "id": "d9b502f6-513e-4861-8568-951e96d25b3e",
+      "id": "7e48c37d-e44e-4131-b621-f084b476d7a4",
       "name": "Loop Over Items"
     },
     {
@@ -170,10 +170,10 @@
       "name": "Replace Me",
       "typeVersion": 1,
       "position": [
-        48,
-        128
+        320,
+        528
       ],
-      "id": "2752d2f7-29e2-42c3-8cf7-7f48401c7522",
+      "id": "786eae40-3bfe-4952-b53b-d408c5de2ab0",
       "placeholder": true
     },
     {
@@ -181,10 +181,10 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        256,
-        -48
+        528,
+        352
       ],
-      "id": "422e96b4-21ee-42ed-bdfd-1a7ab9e450ec",
+      "id": "c817d883-c0ec-413e-98d6-91968226022b",
       "name": "No Operation, do nothing"
     }
   ],
@@ -198,16 +198,6 @@
             "index": 0
           }
         ]
-      ]
-    },
-    "RSS Read": {
-      "main": [
-        []
-      ]
-    },
-    "If": {
-      "main": [
-        []
       ]
     },
     "Loop Over Items": {
@@ -247,16 +237,16 @@
   "staticData": null,
   "meta": null,
   "pinData": {},
-  "versionId": "13d03270-6e4e-4521-b1f8-f9f807283120",
+  "versionId": "e8eed69b-4929-4754-b81c-d134bb615d5b",
   "activeVersionId": null,
   "triggerCount": 0,
   "shared": [
     {
-      "updatedAt": "2026-04-07T07:21:18.779Z",
-      "createdAt": "2026-04-07T07:21:18.779Z",
+      "updatedAt": "2026-05-11T08:32:07.571Z",
+      "createdAt": "2026-05-11T08:32:07.571Z",
       "role": "workflow:owner",
-      "workflowId": "qlvK9kUkGkLeYgV6",
-      "projectId": "JoN2JTiYqtJQ4ZAc"
+      "workflowId": "UyRzyDGVAMBNbhPo",
+      "projectId": "HySVhA2Rl8waskJL"
     }
   ],
   "activeVersion": null,
