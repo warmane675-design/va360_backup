@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-04-17T08:56:40.575Z",
-  "createdAt": "2026-04-07T08:33:06.449Z",
-  "id": "oCWTkFlPVwz5uwDx",
+  "updatedAt": "2026-05-11T08:46:17.295Z",
+  "createdAt": "2026-05-11T08:30:02.104Z",
+  "id": "NE3Mu1QGQjcjOSI2",
   "name": "HTTP",
   "active": false,
   "isArchived": false,
@@ -11,10 +11,10 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        -400,
-        -288
+        0,
+        0
       ],
-      "id": "0423d6d7-3875-4b7f-8e80-4efa859b033f",
+      "id": "eee959f3-64fd-41b9-82c3-2e1225d27d4a",
       "name": "When clicking ‘Execute workflow’"
     },
     {
@@ -42,17 +42,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
       "position": [
-        -160,
-        -96
+        240,
+        192
       ],
-      "id": "a2ff91ae-7052-470a-8351-abc0749f325e",
-      "name": "250movies",
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "Ccmw9ymiIJYsBHqO",
-          "name": "Header Auth account"
-        }
-      }
+      "id": "2fdb40d8-f99c-48f0-aabe-b3d9d504aef2",
+      "name": "250movies"
     },
     {
       "parameters": {
@@ -63,10 +57,10 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2.1,
       "position": [
-        -400,
-        32
+        0,
+        320
       ],
-      "id": "8f7592c0-29e1-43bf-81a7-daafc6d5fe76",
+      "id": "1f09ff02-0e05-416a-b435-c8f83c016b98",
       "name": "Webhook",
       "webhookId": "ec7442fb-5ab3-42b3-91c3-0a255ff69a60"
     },
@@ -78,10 +72,10 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.5,
       "position": [
-        48,
-        -96
+        448,
+        192
       ],
-      "id": "c4938995-94d1-4d35-9a3c-6c729a91cc52",
+      "id": "bd5184cc-ae4e-40f7-b10d-146c736df780",
       "name": "Respond to Webhook"
     }
   ],
@@ -127,16 +121,16 @@
   "staticData": null,
   "meta": null,
   "pinData": {},
-  "versionId": "87ea8ae1-5370-4754-832f-1124e83a8a2a",
+  "versionId": "16376bf2-313e-489d-9ec6-4f006bf0a265",
   "activeVersionId": null,
-  "triggerCount": 1,
+  "triggerCount": 0,
   "shared": [
     {
-      "updatedAt": "2026-04-07T08:33:06.455Z",
-      "createdAt": "2026-04-07T08:33:06.455Z",
+      "updatedAt": "2026-05-11T08:30:02.105Z",
+      "createdAt": "2026-05-11T08:30:02.105Z",
       "role": "workflow:owner",
-      "workflowId": "oCWTkFlPVwz5uwDx",
-      "projectId": "JoN2JTiYqtJQ4ZAc"
+      "workflowId": "NE3Mu1QGQjcjOSI2",
+      "projectId": "HySVhA2Rl8waskJL"
     }
   ],
   "activeVersion": null,
