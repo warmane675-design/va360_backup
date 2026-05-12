@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-04-28T09:02:18.951Z",
-  "createdAt": "2026-04-28T08:56:58.013Z",
-  "id": "q5NJNwTXubYFaSt4",
+  "updatedAt": "2026-05-11T08:47:22.405Z",
+  "createdAt": "2026-05-11T08:26:02.810Z",
+  "id": "BF5nlMKU6Kmk7WfT",
   "name": "[VA360] Backup Workflows",
   "active": false,
   "isArchived": false,
@@ -11,10 +11,10 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        -448,
-        96
+        -944,
+        64
       ],
-      "id": "38d6be6a-138b-488e-8553-5e3f0ee91a3d",
+      "id": "f6382971-c440-42a3-9566-e864c9fe1ca6",
       "name": "When clicking ‘Execute workflow’"
     },
     {
@@ -46,10 +46,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -176,
-        192
+        -672,
+        160
       ],
-      "id": "192f950c-ae09-46da-b8f2-1ce123b04c18",
+      "id": "25f10514-04f7-4d58-a6e5-f78ac3847686",
       "name": "Edit Fields"
     },
     {
@@ -60,17 +60,11 @@
       "type": "n8n-nodes-base.n8n",
       "typeVersion": 1,
       "position": [
-        32,
-        192
+        -464,
+        160
       ],
-      "id": "2f0e56f2-20cc-474e-ba80-92a85b83ec54",
-      "name": "Get many workflows",
-      "credentials": {
-        "n8nApi": {
-          "id": "LvKb4B9O6YH0mtzY",
-          "name": "n8n account"
-        }
-      }
+      "id": "f34e9811-0807-4599-8d69-ba767883af00",
+      "name": "Get many workflows"
     },
     {
       "parameters": {
@@ -79,10 +73,10 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        240,
-        192
+        -256,
+        160
       ],
-      "id": "efcb04d0-8d8a-4942-b663-ef93e7dca197",
+      "id": "c97daf6f-dde8-473d-b45f-906233cb62d0",
       "name": "Loop Over Items"
     },
     {
@@ -106,10 +100,10 @@
       "type": "n8n-nodes-base.github",
       "typeVersion": 1.1,
       "position": [
-        496,
-        208
+        0,
+        176
       ],
-      "id": "26400c88-289a-420a-9b95-057b81ba1155",
+      "id": "4b07883e-a1c6-45e8-8015-82d1e09b3080",
       "name": "Get a file",
       "webhookId": "303a4744-e919-4c8d-8219-b04c936ca1a4",
       "alwaysOutputData": true,
@@ -120,10 +114,10 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        688,
-        368
+        192,
+        336
       ],
-      "id": "5076dc27-de24-4a4d-9ab9-dc8eee4ee922",
+      "id": "fbf40b7d-17a5-4ae2-a66b-c695e4d3c9ff",
       "name": "Merge"
     },
     {
@@ -131,22 +125,22 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        496,
-        32
+        0,
+        0
       ],
-      "id": "9c9ac16d-d6c3-4f3a-85e0-e826c38b2599",
+      "id": "a54b72be-aea0-415d-860c-166f6ef9c011",
       "name": "No Operation, do nothing"
     },
     {
       "parameters": {
         "jsCode": "// File Returned with Content\nif (Object.keys($input.all()[0].json).includes(\"content\")) {\n  // Get JSON Objects\n  var origWorkflow = JSON.parse(Buffer.from($input.all()[0].json.content, 'base64'));\n  var n8nWorkflow = $input.all()[1].json;\n  \n  // Order JSON Objects\n  var orderedOriginal = {}\n  var orderedActual = {}\n  \n  Object.keys(origWorkflow).sort().forEach(function(key) {\n    orderedOriginal[key] = origWorkflow[key];\n  });\n  \n  Object.keys(n8nWorkflow).sort().forEach(function(key) {\n    orderedActual[key] = n8nWorkflow[key];\n  });\n\n  // Determine Difference\n  if ( JSON.stringify(orderedOriginal) === JSON.stringify(orderedActual) ) {\n    $input.all()[0].json.github_status = \"same\";\n    $input.all()[0].json.content_decoded = orderedOriginal;\n  } else {\n    $input.all()[0].json.github_status = \"different\";\n    $input.all()[0].json.content_decoded = orderedOriginal;\n    $input.all()[0].json.n8n_data_stringy = JSON.stringify(orderedActual, null, 2);\n  }\n// No File Returned / New Workflow\n} else {\n  // Order JSON Object\n  var n8nWorkflow = ($input.all()[1].json);\n  var orderedActual = {}\n  Object.keys(n8nWorkflow).sort().forEach(function(key) {\n    orderedActual[key] = n8nWorkflow[key];\n  });\n  \n  // Proper Formatting\n  $input.all()[0].json.github_status = \"new\";\n  $input.all()[0].json.n8n_data_stringy = JSON.stringify(orderedActual, null, 2);\n}\n\n// Return Items\nreturn $input.all();"
       },
-      "id": "4c268cc4-cb28-4ade-8be7-a8c6263fbc73",
+      "id": "f5cfd4b4-6631-4d70-b24f-c6b80a4c8645",
       "name": "isDiffOrNew",
       "type": "n8n-nodes-base.code",
       "position": [
-        880,
-        368
+        384,
+        336
       ],
       "typeVersion": 1
     },
@@ -235,10 +229,10 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.4,
       "position": [
-        1216,
-        256
+        720,
+        224
       ],
-      "id": "79b27c16-80e1-4584-a36b-149711a9c661",
+      "id": "8ac65f2c-3d71-4d43-b8ce-7486d1b15c51",
       "name": "Switch"
     },
     {
@@ -261,28 +255,22 @@
       "type": "n8n-nodes-base.github",
       "typeVersion": 1.1,
       "position": [
-        1472,
-        448
+        976,
+        416
       ],
-      "id": "359139d2-eb22-4689-9758-57444c6b7e6d",
+      "id": "1c3ca3e0-6dd3-4694-b8ca-c90464970131",
       "name": "Create a file",
-      "webhookId": "3ca15228-bc4f-4145-87e8-8caa77879210",
-      "credentials": {
-        "githubApi": {
-          "id": "bL2jmmOo9XrBpvpv",
-          "name": "GitHub account"
-        }
-      }
+      "webhookId": "3ca15228-bc4f-4145-87e8-8caa77879210"
     },
     {
       "parameters": {},
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        1472,
-        656
+        976,
+        624
       ],
-      "id": "532ef29c-402f-49cd-b59d-989deb809172",
+      "id": "9a4658ca-2fcc-49c1-beb5-12ea3021e9a1",
       "name": "No Operation, do nothing1"
     },
     {
@@ -306,18 +294,12 @@
       "type": "n8n-nodes-base.github",
       "typeVersion": 1.1,
       "position": [
-        1488,
-        864
+        992,
+        832
       ],
-      "id": "1ee1c455-8f2b-4db3-96a2-108690c20ea2",
+      "id": "fa8a19de-c62f-479c-8587-3805023e5434",
       "name": "Edit a file",
-      "webhookId": "7b1f849e-73e5-4b26-9207-36e5889d5d07",
-      "credentials": {
-        "githubApi": {
-          "id": "bL2jmmOo9XrBpvpv",
-          "name": "GitHub account"
-        }
-      }
+      "webhookId": "7b1f849e-73e5-4b26-9207-36e5889d5d07"
     },
     {
       "parameters": {
@@ -326,10 +308,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1136,
-        464
+        640,
+        432
       ],
-      "id": "3feeb699-df2c-4f67-9ade-b23ecda89ae9",
+      "id": "366c3c06-5759-4efc-bea0-d921b788305c",
       "name": "Code in JavaScript"
     },
     {
@@ -340,10 +322,10 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2.1,
       "position": [
-        -448,
-        288
+        -944,
+        256
       ],
-      "id": "00f7bd6d-6f7a-49ad-9f8e-d703dcd5440e",
+      "id": "ab743477-51eb-447b-a342-e98008acdb54",
       "name": "Webhook",
       "webhookId": "48f5533b-ebbe-4896-90b8-8cea5831dcac"
     }
@@ -520,16 +502,16 @@
   "staticData": null,
   "meta": null,
   "pinData": {},
-  "versionId": "daffef41-af88-4814-bf32-716c14ac0a59",
+  "versionId": "1bb8f9b4-3c72-4921-a633-43f81e42279b",
   "activeVersionId": null,
   "triggerCount": 0,
   "shared": [
     {
-      "updatedAt": "2026-04-28T08:56:58.022Z",
-      "createdAt": "2026-04-28T08:56:58.022Z",
+      "updatedAt": "2026-05-11T08:26:02.815Z",
+      "createdAt": "2026-05-11T08:26:02.815Z",
       "role": "workflow:owner",
-      "workflowId": "q5NJNwTXubYFaSt4",
-      "projectId": "JoN2JTiYqtJQ4ZAc"
+      "workflowId": "BF5nlMKU6Kmk7WfT",
+      "projectId": "HySVhA2Rl8waskJL"
     }
   ],
   "activeVersion": null,
