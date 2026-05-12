@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-05-04T09:04:11.947Z",
-  "createdAt": "2026-04-30T09:21:10.547Z",
-  "id": "ltbV8POWAz8H2fKg",
+  "updatedAt": "2026-05-11T08:46:30.760Z",
+  "createdAt": "2026-05-11T08:29:29.280Z",
+  "id": "3pmhMn56F8ZCXAL3",
   "name": "Habla con tus datos Chat v3",
-  "active": true,
+  "active": false,
   "isArchived": false,
   "nodes": [
     {
@@ -14,10 +14,10 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 3.1,
       "position": [
-        168,
-        16
+        352,
+        0
       ],
-      "id": "f6e9c431-d455-450e-897a-9d126ffa3f01",
+      "id": "1d383519-0a00-42ba-9fcb-d9dc6d191f86",
       "name": "AI Agent"
     },
     {
@@ -30,17 +30,11 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
       "position": [
-        48,
-        240
+        224,
+        224
       ],
-      "id": "3b733d8d-af49-47b7-b30a-050d4654f33c",
-      "name": "Google Gemini Chat Model",
-      "credentials": {
-        "googlePalmApi": {
-          "id": "myaWeBiunKMboJJC",
-          "name": "Google Gemini(PaLM) Api account"
-        }
-      }
+      "id": "6cb9af82-2586-4f00-9ad7-667fc48999b6",
+      "name": "Google Gemini Chat Model"
     },
     {
       "parameters": {
@@ -51,10 +45,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        304,
-        240
+        480,
+        224
       ],
-      "id": "439988df-87d2-4252-b936-599a9b69ecbf",
+      "id": "c144aa28-d075-46c1-b297-36c4278c9e51",
       "name": "Simple Memory"
     },
     {
@@ -73,17 +67,11 @@
       "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
       "typeVersion": 1.3,
       "position": [
-        432,
-        240
+        608,
+        224
       ],
-      "id": "f4cc3305-72ed-4427-b216-91adbdc962ef",
-      "name": "Pinecone Vector Store",
-      "credentials": {
-        "pineconeApi": {
-          "id": "A0qLLArGgwsXMG5V",
-          "name": "Pinecone contacta"
-        }
-      }
+      "id": "deca9949-237a-450a-a3bb-77b23f104b24",
+      "name": "Pinecone Vector Store"
     },
     {
       "parameters": {
@@ -92,17 +80,11 @@
       "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
       "typeVersion": 1,
       "position": [
-        512,
-        448
+        688,
+        432
       ],
-      "id": "cf5d46d5-3468-4a95-ba0e-8e6b2d9d1f0c",
-      "name": "Embeddings Google Gemini",
-      "credentials": {
-        "googlePalmApi": {
-          "id": "myaWeBiunKMboJJC",
-          "name": "Google Gemini(PaLM) Api account"
-        }
-      }
+      "id": "665afd5c-f0e1-422b-8c7a-402572ea1725",
+      "name": "Embeddings Google Gemini"
     },
     {
       "parameters": {
@@ -113,10 +95,10 @@
       "type": "@n8n/n8n-nodes-langchain.chatTrigger",
       "typeVersion": 1.4,
       "position": [
-        -176,
-        16
+        0,
+        0
       ],
-      "id": "772e228a-c210-44a7-adeb-19a9f72b4f57",
+      "id": "f68bceb4-e1cb-4913-b4fa-ba976c6e5b8e",
       "name": "When chat message received",
       "webhookId": "a318aee3-87e3-473f-ba08-931a003eb2d6"
     },
@@ -131,17 +113,11 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        176,
-        240
+        352,
+        224
       ],
-      "id": "69bbca0b-db5d-44c5-9469-3e37499c816f",
-      "name": "OpenRouter Chat Model",
-      "credentials": {
-        "openRouterApi": {
-          "id": "8DGn892MwpIeSqyd",
-          "name": "OpenRouter account 2"
-        }
-      }
+      "id": "69425b0e-4870-4813-b123-d46b72114b86",
+      "name": "OpenRouter Chat Model"
     }
   ],
   "connections": {
@@ -189,11 +165,6 @@
         ]
       ]
     },
-    "AI Agent": {
-      "main": [
-        []
-      ]
-    },
     "When chat message received": {
       "main": [
         [
@@ -219,250 +190,23 @@
   },
   "settings": {
     "executionOrder": "v1",
-    "binaryMode": "separate",
-    "availableInMCP": false,
-    "timeSavedMode": "fixed",
-    "errorWorkflow": "4QTTaZP0TYsnmiyK",
-    "callerPolicy": "workflowsFromSameOwner"
+    "binaryMode": "separate"
   },
   "staticData": null,
-  "meta": {
-    "templateCredsSetupCompleted": true
-  },
+  "meta": null,
   "pinData": {},
-  "versionId": "d718e5e2-0f62-435a-8e08-cee02ed3a779",
-  "activeVersionId": "d718e5e2-0f62-435a-8e08-cee02ed3a779",
-  "triggerCount": 1,
+  "versionId": "c654b10a-31c6-41da-9b9a-5190ae68346c",
+  "activeVersionId": null,
+  "triggerCount": 0,
   "shared": [
     {
-      "updatedAt": "2026-04-30T09:21:10.582Z",
-      "createdAt": "2026-04-30T09:21:10.582Z",
+      "updatedAt": "2026-05-11T08:29:29.285Z",
+      "createdAt": "2026-05-11T08:29:29.285Z",
       "role": "workflow:owner",
-      "workflowId": "ltbV8POWAz8H2fKg",
-      "projectId": "JoN2JTiYqtJQ4ZAc"
+      "workflowId": "3pmhMn56F8ZCXAL3",
+      "projectId": "HySVhA2Rl8waskJL"
     }
   ],
-  "activeVersion": {
-    "updatedAt": "2026-05-04T09:03:58.000Z",
-    "createdAt": "2026-04-30T10:08:53.935Z",
-    "versionId": "d718e5e2-0f62-435a-8e08-cee02ed3a779",
-    "workflowId": "ltbV8POWAz8H2fKg",
-    "nodes": [
-      {
-        "parameters": {
-          "needsFallback": true,
-          "options": {}
-        },
-        "type": "@n8n/n8n-nodes-langchain.agent",
-        "typeVersion": 3.1,
-        "position": [
-          168,
-          16
-        ],
-        "id": "f6e9c431-d455-450e-897a-9d126ffa3f01",
-        "name": "AI Agent"
-      },
-      {
-        "parameters": {
-          "options": {
-            "temperature": 0.2,
-            "topP": 0.2
-          }
-        },
-        "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
-        "typeVersion": 1,
-        "position": [
-          48,
-          240
-        ],
-        "id": "3b733d8d-af49-47b7-b30a-050d4654f33c",
-        "name": "Google Gemini Chat Model",
-        "credentials": {
-          "googlePalmApi": {
-            "id": "myaWeBiunKMboJJC",
-            "name": "Google Gemini(PaLM) Api account"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "sessionIdType": "customKey",
-          "sessionKey": "bd003",
-          "contextWindowLength": 15
-        },
-        "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
-        "typeVersion": 1.3,
-        "position": [
-          304,
-          240
-        ],
-        "id": "439988df-87d2-4252-b936-599a9b69ecbf",
-        "name": "Simple Memory"
-      },
-      {
-        "parameters": {
-          "mode": "retrieve-as-tool",
-          "toolDescription": "Tienes toda la informacion",
-          "pineconeIndex": {
-            "__rl": true,
-            "value": "consulta-documentos",
-            "mode": "list",
-            "cachedResultName": "consulta-documentos"
-          },
-          "topK": 10,
-          "options": {}
-        },
-        "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
-        "typeVersion": 1.3,
-        "position": [
-          432,
-          240
-        ],
-        "id": "f4cc3305-72ed-4427-b216-91adbdc962ef",
-        "name": "Pinecone Vector Store",
-        "credentials": {
-          "pineconeApi": {
-            "id": "A0qLLArGgwsXMG5V",
-            "name": "Pinecone contacta"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "modelName": "models/gemini-embedding-2-preview"
-        },
-        "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
-        "typeVersion": 1,
-        "position": [
-          512,
-          448
-        ],
-        "id": "cf5d46d5-3468-4a95-ba0e-8e6b2d9d1f0c",
-        "name": "Embeddings Google Gemini",
-        "credentials": {
-          "googlePalmApi": {
-            "id": "myaWeBiunKMboJJC",
-            "name": "Google Gemini(PaLM) Api account"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "public": true,
-          "initialMessages": "¡Hola! Soy tu asistente. ¿En qué te ayudo?\"",
-          "options": {}
-        },
-        "type": "@n8n/n8n-nodes-langchain.chatTrigger",
-        "typeVersion": 1.4,
-        "position": [
-          -176,
-          16
-        ],
-        "id": "772e228a-c210-44a7-adeb-19a9f72b4f57",
-        "name": "When chat message received",
-        "webhookId": "a318aee3-87e3-473f-ba08-931a003eb2d6"
-      },
-      {
-        "parameters": {
-          "model": "openai/gpt-oss-120b:free",
-          "options": {
-            "temperature": 0.2,
-            "topP": 0.2
-          }
-        },
-        "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
-        "typeVersion": 1,
-        "position": [
-          176,
-          240
-        ],
-        "id": "69bbca0b-db5d-44c5-9469-3e37499c816f",
-        "name": "OpenRouter Chat Model",
-        "credentials": {
-          "openRouterApi": {
-            "id": "8DGn892MwpIeSqyd",
-            "name": "OpenRouter account 2"
-          }
-        }
-      }
-    ],
-    "connections": {
-      "Google Gemini Chat Model": {
-        "ai_languageModel": [
-          [
-            {
-              "node": "AI Agent",
-              "type": "ai_languageModel",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Simple Memory": {
-        "ai_memory": [
-          [
-            {
-              "node": "AI Agent",
-              "type": "ai_memory",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Pinecone Vector Store": {
-        "ai_tool": [
-          [
-            {
-              "node": "AI Agent",
-              "type": "ai_tool",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Embeddings Google Gemini": {
-        "ai_embedding": [
-          [
-            {
-              "node": "Pinecone Vector Store",
-              "type": "ai_embedding",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "AI Agent": {
-        "main": [
-          []
-        ]
-      },
-      "When chat message received": {
-        "main": [
-          [
-            {
-              "node": "AI Agent",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "OpenRouter Chat Model": {
-        "ai_languageModel": [
-          [
-            {
-              "node": "AI Agent",
-              "type": "ai_languageModel",
-              "index": 1
-            }
-          ]
-        ]
-      }
-    },
-    "authors": "Haz Marca Marketing",
-    "name": "Version d718e5e2",
-    "description": "",
-    "autosaved": true
-  },
+  "activeVersion": null,
   "tags": []
 }
