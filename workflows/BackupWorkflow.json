@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-04-28T08:09:59.224Z",
-  "createdAt": "2026-04-27T10:12:11.386Z",
-  "id": "wZgBLqINICwWcmcU",
+  "updatedAt": "2026-05-11T08:45:19.314Z",
+  "createdAt": "2026-05-11T08:26:41.341Z",
+  "id": "LzN0Y6HrqxCycLko",
   "name": "BackupWorkflow",
   "active": false,
   "isArchived": false,
@@ -11,10 +11,10 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        -864,
-        -272
+        -912,
+        272
       ],
-      "id": "559f63b3-11d8-4fd8-9353-9baef72cebcc",
+      "id": "c1f9afd5-253d-429b-ab7f-e9efb4953da9",
       "name": "When clicking ‘Execute workflow’"
     },
     {
@@ -46,10 +46,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -640,
-        -272
+        -688,
+        272
       ],
-      "id": "d3bc7415-272c-46b1-82c8-a3ef152516cb",
+      "id": "5aae8d45-cda7-4a27-a1f3-0e7f7b46b5bc",
       "name": "Edit Fields"
     },
     {
@@ -60,14 +60,14 @@
       "type": "n8n-nodes-base.n8n",
       "typeVersion": 1,
       "position": [
-        -416,
-        -272
+        -464,
+        272
       ],
-      "id": "66797b92-ed4a-4185-85a4-2037e6ecd7cc",
+      "id": "a83568b8-ec54-4f55-9d68-4b60029dc65f",
       "name": "Get many workflows",
       "credentials": {
         "n8nApi": {
-          "id": "LvKb4B9O6YH0mtzY",
+          "id": "Gi2X5y8YnkjY6EB6",
           "name": "n8n account"
         }
       }
@@ -79,10 +79,10 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        -192,
-        -272
+        -240,
+        272
       ],
-      "id": "542c06f4-6b0b-425f-9fb8-2688179931a9",
+      "id": "cb49479d-6644-4caa-9d97-26c31e326f43",
       "name": "Loop Over Items"
     },
     {
@@ -90,10 +90,10 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        432,
-        -272
+        384,
+        272
       ],
-      "id": "1eae80fb-d4a2-4e89-b15b-79ae693d3290",
+      "id": "4660b481-22e2-4a61-969f-c5e04b3508d2",
       "name": "Merge"
     },
     {
@@ -101,10 +101,10 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        48,
-        -544
+        0,
+        0
       ],
-      "id": "ce34158c-2513-4739-975f-668f57e4fdd9",
+      "id": "e78a5d36-92db-44f8-b11c-ba4c99927516",
       "name": "No Operation, do nothing"
     },
     {
@@ -114,10 +114,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        656,
-        -272
+        608,
+        272
       ],
-      "id": "401b7778-db98-40a4-ac77-8b0b82152566",
+      "id": "198cc716-4282-4730-9a54-f2bc8f1ca156",
       "name": "Code in JavaScript"
     },
     {
@@ -199,10 +199,10 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.4,
       "position": [
-        880,
-        -288
+        832,
+        256
       ],
-      "id": "fd4f6562-acdd-45da-8bcf-f131f78301f6",
+      "id": "893a22b0-2789-4c53-ba8f-3fe908de36e0",
       "name": "Switch"
     },
     {
@@ -225,28 +225,22 @@
       "type": "n8n-nodes-base.github",
       "typeVersion": 1.1,
       "position": [
-        1088,
-        -240
+        1040,
+        304
       ],
-      "id": "d00f36ad-2e63-46ed-bc6a-ecb28e50501d",
+      "id": "4bfa31de-9a30-4cd4-9d5d-60546081497e",
       "name": "Create a file",
-      "webhookId": "3e0589c6-1757-440d-a2d4-ad11dbc65140",
-      "credentials": {
-        "githubApi": {
-          "id": "bL2jmmOo9XrBpvpv",
-          "name": "GitHub account"
-        }
-      }
+      "webhookId": "3e0589c6-1757-440d-a2d4-ad11dbc65140"
     },
     {
       "parameters": {},
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        1088,
-        -48
+        1040,
+        496
       ],
-      "id": "babcfe59-fc1c-4729-8f54-4940dd60e224",
+      "id": "2c4e85e7-55f9-4a27-95a8-404402a7071a",
       "name": "No Operation, do nothing1"
     },
     {
@@ -270,18 +264,12 @@
       "type": "n8n-nodes-base.github",
       "typeVersion": 1.1,
       "position": [
-        1088,
-        144
+        1040,
+        688
       ],
-      "id": "81985bd2-1bce-4876-87ad-07fab1b6275b",
+      "id": "8d7ce818-a413-4a98-a6e2-8e0520f23dff",
       "name": "Edit a file",
-      "webhookId": "8e9a3653-733a-4e79-bd3f-3544e22d752a",
-      "credentials": {
-        "githubApi": {
-          "id": "bL2jmmOo9XrBpvpv",
-          "name": "GitHub account"
-        }
-      }
+      "webhookId": "8e9a3653-733a-4e79-bd3f-3544e22d752a"
     },
     {
       "parameters": {
@@ -304,19 +292,13 @@
       "type": "n8n-nodes-base.github",
       "typeVersion": 1.1,
       "position": [
-        48,
-        -384
+        0,
+        160
       ],
-      "id": "e6ca4553-9228-4402-8de0-aa585ba2ea3f",
+      "id": "c227fa69-28d9-46e0-a572-c7612e3a0dae",
       "name": "Get a file",
       "webhookId": "bd42ee3b-f9fe-4b2e-861e-61137f744876",
       "alwaysOutputData": true,
-      "credentials": {
-        "githubApi": {
-          "id": "bL2jmmOo9XrBpvpv",
-          "name": "GitHub account"
-        }
-      },
       "onError": "continueRegularOutput"
     },
     {
@@ -333,10 +315,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
       "position": [
-        208,
-        -384
+        160,
+        160
       ],
-      "id": "ab2f7af7-4dfd-4945-8079-8346be283971",
+      "id": "95b09e71-d1b2-441c-9315-0047673efc24",
       "name": "HTTP Request",
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -507,20 +489,18 @@
     "binaryMode": "separate"
   },
   "staticData": null,
-  "meta": {
-    "templateCredsSetupCompleted": true
-  },
+  "meta": null,
   "pinData": {},
-  "versionId": "a0023855-3b67-4a20-b2c5-3fdb692b7949",
+  "versionId": "a59ebee8-f9d9-4d29-b76e-df4c678b7004",
   "activeVersionId": null,
   "triggerCount": 0,
   "shared": [
     {
-      "updatedAt": "2026-04-27T10:12:11.416Z",
-      "createdAt": "2026-04-27T10:12:11.416Z",
+      "updatedAt": "2026-05-11T08:26:41.344Z",
+      "createdAt": "2026-05-11T08:26:41.344Z",
       "role": "workflow:owner",
-      "workflowId": "wZgBLqINICwWcmcU",
-      "projectId": "JoN2JTiYqtJQ4ZAc"
+      "workflowId": "LzN0Y6HrqxCycLko",
+      "projectId": "HySVhA2Rl8waskJL"
     }
   ],
   "activeVersion": null,
