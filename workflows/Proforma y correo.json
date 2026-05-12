@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-04-13T11:28:12.945Z",
-  "createdAt": "2026-04-09T10:28:46.235Z",
-  "id": "p9rcqZmFyscnskPp",
+  "updatedAt": "2026-05-11T08:45:47.569Z",
+  "createdAt": "2026-05-11T08:31:40.718Z",
+  "id": "webAqHwhiG9SnjQK",
   "name": "Proforma y correo",
   "active": false,
   "isArchived": false,
@@ -23,18 +23,12 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.2,
       "position": [
-        480,
-        16
+        1392,
+        208
       ],
-      "id": "d0857cc6-fdb8-4f20-8686-47e03d647769",
+      "id": "f8eaedc6-bd30-43bc-98dd-9bc7350b0707",
       "name": "Send a message",
-      "webhookId": "cc026627-efbd-48f7-be8b-5fe53bef1bcc",
-      "credentials": {
-        "gmailOAuth2": {
-          "id": "7IQtRfUpY9LH2Jji",
-          "name": "Gmail account"
-        }
-      }
+      "webhookId": "cc026627-efbd-48f7-be8b-5fe53bef1bcc"
     },
     {
       "parameters": {
@@ -48,18 +42,12 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.2,
       "position": [
-        480,
-        -144
+        1392,
+        48
       ],
-      "id": "5e912e35-aa4e-49b7-9855-c48763a9174c",
+      "id": "6b4b5328-4fcb-4804-b11f-c0a2069b7c7c",
       "name": "Send a message1",
-      "webhookId": "a3578c52-6823-4157-82a3-59446dbba3ad",
-      "credentials": {
-        "gmailOAuth2": {
-          "id": "7IQtRfUpY9LH2Jji",
-          "name": "Gmail account"
-        }
-      }
+      "webhookId": "a3578c52-6823-4157-82a3-59446dbba3ad"
     },
     {
       "parameters": {
@@ -74,10 +62,10 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.3,
       "position": [
-        -1072,
-        -64
+        -160,
+        128
       ],
-      "id": "cff9cd5c-540a-42e1-a76c-eb36e7029fb8",
+      "id": "55393191-0574-437c-8295-cb1b2d88fb36",
       "name": "Trigger diario"
     },
     {
@@ -104,17 +92,11 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        -864,
-        -64
+        48,
+        128
       ],
-      "id": "204d6a7a-dc43-4090-8d78-c434e2e7c77e",
-      "name": "Datos del Excel",
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "Y66ON0yRX2dc3w46",
-          "name": "Google Sheets account"
-        }
-      }
+      "id": "c4e7a64a-6c89-4a6c-aab3-f8c5581bd920",
+      "name": "Datos del Excel"
     },
     {
       "parameters": {
@@ -143,10 +125,10 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.3,
       "position": [
-        -656,
-        -64
+        256,
+        128
       ],
-      "id": "e8480588-835e-463b-b428-c53819d673c2",
+      "id": "db13cd68-778d-4160-b488-91880cc3dc65",
       "name": "Filtro de estado Auto"
     },
     {
@@ -156,10 +138,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -448,
-        -64
+        464,
+        128
       ],
-      "id": "28caa518-9928-454d-b0d8-3e22d6ead20c",
+      "id": "ddcff23c-8e21-40e9-89cf-1ea08e7eb275",
       "name": "Calculo de dias restantes"
     },
     {
@@ -263,10 +245,10 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.4,
       "position": [
-        -240,
-        -112
+        672,
+        80
       ],
-      "id": "0a6b6275-e7be-407e-92dd-f0a5c9eb4dc9",
+      "id": "d83600da-2c01-4621-959f-26da0da99d5c",
       "name": "Switch Tramos de recargo"
     },
     {
@@ -306,17 +288,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
       "position": [
-        0,
-        -64
+        912,
+        128
       ],
-      "id": "d860615a-8203-4deb-87a0-21c65f174c8b",
-      "name": "Crear proforma en factura.city",
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "DpVPFfj4RqEPNKMC",
-          "name": "Facturascript Pruebas"
-        }
-      }
+      "id": "15213d02-a8c6-47ad-a788-2c2c5354e509",
+      "name": "Crear proforma en factura.city"
     },
     {
       "parameters": {
@@ -327,11 +303,11 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -912,
-        -192
+        0,
+        0
       ],
       "typeVersion": 1,
-      "id": "32b3934d-70b9-4901-af76-2c1c6db967bc",
+      "id": "889d1a63-4cca-486e-8915-41c0fa1db529",
       "name": "Sticky Note",
       "disabled": true
     },
@@ -344,11 +320,11 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -288,
-        -192
+        624,
+        0
       ],
       "typeVersion": 1,
-      "id": "0bffc5d2-611a-4078-8fbf-0031068f2e4c",
+      "id": "5ad23abf-d14a-4d8f-b7cd-7735c62703c7",
       "name": "Sticky Note1"
     },
     {
@@ -360,11 +336,11 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -80,
-        -192
+        832,
+        0
       ],
       "typeVersion": 1,
-      "id": "34ea3cf0-738c-4017-96cd-cfefd9bc2cae",
+      "id": "7944df51-cb3f-429e-b569-a0699c0c0033",
       "name": "Sticky Note2"
     },
     {
@@ -386,17 +362,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
       "position": [
-        240,
-        -64
+        1152,
+        128
       ],
-      "id": "48905e3d-e022-44f7-933b-1c4445633bc4",
-      "name": "Pdf presupuesto factura.city",
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "DpVPFfj4RqEPNKMC",
-          "name": "Facturascript Pruebas"
-        }
-      }
+      "id": "16a647a3-85ae-47f5-afb7-2607b0a3e24b",
+      "name": "Pdf presupuesto factura.city"
     },
     {
       "parameters": {
@@ -407,20 +377,15 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        416,
-        -192
+        1328,
+        0
       ],
       "typeVersion": 1,
-      "id": "56a2843e-296d-4dc2-b082-16868874b8eb",
+      "id": "29500f4d-5cfb-470c-abbb-614da412fdc1",
       "name": "Sticky Note3"
     }
   ],
   "connections": {
-    "Send a message": {
-      "main": [
-        []
-      ]
-    },
     "Trigger diario": {
       "main": [
         [
@@ -525,20 +490,18 @@
     "binaryMode": "separate"
   },
   "staticData": null,
-  "meta": {
-    "templateCredsSetupCompleted": true
-  },
+  "meta": null,
   "pinData": {},
-  "versionId": "9306dce0-67a7-4b2c-b4f4-ac5fa9167f2f",
+  "versionId": "16a598ec-576d-454b-a207-d01452e531c1",
   "activeVersionId": null,
   "triggerCount": 0,
   "shared": [
     {
-      "updatedAt": "2026-04-09T10:28:46.241Z",
-      "createdAt": "2026-04-09T10:28:46.241Z",
+      "updatedAt": "2026-05-11T08:31:40.719Z",
+      "createdAt": "2026-05-11T08:31:40.719Z",
       "role": "workflow:owner",
-      "workflowId": "p9rcqZmFyscnskPp",
-      "projectId": "JoN2JTiYqtJQ4ZAc"
+      "workflowId": "webAqHwhiG9SnjQK",
+      "projectId": "HySVhA2Rl8waskJL"
     }
   ],
   "activeVersion": null,
