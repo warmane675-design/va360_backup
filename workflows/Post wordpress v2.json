@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-05-04T09:05:09.440Z",
-  "createdAt": "2026-04-28T08:30:58.090Z",
-  "id": "pSIKk7imBuVB6ezO",
+  "updatedAt": "2026-05-11T08:45:59.647Z",
+  "createdAt": "2026-05-11T08:30:56.813Z",
+  "id": "PHW5Jq9HXvonE1d4",
   "name": "Post wordpress v2",
   "active": false,
   "isArchived": false,
@@ -11,10 +11,10 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        -704,
-        -16
+        0,
+        0
       ],
-      "id": "b944ae64-450b-4314-ba8f-b258f3af23e9",
+      "id": "7f25b4cd-4474-4f60-9cb1-df3e1566329d",
       "name": "When clicking ‘Execute workflow’"
     },
     {
@@ -25,10 +25,10 @@
       "type": "n8n-nodes-base.rssFeedRead",
       "typeVersion": 1.2,
       "position": [
-        -480,
-        -16
+        224,
+        0
       ],
-      "id": "2ee69d0a-1e2b-4135-ac73-be766a185594",
+      "id": "39dd2192-708d-4b24-8b83-8925e3f31163",
       "name": "RSS Read"
     },
     {
@@ -59,10 +59,10 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.3,
       "position": [
-        -256,
-        -16
+        448,
+        0
       ],
-      "id": "5128c72c-9300-4a4b-b399-b4ea17e3e3eb",
+      "id": "965e4d5c-2f6e-4b7c-84c1-0b0075036380",
       "name": "Filter"
     },
     {
@@ -77,10 +77,10 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 3.1,
       "position": [
-        32,
-        -16
+        736,
+        0
       ],
-      "id": "ecb1fc83-85e5-4201-b4c2-4cdf05335b63",
+      "id": "61b6b70a-d2d6-4ed6-8a27-78a644bf260c",
       "name": "AI Agent"
     },
     {
@@ -91,10 +91,10 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        224,
-        208
+        928,
+        224
       ],
-      "id": "414419c5-a9eb-45cb-b565-48626ab978a7",
+      "id": "6ebcfdf0-56da-45b3-b1b2-44f21667d795",
       "name": "Structured Output Parser"
     },
     {
@@ -105,17 +105,11 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
       "typeVersion": 1,
       "position": [
-        -32,
-        208
+        672,
+        224
       ],
-      "id": "f5d26977-dddf-44a7-bee0-f1e9a7cac41e",
-      "name": "Groq Chat Model",
-      "credentials": {
-        "groqApi": {
-          "id": "LZwftT7lD2IP0iVn",
-          "name": "Groq account 2"
-        }
-      }
+      "id": "ba61ac3c-0591-4d48-bf63-83367dc762eb",
+      "name": "Groq Chat Model"
     },
     {
       "parameters": {
@@ -125,17 +119,11 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        304,
-        416
+        1008,
+        432
       ],
-      "id": "6c2fc78e-dc17-40af-86cc-74537822f61b",
-      "name": "OpenRouter Chat Model",
-      "credentials": {
-        "openRouterApi": {
-          "id": "8DGn892MwpIeSqyd",
-          "name": "OpenRouter account 2"
-        }
-      }
+      "id": "2980050b-c1cf-48e8-89a2-a9bbad543d8e",
+      "name": "OpenRouter Chat Model"
     },
     {
       "parameters": {
@@ -145,17 +133,12 @@
       "type": "@tavily/n8n-nodes-tavily.tavilyTool",
       "typeVersion": 1,
       "position": [
-        96,
-        208
+        800,
+        224
       ],
-      "id": "aaf901a2-8f88-4cb2-b239-24743428fcee",
+      "id": "4652069e-c88e-4ad8-bbc3-0b4ebe170c8b",
       "name": "Search in Tavily",
-      "credentials": {
-        "tavilyApi": {
-          "id": "xMX0R5Nt8vSRaxH2",
-          "name": "Tavily account"
-        }
-      }
+      "credentials": {}
     },
     {
       "parameters": {
@@ -194,10 +177,10 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.3,
       "position": [
-        592,
-        -16
+        1296,
+        0
       ],
-      "id": "64f68333-7bb3-4bbc-8f4e-664de7816558",
+      "id": "cec624ba-1afa-4745-b661-034dfa0b9511",
       "name": "Filter1"
     },
     {
@@ -209,10 +192,10 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 3.1,
       "position": [
-        816,
-        -16
+        1520,
+        0
       ],
-      "id": "2c607ea4-8cf3-4cf0-8aba-4a07f34bccc0",
+      "id": "1543acab-e033-4b5f-b815-8ab8411cdf10",
       "name": "AI Agent1"
     },
     {
@@ -223,17 +206,11 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
       "typeVersion": 1,
       "position": [
-        896,
-        208
+        1600,
+        224
       ],
-      "id": "94835bdc-e162-4230-9fdc-a491569e731e",
-      "name": "Groq Chat Model2",
-      "credentials": {
-        "groqApi": {
-          "id": "LZwftT7lD2IP0iVn",
-          "name": "Groq account 2"
-        }
-      }
+      "id": "66d803af-28a5-437d-a0f0-3608b358f961",
+      "name": "Groq Chat Model2"
     },
     {
       "parameters": {
@@ -246,17 +223,11 @@
       "type": "n8n-nodes-base.wordpress",
       "typeVersion": 1,
       "position": [
-        1392,
-        -16
+        2096,
+        0
       ],
-      "id": "784c2b9f-a352-4ded-bfc5-6b93795e1eed",
-      "name": "Create a post",
-      "credentials": {
-        "wordpressApi": {
-          "id": "tfjLAXjm9b0jtWuZ",
-          "name": "Wordpress account"
-        }
-      }
+      "id": "7840b5ec-5647-4013-b85e-b5ac7183339d",
+      "name": "Create a post"
     },
     {
       "parameters": {
@@ -272,10 +243,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
       "position": [
-        1168,
-        -16
+        1872,
+        0
       ],
-      "id": "47877778-e87e-4f3f-9b02-eb21c4a10f05",
+      "id": "e5eb27ae-7c2a-4f58-b596-95a7d7374fa7",
       "name": "HTTP Request1"
     },
     {
@@ -295,10 +266,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1616,
-        -16
+        2320,
+        0
       ],
-      "id": "5d0013f3-e04a-4034-bfa9-5cd67228f98b",
+      "id": "5071053d-76b1-4516-a31d-ee13541ab80a",
       "name": "recupero-imagen"
     },
     {
@@ -324,17 +295,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
       "position": [
-        1840,
-        -16
+        2544,
+        0
       ],
-      "id": "5a4a2923-7aff-466d-9c87-c953013b509d",
-      "name": "subir-imagen",
-      "credentials": {
-        "wordpressApi": {
-          "id": "tfjLAXjm9b0jtWuZ",
-          "name": "Wordpress account"
-        }
-      }
+      "id": "51ac8570-0437-4acb-9028-4252708530ef",
+      "name": "subir-imagen"
     },
     {
       "parameters": {
@@ -356,17 +321,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
       "position": [
-        2064,
-        -16
+        2768,
+        0
       ],
-      "id": "1033780d-8e5e-4c6c-b3af-950af819eee3",
-      "name": "Asignar imagen",
-      "credentials": {
-        "wordpressApi": {
-          "id": "tfjLAXjm9b0jtWuZ",
-          "name": "Wordpress account"
-        }
-      }
+      "id": "866d6d4a-5c03-4249-b12f-fa8cb5e7c955",
+      "name": "Asignar imagen"
     },
     {
       "parameters": {
@@ -379,17 +338,11 @@
       "type": "n8n-nodes-base.wordpress",
       "typeVersion": 1,
       "position": [
-        2288,
-        -16
+        2992,
+        0
       ],
-      "id": "65ff1b60-9adb-4d0e-91ee-85200397ebc9",
-      "name": "Update a post",
-      "credentials": {
-        "wordpressApi": {
-          "id": "tfjLAXjm9b0jtWuZ",
-          "name": "Wordpress account"
-        }
-      }
+      "id": "bd8597a5-e6e9-4d3c-a6f8-a3127bd8c7dd",
+      "name": "Update a post"
     }
   ],
   "connections": {
@@ -572,27 +525,21 @@
   },
   "settings": {
     "executionOrder": "v1",
-    "binaryMode": "separate",
-    "availableInMCP": false,
-    "timeSavedMode": "fixed",
-    "errorWorkflow": "4QTTaZP0TYsnmiyK",
-    "callerPolicy": "workflowsFromSameOwner"
+    "binaryMode": "separate"
   },
   "staticData": null,
-  "meta": {
-    "templateCredsSetupCompleted": true
-  },
+  "meta": null,
   "pinData": {},
-  "versionId": "2405834c-d81f-40c3-9763-18bd8ad0f9b3",
+  "versionId": "9047d72e-5df1-46e2-9092-a597ababce35",
   "activeVersionId": null,
   "triggerCount": 0,
   "shared": [
     {
-      "updatedAt": "2026-04-28T08:30:58.110Z",
-      "createdAt": "2026-04-28T08:30:58.110Z",
+      "updatedAt": "2026-05-11T08:30:56.814Z",
+      "createdAt": "2026-05-11T08:30:56.814Z",
       "role": "workflow:owner",
-      "workflowId": "pSIKk7imBuVB6ezO",
-      "projectId": "JoN2JTiYqtJQ4ZAc"
+      "workflowId": "PHW5Jq9HXvonE1d4",
+      "projectId": "HySVhA2Rl8waskJL"
     }
   ],
   "activeVersion": null,
