@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-05-04T09:02:10.570Z",
-  "createdAt": "2026-05-04T07:00:37.399Z",
-  "id": "1cQtlgkQqN7vL5OM",
+  "updatedAt": "2026-05-12T07:28:45.636Z",
+  "createdAt": "2026-05-11T08:27:22.888Z",
+  "id": "EoW6VS01P9xo6hXY",
   "name": "Confirmacion pago interno v3",
   "active": true,
   "isArchived": false,
@@ -31,15 +31,15 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
       "position": [
-        96,
-        0
+        80,
+        80
       ],
-      "id": "34e527de-31af-46c7-b2a4-2d813a7041f7",
+      "id": "229eb3a3-b378-42b3-8477-81501b3379d8",
       "name": "HTTP Request",
       "credentials": {
         "httpHeaderAuth": {
-          "id": "DpVPFfj4RqEPNKMC",
-          "name": "Facturascript Pruebas"
+          "id": "h1q5CvfA7svrUbQP",
+          "name": "Factura pruebas"
         }
       }
     },
@@ -47,16 +47,16 @@
       "parameters": {
         "content": "## Crear factura",
         "height": 256,
-        "width": 272,
+        "width": 192,
         "color": "#412D4E"
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        16,
-        -80
+        32,
+        0
       ],
       "typeVersion": 1,
-      "id": "706ae449-e550-43a4-8bf8-41e7a88535c8",
+      "id": "191359d5-42ca-4c5b-93da-4cca60be3469",
       "name": "Sticky Note1"
     },
     {
@@ -67,10 +67,10 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2.1,
       "position": [
-        -240,
-        96
+        -256,
+        176
       ],
-      "id": "742ad394-91e0-4809-bcb9-e903b6c077e5",
+      "id": "21be81ec-085d-45a2-83ba-69d9eed608ca",
       "name": "Webhook",
       "webhookId": "21d8eed1-08be-4864-9f62-abb346bd0b57"
     },
@@ -201,15 +201,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        96,
-        256
+        64,
+        336
       ],
-      "id": "cfdd8655-e86d-46c1-8a71-1631599ff18d",
+      "id": "20b81a51-2c64-44dc-af95-6037e4817a7e",
       "name": "Update row in sheet",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "XXWgTkrgGGVSqKJR",
-          "name": "Google Sheets contacta"
+          "id": "tlryTl2TVc3G1dVp",
+          "name": "Google Sheets account"
         }
       }
     },
@@ -243,17 +243,33 @@
       "typeVersion": 4.4,
       "position": [
         320,
-        0
+        80
       ],
-      "id": "f375025d-9e31-4566-a2b2-2971680a103c",
+      "id": "a4af5fa7-6a38-4e1e-919e-8d93baf421cc",
       "name": "HTTP Request1",
       "alwaysOutputData": true,
       "credentials": {
         "httpHeaderAuth": {
-          "id": "DpVPFfj4RqEPNKMC",
-          "name": "Facturascript Pruebas"
+          "id": "h1q5CvfA7svrUbQP",
+          "name": "Factura pruebas"
         }
       }
+    },
+    {
+      "parameters": {
+        "content": "## Marcar pagada\n",
+        "height": 256,
+        "width": 224,
+        "color": "#412D4E"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        256,
+        0
+      ],
+      "typeVersion": 1,
+      "id": "ad5dfc58-26a7-4791-b7ed-1ceaafd62e48",
+      "name": "Sticky Note"
     }
   ],
   "connections": {
@@ -287,32 +303,76 @@
   },
   "settings": {
     "executionOrder": "v1",
-    "binaryMode": "separate",
-    "availableInMCP": false,
-    "timeSavedMode": "fixed",
-    "errorWorkflow": "4QTTaZP0TYsnmiyK",
-    "callerPolicy": "workflowsFromSameOwner"
+    "binaryMode": "separate"
   },
   "staticData": null,
-  "meta": null,
-  "pinData": {},
-  "versionId": "8783e7d1-53a1-4d32-b8c5-e4f68128d2bb",
-  "activeVersionId": "8783e7d1-53a1-4d32-b8c5-e4f68128d2bb",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "proyecton8n-n8n.yq3yuy.easypanel.host",
+            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+            "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "accept-language": "es-ES,es;q=0.9,en;q=0.8",
+            "cookie": {
+              "__redacted": true,
+              "reason": "node_defined_field",
+              "canReveal": false
+            },
+            "priority": "u=0, i",
+            "sec-ch-ua": "\"Google Chrome\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"",
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": "\"Windows\"",
+            "sec-fetch-dest": "document",
+            "sec-fetch-mode": "navigate",
+            "sec-fetch-site": "cross-site",
+            "sec-fetch-user": "?1",
+            "upgrade-insecure-requests": "1",
+            "x-forwarded-for": "78.30.9.5",
+            "x-forwarded-host": "proyecton8n-n8n.yq3yuy.easypanel.host",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "946ec7fcaaf0",
+            "x-real-ip": "78.30.9.5"
+          },
+          "params": {},
+          "query": {
+            "dominio": "prueba-oro.com",
+            "codcliente": "1",
+            "pvpunitario": ""
+          },
+          "body": {},
+          "webhookUrl": "https://proyecton8n-n8n.yq3yuy.easypanel.host/webhook/registrar-pagado",
+          "executionMode": "production"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "versionId": "d8b05ae1-a414-4400-9078-a4c7d86601b9",
+  "activeVersionId": "d8b05ae1-a414-4400-9078-a4c7d86601b9",
   "triggerCount": 1,
   "shared": [
     {
-      "updatedAt": "2026-05-04T07:00:37.425Z",
-      "createdAt": "2026-05-04T07:00:37.425Z",
+      "updatedAt": "2026-05-11T08:27:22.890Z",
+      "createdAt": "2026-05-11T08:27:22.890Z",
       "role": "workflow:owner",
-      "workflowId": "1cQtlgkQqN7vL5OM",
-      "projectId": "JoN2JTiYqtJQ4ZAc"
+      "workflowId": "EoW6VS01P9xo6hXY",
+      "projectId": "HySVhA2Rl8waskJL"
     }
   ],
   "activeVersion": {
-    "updatedAt": "2026-05-04T07:03:26.000Z",
-    "createdAt": "2026-05-04T07:02:41.034Z",
-    "versionId": "8783e7d1-53a1-4d32-b8c5-e4f68128d2bb",
-    "workflowId": "1cQtlgkQqN7vL5OM",
+    "updatedAt": "2026-05-12T07:28:53.000Z",
+    "createdAt": "2026-05-12T07:28:45.637Z",
+    "versionId": "d8b05ae1-a414-4400-9078-a4c7d86601b9",
+    "workflowId": "EoW6VS01P9xo6hXY",
     "nodes": [
       {
         "parameters": {
@@ -339,15 +399,15 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.4,
         "position": [
-          96,
-          0
+          80,
+          80
         ],
-        "id": "34e527de-31af-46c7-b2a4-2d813a7041f7",
+        "id": "229eb3a3-b378-42b3-8477-81501b3379d8",
         "name": "HTTP Request",
         "credentials": {
           "httpHeaderAuth": {
-            "id": "DpVPFfj4RqEPNKMC",
-            "name": "Facturascript Pruebas"
+            "id": "h1q5CvfA7svrUbQP",
+            "name": "Factura pruebas"
           }
         }
       },
@@ -355,16 +415,16 @@
         "parameters": {
           "content": "## Crear factura",
           "height": 256,
-          "width": 272,
+          "width": 192,
           "color": "#412D4E"
         },
         "type": "n8n-nodes-base.stickyNote",
         "position": [
-          16,
-          -80
+          32,
+          0
         ],
         "typeVersion": 1,
-        "id": "706ae449-e550-43a4-8bf8-41e7a88535c8",
+        "id": "191359d5-42ca-4c5b-93da-4cca60be3469",
         "name": "Sticky Note1"
       },
       {
@@ -375,10 +435,10 @@
         "type": "n8n-nodes-base.webhook",
         "typeVersion": 2.1,
         "position": [
-          -240,
-          96
+          -256,
+          176
         ],
-        "id": "742ad394-91e0-4809-bcb9-e903b6c077e5",
+        "id": "21be81ec-085d-45a2-83ba-69d9eed608ca",
         "name": "Webhook",
         "webhookId": "21d8eed1-08be-4864-9f62-abb346bd0b57"
       },
@@ -509,15 +569,15 @@
         "type": "n8n-nodes-base.googleSheets",
         "typeVersion": 4.7,
         "position": [
-          96,
-          256
+          64,
+          336
         ],
-        "id": "cfdd8655-e86d-46c1-8a71-1631599ff18d",
+        "id": "20b81a51-2c64-44dc-af95-6037e4817a7e",
         "name": "Update row in sheet",
         "credentials": {
           "googleSheetsOAuth2Api": {
-            "id": "XXWgTkrgGGVSqKJR",
-            "name": "Google Sheets contacta"
+            "id": "tlryTl2TVc3G1dVp",
+            "name": "Google Sheets account"
           }
         }
       },
@@ -551,17 +611,33 @@
         "typeVersion": 4.4,
         "position": [
           320,
-          0
+          80
         ],
-        "id": "f375025d-9e31-4566-a2b2-2971680a103c",
+        "id": "a4af5fa7-6a38-4e1e-919e-8d93baf421cc",
         "name": "HTTP Request1",
         "alwaysOutputData": true,
         "credentials": {
           "httpHeaderAuth": {
-            "id": "DpVPFfj4RqEPNKMC",
-            "name": "Facturascript Pruebas"
+            "id": "h1q5CvfA7svrUbQP",
+            "name": "Factura pruebas"
           }
         }
+      },
+      {
+        "parameters": {
+          "content": "## Marcar pagada\n",
+          "height": 256,
+          "width": 224,
+          "color": "#412D4E"
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          256,
+          0
+        ],
+        "typeVersion": 1,
+        "id": "ad5dfc58-26a7-4791-b7ed-1ceaafd62e48",
+        "name": "Sticky Note"
       }
     ],
     "connections": {
@@ -593,8 +669,8 @@
         ]
       }
     },
-    "authors": "Haz Marca Marketing",
-    "name": "Version 8783e7d1",
+    "authors": "Leandro Martinez",
+    "name": "Version d8b05ae1",
     "description": "",
     "autosaved": true
   },
