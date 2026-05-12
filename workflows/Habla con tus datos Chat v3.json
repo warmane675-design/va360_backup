@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-05-11T08:46:30.760Z",
+  "updatedAt": "2026-05-12T08:44:20.569Z",
   "createdAt": "2026-05-11T08:29:29.280Z",
   "id": "3pmhMn56F8ZCXAL3",
   "name": "Habla con tus datos Chat v3",
-  "active": false,
+  "active": true,
   "isArchived": false,
   "nodes": [
     {
@@ -34,7 +34,13 @@
         224
       ],
       "id": "6cb9af82-2586-4f00-9ad7-667fc48999b6",
-      "name": "Google Gemini Chat Model"
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "1IvicPhw881dGd64",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
     },
     {
       "parameters": {
@@ -71,7 +77,13 @@
         224
       ],
       "id": "deca9949-237a-450a-a3bb-77b23f104b24",
-      "name": "Pinecone Vector Store"
+      "name": "Pinecone Vector Store",
+      "credentials": {
+        "pineconeApi": {
+          "id": "kLCpdWyXGpFxCjiv",
+          "name": "Pinecone account"
+        }
+      }
     },
     {
       "parameters": {
@@ -84,7 +96,13 @@
         432
       ],
       "id": "665afd5c-f0e1-422b-8c7a-402572ea1725",
-      "name": "Embeddings Google Gemini"
+      "name": "Embeddings Google Gemini",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "1IvicPhw881dGd64",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
     },
     {
       "parameters": {
@@ -117,7 +135,13 @@
         224
       ],
       "id": "69425b0e-4870-4813-b123-d46b72114b86",
-      "name": "OpenRouter Chat Model"
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "WmMNHiHPh4aQe9KT",
+          "name": "OpenRouter account"
+        }
+      }
     }
   ],
   "connections": {
@@ -190,14 +214,20 @@
   },
   "settings": {
     "executionOrder": "v1",
-    "binaryMode": "separate"
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "errorWorkflow": "jWOwPrw3rbQy2Doq",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
   },
   "staticData": null,
-  "meta": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
   "pinData": {},
-  "versionId": "c654b10a-31c6-41da-9b9a-5190ae68346c",
-  "activeVersionId": null,
-  "triggerCount": 0,
+  "versionId": "87198de8-4b6c-462b-8915-a0ead8ae3371",
+  "activeVersionId": "87198de8-4b6c-462b-8915-a0ead8ae3371",
+  "triggerCount": 1,
   "shared": [
     {
       "updatedAt": "2026-05-11T08:29:29.285Z",
@@ -207,6 +237,222 @@
       "projectId": "HySVhA2Rl8waskJL"
     }
   ],
-  "activeVersion": null,
+  "activeVersion": {
+    "updatedAt": "2026-05-12T08:16:31.000Z",
+    "createdAt": "2026-05-12T08:16:28.908Z",
+    "versionId": "87198de8-4b6c-462b-8915-a0ead8ae3371",
+    "workflowId": "3pmhMn56F8ZCXAL3",
+    "nodes": [
+      {
+        "parameters": {
+          "needsFallback": true,
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.agent",
+        "typeVersion": 3.1,
+        "position": [
+          352,
+          0
+        ],
+        "id": "1d383519-0a00-42ba-9fcb-d9dc6d191f86",
+        "name": "AI Agent"
+      },
+      {
+        "parameters": {
+          "options": {
+            "temperature": 0.2,
+            "topP": 0.2
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+        "typeVersion": 1,
+        "position": [
+          224,
+          224
+        ],
+        "id": "6cb9af82-2586-4f00-9ad7-667fc48999b6",
+        "name": "Google Gemini Chat Model",
+        "credentials": {
+          "googlePalmApi": {
+            "id": "1IvicPhw881dGd64",
+            "name": "Google Gemini(PaLM) Api account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "sessionIdType": "customKey",
+          "sessionKey": "bd003",
+          "contextWindowLength": 15
+        },
+        "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+        "typeVersion": 1.3,
+        "position": [
+          480,
+          224
+        ],
+        "id": "c144aa28-d075-46c1-b297-36c4278c9e51",
+        "name": "Simple Memory"
+      },
+      {
+        "parameters": {
+          "mode": "retrieve-as-tool",
+          "toolDescription": "Tienes toda la informacion",
+          "pineconeIndex": {
+            "__rl": true,
+            "value": "consulta-documentos",
+            "mode": "list",
+            "cachedResultName": "consulta-documentos"
+          },
+          "topK": 10,
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+        "typeVersion": 1.3,
+        "position": [
+          608,
+          224
+        ],
+        "id": "deca9949-237a-450a-a3bb-77b23f104b24",
+        "name": "Pinecone Vector Store",
+        "credentials": {
+          "pineconeApi": {
+            "id": "kLCpdWyXGpFxCjiv",
+            "name": "Pinecone account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "modelName": "models/gemini-embedding-2-preview"
+        },
+        "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
+        "typeVersion": 1,
+        "position": [
+          688,
+          432
+        ],
+        "id": "665afd5c-f0e1-422b-8c7a-402572ea1725",
+        "name": "Embeddings Google Gemini",
+        "credentials": {
+          "googlePalmApi": {
+            "id": "1IvicPhw881dGd64",
+            "name": "Google Gemini(PaLM) Api account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "public": true,
+          "initialMessages": "¡Hola! Soy tu asistente. ¿En qué te ayudo?\"",
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+        "typeVersion": 1.4,
+        "position": [
+          0,
+          0
+        ],
+        "id": "f68bceb4-e1cb-4913-b4fa-ba976c6e5b8e",
+        "name": "When chat message received",
+        "webhookId": "a318aee3-87e3-473f-ba08-931a003eb2d6"
+      },
+      {
+        "parameters": {
+          "model": "openai/gpt-oss-120b:free",
+          "options": {
+            "temperature": 0.2,
+            "topP": 0.2
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+        "typeVersion": 1,
+        "position": [
+          352,
+          224
+        ],
+        "id": "69425b0e-4870-4813-b123-d46b72114b86",
+        "name": "OpenRouter Chat Model",
+        "credentials": {
+          "openRouterApi": {
+            "id": "WmMNHiHPh4aQe9KT",
+            "name": "OpenRouter account"
+          }
+        }
+      }
+    ],
+    "connections": {
+      "Google Gemini Chat Model": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Simple Memory": {
+        "ai_memory": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "ai_memory",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Pinecone Vector Store": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Embeddings Google Gemini": {
+        "ai_embedding": [
+          [
+            {
+              "node": "Pinecone Vector Store",
+              "type": "ai_embedding",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "When chat message received": {
+        "main": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "OpenRouter Chat Model": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "ai_languageModel",
+              "index": 1
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Leandro Martinez",
+    "name": "Version 87198de8",
+    "description": "",
+    "autosaved": true
+  },
   "tags": []
 }
