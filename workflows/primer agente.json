@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-11T08:45:54.945Z",
+  "updatedAt": "2026-05-12T11:25:14.920Z",
   "createdAt": "2026-05-11T08:31:09.320Z",
   "id": "XROvWbWEwmr4euQ8",
   "name": "primer agente",
@@ -34,8 +34,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
       "typeVersion": 1,
       "position": [
-        0,
-        256
+        160,
+        272
       ],
       "id": "95eb8d2e-19d8-45ee-93c9-36db6a0128e5",
       "name": "Groq Chat Model"
@@ -166,8 +166,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
       "position": [
-        144,
-        256
+        -16,
+        272
       ],
       "id": "aeef9081-bb95-4c9a-80ca-f79309f59fce",
       "name": "Google Gemini Chat Model"
@@ -288,7 +288,7 @@
       }
     ]
   },
-  "versionId": "3053e00f-7938-4fff-bf96-8a8a5ee95ce7",
+  "versionId": "162d8d87-8496-4b9f-b7c1-879e56254137",
   "activeVersionId": null,
   "triggerCount": 0,
   "shared": [
