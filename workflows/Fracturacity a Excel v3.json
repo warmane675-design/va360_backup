@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-05-12T06:52:51.262Z",
+  "updatedAt": "2026-05-12T08:48:47.073Z",
   "createdAt": "2026-05-11T08:28:57.975Z",
   "id": "YfmgbH7Ay5WjUPqa",
   "name": "Fracturacity a Excel v3",
-  "active": false,
+  "active": true,
   "isArchived": false,
   "nodes": [
     {
@@ -11,8 +11,8 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        -160,
-        112
+        -192,
+        208
       ],
       "id": "1a4ad6bf-d129-4a1f-97a8-f9a21e63b3eb",
       "name": "When clicking ‘Execute workflow’"
@@ -256,6 +256,26 @@
           "name": "Factura pruebas"
         }
       }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "triggerAtHour": 23
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -192,
+        32
+      ],
+      "id": "0c401c62-66aa-4d71-a9a2-88532af2e9ad",
+      "name": "Schedule Trigger"
     }
   ],
   "connections": {
@@ -302,20 +322,39 @@
           }
         ]
       ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "HTTP Clientes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "settings": {
     "executionOrder": "v1",
-    "binaryMode": "separate"
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "errorWorkflow": "jWOwPrw3rbQy2Doq",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
   },
-  "staticData": null,
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
   "meta": {
     "templateCredsSetupCompleted": true
   },
   "pinData": {},
-  "versionId": "e57b43e5-f33b-4537-ae6a-e355c58b5341",
-  "activeVersionId": null,
-  "triggerCount": 0,
+  "versionId": "788b5d77-b757-482c-aa62-630e7c99e74f",
+  "activeVersionId": "788b5d77-b757-482c-aa62-630e7c99e74f",
+  "triggerCount": 1,
   "shared": [
     {
       "updatedAt": "2026-05-11T08:28:57.976Z",
@@ -325,6 +364,345 @@
       "projectId": "HySVhA2Rl8waskJL"
     }
   ],
-  "activeVersion": null,
+  "activeVersion": {
+    "updatedAt": "2026-05-12T08:48:48.000Z",
+    "createdAt": "2026-05-12T08:48:47.074Z",
+    "versionId": "788b5d77-b757-482c-aa62-630e7c99e74f",
+    "workflowId": "YfmgbH7Ay5WjUPqa",
+    "nodes": [
+      {
+        "parameters": {},
+        "type": "n8n-nodes-base.manualTrigger",
+        "typeVersion": 1,
+        "position": [
+          -192,
+          208
+        ],
+        "id": "1a4ad6bf-d129-4a1f-97a8-f9a21e63b3eb",
+        "name": "When clicking ‘Execute workflow’"
+      },
+      {
+        "parameters": {
+          "jsCode": "const clientes = $('HTTP Clientes').all();\nconst productos = $('HTTP Productos').all();\n\n// Crear mapa de productos: descripcion -> precio\nconst mapaProductos = {};\nproductos.forEach(item => {\n  const p = item.json;\n  if (p.descripcion && p.precio !== undefined) {\n    mapaProductos[p.descripcion.trim()] = p.precio;\n  }\n});\n\nreturn clientes\n  .filter(item => item !== null && item !== undefined)\n  .map(item => {\n    const cliente = item.json;\n\n    const datos = {};\n    const obs = cliente.observaciones || \"\";\n    obs.split(\"|\").forEach(par => {\n      const [clave, valor] = par.split(\":\");\n      if (clave && valor) {\n        datos[clave.trim()] = valor.trim();\n      }\n    });\n\n    const nombreProducto = datos[\"PRODUCTO\"] || \"\";\n    const precioBase = mapaProductos[nombreProducto] || 0;\n\n    return {\n      json: {\n        \"Dominio\":            datos[\"DOMINIO\"]     || \"\",\n        \"Email Cliente\":      cliente.email        || \"\",\n        \"Fecha Vencimiento\":  datos[\"VENCIMIENTO\"] || \"\",\n        \"Estado\":             datos[\"ESTADO\"]      || \"Manual\",\n        \"Producto\":           nombreProducto,\n        \"Precio Base (€)\":    precioBase,\n        \"ID Cliente\":         cliente.codcliente   || \"\",\n        \"Nombre Cliente\":     cliente.nombre       || \"\",\n        \"Teléfono\":           cliente.telefono1    || \"\"\n      }\n    };\n  });"
+        },
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          592,
+          112
+        ],
+        "id": "09f314ee-80d6-44ef-96b8-d7f08486010b",
+        "name": "Code in JavaScript"
+      },
+      {
+        "parameters": {
+          "operation": "appendOrUpdate",
+          "documentId": {
+            "__rl": true,
+            "value": "1QVP5U6uNJ7FdkoUwh4XXP_pZKzGfBbc8BZCSF_d_vs8",
+            "mode": "list",
+            "cachedResultName": "n8nRenovaciones",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QVP5U6uNJ7FdkoUwh4XXP_pZKzGfBbc8BZCSF_d_vs8/edit?usp=drivesdk"
+          },
+          "sheetName": {
+            "__rl": true,
+            "value": "gid=0",
+            "mode": "list",
+            "cachedResultName": "Hoja 1",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aV0k8akb8Bg65svTa5GPj_KHllcg2U2PuvvBkaNVLSk/edit#gid=0"
+          },
+          "columns": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "Dominio": "={{ $json.Dominio }}",
+              "Email Cliente": "={{ $json[\"Email Cliente\"] }}",
+              "Fecha Vencimiento": "={{ $json[\"Fecha Vencimiento\"] }}",
+              "ID Cliente": "={{ $json[\"ID Cliente\"] }}",
+              "Estado": "={{ $json.Estado }}",
+              "Precio Base (€)": "={{ $json[\"Precio Base (€)\"] }}",
+              "Nombre Cliente": "={{ $json[\"Nombre Cliente\"] }}"
+            },
+            "matchingColumns": [
+              "ID Cliente"
+            ],
+            "schema": [
+              {
+                "id": "Dominio",
+                "displayName": "Dominio",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true
+              },
+              {
+                "id": "Email Cliente",
+                "displayName": "Email Cliente",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true
+              },
+              {
+                "id": "Fecha Vencimiento",
+                "displayName": "Fecha Vencimiento",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true
+              },
+              {
+                "id": "Estado",
+                "displayName": "Estado",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true
+              },
+              {
+                "id": "Precio Base (€)",
+                "displayName": "Precio Base (€)",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "ID Cliente",
+                "displayName": "ID Cliente",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "Nombre Cliente",
+                "displayName": "Nombre Cliente",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true
+              },
+              {
+                "id": "Última Acción",
+                "displayName": "Última Acción",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleSheets",
+        "typeVersion": 4.7,
+        "position": [
+          944,
+          112
+        ],
+        "id": "ef53adaa-f406-4abf-800a-8dce2a6bbb27",
+        "name": "Append or update row in sheet",
+        "credentials": {
+          "googleSheetsOAuth2Api": {
+            "id": "tlryTl2TVc3G1dVp",
+            "name": "Google Sheets account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "content": "## Recoger datos clientes de Factura.city\n",
+          "height": 320,
+          "width": 448,
+          "color": "#36386D"
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          0,
+          0
+        ],
+        "typeVersion": 1,
+        "id": "111fccf1-ba9f-4323-99f7-a2b59d141dd1",
+        "name": "Sticky Note"
+      },
+      {
+        "parameters": {
+          "content": "## Formatear datos y Separar datos de Observaciones",
+          "height": 320,
+          "width": 336,
+          "color": "#76732E"
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          480,
+          0
+        ],
+        "typeVersion": 1,
+        "id": "5152444b-134d-454c-a330-14a7a6e34ae2",
+        "name": "Sticky Note1"
+      },
+      {
+        "parameters": {
+          "content": "## Actualizar Sheet",
+          "height": 320,
+          "width": 304,
+          "color": "#2C7D4B"
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          848,
+          0
+        ],
+        "typeVersion": 1,
+        "id": "597929ad-c7e1-4fd2-b246-c9b69fd4d180",
+        "name": "Sticky Note2"
+      },
+      {
+        "parameters": {
+          "url": "https://space-1q21-1b.facturas.live/pruebas/api/3/clientes",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "httpHeaderAuth",
+          "sendHeaders": true,
+          "headerParameters": {
+            "parameters": []
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.4,
+        "position": [
+          64,
+          112
+        ],
+        "id": "021afde3-8b29-42dc-9b70-24315b9b4676",
+        "name": "HTTP Clientes",
+        "credentials": {
+          "httpHeaderAuth": {
+            "id": "h1q5CvfA7svrUbQP",
+            "name": "Factura pruebas"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "url": "https://space-1q21-1b.facturas.live/pruebas/api/3/productos",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "httpHeaderAuth",
+          "sendHeaders": true,
+          "headerParameters": {
+            "parameters": []
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.4,
+        "position": [
+          272,
+          112
+        ],
+        "id": "67376c87-2ec8-4cff-b645-bbe8ea0a6b4f",
+        "name": "HTTP Productos",
+        "credentials": {
+          "httpHeaderAuth": {
+            "id": "h1q5CvfA7svrUbQP",
+            "name": "Factura pruebas"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "rule": {
+            "interval": [
+              {
+                "field": "weeks",
+                "triggerAtHour": 23
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-base.scheduleTrigger",
+        "typeVersion": 1.3,
+        "position": [
+          -192,
+          32
+        ],
+        "id": "0c401c62-66aa-4d71-a9a2-88532af2e9ad",
+        "name": "Schedule Trigger"
+      }
+    ],
+    "connections": {
+      "When clicking ‘Execute workflow’": {
+        "main": [
+          [
+            {
+              "node": "HTTP Clientes",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Code in JavaScript": {
+        "main": [
+          [
+            {
+              "node": "Append or update row in sheet",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "HTTP Clientes": {
+        "main": [
+          [
+            {
+              "node": "HTTP Productos",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "HTTP Productos": {
+        "main": [
+          [
+            {
+              "node": "Code in JavaScript",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Schedule Trigger": {
+        "main": [
+          [
+            {
+              "node": "HTTP Clientes",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Leandro Martinez",
+    "name": "Version 788b5d77",
+    "description": "",
+    "autosaved": true
+  },
   "tags": []
 }
