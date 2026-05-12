@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-04-28T07:27:28.971Z",
-  "createdAt": "2026-04-07T08:59:15.773Z",
-  "id": "0Pq76tBrV3LNetQw",
+  "updatedAt": "2026-05-11T08:45:38.194Z",
+  "createdAt": "2026-05-11T08:32:25.687Z",
+  "id": "hLRH41Yz6hL0xVlW",
   "name": "Scrapping",
   "active": false,
   "isArchived": false,
@@ -11,10 +11,10 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        0,
-        0
+        -416,
+        176
       ],
-      "id": "73a55084-c898-438c-9e2a-b73a563a4635",
+      "id": "311e102a-0001-4092-9eeb-2b2e84a3aefe",
       "name": "When clicking ‘Execute workflow’"
     },
     {
@@ -25,10 +25,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
       "position": [
-        208,
-        0
+        -208,
+        176
       ],
-      "id": "3c373891-23b2-484c-9c74-1d3fdba2bcd2",
+      "id": "ce4e3084-4214-4cfe-af2b-b09fb97d49af",
       "name": "HTTP Request"
     },
     {
@@ -60,10 +60,10 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1.2,
       "position": [
-        416,
-        -176
+        0,
+        0
       ],
-      "id": "826211ec-926d-4795-b87b-64ebc9eefb9f",
+      "id": "d3c76a42-8db0-462b-ae43-de87297e49c4",
       "name": "HTML"
     },
     {
@@ -73,10 +73,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        656,
-        -176
+        240,
+        0
       ],
-      "id": "420bf7bd-8287-474f-a41e-168c692da089",
+      "id": "ff893cd8-b9cf-4a1e-a9ea-68a6f1c6f963",
       "name": "Code in JavaScript"
     },
     {
@@ -91,10 +91,10 @@
       "type": "@n8n/n8n-nodes-langchain.informationExtractor",
       "typeVersion": 1.2,
       "position": [
-        688,
-        48
+        272,
+        224
       ],
-      "id": "33ed2239-eaba-4fb7-8036-c1457b62b79e",
+      "id": "12e3093f-cd90-4d57-a691-3ba75fd01058",
       "name": "Information Extractor"
     },
     {
@@ -104,10 +104,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        464,
-        48
+        48,
+        224
       ],
-      "id": "117dbd68-a1be-4f09-8b88-ecd79b72d7f1",
+      "id": "8ba35367-d6c4-4009-9077-c69f1e1a3b2e",
       "name": "Code in JavaScript1"
     },
     {
@@ -117,17 +117,11 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
       "position": [
-        688,
-        240
+        272,
+        416
       ],
-      "id": "84758ed8-b719-414c-926a-a8f4fe847b3a",
-      "name": "Google Gemini Chat Model",
-      "credentials": {
-        "googlePalmApi": {
-          "id": "myaWeBiunKMboJJC",
-          "name": "Google Gemini(PaLM) Api account"
-        }
-      }
+      "id": "005b1029-a6d9-4ba7-a05a-f3cdd89af5ad",
+      "name": "Google Gemini Chat Model"
     },
     {
       "parameters": {
@@ -137,10 +131,10 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        1040,
-        48
+        624,
+        224
       ],
-      "id": "b6869a94-54c2-40f9-9f46-00d804e0b88f",
+      "id": "16f3d708-3aae-4f94-9dd6-6c84eda6ffc4",
       "name": "Split Out"
     }
   ],
@@ -222,9 +216,7 @@
     "binaryMode": "separate"
   },
   "staticData": null,
-  "meta": {
-    "templateCredsSetupCompleted": true
-  },
+  "meta": null,
   "pinData": {
     "HTTP Request": [
       {
@@ -237,16 +229,16 @@
       }
     ]
   },
-  "versionId": "9da36206-ccb3-4585-ab35-e6ae299ba98e",
+  "versionId": "b961283a-2bb4-4f98-be52-50ae136a071f",
   "activeVersionId": null,
   "triggerCount": 0,
   "shared": [
     {
-      "updatedAt": "2026-04-07T08:59:15.778Z",
-      "createdAt": "2026-04-07T08:59:15.778Z",
+      "updatedAt": "2026-05-11T08:32:25.691Z",
+      "createdAt": "2026-05-11T08:32:25.691Z",
       "role": "workflow:owner",
-      "workflowId": "0Pq76tBrV3LNetQw",
-      "projectId": "JoN2JTiYqtJQ4ZAc"
+      "workflowId": "hLRH41Yz6hL0xVlW",
+      "projectId": "HySVhA2Rl8waskJL"
     }
   ],
   "activeVersion": null,
