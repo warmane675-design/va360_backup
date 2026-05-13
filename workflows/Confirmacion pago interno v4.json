@@ -1,0 +1,690 @@
+{
+  "updatedAt": "2026-05-13T11:37:23.482Z",
+  "createdAt": "2026-05-13T11:30:08.555Z",
+  "id": "MyLBQaKHAhPezFVc",
+  "name": "Confirmacion pago interno v4",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://hazmarca.marketing/slu/api/3/crearFacturaCliente",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "=codcliente",
+              "value": "={{ $json.query.codcliente }}"
+            },
+            {
+              "name": "lineas",
+              "value": "=[{\"descripcion\": \"Renovación dominio {{ $json.query.dominio }}\", \"cantidad\": 1, \"pvpunitario\": {{ $json.query.pvpunitario }}}]"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        80,
+        80
+      ],
+      "id": "b12f2c90-93b7-4e83-a8fb-14f4ab4ceb35",
+      "name": "HTTP Request",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "qoKa7RcJ4cB8mSzv",
+          "name": "FacturaScript API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Crear factura",
+        "height": 256,
+        "width": 192,
+        "color": "#412D4E"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        32,
+        0
+      ],
+      "typeVersion": 1,
+      "id": "0cd3c269-77ee-420a-9011-9eff63eb3af2",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "path": "el_cliente_ha_pagado",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -256,
+        176
+      ],
+      "id": "d26b2282-079b-48b8-b2f1-25c427fa1fdc",
+      "name": "Webhook",
+      "webhookId": "38b2fb71-2597-47ee-bbca-487e93ddbb57"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1QVP5U6uNJ7FdkoUwh4XXP_pZKzGfBbc8BZCSF_d_vs8",
+          "mode": "list",
+          "cachedResultName": "n8nRenovaciones",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QVP5U6uNJ7FdkoUwh4XXP_pZKzGfBbc8BZCSF_d_vs8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aV0k8akb8Bg65svTa5GPj_KHllcg2U2PuvvBkaNVLSk/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ID Cliente": "={{ $json.query.codcliente }}",
+            "row_number": 0,
+            "Última Acción": "PAGADO"
+          },
+          "matchingColumns": [
+            "ID Cliente"
+          ],
+          "schema": [
+            {
+              "id": "Dominio",
+              "displayName": "Dominio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Email Cliente",
+              "displayName": "Email Cliente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Fecha Vencimiento",
+              "displayName": "Fecha Vencimiento",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Estado",
+              "displayName": "Estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Precio Base (€)",
+              "displayName": "Precio Base (€)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "ID Cliente",
+              "displayName": "ID Cliente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Nombre Cliente",
+              "displayName": "Nombre Cliente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Última Acción",
+              "displayName": "Última Acción",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        64,
+        336
+      ],
+      "id": "284cb6ff-d7d9-45d9-bb05-e0f6fd42fe19",
+      "name": "Update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "tlryTl2TVc3G1dVp",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://hazmarca.marketing/slu/api/3/pagarFacturaCliente/{{ $json.doc.idfactura }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "fechapago",
+              "value": "={{ new Date().toISOString().split('T')[0] }}"
+            },
+            {
+              "name": "codpago",
+              "value": "CONT"
+            },
+            {
+              "name": "pagada",
+              "value": "1"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        320,
+        80
+      ],
+      "id": "dcdd91d4-80e7-40ca-bd45-3d78066bf9b7",
+      "name": "HTTP Request1",
+      "alwaysOutputData": true,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "qoKa7RcJ4cB8mSzv",
+          "name": "FacturaScript API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Marcar pagada\n",
+        "height": 256,
+        "width": 224,
+        "color": "#412D4E"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        256,
+        0
+      ],
+      "typeVersion": 1,
+      "id": "ab279929-2681-49ec-81a1-1c011320b574",
+      "name": "Sticky Note"
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "errorWorkflow": "jWOwPrw3rbQy2Doq",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "proyecton8n-n8n.yq3yuy.easypanel.host",
+            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+            "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "accept-language": "es-ES,es;q=0.9,en;q=0.8",
+            "cookie": {
+              "__redacted": true,
+              "reason": "node_defined_field",
+              "canReveal": false
+            },
+            "priority": "u=0, i",
+            "sec-ch-ua": "\"Google Chrome\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"",
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": "\"Windows\"",
+            "sec-fetch-dest": "document",
+            "sec-fetch-mode": "navigate",
+            "sec-fetch-site": "cross-site",
+            "sec-fetch-user": "?1",
+            "upgrade-insecure-requests": "1",
+            "x-forwarded-for": "78.30.9.5",
+            "x-forwarded-host": "proyecton8n-n8n.yq3yuy.easypanel.host",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "946ec7fcaaf0",
+            "x-real-ip": "78.30.9.5"
+          },
+          "params": {},
+          "query": {
+            "dominio": "dominio.com",
+            "codcliente": "41859",
+            "pvpunitario": "21.2",
+            "cliente": "LEANDRO MARTINEZ DEL RIO"
+          },
+          "body": {},
+          "webhookUrl": "https://proyecton8n-n8n.yq3yuy.easypanel.host/webhook/el_cliente_ha_pagado",
+          "executionMode": "production"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "versionId": "f25501b9-9342-4a1b-9308-b883d4d61040",
+  "activeVersionId": "f25501b9-9342-4a1b-9308-b883d4d61040",
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2026-05-13T11:30:08.558Z",
+      "createdAt": "2026-05-13T11:30:08.558Z",
+      "role": "workflow:owner",
+      "workflowId": "MyLBQaKHAhPezFVc",
+      "projectId": "HySVhA2Rl8waskJL"
+    }
+  ],
+  "activeVersion": {
+    "updatedAt": "2026-05-13T11:37:56.000Z",
+    "createdAt": "2026-05-13T11:37:23.483Z",
+    "versionId": "f25501b9-9342-4a1b-9308-b883d4d61040",
+    "workflowId": "MyLBQaKHAhPezFVc",
+    "nodes": [
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://hazmarca.marketing/slu/api/3/crearFacturaCliente",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "httpHeaderAuth",
+          "sendBody": true,
+          "contentType": "form-urlencoded",
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "=codcliente",
+                "value": "={{ $json.query.codcliente }}"
+              },
+              {
+                "name": "lineas",
+                "value": "=[{\"descripcion\": \"Renovación dominio {{ $json.query.dominio }}\", \"cantidad\": 1, \"pvpunitario\": {{ $json.query.pvpunitario }}}]"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.4,
+        "position": [
+          80,
+          80
+        ],
+        "id": "b12f2c90-93b7-4e83-a8fb-14f4ab4ceb35",
+        "name": "HTTP Request",
+        "credentials": {
+          "httpHeaderAuth": {
+            "id": "qoKa7RcJ4cB8mSzv",
+            "name": "FacturaScript API"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "content": "## Crear factura",
+          "height": 256,
+          "width": 192,
+          "color": "#412D4E"
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          32,
+          0
+        ],
+        "typeVersion": 1,
+        "id": "0cd3c269-77ee-420a-9011-9eff63eb3af2",
+        "name": "Sticky Note1"
+      },
+      {
+        "parameters": {
+          "path": "el_cliente_ha_pagado",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          -256,
+          176
+        ],
+        "id": "d26b2282-079b-48b8-b2f1-25c427fa1fdc",
+        "name": "Webhook",
+        "webhookId": "38b2fb71-2597-47ee-bbca-487e93ddbb57"
+      },
+      {
+        "parameters": {
+          "operation": "update",
+          "documentId": {
+            "__rl": true,
+            "value": "1QVP5U6uNJ7FdkoUwh4XXP_pZKzGfBbc8BZCSF_d_vs8",
+            "mode": "list",
+            "cachedResultName": "n8nRenovaciones",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QVP5U6uNJ7FdkoUwh4XXP_pZKzGfBbc8BZCSF_d_vs8/edit?usp=drivesdk"
+          },
+          "sheetName": {
+            "__rl": true,
+            "value": "gid=0",
+            "mode": "list",
+            "cachedResultName": "Hoja 1",
+            "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aV0k8akb8Bg65svTa5GPj_KHllcg2U2PuvvBkaNVLSk/edit#gid=0"
+          },
+          "columns": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "ID Cliente": "={{ $json.query.codcliente }}",
+              "row_number": 0,
+              "Última Acción": "PAGADO"
+            },
+            "matchingColumns": [
+              "ID Cliente"
+            ],
+            "schema": [
+              {
+                "id": "Dominio",
+                "displayName": "Dominio",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": true
+              },
+              {
+                "id": "Email Cliente",
+                "displayName": "Email Cliente",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": true
+              },
+              {
+                "id": "Fecha Vencimiento",
+                "displayName": "Fecha Vencimiento",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": true
+              },
+              {
+                "id": "Estado",
+                "displayName": "Estado",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": true
+              },
+              {
+                "id": "Precio Base (€)",
+                "displayName": "Precio Base (€)",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": true
+              },
+              {
+                "id": "ID Cliente",
+                "displayName": "ID Cliente",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "Nombre Cliente",
+                "displayName": "Nombre Cliente",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": true
+              },
+              {
+                "id": "Última Acción",
+                "displayName": "Última Acción",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true
+              },
+              {
+                "id": "row_number",
+                "displayName": "row_number",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "number",
+                "canBeUsedToMatch": true,
+                "readOnly": true,
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleSheets",
+        "typeVersion": 4.7,
+        "position": [
+          64,
+          336
+        ],
+        "id": "284cb6ff-d7d9-45d9-bb05-e0f6fd42fe19",
+        "name": "Update row in sheet",
+        "credentials": {
+          "googleSheetsOAuth2Api": {
+            "id": "tlryTl2TVc3G1dVp",
+            "name": "Google Sheets account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "=https://hazmarca.marketing/slu/api/3/pagarFacturaCliente/{{ $json.doc.idfactura }}",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "httpHeaderAuth",
+          "sendBody": true,
+          "contentType": "form-urlencoded",
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "fechapago",
+                "value": "={{ new Date().toISOString().split('T')[0] }}"
+              },
+              {
+                "name": "codpago",
+                "value": "CONT"
+              },
+              {
+                "name": "pagada",
+                "value": "1"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.4,
+        "position": [
+          320,
+          80
+        ],
+        "id": "dcdd91d4-80e7-40ca-bd45-3d78066bf9b7",
+        "name": "HTTP Request1",
+        "alwaysOutputData": true,
+        "credentials": {
+          "httpHeaderAuth": {
+            "id": "qoKa7RcJ4cB8mSzv",
+            "name": "FacturaScript API"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "content": "## Marcar pagada\n",
+          "height": 256,
+          "width": 224,
+          "color": "#412D4E"
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "position": [
+          256,
+          0
+        ],
+        "typeVersion": 1,
+        "id": "ab279929-2681-49ec-81a1-1c011320b574",
+        "name": "Sticky Note"
+      }
+    ],
+    "connections": {
+      "Webhook": {
+        "main": [
+          [
+            {
+              "node": "HTTP Request",
+              "type": "main",
+              "index": 0
+            },
+            {
+              "node": "Update row in sheet",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "HTTP Request": {
+        "main": [
+          [
+            {
+              "node": "HTTP Request1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Leandro Martinez",
+    "name": "Version f25501b9",
+    "description": "",
+    "autosaved": true
+  },
+  "tags": [
+    {
+      "updatedAt": "2026-05-11T09:01:50.331Z",
+      "createdAt": "2026-05-11T09:01:50.331Z",
+      "id": "1RdtjEkS3P0u2ppX",
+      "name": "v4"
+    }
+  ]
+}
