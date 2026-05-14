@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-12T08:45:18.232Z",
+  "updatedAt": "2026-05-14T07:12:21.733Z",
   "createdAt": "2026-05-11T08:28:16.674Z",
   "id": "D4t2vLp7rgaYwpBR",
   "name": "Facturas Gmail v2",
@@ -451,11 +451,10 @@
   "staticData": {
     "node:Gmail Trigger": {
       "Gmail Trigger": {
-        "lastTimeChecked": 1778582433,
+        "lastTimeChecked": 1778752355,
         "possibleDuplicates": [
-          "19e1bc62fd9e509a",
-          "19e1bc62eb22a132",
-          "19e1b89046004306"
+          "19e25e7190c8e254",
+          "19e2195e4e7ec984"
         ]
       }
     }
@@ -463,7 +462,47 @@
   "meta": {
     "templateCredsSetupCompleted": true
   },
-  "pinData": {},
+  "pinData": {
+    "Gmail Trigger": [
+      {
+        "json": {
+          "id": "19e1b263443fe2c6",
+          "threadId": "19e1b263443fe2c6",
+          "snippet": "si",
+          "payload": {
+            "mimeType": "multipart/mixed"
+          },
+          "sizeEstimate": 74355,
+          "historyId": "24474391",
+          "internalDate": "1778571935000",
+          "labels": [
+            {
+              "id": "INBOX",
+              "name": "INBOX"
+            },
+            {
+              "id": "IMPORTANT",
+              "name": "IMPORTANT"
+            },
+            {
+              "id": "CATEGORY_PERSONAL",
+              "name": "CATEGORY_PERSONAL"
+            },
+            {
+              "id": "UNREAD",
+              "name": "UNREAD"
+            }
+          ],
+          "From": "warmane <warmane675@gmail.com>",
+          "Subject": "prueba",
+          "To": "contacta@hazmarca.es"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
   "versionId": "22ceba89-2a3c-46e7-b606-83cd8daf146d",
   "activeVersionId": "22ceba89-2a3c-46e7-b606-83cd8daf146d",
   "triggerCount": 1,
@@ -477,7 +516,7 @@
     }
   ],
   "activeVersion": {
-    "updatedAt": "2026-05-12T07:44:44.000Z",
+    "updatedAt": "2026-05-14T10:22:12.000Z",
     "createdAt": "2026-05-12T07:44:24.595Z",
     "versionId": "22ceba89-2a3c-46e7-b606-83cd8daf146d",
     "workflowId": "D4t2vLp7rgaYwpBR",
