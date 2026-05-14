@@ -1,0 +1,126 @@
+{
+  "updatedAt": "2026-05-14T09:23:51.861Z",
+  "createdAt": "2026-05-14T09:03:11.296Z",
+  "id": "EsP25WWNg79553Lz",
+  "name": "arreglo",
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "url": "=https://hazmarca.marketing/slu/api/3/albaranproveedores",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "pagination": {
+            "pagination": {
+              "parameters": {
+                "parameters": [
+                  {
+                    "name": "offset",
+                    "value": "={{ $pageCount * 50 }}"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -160,
+        16
+      ],
+      "id": "14765aab-c827-4ab7-b153-8ae5e34e87b5",
+      "name": "HTTPAlbaran",
+      "alwaysOutputData": false,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "qoKa7RcJ4cB8mSzv",
+          "name": "FacturaScript API"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -416,
+        16
+      ],
+      "id": "22d2fcba-c984-41d4-9df6-bf39037bbf20",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "method": "DELETE",
+        "url": "=https://hazmarca.marketing/slu/api/3/albaranproveedores/{{ $json.codigo }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        128,
+        16
+      ],
+      "id": "4fd99ce7-4e83-4c33-afaa-b8285f343af3",
+      "name": "HTTPAlbaran1",
+      "alwaysOutputData": false,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "qoKa7RcJ4cB8mSzv",
+          "name": "FacturaScript API"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTPAlbaran",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTPAlbaran": {
+      "main": [
+        [
+          {
+            "node": "HTTPAlbaran1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {},
+  "versionId": "4d9dcb6d-e646-4564-a4f3-0312f2736c93",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2026-05-14T09:03:11.305Z",
+      "createdAt": "2026-05-14T09:03:11.305Z",
+      "role": "workflow:owner",
+      "workflowId": "EsP25WWNg79553Lz",
+      "projectId": "HySVhA2Rl8waskJL"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
