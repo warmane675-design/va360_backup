@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-11T08:46:15.214Z",
+  "updatedAt": "2026-05-15T08:32:46.237Z",
   "createdAt": "2026-05-11T08:30:10.836Z",
   "id": "kSQMXsF0UO9M7cAN",
   "name": "Ingesta de documentos v2",
@@ -45,7 +45,13 @@
         0
       ],
       "id": "97fdef9f-d788-4c1d-b6b8-105633bc1453",
-      "name": "Pinecone Vector Store"
+      "name": "Pinecone Vector Store",
+      "credentials": {
+        "pineconeApi": {
+          "id": "Etdhanl3dkLlZy35",
+          "name": "Pinecone war"
+        }
+      }
     },
     {
       "parameters": {
@@ -166,7 +172,7 @@
   "staticData": null,
   "meta": null,
   "pinData": {},
-  "versionId": "756acb46-7f87-43c3-912c-4bdbcc8c1d4e",
+  "versionId": "19ff6771-74b1-4e33-bd69-7a355a608219",
   "activeVersionId": null,
   "triggerCount": 0,
   "shared": [
