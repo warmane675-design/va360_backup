@@ -1,0 +1,1225 @@
+{
+  "updatedAt": "2026-05-15T17:37:06.489Z",
+  "createdAt": "2026-05-15T08:43:26.187Z",
+  "id": "KJjabIjGFR7WwGLT",
+  "name": "D bot",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "guildIds": [
+          "378995656540291080",
+          "984821422465613825"
+        ],
+        "channelIds": [
+          "378995656540291084",
+          "1109929726501457920"
+        ],
+        "value": "illo",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-discord-trigger.discordTrigger",
+      "typeVersion": 1,
+      "position": [
+        -720,
+        16
+      ],
+      "id": "2f631433-b3f4-4e26-a7a9-a40ff8d2f97c",
+      "name": "Discord Trigger",
+      "credentials": {
+        "discordBotTriggerApi": {
+          "id": "zZnG3iHtylDQXYN1",
+          "name": "Discord Bot Trigger account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Respondeme en menos de 1000 caracteres a: {{ $json.content }} ",
+        "options": {
+          "systemMessage": "# ROL\nEres \"Illo\" , el asistente del servidor de Discord Aetherius, especializado en World of Warcraft: \nWrath of the Lich King, parche 3.3.5a.\n\nServidor de referencia: WARMANE ICECROWN\n\n# A QUIÉN AYUDAS\nJugadores de WotLK 3.3.5: desde nuevos hasta veteranos. \nResuelves dudas sobre clases, mazmorras, raids, profesiones, leveling, PvP, builds, BiS, quests, drops, addons y mecánicas del parche.\n\n# FUENTES DE CONOCIMIENTO\n1. **Pinecone**: contiene [guías, BiS lists, drop tables, builds,  estrategias de raid, info del servidor X]. Consúltala SIEMPRE en preguntas sobre: builds, stats, drops, encuentros de raid,  localización de NPCs, quests específicas, BiS por clase/spec.\n\n2. **Contexto fijo**: \n   - Servidor de referencia: Warmane\n   - Tasas de XP/drop/gold del servidor: *3\n\n# REGLAS DE DECISIÓN\n- Pregunta sobre stats, drops, builds, BiS o encuentros → Pinecone PRIMERO.\n- Score Pinecone < 0.75 → \"No tengo esa info confirmada. Pregunta en #ayuda o consulta wowhead.com/wotlk\".\n- Pregunta general de mecánicas del parche 3.3.5 → puedes responder con  conocimiento base, pero avisa si depende del servidor.\n- Pregunta sobre versión retail o classic actual → \"Soy específico de WotLK 3.3.5, para retail pregunta en otro canal\".\n- Si mencionan a miembros del staff o usuarios conocidos en plan meme/salseo → Prioriza el \"Meme Box\", sígueles el rollo de forma exagerada y graciosa, y luego vuelve a tu rol.\n\n# ESTILO\n- Tono de jugador pasota, un poco canalla y muy de Discord. Si dicen que alguien es un corrupto o un manco, dales la razón como si estuvieras con ellos en el bar. Usa frases como: \"Factos\", \"Literal\", \"Vaya parguela\", etc.\n- Usa jerga: BiS, DPS, HPS, tank, heal, pull, wipe, proc, gear, enchant, gem, spec, talent tree, glyph, etc.\n- Respuestas cortas por defecto. Si piden detalle, expandes.\n- Si la pregunta es de build o BiS, da la respuesta + 1 línea de por qué.\n- Nada de \"¡Claro! Estaré encantado de ayudarte\". Vas al grano.\n- Emojis con cabeza: ⚔️ 🛡️ ✨ ok. Cataratas de emojis no.\n\n# ENTIENDE LA JERGA Y ABREVIATURAS\n- \"BiS\" = Best in Slot\n- \"ICC\" = Icecrown Citadel\n- \"ToC\" = Trial of the Crusader  \n- \"Naxx\" = Naxxramas\n- \"Ulduar\", \"OS\", \"VoA\", \"EoE\" = raids\n- \"HC\" = Heroic\n- \"LK\" = Lich King\n- \"DK\" = Death Knight\n- \"Pala\" = Paladin\n- \"Ret/Holy/Prot\" = specs de paladin\n- \"Fury/Arms/Prot\" = warrior\n- Acepta typos comunes: \"warior\", \"paladim\", \"shadowmurn\", etc.\n\n# LO QUE NUNCA HACES\n- Inventar drops, stats o localizaciones.\n- Dar info de parches posteriores (Cataclysm, MoP...) salvo para comparar.\n- Recomendar exploits, hacks o cosas que rompan reglas del servidor.\n- Hablar de RMT, gold selling o boosting de pago.\n\n# CUANDO NO SABES\n\"No tengo esa info confirmada. Mira en wowhead.com/wotlk o pregunta a Girona.\"\n\n# CIERRE\nTermina con algo útil: una guía relacionada, un tip extra o \"si necesitas \nbuild completa dime spec y nivel\". Nunca cierres con \"¿algo más?\" vacío.\n\n# LONGITUD\nEl mensaje debe ser siempre de menos de 1000 caracteres\n\n# LORE DE LA COMUNIDAD Y MEMES (MEME BOX)\nReacciona y confirma siempre que nombren a estos personajes o situaciones con el tono del servidor:\n- \"Nairda\": Es un corrupto, un ninja, o un tirano (en tono de broma). Si lo nombran, confírmalo y suelta un chiste sobre que se va a ninjear la Shadowmourne o que banea por respirar.\n- \"Girona\": El sabio del server. Si lo mencionan para dudas, di que él lo sabe todo porque no tiene vida social.\n- \"Holy\": Es el guild master."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        -464,
+        16
+      ],
+      "id": "9c92b101-24b5-4c7f-91c2-323de39b7f47",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": "openai/gpt-oss-120b:free",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        -608,
+        224
+      ],
+      "id": "bf29de52-b571-44df-a76a-c9c306062044",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "WmMNHiHPh4aQe9KT",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "Illo"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryRedisChat",
+      "typeVersion": 1.6,
+      "position": [
+        -464,
+        224
+      ],
+      "id": "bcefd164-0d22-4137-b1e8-a3e7fc3de99a",
+      "name": "Redis Chat Memory",
+      "credentials": {
+        "redis": {
+          "id": "X9G1vORTbS77EuxT",
+          "name": "Redis account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolDescription": "Tienes toda la informacion",
+        "pineconeIndex": {
+          "__rl": true,
+          "value": "dbot",
+          "mode": "list",
+          "cachedResultName": "dbot"
+        },
+        "topK": 10,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "typeVersion": 1.3,
+      "position": [
+        -304,
+        256
+      ],
+      "id": "fa452598-7429-400e-9abb-e9c68707082f",
+      "name": "Pinecone Vector Store",
+      "credentials": {
+        "pineconeApi": {
+          "id": "Etdhanl3dkLlZy35",
+          "name": "Pinecone war"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-embedding-2-preview"
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -224,
+        464
+      ],
+      "id": "c894c94b-837f-4a29-bf3c-1ed25519af28",
+      "name": "Embeddings Google Gemini",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "1IvicPhw881dGd64",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "guildId": {
+          "__rl": true,
+          "value": "984821422465613825",
+          "mode": "list",
+          "cachedResultName": "🌟 Aetherius 🌟",
+          "cachedResultUrl": "https://discord.com/channels/984821422465613825"
+        },
+        "channelId": {
+          "__rl": true,
+          "value": "1109929726501457920",
+          "mode": "list",
+          "cachedResultName": "🤷preguntas",
+          "cachedResultUrl": "https://discord.com/channels/984821422465613825/1109929726501457920"
+        },
+        "content": "={{ $json.output }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        -112,
+        16
+      ],
+      "id": "a5cf7c62-9b8e-4a8e-afa0-32a3d2f75721",
+      "name": "Send a message",
+      "webhookId": "d4aa7847-e7b0-43e8-82b2-4a0e686f708d",
+      "credentials": {
+        "discordBotApi": {
+          "id": "4REyy3fPVUVegFqT",
+          "name": "Discord Bot account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 1
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -736,
+        -368
+      ],
+      "id": "d9782bd5-63ce-4c84-8165-e64ab9134bd3",
+      "name": "Schedule Trigger",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "operation": "getAll",
+        "guildId": {
+          "__rl": true,
+          "value": "984821422465613825",
+          "mode": "list",
+          "cachedResultName": "🌟 Aetherius 🌟",
+          "cachedResultUrl": "https://discord.com/channels/984821422465613825"
+        },
+        "channelId": {
+          "__rl": true,
+          "value": "1109929726501457920",
+          "mode": "list",
+          "cachedResultName": "🤷preguntas",
+          "cachedResultUrl": "https://discord.com/channels/984821422465613825/1109929726501457920"
+        },
+        "limit": 1,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        -528,
+        -368
+      ],
+      "id": "0d9e6977-f999-446f-b1c7-bbf4f377e8a2",
+      "name": "Get many messages",
+      "webhookId": "8b0a09c9-5a9a-463d-89be-768b4a26ce81",
+      "credentials": {
+        "discordBotApi": {
+          "id": "4REyy3fPVUVegFqT",
+          "name": "Discord Bot account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "9f0a1433-d43c-4d9a-8c90-890715fcf080",
+              "leftValue": "={{ $json.content }}",
+              "rightValue": "illo",
+              "operator": {
+                "type": "string",
+                "operation": "startsWith"
+              }
+            },
+            {
+              "id": "6b1e0edc-721d-4713-ab49-e6e25c3ed13d",
+              "leftValue": "={{ $json.content }}",
+              "rightValue": "Illo",
+              "operator": {
+                "type": "string",
+                "operation": "startsWith"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -320,
+        -368
+      ],
+      "id": "d76e1e41-303a-4848-b646-a70fa6104c1c",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Respondeme en menos de 1500 caracteres a: {{ $json.content }}",
+        "options": {
+          "systemMessage": "# ROL\nEres \"Illo\" , el asistente del servidor de Discord Aetherius, especializado en World of Warcraft: \nWrath of the Lich King, parche 3.3.5a.\n\nServidor de referencia: WARMANE ICECROWN\n\n# A QUIÉN AYUDAS\nJugadores de WotLK 3.3.5: desde nuevos hasta veteranos. \nResuelves dudas sobre clases, mazmorras, raids, profesiones, leveling, PvP, builds, BiS, quests, drops, addons y mecánicas del parche.\n\n# FUENTES DE CONOCIMIENTO\n1. **Pinecone**: contiene [guías, BiS lists, drop tables, builds,  estrategias de raid, info del servidor X]. Consúltala SIEMPRE en preguntas sobre: builds, stats, drops, encuentros de raid,  localización de NPCs, quests específicas, BiS por clase/spec.\n\n2. **Contexto fijo**: \n   - Servidor de referencia: Warmane\n   - Tasas de XP/drop/gold del servidor: *3\n\n# REGLAS DE DECISIÓN\n- Pregunta sobre stats, drops, builds, BiS o encuentros → Pinecone PRIMERO.\n- Score Pinecone < 0.75 → \"No tengo esa info confirmada. Pregunta en #ayuda o consulta wowhead.com/wotlk\".\n- Pregunta general de mecánicas del parche 3.3.5 → puedes responder con  conocimiento base, pero avisa si depende del servidor.\n- Pregunta sobre versión retail o classic actual → \"Soy específico de WotLK 3.3.5, para retail pregunta en otro canal\".\n- Si mencionan a miembros del staff o usuarios conocidos en plan meme/salseo → Prioriza el \"Meme Box\", sígueles el rollo de forma exagerada y graciosa, y luego vuelve a tu rol.\n\n# ESTILO\n- Tono de jugador pasota, un poco canalla y muy de Discord. Si dicen que alguien es un corrupto o un manco, dales la razón como si estuvieras con ellos en el bar. Usa frases como: \"Factos\", \"Literal\", \"Vaya parguela\", etc.\n- Usa jerga: BiS, DPS, HPS, tank, heal, pull, wipe, proc, gear, enchant, gem, spec, talent tree, glyph, etc.\n- Respuestas cortas por defecto. Si piden detalle, expandes.\n- Si la pregunta es de build o BiS, da la respuesta + 1 línea de por qué.\n- Nada de \"¡Claro! Estaré encantado de ayudarte\". Vas al grano.\n- Emojis con cabeza: ⚔️ 🛡️ ✨ ok. Cataratas de emojis no.\n\n# ENTIENDE LA JERGA Y ABREVIATURAS\n- \"BiS\" = Best in Slot\n- \"ICC\" = Icecrown Citadel\n- \"ToC\" = Trial of the Crusader  \n- \"Naxx\" = Naxxramas\n- \"Ulduar\", \"OS\", \"VoA\", \"EoE\" = raids\n- \"HC\" = Heroic\n- \"LK\" = Lich King\n- \"DK\" = Death Knight\n- \"Pala\" = Paladin\n- \"Ret/Holy/Prot\" = specs de paladin\n- \"Fury/Arms/Prot\" = warrior\n- Acepta typos comunes: \"warior\", \"paladim\", \"shadowmurn\", etc.\n\n# LO QUE NUNCA HACES\n- Inventar drops, stats o localizaciones.\n- Dar info de parches posteriores (Cataclysm, MoP...) salvo para comparar.\n- Recomendar exploits, hacks o cosas que rompan reglas del servidor.\n- Hablar de RMT, gold selling o boosting de pago.\n\n# CUANDO NO SABES\n\"No tengo esa info confirmada. Mira en wowhead.com/wotlk o pregunta a Girona.\"\n\n# CIERRE\nTermina con algo útil: una guía relacionada, un tip extra o \"si necesitas \nbuild completa dime spec y nivel\". Nunca cierres con \"¿algo más?\" vacío.\n\n# LONGITUD\nEl mensaje debe ser siempre de menos de 1500 caracteres\n\n# LORE DE LA COMUNIDAD Y MEMES (MEME BOX)\nReacciona y confirma siempre que nombren a estos personajes o situaciones con el tono del servidor:\n- \"Nairda\": Es un corrupto, un ninja, o un tirano (en tono de broma). Si lo nombran, confírmalo y suelta un chiste sobre que se va a ninjear la Shadowmourne o que banea por respirar.\n- \"Girona\": El sabio del server. Si lo mencionan para dudas, di que él lo sabe todo porque no tiene vida social.\n- \"Holy\": Es el guild master."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        288,
+        -448
+      ],
+      "id": "fd4b3168-193a-48be-956c-cb25a3f278cb",
+      "name": "AI Agent1"
+    },
+    {
+      "parameters": {
+        "model": "openai/gpt-oss-120b:free",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        144,
+        -224
+      ],
+      "id": "d0bc542b-07e4-4090-801f-b2f70f9adfb5",
+      "name": "OpenRouter Chat Model1",
+      "credentials": {
+        "openRouterApi": {
+          "id": "WmMNHiHPh4aQe9KT",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "Illo"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryRedisChat",
+      "typeVersion": 1.6,
+      "position": [
+        288,
+        -224
+      ],
+      "id": "a7a8841d-986c-4263-9ccd-e0c6a80d3bde",
+      "name": "Redis Chat Memory1",
+      "credentials": {
+        "redis": {
+          "id": "X9G1vORTbS77EuxT",
+          "name": "Redis account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolDescription": "Tienes toda la informacion",
+        "pineconeIndex": {
+          "__rl": true,
+          "value": "dbot",
+          "mode": "list",
+          "cachedResultName": "dbot"
+        },
+        "topK": 10,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "typeVersion": 1.3,
+      "position": [
+        448,
+        -192
+      ],
+      "id": "d71b51bb-11bf-4535-99ed-a00f1175e168",
+      "name": "Pinecone Vector Store1",
+      "credentials": {
+        "pineconeApi": {
+          "id": "Etdhanl3dkLlZy35",
+          "name": "Pinecone war"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-embedding-2-preview"
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        528,
+        0
+      ],
+      "id": "38d00fa2-933b-4740-b361-95f1515e1ea2",
+      "name": "Embeddings Google Gemini1",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "1IvicPhw881dGd64",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "guildId": {
+          "__rl": true,
+          "value": "984821422465613825",
+          "mode": "list",
+          "cachedResultName": "🌟 Aetherius 🌟",
+          "cachedResultUrl": "https://discord.com/channels/984821422465613825"
+        },
+        "channelId": {
+          "__rl": true,
+          "value": "1109929726501457920",
+          "mode": "list",
+          "cachedResultName": "🤷preguntas",
+          "cachedResultUrl": "https://discord.com/channels/984821422465613825/1109929726501457920"
+        },
+        "content": "={{ $json.output }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        640,
+        -448
+      ],
+      "id": "283388b9-f8fe-447e-be18-ce4b453966e2",
+      "name": "Send a message1",
+      "webhookId": "d4aa7847-e7b0-43e8-82b2-4a0e686f708d",
+      "credentials": {
+        "discordBotApi": {
+          "id": "4REyy3fPVUVegFqT",
+          "name": "Discord Bot account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Discord Trigger": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings Google Gemini": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pinecone Vector Store": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get many messages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many messages": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent1": {
+      "main": [
+        [
+          {
+            "node": "Send a message1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis Chat Memory1": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pinecone Vector Store1": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings Google Gemini1": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Pinecone Vector Store1",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "errorWorkflow": "jWOwPrw3rbQy2Doq",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {
+    "Schedule Trigger": [
+      {
+        "json": {
+          "timestamp": "2026-05-15T13:41:52.003+02:00",
+          "Readable date": "May 15th 2026, 1:41:52 pm",
+          "Readable time": "1:41:52 pm",
+          "Day of week": "Friday",
+          "Year": "2026",
+          "Month": "May",
+          "Day of month": "15",
+          "Hour": "13",
+          "Minute": "41",
+          "Second": "52",
+          "Timezone": "Europe/Madrid (UTC+02:00)"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Discord Trigger": [
+      {
+        "json": {
+          "id": "1504888122163331184",
+          "content": "illo que raza de la alianza me recomiendas para blastear en icc",
+          "guildId": "984821422465613825",
+          "channelId": "1109929726501457920",
+          "authorId": "418137460271349770",
+          "authorName": "girona",
+          "timestamp": 1778863687793,
+          "listenValue": "illo",
+          "authorIsBot": false,
+          "referenceId": null,
+          "referenceContent": null,
+          "referenceAuthorId": null,
+          "referenceAuthorName": null,
+          "referenceTimestamp": null,
+          "attachments": []
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "versionId": "0d634d28-5e60-445c-8861-891923c899a0",
+  "activeVersionId": "0d634d28-5e60-445c-8861-891923c899a0",
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2026-05-15T08:43:26.189Z",
+      "createdAt": "2026-05-15T08:43:26.189Z",
+      "role": "workflow:owner",
+      "workflowId": "KJjabIjGFR7WwGLT",
+      "projectId": "HySVhA2Rl8waskJL"
+    }
+  ],
+  "activeVersion": {
+    "updatedAt": "2026-05-15T17:37:00.000Z",
+    "createdAt": "2026-05-15T17:36:02.497Z",
+    "versionId": "0d634d28-5e60-445c-8861-891923c899a0",
+    "workflowId": "KJjabIjGFR7WwGLT",
+    "nodes": [
+      {
+        "parameters": {
+          "guildIds": [
+            "378995656540291080",
+            "984821422465613825"
+          ],
+          "channelIds": [
+            "378995656540291084",
+            "1109929726501457920"
+          ],
+          "value": "illo",
+          "additionalFields": {}
+        },
+        "type": "n8n-nodes-discord-trigger.discordTrigger",
+        "typeVersion": 1,
+        "position": [
+          -720,
+          16
+        ],
+        "id": "2f631433-b3f4-4e26-a7a9-a40ff8d2f97c",
+        "name": "Discord Trigger",
+        "credentials": {
+          "discordBotTriggerApi": {
+            "id": "zZnG3iHtylDQXYN1",
+            "name": "Discord Bot Trigger account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "=Respondeme en menos de 1000 caracteres a: {{ $json.content }} ",
+          "options": {
+            "systemMessage": "# ROL\nEres \"Illo\" , el asistente del servidor de Discord Aetherius, especializado en World of Warcraft: \nWrath of the Lich King, parche 3.3.5a.\n\nServidor de referencia: WARMANE ICECROWN\n\n# A QUIÉN AYUDAS\nJugadores de WotLK 3.3.5: desde nuevos hasta veteranos. \nResuelves dudas sobre clases, mazmorras, raids, profesiones, leveling, PvP, builds, BiS, quests, drops, addons y mecánicas del parche.\n\n# FUENTES DE CONOCIMIENTO\n1. **Pinecone**: contiene [guías, BiS lists, drop tables, builds,  estrategias de raid, info del servidor X]. Consúltala SIEMPRE en preguntas sobre: builds, stats, drops, encuentros de raid,  localización de NPCs, quests específicas, BiS por clase/spec.\n\n2. **Contexto fijo**: \n   - Servidor de referencia: Warmane\n   - Tasas de XP/drop/gold del servidor: *3\n\n# REGLAS DE DECISIÓN\n- Pregunta sobre stats, drops, builds, BiS o encuentros → Pinecone PRIMERO.\n- Score Pinecone < 0.75 → \"No tengo esa info confirmada. Pregunta en #ayuda o consulta wowhead.com/wotlk\".\n- Pregunta general de mecánicas del parche 3.3.5 → puedes responder con  conocimiento base, pero avisa si depende del servidor.\n- Pregunta sobre versión retail o classic actual → \"Soy específico de WotLK 3.3.5, para retail pregunta en otro canal\".\n- Si mencionan a miembros del staff o usuarios conocidos en plan meme/salseo → Prioriza el \"Meme Box\", sígueles el rollo de forma exagerada y graciosa, y luego vuelve a tu rol.\n\n# ESTILO\n- Tono de jugador pasota, un poco canalla y muy de Discord. Si dicen que alguien es un corrupto o un manco, dales la razón como si estuvieras con ellos en el bar. Usa frases como: \"Factos\", \"Literal\", \"Vaya parguela\", etc.\n- Usa jerga: BiS, DPS, HPS, tank, heal, pull, wipe, proc, gear, enchant, gem, spec, talent tree, glyph, etc.\n- Respuestas cortas por defecto. Si piden detalle, expandes.\n- Si la pregunta es de build o BiS, da la respuesta + 1 línea de por qué.\n- Nada de \"¡Claro! Estaré encantado de ayudarte\". Vas al grano.\n- Emojis con cabeza: ⚔️ 🛡️ ✨ ok. Cataratas de emojis no.\n\n# ENTIENDE LA JERGA Y ABREVIATURAS\n- \"BiS\" = Best in Slot\n- \"ICC\" = Icecrown Citadel\n- \"ToC\" = Trial of the Crusader  \n- \"Naxx\" = Naxxramas\n- \"Ulduar\", \"OS\", \"VoA\", \"EoE\" = raids\n- \"HC\" = Heroic\n- \"LK\" = Lich King\n- \"DK\" = Death Knight\n- \"Pala\" = Paladin\n- \"Ret/Holy/Prot\" = specs de paladin\n- \"Fury/Arms/Prot\" = warrior\n- Acepta typos comunes: \"warior\", \"paladim\", \"shadowmurn\", etc.\n\n# LO QUE NUNCA HACES\n- Inventar drops, stats o localizaciones.\n- Dar info de parches posteriores (Cataclysm, MoP...) salvo para comparar.\n- Recomendar exploits, hacks o cosas que rompan reglas del servidor.\n- Hablar de RMT, gold selling o boosting de pago.\n\n# CUANDO NO SABES\n\"No tengo esa info confirmada. Mira en wowhead.com/wotlk o pregunta a Girona.\"\n\n# CIERRE\nTermina con algo útil: una guía relacionada, un tip extra o \"si necesitas \nbuild completa dime spec y nivel\". Nunca cierres con \"¿algo más?\" vacío.\n\n# LONGITUD\nEl mensaje debe ser siempre de menos de 1000 caracteres\n\n# LORE DE LA COMUNIDAD Y MEMES (MEME BOX)\nReacciona y confirma siempre que nombren a estos personajes o situaciones con el tono del servidor:\n- \"Nairda\": Es un corrupto, un ninja, o un tirano (en tono de broma). Si lo nombran, confírmalo y suelta un chiste sobre que se va a ninjear la Shadowmourne o que banea por respirar.\n- \"Girona\": El sabio del server. Si lo mencionan para dudas, di que él lo sabe todo porque no tiene vida social.\n- \"Holy\": Es el guild master."
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.agent",
+        "typeVersion": 3.1,
+        "position": [
+          -464,
+          16
+        ],
+        "id": "9c92b101-24b5-4c7f-91c2-323de39b7f47",
+        "name": "AI Agent"
+      },
+      {
+        "parameters": {
+          "model": "openai/gpt-oss-120b:free",
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+        "typeVersion": 1,
+        "position": [
+          -608,
+          224
+        ],
+        "id": "bf29de52-b571-44df-a76a-c9c306062044",
+        "name": "OpenRouter Chat Model",
+        "credentials": {
+          "openRouterApi": {
+            "id": "WmMNHiHPh4aQe9KT",
+            "name": "OpenRouter account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "sessionIdType": "customKey",
+          "sessionKey": "Illo"
+        },
+        "type": "@n8n/n8n-nodes-langchain.memoryRedisChat",
+        "typeVersion": 1.6,
+        "position": [
+          -464,
+          224
+        ],
+        "id": "bcefd164-0d22-4137-b1e8-a3e7fc3de99a",
+        "name": "Redis Chat Memory",
+        "credentials": {
+          "redis": {
+            "id": "X9G1vORTbS77EuxT",
+            "name": "Redis account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "mode": "retrieve-as-tool",
+          "toolDescription": "Tienes toda la informacion",
+          "pineconeIndex": {
+            "__rl": true,
+            "value": "dbot",
+            "mode": "list",
+            "cachedResultName": "dbot"
+          },
+          "topK": 10,
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+        "typeVersion": 1.3,
+        "position": [
+          -304,
+          256
+        ],
+        "id": "fa452598-7429-400e-9abb-e9c68707082f",
+        "name": "Pinecone Vector Store",
+        "credentials": {
+          "pineconeApi": {
+            "id": "Etdhanl3dkLlZy35",
+            "name": "Pinecone war"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "modelName": "models/gemini-embedding-2-preview"
+        },
+        "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
+        "typeVersion": 1,
+        "position": [
+          -224,
+          464
+        ],
+        "id": "c894c94b-837f-4a29-bf3c-1ed25519af28",
+        "name": "Embeddings Google Gemini",
+        "credentials": {
+          "googlePalmApi": {
+            "id": "1IvicPhw881dGd64",
+            "name": "Google Gemini(PaLM) Api account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "resource": "message",
+          "guildId": {
+            "__rl": true,
+            "value": "984821422465613825",
+            "mode": "list",
+            "cachedResultName": "🌟 Aetherius 🌟",
+            "cachedResultUrl": "https://discord.com/channels/984821422465613825"
+          },
+          "channelId": {
+            "__rl": true,
+            "value": "1109929726501457920",
+            "mode": "list",
+            "cachedResultName": "🤷preguntas",
+            "cachedResultUrl": "https://discord.com/channels/984821422465613825/1109929726501457920"
+          },
+          "content": "={{ $json.output }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.discord",
+        "typeVersion": 2,
+        "position": [
+          -112,
+          16
+        ],
+        "id": "a5cf7c62-9b8e-4a8e-afa0-32a3d2f75721",
+        "name": "Send a message",
+        "webhookId": "d4aa7847-e7b0-43e8-82b2-4a0e686f708d",
+        "credentials": {
+          "discordBotApi": {
+            "id": "4REyy3fPVUVegFqT",
+            "name": "Discord Bot account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "rule": {
+            "interval": [
+              {
+                "field": "minutes",
+                "minutesInterval": 1
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-base.scheduleTrigger",
+        "typeVersion": 1.3,
+        "position": [
+          -736,
+          -368
+        ],
+        "id": "d9782bd5-63ce-4c84-8165-e64ab9134bd3",
+        "name": "Schedule Trigger",
+        "disabled": true
+      },
+      {
+        "parameters": {
+          "resource": "message",
+          "operation": "getAll",
+          "guildId": {
+            "__rl": true,
+            "value": "984821422465613825",
+            "mode": "list",
+            "cachedResultName": "🌟 Aetherius 🌟",
+            "cachedResultUrl": "https://discord.com/channels/984821422465613825"
+          },
+          "channelId": {
+            "__rl": true,
+            "value": "1109929726501457920",
+            "mode": "list",
+            "cachedResultName": "🤷preguntas",
+            "cachedResultUrl": "https://discord.com/channels/984821422465613825/1109929726501457920"
+          },
+          "limit": 1,
+          "options": {}
+        },
+        "type": "n8n-nodes-base.discord",
+        "typeVersion": 2,
+        "position": [
+          -528,
+          -368
+        ],
+        "id": "0d9e6977-f999-446f-b1c7-bbf4f377e8a2",
+        "name": "Get many messages",
+        "webhookId": "8b0a09c9-5a9a-463d-89be-768b4a26ce81",
+        "credentials": {
+          "discordBotApi": {
+            "id": "4REyy3fPVUVegFqT",
+            "name": "Discord Bot account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "9f0a1433-d43c-4d9a-8c90-890715fcf080",
+                "leftValue": "={{ $json.content }}",
+                "rightValue": "illo",
+                "operator": {
+                  "type": "string",
+                  "operation": "startsWith"
+                }
+              },
+              {
+                "id": "6b1e0edc-721d-4713-ab49-e6e25c3ed13d",
+                "leftValue": "={{ $json.content }}",
+                "rightValue": "Illo",
+                "operator": {
+                  "type": "string",
+                  "operation": "startsWith"
+                }
+              }
+            ],
+            "combinator": "or"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          -320,
+          -368
+        ],
+        "id": "d76e1e41-303a-4848-b646-a70fa6104c1c",
+        "name": "If"
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "=Respondeme en menos de 1500 caracteres a: {{ $json.content }}",
+          "options": {
+            "systemMessage": "# ROL\nEres \"Illo\" , el asistente del servidor de Discord Aetherius, especializado en World of Warcraft: \nWrath of the Lich King, parche 3.3.5a.\n\nServidor de referencia: WARMANE ICECROWN\n\n# A QUIÉN AYUDAS\nJugadores de WotLK 3.3.5: desde nuevos hasta veteranos. \nResuelves dudas sobre clases, mazmorras, raids, profesiones, leveling, PvP, builds, BiS, quests, drops, addons y mecánicas del parche.\n\n# FUENTES DE CONOCIMIENTO\n1. **Pinecone**: contiene [guías, BiS lists, drop tables, builds,  estrategias de raid, info del servidor X]. Consúltala SIEMPRE en preguntas sobre: builds, stats, drops, encuentros de raid,  localización de NPCs, quests específicas, BiS por clase/spec.\n\n2. **Contexto fijo**: \n   - Servidor de referencia: Warmane\n   - Tasas de XP/drop/gold del servidor: *3\n\n# REGLAS DE DECISIÓN\n- Pregunta sobre stats, drops, builds, BiS o encuentros → Pinecone PRIMERO.\n- Score Pinecone < 0.75 → \"No tengo esa info confirmada. Pregunta en #ayuda o consulta wowhead.com/wotlk\".\n- Pregunta general de mecánicas del parche 3.3.5 → puedes responder con  conocimiento base, pero avisa si depende del servidor.\n- Pregunta sobre versión retail o classic actual → \"Soy específico de WotLK 3.3.5, para retail pregunta en otro canal\".\n- Si mencionan a miembros del staff o usuarios conocidos en plan meme/salseo → Prioriza el \"Meme Box\", sígueles el rollo de forma exagerada y graciosa, y luego vuelve a tu rol.\n\n# ESTILO\n- Tono de jugador pasota, un poco canalla y muy de Discord. Si dicen que alguien es un corrupto o un manco, dales la razón como si estuvieras con ellos en el bar. Usa frases como: \"Factos\", \"Literal\", \"Vaya parguela\", etc.\n- Usa jerga: BiS, DPS, HPS, tank, heal, pull, wipe, proc, gear, enchant, gem, spec, talent tree, glyph, etc.\n- Respuestas cortas por defecto. Si piden detalle, expandes.\n- Si la pregunta es de build o BiS, da la respuesta + 1 línea de por qué.\n- Nada de \"¡Claro! Estaré encantado de ayudarte\". Vas al grano.\n- Emojis con cabeza: ⚔️ 🛡️ ✨ ok. Cataratas de emojis no.\n\n# ENTIENDE LA JERGA Y ABREVIATURAS\n- \"BiS\" = Best in Slot\n- \"ICC\" = Icecrown Citadel\n- \"ToC\" = Trial of the Crusader  \n- \"Naxx\" = Naxxramas\n- \"Ulduar\", \"OS\", \"VoA\", \"EoE\" = raids\n- \"HC\" = Heroic\n- \"LK\" = Lich King\n- \"DK\" = Death Knight\n- \"Pala\" = Paladin\n- \"Ret/Holy/Prot\" = specs de paladin\n- \"Fury/Arms/Prot\" = warrior\n- Acepta typos comunes: \"warior\", \"paladim\", \"shadowmurn\", etc.\n\n# LO QUE NUNCA HACES\n- Inventar drops, stats o localizaciones.\n- Dar info de parches posteriores (Cataclysm, MoP...) salvo para comparar.\n- Recomendar exploits, hacks o cosas que rompan reglas del servidor.\n- Hablar de RMT, gold selling o boosting de pago.\n\n# CUANDO NO SABES\n\"No tengo esa info confirmada. Mira en wowhead.com/wotlk o pregunta a Girona.\"\n\n# CIERRE\nTermina con algo útil: una guía relacionada, un tip extra o \"si necesitas \nbuild completa dime spec y nivel\". Nunca cierres con \"¿algo más?\" vacío.\n\n# LONGITUD\nEl mensaje debe ser siempre de menos de 1500 caracteres\n\n# LORE DE LA COMUNIDAD Y MEMES (MEME BOX)\nReacciona y confirma siempre que nombren a estos personajes o situaciones con el tono del servidor:\n- \"Nairda\": Es un corrupto, un ninja, o un tirano (en tono de broma). Si lo nombran, confírmalo y suelta un chiste sobre que se va a ninjear la Shadowmourne o que banea por respirar.\n- \"Girona\": El sabio del server. Si lo mencionan para dudas, di que él lo sabe todo porque no tiene vida social.\n- \"Holy\": Es el guild master."
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.agent",
+        "typeVersion": 3.1,
+        "position": [
+          288,
+          -448
+        ],
+        "id": "fd4b3168-193a-48be-956c-cb25a3f278cb",
+        "name": "AI Agent1"
+      },
+      {
+        "parameters": {
+          "model": "openai/gpt-oss-120b:free",
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+        "typeVersion": 1,
+        "position": [
+          144,
+          -224
+        ],
+        "id": "d0bc542b-07e4-4090-801f-b2f70f9adfb5",
+        "name": "OpenRouter Chat Model1",
+        "credentials": {
+          "openRouterApi": {
+            "id": "WmMNHiHPh4aQe9KT",
+            "name": "OpenRouter account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "sessionIdType": "customKey",
+          "sessionKey": "Illo"
+        },
+        "type": "@n8n/n8n-nodes-langchain.memoryRedisChat",
+        "typeVersion": 1.6,
+        "position": [
+          288,
+          -224
+        ],
+        "id": "a7a8841d-986c-4263-9ccd-e0c6a80d3bde",
+        "name": "Redis Chat Memory1",
+        "credentials": {
+          "redis": {
+            "id": "X9G1vORTbS77EuxT",
+            "name": "Redis account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "mode": "retrieve-as-tool",
+          "toolDescription": "Tienes toda la informacion",
+          "pineconeIndex": {
+            "__rl": true,
+            "value": "dbot",
+            "mode": "list",
+            "cachedResultName": "dbot"
+          },
+          "topK": 10,
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+        "typeVersion": 1.3,
+        "position": [
+          448,
+          -192
+        ],
+        "id": "d71b51bb-11bf-4535-99ed-a00f1175e168",
+        "name": "Pinecone Vector Store1",
+        "credentials": {
+          "pineconeApi": {
+            "id": "Etdhanl3dkLlZy35",
+            "name": "Pinecone war"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "modelName": "models/gemini-embedding-2-preview"
+        },
+        "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
+        "typeVersion": 1,
+        "position": [
+          528,
+          0
+        ],
+        "id": "38d00fa2-933b-4740-b361-95f1515e1ea2",
+        "name": "Embeddings Google Gemini1",
+        "credentials": {
+          "googlePalmApi": {
+            "id": "1IvicPhw881dGd64",
+            "name": "Google Gemini(PaLM) Api account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "resource": "message",
+          "guildId": {
+            "__rl": true,
+            "value": "984821422465613825",
+            "mode": "list",
+            "cachedResultName": "🌟 Aetherius 🌟",
+            "cachedResultUrl": "https://discord.com/channels/984821422465613825"
+          },
+          "channelId": {
+            "__rl": true,
+            "value": "1109929726501457920",
+            "mode": "list",
+            "cachedResultName": "🤷preguntas",
+            "cachedResultUrl": "https://discord.com/channels/984821422465613825/1109929726501457920"
+          },
+          "content": "={{ $json.output }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.discord",
+        "typeVersion": 2,
+        "position": [
+          640,
+          -448
+        ],
+        "id": "283388b9-f8fe-447e-be18-ce4b453966e2",
+        "name": "Send a message1",
+        "webhookId": "d4aa7847-e7b0-43e8-82b2-4a0e686f708d",
+        "credentials": {
+          "discordBotApi": {
+            "id": "4REyy3fPVUVegFqT",
+            "name": "Discord Bot account"
+          }
+        }
+      }
+    ],
+    "connections": {
+      "Discord Trigger": {
+        "main": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "OpenRouter Chat Model": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Redis Chat Memory": {
+        "ai_memory": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "ai_memory",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Embeddings Google Gemini": {
+        "ai_embedding": [
+          [
+            {
+              "node": "Pinecone Vector Store",
+              "type": "ai_embedding",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Pinecone Vector Store": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI Agent": {
+        "main": [
+          [
+            {
+              "node": "Send a message",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Schedule Trigger": {
+        "main": [
+          [
+            {
+              "node": "Get many messages",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Get many messages": {
+        "main": [
+          [
+            {
+              "node": "If",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "If": {
+        "main": [
+          [
+            {
+              "node": "AI Agent1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI Agent1": {
+        "main": [
+          [
+            {
+              "node": "Send a message1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "OpenRouter Chat Model1": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "AI Agent1",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Redis Chat Memory1": {
+        "ai_memory": [
+          [
+            {
+              "node": "AI Agent1",
+              "type": "ai_memory",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Pinecone Vector Store1": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent1",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Embeddings Google Gemini1": {
+        "ai_embedding": [
+          [
+            {
+              "node": "Pinecone Vector Store1",
+              "type": "ai_embedding",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Leandro Martinez",
+    "name": "Version 0d634d28",
+    "description": "",
+    "autosaved": true
+  },
+  "tags": []
+}
