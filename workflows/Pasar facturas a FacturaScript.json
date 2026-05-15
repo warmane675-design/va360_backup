@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-14T11:10:44.413Z",
+  "updatedAt": "2026-05-15T07:37:14.350Z",
   "createdAt": "2026-05-14T06:47:14.479Z",
   "id": "IY1kPe7zBgCpcPHv",
   "name": "Pasar facturas a FacturaScript",
@@ -18,10 +18,8 @@
         "triggerOn": "specificFolder",
         "folderToWatch": {
           "__rl": true,
-          "value": "1QPL7ZWWudNq5U7AbY5BcE4ygpqwdVI2p",
-          "mode": "list",
-          "cachedResultName": "Proveedores",
-          "cachedResultUrl": "https://drive.google.com/drive/folders/1QPL7ZWWudNq5U7AbY5BcE4ygpqwdVI2p"
+          "mode": "id",
+          "value": "1QPL7ZWWudNq5U7AbY5BcE4ygpqwdVI2p"
         },
         "event": "fileCreated",
         "options": {}
@@ -30,7 +28,7 @@
       "typeVersion": 1,
       "position": [
         -848,
-        160
+        64
       ],
       "id": "7d0bc709-8ccb-449b-b04d-efc60e8be249",
       "name": "Google Drive Trigger",
@@ -108,8 +106,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        16,
-        496
+        32,
+        352
       ],
       "id": "2d73344d-f7c6-45c6-8709-5fedf615b05d",
       "name": "OpenRouter Chat Model",
@@ -203,29 +201,6 @@
     },
     {
       "parameters": {
-        "url": "=https://hazmarca.marketing/slu/api/3/proveedores?filter[cifnif]={{ $json.emisor_nif }}",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.4,
-      "position": [
-        1456,
-        -160
-      ],
-      "id": "e4d42636-3d94-454b-b1f8-e1b3575122b8",
-      "name": "HTTPProveedores",
-      "alwaysOutputData": true,
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "qoKa7RcJ4cB8mSzv",
-          "name": "FacturaScript API"
-        }
-      }
-    },
-    {
-      "parameters": {
         "conditions": {
           "options": {
             "caseSensitive": true,
@@ -252,75 +227,11 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        1648,
+        1328,
         -160
       ],
       "id": "7394180d-8f9c-4253-901a-3e572fc2fae4",
       "name": "If"
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "=https://hazmarca.marketing/slu/api/3/proveedores",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
-        "sendBody": true,
-        "contentType": "form-urlencoded",
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "nombre",
-              "value": "={{ $('Switch').item.json.emisor_nombre }}"
-            },
-            {
-              "name": "cifnif",
-              "value": "={{ $('Switch').item.json.emisor_nif }}"
-            },
-            {
-              "name": "razonsocial",
-              "value": "={{ $('Switch').item.json.emisor_nombre }}"
-            },
-            {
-              "name": "personafisica",
-              "value": "false"
-            },
-            {
-              "name": "tipoidfiscal",
-              "value": "CIF"
-            }
-          ]
-        },
-        "options": {
-          "pagination": {
-            "pagination": {
-              "parameters": {
-                "parameters": [
-                  {
-                    "name": "offset",
-                    "value": "={{ $pageCount * 50 }}"
-                  }
-                ]
-              }
-            }
-          }
-        }
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.4,
-      "position": [
-        1920,
-        -64
-      ],
-      "id": "d6830d5c-4633-4843-bf3a-6d4bfc8caf4d",
-      "name": "HTTPProveedores1",
-      "alwaysOutputData": true,
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "qoKa7RcJ4cB8mSzv",
-          "name": "FacturaScript API"
-        }
-      },
-      "disabled": true
     },
     {
       "parameters": {
@@ -375,7 +286,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2192,
+        1872,
         -176
       ],
       "id": "ab6fd4a9-fb00-4a4d-b307-be2bc957623c",
@@ -430,7 +341,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
       "position": [
-        2400,
+        2080,
         -176
       ],
       "id": "b7faf74d-7e7c-4488-b07d-813ff7d8a985",
@@ -453,7 +364,7 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        2800,
+        2480,
         -176
       ],
       "id": "87438cfe-bddc-4552-aa2c-fbf7df1cea48",
@@ -482,65 +393,11 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2608,
+        2288,
         -176
       ],
       "id": "83169866-91bf-4353-8768-5a32f46015cb",
       "name": "Edit Fields1"
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "=https://hazmarca.marketing/slu/api/3/lineaalbaranproveedores",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
-        "sendBody": true,
-        "contentType": "form-urlencoded",
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "idalbaran",
-              "value": "={{ $json.idalbaran }}"
-            },
-            {
-              "name": "descripcion",
-              "value": "={{ $json.lineas.descripcion }}"
-            },
-            {
-              "name": "cantidad",
-              "value": "={{ $json.lineas.cantidad }}"
-            },
-            {
-              "name": "codserie",
-              "value": "A"
-            },
-            {
-              "name": "pvpunitario",
-              "value": "={{ $json.lineas.pvpunitario }}"
-            },
-            {
-              "name": "codimpuesto",
-              "value": "=IVA{{ $json.lineas.iva_porcentaje }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.4,
-      "position": [
-        3008,
-        -176
-      ],
-      "id": "06c2fe7e-0e84-497d-8656-81e0889cd125",
-      "name": "HTTPLinealAlbaran",
-      "alwaysOutputData": false,
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "qoKa7RcJ4cB8mSzv",
-          "name": "FacturaScript API"
-        }
-      }
     },
     {
       "parameters": {
@@ -641,8 +498,8 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        3584,
-        560
+        3280,
+        336
       ],
       "id": "222a21a6-1bae-4233-9e5b-c5ec00a96bbf",
       "name": "Move file",
@@ -665,6 +522,555 @@
       ],
       "id": "304009bf-6ff8-4c27-bd35-2c3dc817b18b",
       "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "triggerOn": "specificFolder",
+        "folderToWatch": {
+          "__rl": true,
+          "mode": "id",
+          "value": "19g2p4FDu25GwAlDHGNvUgiPz3AGVleAp"
+        },
+        "event": "fileCreated",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "typeVersion": 1,
+      "position": [
+        -848,
+        272
+      ],
+      "id": "9008986b-84b1-4ea7-a6ba-ba74fb9e8894",
+      "name": "Google Drive Trigger1",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "kjAHWBgsL4LvNzuN",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://hazmarca.marketing/slu/api/3/clientes?filter[cifnif]={{ $json.receptor_nif }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        1152,
+        176
+      ],
+      "id": "03f08ae7-6afb-4bf9-8d20-3cc0b6538d77",
+      "name": "HTTPCliente",
+      "alwaysOutputData": true,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "qoKa7RcJ4cB8mSzv",
+          "name": "FacturaScript API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://hazmarca.marketing/slu/api/3/proveedores?filter[cifnif]={{ $json.emisor_nif }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        1136,
+        -160
+      ],
+      "id": "e4d42636-3d94-454b-b1f8-e1b3575122b8",
+      "name": "HTTPProveedor",
+      "alwaysOutputData": true,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "qoKa7RcJ4cB8mSzv",
+          "name": "FacturaScript API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "9e60908e-52cf-4283-97cb-47ef666e6755",
+              "leftValue": "={{ $json.codcliente }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1328,
+        176
+      ],
+      "id": "dc9fc61d-ebea-4bb7-a185-25aa8d8216e3",
+      "name": "If2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b590cec7-ed3e-4dff-b503-5a306699843d",
+              "name": "codcliente",
+              "value": "={{ $json.codcliente }}",
+              "type": "string"
+            },
+            {
+              "id": "2f1cef02-480f-421c-8150-1b128aff2c30",
+              "name": "receptor_nif",
+              "value": "={{ $('Switch').item.json.receptor_nif }}",
+              "type": "string"
+            },
+            {
+              "id": "919a66b3-db18-4fb4-9f0e-1b0e0c5b8abb",
+              "name": "fecha_emision",
+              "value": "={{ $('Switch').item.json.fecha_emision }}",
+              "type": "string"
+            },
+            {
+              "id": "b461c674-d627-4ffb-bf13-0877ad45e4eb",
+              "name": "numero_factura",
+              "value": "={{ $('Switch').item.json.numero_factura }}",
+              "type": "string"
+            },
+            {
+              "id": "d144853d-712e-45ee-ac20-8c03898a5f89",
+              "name": "lineas",
+              "value": "={{ $('Switch').item.json.lineas }}",
+              "type": "array"
+            },
+            {
+              "id": "68c7b4be-7493-4078-9e20-d76e1ca7ef6f",
+              "name": "concepto_corto",
+              "value": "={{ $('Switch').item.json.concepto_corto }}",
+              "type": "string"
+            },
+            {
+              "id": "8869f2e0-d65e-474b-9bd0-98eba72627f2",
+              "name": "nombre",
+              "value": "={{ $json.nombre }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1872,
+        160
+      ],
+      "id": "211129d7-5476-41a7-9a84-d84990c7e8fa",
+      "name": "Edit Fields2"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://hazmarca.marketing/slu/api/3/albaranclientes",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "codcliente",
+              "value": "={{ $json.codcliente }}"
+            },
+            {
+              "name": "fecha",
+              "value": "={{ $json.fecha_emision }}"
+            },
+            {
+              "name": "numero2",
+              "value": "={{ $json.numero_factura }}"
+            },
+            {
+              "name": "observaciones",
+              "value": "={{ $json.concepto_corto }}"
+            },
+            {
+              "name": "codalmacen",
+              "value": "ALG"
+            },
+            {
+              "name": "codserie",
+              "value": "A"
+            },
+            {
+              "name": "cifnif",
+              "value": "={{ $json.receptor_nif }}"
+            },
+            {
+              "name": "nombrecliente",
+              "value": "={{ $json.nombre }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        2080,
+        160
+      ],
+      "id": "a18953bd-2c97-486d-aa45-e21a195d8c7c",
+      "name": "HTTPAlbaran1",
+      "alwaysOutputData": false,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "qoKa7RcJ4cB8mSzv",
+          "name": "FacturaScript API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "lineas",
+        "include": "selectedOtherFields",
+        "fieldsToInclude": "idalbaran",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        2480,
+        160
+      ],
+      "id": "7d18b16d-e376-40c8-aeff-38482443b58b",
+      "name": "Split Out1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ca0ac8ee-6ec1-4348-94ce-e4197f1d11ab",
+              "name": "idalbaran",
+              "value": "={{ $json.data.idalbaran }}",
+              "type": "string"
+            },
+            {
+              "id": "161ab173-b000-43d4-ad34-2ef898781237",
+              "name": "lineas",
+              "value": "={{ $('Edit Fields2').item.json.lineas }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2288,
+        160
+      ],
+      "id": "4188c3ae-3018-4885-9531-8edbaf5b8c8b",
+      "name": "Edit Fields3"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://hazmarca.marketing/slu/api/3/lineaalbaranclientes",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "idalbaran",
+              "value": "={{ $json.idalbaran }}"
+            },
+            {
+              "name": "descripcion",
+              "value": "={{ $json.lineas.descripcion }}"
+            },
+            {
+              "name": "cantidad",
+              "value": "={{ $json.lineas.cantidad }}"
+            },
+            {
+              "name": "codserie",
+              "value": "A"
+            },
+            {
+              "name": "pvpunitario",
+              "value": "={{ $json.lineas.pvpunitario }}"
+            },
+            {
+              "name": "codimpuesto",
+              "value": "=IVA{{ $json.lineas.iva_porcentaje }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        2688,
+        160
+      ],
+      "id": "a082d72f-f0ca-4069-9157-8892b945b1a1",
+      "name": "HTTPLinealAlbaranClientes",
+      "alwaysOutputData": false,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "qoKa7RcJ4cB8mSzv",
+          "name": "FacturaScript API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://hazmarca.marketing/slu/api/3/lineaalbaranproveedores",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "idalbaran",
+              "value": "={{ $json.idalbaran }}"
+            },
+            {
+              "name": "descripcion",
+              "value": "={{ $json.lineas.descripcion }}"
+            },
+            {
+              "name": "cantidad",
+              "value": "={{ $json.lineas.cantidad }}"
+            },
+            {
+              "name": "codserie",
+              "value": "A"
+            },
+            {
+              "name": "pvpunitario",
+              "value": "={{ $json.lineas.pvpunitario }}"
+            },
+            {
+              "name": "codimpuesto",
+              "value": "=IVA{{ $json.lineas.iva_porcentaje }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        2688,
+        -176
+      ],
+      "id": "06c2fe7e-0e84-497d-8656-81e0889cd125",
+      "name": "HTTPLinealAlbaranProveedores",
+      "alwaysOutputData": false,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "qoKa7RcJ4cB8mSzv",
+          "name": "FacturaScript API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "move",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $('Loop Over Items').item.json.id }}",
+          "mode": "id"
+        },
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "1YRz3QiDLvsB6MZ-IN209SFGwmhgSHkHL"
+        }
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        2944,
+        336
+      ],
+      "id": "1205868d-0679-41c1-91ac-1b818972c4e0",
+      "name": "Move file1",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "kjAHWBgsL4LvNzuN",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://hazmarca.marketing/slu/api/3/clientes",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nombre",
+              "value": "={{ $('Switch').item.json.emisor_nombre }}"
+            },
+            {
+              "name": "cifnif",
+              "value": "={{ $('Switch').item.json.emisor_nif }}"
+            },
+            {
+              "name": "razonsocial",
+              "value": "={{ $('Switch').item.json.emisor_nombre }}"
+            },
+            {
+              "name": "personafisica",
+              "value": "false"
+            },
+            {
+              "name": "tipoidfiscal",
+              "value": "CIF"
+            }
+          ]
+        },
+        "options": {
+          "pagination": {
+            "pagination": {
+              "parameters": {
+                "parameters": [
+                  {
+                    "name": "offset",
+                    "value": "={{ $pageCount * 50 }}"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        1600,
+        272
+      ],
+      "id": "3d486711-c347-45c1-a76b-fae9bf36b4fc",
+      "name": "HTTPClientesCrear",
+      "alwaysOutputData": true,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "qoKa7RcJ4cB8mSzv",
+          "name": "FacturaScript API"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://hazmarca.marketing/slu/api/3/proveedores",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "nombre",
+              "value": "={{ $('Switch').item.json.emisor_nombre }}"
+            },
+            {
+              "name": "cifnif",
+              "value": "={{ $('Switch').item.json.emisor_nif }}"
+            },
+            {
+              "name": "razonsocial",
+              "value": "={{ $('Switch').item.json.emisor_nombre }}"
+            },
+            {
+              "name": "personafisica",
+              "value": "false"
+            },
+            {
+              "name": "tipoidfiscal",
+              "value": "CIF"
+            }
+          ]
+        },
+        "options": {
+          "pagination": {
+            "pagination": {
+              "parameters": {
+                "parameters": [
+                  {
+                    "name": "offset",
+                    "value": "={{ $pageCount * 50 }}"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        1600,
+        -64
+      ],
+      "id": "d6830d5c-4633-4843-bf3a-6d4bfc8caf4d",
+      "name": "HTTPProveedoresCrear",
+      "alwaysOutputData": true,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "qoKa7RcJ4cB8mSzv",
+          "name": "FacturaScript API"
+        }
+      },
+      "disabled": true
     }
   ],
   "connections": {
@@ -738,26 +1144,21 @@
       "main": [
         [
           {
-            "node": "HTTPProveedores",
+            "node": "HTTPProveedor",
             "type": "main",
             "index": 0
           }
         ],
-        [],
         [
           {
-            "node": "Mover a Revisión",
+            "node": "HTTPCliente",
             "type": "main",
             "index": 0
           }
-        ]
-      ]
-    },
-    "HTTPProveedores": {
-      "main": [
+        ],
         [
           {
-            "node": "If",
+            "node": "Mover a Revisión",
             "type": "main",
             "index": 0
           }
@@ -775,18 +1176,7 @@
         ],
         [
           {
-            "node": "HTTPProveedores1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "HTTPProveedores1": {
-      "main": [
-        [
-          {
-            "node": "Edit Fields",
+            "node": "HTTPProveedoresCrear",
             "type": "main",
             "index": 0
           }
@@ -819,7 +1209,7 @@
       "main": [
         [
           {
-            "node": "HTTPLinealAlbaran",
+            "node": "HTTPLinealAlbaranProveedores",
             "type": "main",
             "index": 0
           }
@@ -855,17 +1245,6 @@
         ]
       ]
     },
-    "HTTPLinealAlbaran": {
-      "main": [
-        [
-          {
-            "node": "Move file",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Loop Over Items": {
       "main": [
         [],
@@ -888,6 +1267,156 @@
           }
         ]
       ]
+    },
+    "Google Drive Trigger1": {
+      "main": [
+        [
+          {
+            "node": "Download file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTPProveedor": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If2": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HTTPClientesCrear",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "HTTPAlbaran1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTPAlbaran1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out1": {
+      "main": [
+        [
+          {
+            "node": "HTTPLinealAlbaranClientes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields3": {
+      "main": [
+        [
+          {
+            "node": "Split Out1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTPCliente": {
+      "main": [
+        [
+          {
+            "node": "If2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTPLinealAlbaranClientes": {
+      "main": [
+        [
+          {
+            "node": "Move file1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTPLinealAlbaranProveedores": {
+      "main": [
+        [
+          {
+            "node": "Move file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Move file1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTPClientesCrear": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTPProveedoresCrear": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "settings": {
@@ -896,7 +1425,10 @@
   },
   "staticData": {
     "node:Google Drive Trigger": {
-      "lastTimeChecked": "2026-05-14T13:32:16Z"
+      "lastTimeChecked": "2026-05-15T07:38:30Z"
+    },
+    "node:Google Drive Trigger1": {
+      "lastTimeChecked": "2026-05-15T07:38:30Z"
     }
   },
   "meta": {
@@ -1188,11 +1720,165 @@
           "item": 1
         }
       }
+    ],
+    "Google Drive Trigger1": [
+      {
+        "json": {
+          "kind": "drive#file",
+          "fileExtension": "pdf",
+          "copyRequiresWriterPermission": false,
+          "md5Checksum": "d0925b6b9e8e71066117c050b2268835",
+          "writersCanShare": true,
+          "viewedByMe": true,
+          "mimeType": "application/pdf",
+          "parents": [
+            "19g2p4FDu25GwAlDHGNvUgiPz3AGVleAp"
+          ],
+          "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBN7AJxad_8399MblSBceWisUtoA3k0-vAW0WSlQwac6EFarnoJE-5exMA-pFeH9R_Idv283xRuCPtB_G9u93V592rHvffCP-pZoMiTBETLqFdDn=s220",
+          "iconLink": "https://drive-thirdparty.googleusercontent.com/16/type/application/pdf",
+          "shared": false,
+          "lastModifyingUser": {
+            "displayName": "Haz Marca Marketing Digital",
+            "kind": "drive#user",
+            "me": true,
+            "permissionId": "06900128082479018489",
+            "emailAddress": "contacta@hazmarca.es",
+            "photoLink": "https://lh3.googleusercontent.com/a-/ALV-UjXQlWurmkaUYCddf4UOYG6UklAx_knRROnu0_JdPKRcqxN3yerCAfB-LYhEvj9avILiQDzFG8jcIAYAjI_thj2wEvd4PVsJuG7m_MIaNPfESqd2FR0uvElzaJ3M_A_187ZjXsuP_f3uo9mOah9oSYq02Y-_jl42UwjwubZ0nQSY2UX-zoRhyxExoNr_BEcGubvGNapqlrkHCKFfPayyG5sbXAtHsUHQCgMfQxAuLEZ6Wrwg1hrb526PfFT3FGrarc_NjjvLYeE_NC_fUXEl3FXs1KvG2todY-5V3w_WO04eVBYln8LiK8JFRAvjrM8DIUSyKT3Q5Vo0TYQ2Dik5zWTejNt51e_1Gv8qpvy2CykshLFnSp05m7Z_nmIC8Kg_7CI_QeXFCHMnwy-kWVP2G-vAUWpCZhp_Grv82NXbF2Wk9nCDetdZ6eeoCQBMeWQY-T6uQBxVNjEalt8ii2JOo0CroLwB9Gq1Gcy-wFrwIAUBqXSF1Ewqqm9ap7rUMT4fMm0YfofsU6enXkQONti0E5Wc7qhHGfjcUgT_0e-Eoq1zRTIPGwcaEV01L8dB8XtvP8rTMLFQuNPDs-hBBtfNNiIvuIUGmehmJqg5-_-cN8ZrA2gvS1sbgzUs4pHKoIRJsgZFafuPO2-GzQ9uAilArGmqmL4GUlW-IFCx70qzY6cpFHEkkH4v4r_0XjEsv9U740_QANYSuI0DkCL7CAlt4AsbHgVXKDycwby969YY0t-AeQiTVAVX54NLSsPLeIzey9soo3hMy6ujkrZIE5FYRPvXFlV6AgqlCGScyYb2_06oFmvTBkKiydQnct3mvffcHUuWC6TCdMGYAzpxfuTIhQDeYzWG7NZy3pf9KNEpiXLMN3AiLYcCJzyrwvtYv5FBiKV-hHmNQXz9MnBGwU6VFe1Zbomi0QudRDWGhf4oG9nmWq9bM7aVNSlRkQazU5XHmtK6KDczlaO9miBVCIU6upJr6XQNI2NOX9SYjOaixhulyfOJ0uoLYgNdhJNqclkupbAbyFWs_92DuUWSU8oRMCtcf8yhdVvOcBE2XAux9mmMuQrxDlI5OQ=s64"
+          },
+          "owners": [
+            {
+              "displayName": "Haz Marca Marketing Digital",
+              "kind": "drive#user",
+              "me": true,
+              "permissionId": "06900128082479018489",
+              "emailAddress": "contacta@hazmarca.es",
+              "photoLink": "https://lh3.googleusercontent.com/a-/ALV-UjXQlWurmkaUYCddf4UOYG6UklAx_knRROnu0_JdPKRcqxN3yerCAfB-LYhEvj9avILiQDzFG8jcIAYAjI_thj2wEvd4PVsJuG7m_MIaNPfESqd2FR0uvElzaJ3M_A_187ZjXsuP_f3uo9mOah9oSYq02Y-_jl42UwjwubZ0nQSY2UX-zoRhyxExoNr_BEcGubvGNapqlrkHCKFfPayyG5sbXAtHsUHQCgMfQxAuLEZ6Wrwg1hrb526PfFT3FGrarc_NjjvLYeE_NC_fUXEl3FXs1KvG2todY-5V3w_WO04eVBYln8LiK8JFRAvjrM8DIUSyKT3Q5Vo0TYQ2Dik5zWTejNt51e_1Gv8qpvy2CykshLFnSp05m7Z_nmIC8Kg_7CI_QeXFCHMnwy-kWVP2G-vAUWpCZhp_Grv82NXbF2Wk9nCDetdZ6eeoCQBMeWQY-T6uQBxVNjEalt8ii2JOo0CroLwB9Gq1Gcy-wFrwIAUBqXSF1Ewqqm9ap7rUMT4fMm0YfofsU6enXkQONti0E5Wc7qhHGfjcUgT_0e-Eoq1zRTIPGwcaEV01L8dB8XtvP8rTMLFQuNPDs-hBBtfNNiIvuIUGmehmJqg5-_-cN8ZrA2gvS1sbgzUs4pHKoIRJsgZFafuPO2-GzQ9uAilArGmqmL4GUlW-IFCx70qzY6cpFHEkkH4v4r_0XjEsv9U740_QANYSuI0DkCL7CAlt4AsbHgVXKDycwby969YY0t-AeQiTVAVX54NLSsPLeIzey9soo3hMy6ujkrZIE5FYRPvXFlV6AgqlCGScyYb2_06oFmvTBkKiydQnct3mvffcHUuWC6TCdMGYAzpxfuTIhQDeYzWG7NZy3pf9KNEpiXLMN3AiLYcCJzyrwvtYv5FBiKV-hHmNQXz9MnBGwU6VFe1Zbomi0QudRDWGhf4oG9nmWq9bM7aVNSlRkQazU5XHmtK6KDczlaO9miBVCIU6upJr6XQNI2NOX9SYjOaixhulyfOJ0uoLYgNdhJNqclkupbAbyFWs_92DuUWSU8oRMCtcf8yhdVvOcBE2XAux9mmMuQrxDlI5OQ=s64"
+            }
+          ],
+          "headRevisionId": "0B1N6dk2RVTInRnFPbzdSWjZqbFNaQmEzWUJ1K1lQdUo0M2ZzPQ",
+          "webViewLink": "https://drive.google.com/file/d/1P0RuZ9kWK2RU1OS6sIjxY-lBD9P-WBsR/view?usp=drivesdk",
+          "webContentLink": "https://drive.google.com/uc?id=1P0RuZ9kWK2RU1OS6sIjxY-lBD9P-WBsR&export=download",
+          "size": "53706",
+          "viewersCanCopyContent": true,
+          "permissions": [
+            {
+              "id": "06900128082479018489",
+              "displayName": "Haz Marca Marketing Digital",
+              "type": "user",
+              "kind": "drive#permission",
+              "photoLink": "https://lh3.googleusercontent.com/a-/ALV-UjXeGwi5AKBLh_oW625f50CEw0nOcR3KXGLYMj3O0DE9eT1lZJP2H6q6XeBK9ygPoLVStZR_iNsc4b49zn9-RM8aVqG6DaPA5EHvwJmFNoX9FlusTcI635080FEJ9dkO17IMG2ai2eEz0V72vOsRcPzSa3_DNv_pBHqrSZDxfCIfeSLaZZgnXCjerYEfURjhKy3jbGjB2zJtduyPQmoudZUKhREBgC1c0qGdCkZkSc_fwBnVIHjyoEwn7gw5VqBnUkZcrUnxlimVj3sqfKoZmSHLEOrkz4vAfmR8z85nMBR9ACYDH1OBzWMMPA6DJ_xR86jnQ-7yyA5E9genDnGgFuMSkAI44PR8JWI0FgbUTX-scdm8RdyX_hneR-zA1Lw7lf3pYQ-QykDUtwQc3-YSBuuMpPDI6LVoH9KuwM5O3Ew0KYmY7zZwP3gGSrNLSti3eTMYMkMfOlVsVwoHNpZKwaTo5xxRyKjmw-7MQ2FsQxI6ZcH3peFXNo7XhDeQvvOejz38tMSHXTSeoHWKhgNiMjb58kBtP5Sarhuhbbt0QKxnx7802-oxFBMlPfSxRz3bEkkuhRQhd4ichxzye8TsXv5KFt_yd7OBy6l_QKfKM7yE2efYK0b6XRaMP0gw7K3bu97yJt0cHObqrjwQmJHdbAN1-Ohdjxm44qGUQVE1SKEwMpyOroz4AtC6ov37j1QU1h6pvmSRBCSmqD29cWnTPh6FEcfSBzKHqTurRzLiG8R1bgl8MPlsfGaYDUD4tl3dY2Y5pSDEmolJWZuoX6r4FH-Vyu7_YtFEkMoYfqwuTcS3keJLYn7h7ulloIYDlahlhVgcFZ4n3bw3TCo9557QcXaCU0lZqQ-wh20o1GmqEJByM5fJ6eF9oxcfXBMccK9DMtpeF2MFakuO2zcI9F5BfepFzwxtxsax4M8qI0OcOaLqj2KX1SH81XrALk_Q75vDWTYdH7S9biWg36KRyVLzPqqSSX8s7WHHPP56o-qryWYpfkEGUTgVJzD05-K-JvL9QzObK08CSDcgKSXPHWsnUU3S6g3IcKLuJLyP9ueVqdP1tnK1ZJs2SA=s64",
+              "emailAddress": "contacta@hazmarca.es",
+              "role": "owner",
+              "deleted": false,
+              "pendingOwner": false
+            }
+          ],
+          "hasThumbnail": true,
+          "spaces": [
+            "drive"
+          ],
+          "id": "1P0RuZ9kWK2RU1OS6sIjxY-lBD9P-WBsR",
+          "name": "Factura_188.pdf",
+          "starred": false,
+          "trashed": false,
+          "explicitlyTrashed": false,
+          "createdTime": "2026-05-15T06:56:40.525Z",
+          "modifiedTime": "2026-05-13T10:57:42.000Z",
+          "modifiedByMeTime": "2026-05-13T10:57:42.000Z",
+          "viewedByMeTime": "2026-05-15T06:56:40.525Z",
+          "quotaBytesUsed": "53706",
+          "version": "3",
+          "originalFilename": "Factura_188.pdf",
+          "ownedByMe": true,
+          "fullFileExtension": "pdf",
+          "isAppAuthorized": false,
+          "capabilities": {
+            "canChangeViewersCanCopyContent": true,
+            "canEdit": true,
+            "canCopy": true,
+            "canComment": true,
+            "canAddChildren": false,
+            "canDelete": true,
+            "canDownload": true,
+            "canListChildren": false,
+            "canRemoveChildren": false,
+            "canRename": true,
+            "canTrash": true,
+            "canReadRevisions": true,
+            "canChangeCopyRequiresWriterPermission": true,
+            "canMoveItemIntoTeamDrive": true,
+            "canUntrash": true,
+            "canModifyContent": true,
+            "canMoveItemOutOfDrive": true,
+            "canAddMyDriveParent": false,
+            "canRemoveMyDriveParent": true,
+            "canMoveItemWithinDrive": true,
+            "canShare": true,
+            "canMoveChildrenWithinDrive": false,
+            "canModifyContentRestriction": true,
+            "canChangeSecurityUpdateEnabled": false,
+            "canAcceptOwnership": false,
+            "canReadLabels": false,
+            "canModifyLabels": false,
+            "canModifyEditorContentRestriction": true,
+            "canModifyOwnerContentRestriction": true,
+            "canRemoveContentRestriction": false,
+            "canDisableInheritedPermissions": false,
+            "canEnableInheritedPermissions": true,
+            "canChangeItemDownloadRestriction": true,
+            "canStartApproval": true
+          },
+          "thumbnailVersion": "1",
+          "modifiedByMe": true,
+          "permissionIds": [
+            "06900128082479018489"
+          ],
+          "linkShareMetadata": {
+            "securityUpdateEligible": false,
+            "securityUpdateEnabled": true
+          },
+          "sha1Checksum": "3f0b4b18994635e12103bfe1ea83b5067126cebf",
+          "sha256Checksum": "08b7d3bb651fea2f0b198ee5277c6725796552147555ae9681b298609063c87e",
+          "inheritedPermissionsDisabled": false,
+          "downloadRestrictions": {
+            "itemDownloadRestriction": {
+              "restrictedForReaders": false,
+              "restrictedForWriters": false
+            },
+            "effectiveDownloadRestrictionWithContext": {
+              "restrictedForReaders": false,
+              "restrictedForWriters": false
+            }
+          },
+          "clientEncryptionDetails": {
+            "decryptionMetadata": {
+              "wrappedKey": "",
+              "kaclsId": "0",
+              "aes256GcmChunkSize": "unset",
+              "keyFormat": "unsetKeyFormat",
+              "encryptionResourceKeyHash": ""
+            }
+          }
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "AI Agent": [
+      {
+        "json": {
+          "output": "{\n  \"tipo\": \"cliente\",\n  \"categoria\": \"hosting_dominios\",\n  \"emisor_nombre\": \"Haz Marca Marketing Digital, S.L.U.\",\n  \"emisor_nif\": \"B72913460\",\n  \"receptor_nombre\": \"LEANDRO MARTINEZ DEL RIO\",\n  \"receptor_nif\": \"28747638F\",\n  \"numero_factura\": \"PRE2026A76\",\n  \"fecha_emision\": \"2026-05-13\",\n  \"fecha_vencimiento\": null,\n  \"lineas\": [\n    {\n      \"descripcion\": \"Renovación dominio dominio.eu - Tasa de Recuperación\",\n      \"cantidad\": 1,\n      \"pvpunitario\": 71.20,\n      \"iva_porcentaje\": 21,\n      \"irpf_porcentaje\": 0\n    }\n  ],\n  \"base_imponible\": 71.20,\n  \"iva_importe\": 14.95,\n  \"irpf_importe\": 0.00,\n  \"total\": 86.15,\n  \"moneda\": \"EUR\",\n  \"intracomunitaria\": false,\n  \"concepto_corto\": \"Renovación dominio dominio.eu\",\n  \"confianza\": 95,\n  \"revision_manual\": false,\n  \"motivo_revision\": null,\n  \"forma_pago\": \"Otros\",\n  \"estado_pago\": \"Pendiente\",\n  \"periodo_servicio\": null\n}"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
     ]
   },
-  "versionId": "26c4e789-c4b0-46fa-8d84-2363f36a552d",
-  "activeVersionId": "4a7f16bf-a336-4da8-8aad-df402ff95a46",
-  "triggerCount": 1,
+  "versionId": "0fcd9541-512f-462c-9555-dd4457ed3c50",
+  "activeVersionId": "0fcd9541-512f-462c-9555-dd4457ed3c50",
+  "triggerCount": 2,
   "shared": [
     {
       "updatedAt": "2026-05-14T06:47:14.484Z",
@@ -1203,9 +1889,9 @@
     }
   ],
   "activeVersion": {
-    "updatedAt": "2026-05-14T11:10:36.000Z",
-    "createdAt": "2026-05-14T11:10:32.697Z",
-    "versionId": "4a7f16bf-a336-4da8-8aad-df402ff95a46",
+    "updatedAt": "2026-05-15T07:38:31.000Z",
+    "createdAt": "2026-05-15T07:36:28.176Z",
+    "versionId": "0fcd9541-512f-462c-9555-dd4457ed3c50",
     "workflowId": "IY1kPe7zBgCpcPHv",
     "nodes": [
       {
@@ -1220,10 +1906,8 @@
           "triggerOn": "specificFolder",
           "folderToWatch": {
             "__rl": true,
-            "value": "1QPL7ZWWudNq5U7AbY5BcE4ygpqwdVI2p",
-            "mode": "list",
-            "cachedResultName": "Proveedores",
-            "cachedResultUrl": "https://drive.google.com/drive/folders/1QPL7ZWWudNq5U7AbY5BcE4ygpqwdVI2p"
+            "mode": "id",
+            "value": "1QPL7ZWWudNq5U7AbY5BcE4ygpqwdVI2p"
           },
           "event": "fileCreated",
           "options": {}
@@ -1232,7 +1916,7 @@
         "typeVersion": 1,
         "position": [
           -848,
-          160
+          64
         ],
         "id": "7d0bc709-8ccb-449b-b04d-efc60e8be249",
         "name": "Google Drive Trigger",
@@ -1310,8 +1994,8 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
         "typeVersion": 1,
         "position": [
-          16,
-          496
+          32,
+          352
         ],
         "id": "2d73344d-f7c6-45c6-8709-5fedf615b05d",
         "name": "OpenRouter Chat Model",
@@ -1405,29 +2089,6 @@
       },
       {
         "parameters": {
-          "url": "=https://hazmarca.marketing/slu/api/3/proveedores?filter[cifnif]={{ $json.emisor_nif }}",
-          "authentication": "genericCredentialType",
-          "genericAuthType": "httpHeaderAuth",
-          "options": {}
-        },
-        "type": "n8n-nodes-base.httpRequest",
-        "typeVersion": 4.4,
-        "position": [
-          1456,
-          -160
-        ],
-        "id": "e4d42636-3d94-454b-b1f8-e1b3575122b8",
-        "name": "HTTPProveedores",
-        "alwaysOutputData": true,
-        "credentials": {
-          "httpHeaderAuth": {
-            "id": "qoKa7RcJ4cB8mSzv",
-            "name": "FacturaScript API"
-          }
-        }
-      },
-      {
-        "parameters": {
           "conditions": {
             "options": {
               "caseSensitive": true,
@@ -1454,75 +2115,11 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          1648,
+          1328,
           -160
         ],
         "id": "7394180d-8f9c-4253-901a-3e572fc2fae4",
         "name": "If"
-      },
-      {
-        "parameters": {
-          "method": "POST",
-          "url": "=https://hazmarca.marketing/slu/api/3/proveedores",
-          "authentication": "genericCredentialType",
-          "genericAuthType": "httpHeaderAuth",
-          "sendBody": true,
-          "contentType": "form-urlencoded",
-          "bodyParameters": {
-            "parameters": [
-              {
-                "name": "nombre",
-                "value": "={{ $('Switch').item.json.emisor_nombre }}"
-              },
-              {
-                "name": "cifnif",
-                "value": "={{ $('Switch').item.json.emisor_nif }}"
-              },
-              {
-                "name": "razonsocial",
-                "value": "={{ $('Switch').item.json.emisor_nombre }}"
-              },
-              {
-                "name": "personafisica",
-                "value": "false"
-              },
-              {
-                "name": "tipoidfiscal",
-                "value": "CIF"
-              }
-            ]
-          },
-          "options": {
-            "pagination": {
-              "pagination": {
-                "parameters": {
-                  "parameters": [
-                    {
-                      "name": "offset",
-                      "value": "={{ $pageCount * 50 }}"
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "type": "n8n-nodes-base.httpRequest",
-        "typeVersion": 4.4,
-        "position": [
-          1904,
-          -96
-        ],
-        "id": "d6830d5c-4633-4843-bf3a-6d4bfc8caf4d",
-        "name": "HTTPProveedores1",
-        "alwaysOutputData": true,
-        "credentials": {
-          "httpHeaderAuth": {
-            "id": "qoKa7RcJ4cB8mSzv",
-            "name": "FacturaScript API"
-          }
-        },
-        "disabled": true
       },
       {
         "parameters": {
@@ -1577,7 +2174,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2192,
+          1872,
           -176
         ],
         "id": "ab6fd4a9-fb00-4a4d-b307-be2bc957623c",
@@ -1632,7 +2229,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.4,
         "position": [
-          2400,
+          2080,
           -176
         ],
         "id": "b7faf74d-7e7c-4488-b07d-813ff7d8a985",
@@ -1655,7 +2252,7 @@
         "type": "n8n-nodes-base.splitOut",
         "typeVersion": 1,
         "position": [
-          2800,
+          2480,
           -176
         ],
         "id": "87438cfe-bddc-4552-aa2c-fbf7df1cea48",
@@ -1684,65 +2281,11 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2608,
+          2288,
           -176
         ],
         "id": "83169866-91bf-4353-8768-5a32f46015cb",
         "name": "Edit Fields1"
-      },
-      {
-        "parameters": {
-          "method": "POST",
-          "url": "=https://hazmarca.marketing/slu/api/3/lineaalbaranproveedores",
-          "authentication": "genericCredentialType",
-          "genericAuthType": "httpHeaderAuth",
-          "sendBody": true,
-          "contentType": "form-urlencoded",
-          "bodyParameters": {
-            "parameters": [
-              {
-                "name": "idalbaran",
-                "value": "={{ $json.idalbaran }}"
-              },
-              {
-                "name": "descripcion",
-                "value": "={{ $json.lineas.descripcion }}"
-              },
-              {
-                "name": "cantidad",
-                "value": "={{ $json.lineas.cantidad }}"
-              },
-              {
-                "name": "codserie",
-                "value": "A"
-              },
-              {
-                "name": "pvpunitario",
-                "value": "={{ $json.lineas.pvpunitario }}"
-              },
-              {
-                "name": "codimpuesto",
-                "value": "=IVA{{ $json.lineas.iva_porcentaje }}"
-              }
-            ]
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.httpRequest",
-        "typeVersion": 4.4,
-        "position": [
-          3008,
-          -176
-        ],
-        "id": "06c2fe7e-0e84-497d-8656-81e0889cd125",
-        "name": "HTTPLinealAlbaran",
-        "alwaysOutputData": false,
-        "credentials": {
-          "httpHeaderAuth": {
-            "id": "qoKa7RcJ4cB8mSzv",
-            "name": "FacturaScript API"
-          }
-        }
       },
       {
         "parameters": {
@@ -1843,8 +2386,8 @@
         "type": "n8n-nodes-base.googleDrive",
         "typeVersion": 3,
         "position": [
-          3584,
-          560
+          3280,
+          336
         ],
         "id": "222a21a6-1bae-4233-9e5b-c5ec00a96bbf",
         "name": "Move file",
@@ -1867,6 +2410,555 @@
         ],
         "id": "304009bf-6ff8-4c27-bd35-2c3dc817b18b",
         "name": "Loop Over Items"
+      },
+      {
+        "parameters": {
+          "pollTimes": {
+            "item": [
+              {
+                "mode": "everyMinute"
+              }
+            ]
+          },
+          "triggerOn": "specificFolder",
+          "folderToWatch": {
+            "__rl": true,
+            "mode": "id",
+            "value": "19g2p4FDu25GwAlDHGNvUgiPz3AGVleAp"
+          },
+          "event": "fileCreated",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.googleDriveTrigger",
+        "typeVersion": 1,
+        "position": [
+          -848,
+          272
+        ],
+        "id": "9008986b-84b1-4ea7-a6ba-ba74fb9e8894",
+        "name": "Google Drive Trigger1",
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "kjAHWBgsL4LvNzuN",
+            "name": "Google Drive account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "url": "=https://hazmarca.marketing/slu/api/3/clientes?filter[cifnif]={{ $json.receptor_nif }}",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "httpHeaderAuth",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.4,
+        "position": [
+          1152,
+          176
+        ],
+        "id": "03f08ae7-6afb-4bf9-8d20-3cc0b6538d77",
+        "name": "HTTPCliente",
+        "alwaysOutputData": true,
+        "credentials": {
+          "httpHeaderAuth": {
+            "id": "qoKa7RcJ4cB8mSzv",
+            "name": "FacturaScript API"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "url": "=https://hazmarca.marketing/slu/api/3/proveedores?filter[cifnif]={{ $json.emisor_nif }}",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "httpHeaderAuth",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.4,
+        "position": [
+          1136,
+          -160
+        ],
+        "id": "e4d42636-3d94-454b-b1f8-e1b3575122b8",
+        "name": "HTTPProveedor",
+        "alwaysOutputData": true,
+        "credentials": {
+          "httpHeaderAuth": {
+            "id": "qoKa7RcJ4cB8mSzv",
+            "name": "FacturaScript API"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "9e60908e-52cf-4283-97cb-47ef666e6755",
+                "leftValue": "={{ $json.codcliente }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "string",
+                  "operation": "exists",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          1328,
+          176
+        ],
+        "id": "dc9fc61d-ebea-4bb7-a185-25aa8d8216e3",
+        "name": "If2"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "b590cec7-ed3e-4dff-b503-5a306699843d",
+                "name": "codcliente",
+                "value": "={{ $json.codcliente }}",
+                "type": "string"
+              },
+              {
+                "id": "2f1cef02-480f-421c-8150-1b128aff2c30",
+                "name": "receptor_nif",
+                "value": "={{ $('Switch').item.json.receptor_nif }}",
+                "type": "string"
+              },
+              {
+                "id": "919a66b3-db18-4fb4-9f0e-1b0e0c5b8abb",
+                "name": "fecha_emision",
+                "value": "={{ $('Switch').item.json.fecha_emision }}",
+                "type": "string"
+              },
+              {
+                "id": "b461c674-d627-4ffb-bf13-0877ad45e4eb",
+                "name": "numero_factura",
+                "value": "={{ $('Switch').item.json.numero_factura }}",
+                "type": "string"
+              },
+              {
+                "id": "d144853d-712e-45ee-ac20-8c03898a5f89",
+                "name": "lineas",
+                "value": "={{ $('Switch').item.json.lineas }}",
+                "type": "array"
+              },
+              {
+                "id": "68c7b4be-7493-4078-9e20-d76e1ca7ef6f",
+                "name": "concepto_corto",
+                "value": "={{ $('Switch').item.json.concepto_corto }}",
+                "type": "string"
+              },
+              {
+                "id": "8869f2e0-d65e-474b-9bd0-98eba72627f2",
+                "name": "nombre",
+                "value": "={{ $json.nombre }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1872,
+          160
+        ],
+        "id": "211129d7-5476-41a7-9a84-d84990c7e8fa",
+        "name": "Edit Fields2"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "=https://hazmarca.marketing/slu/api/3/albaranclientes",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "httpHeaderAuth",
+          "sendBody": true,
+          "contentType": "form-urlencoded",
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "codcliente",
+                "value": "={{ $json.codcliente }}"
+              },
+              {
+                "name": "fecha",
+                "value": "={{ $json.fecha_emision }}"
+              },
+              {
+                "name": "numero2",
+                "value": "={{ $json.numero_factura }}"
+              },
+              {
+                "name": "observaciones",
+                "value": "={{ $json.concepto_corto }}"
+              },
+              {
+                "name": "codalmacen",
+                "value": "ALG"
+              },
+              {
+                "name": "codserie",
+                "value": "A"
+              },
+              {
+                "name": "cifnif",
+                "value": "={{ $json.receptor_nif }}"
+              },
+              {
+                "name": "nombrecliente",
+                "value": "={{ $json.nombre }}"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.4,
+        "position": [
+          2080,
+          160
+        ],
+        "id": "a18953bd-2c97-486d-aa45-e21a195d8c7c",
+        "name": "HTTPAlbaran1",
+        "alwaysOutputData": false,
+        "credentials": {
+          "httpHeaderAuth": {
+            "id": "qoKa7RcJ4cB8mSzv",
+            "name": "FacturaScript API"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "fieldToSplitOut": "lineas",
+          "include": "selectedOtherFields",
+          "fieldsToInclude": "idalbaran",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.splitOut",
+        "typeVersion": 1,
+        "position": [
+          2480,
+          160
+        ],
+        "id": "7d18b16d-e376-40c8-aeff-38482443b58b",
+        "name": "Split Out1"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "ca0ac8ee-6ec1-4348-94ce-e4197f1d11ab",
+                "name": "idalbaran",
+                "value": "={{ $json.data.idalbaran }}",
+                "type": "string"
+              },
+              {
+                "id": "161ab173-b000-43d4-ad34-2ef898781237",
+                "name": "lineas",
+                "value": "={{ $('Edit Fields2').item.json.lineas }}",
+                "type": "array"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          2288,
+          160
+        ],
+        "id": "4188c3ae-3018-4885-9531-8edbaf5b8c8b",
+        "name": "Edit Fields3"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "=https://hazmarca.marketing/slu/api/3/lineaalbaranclientes",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "httpHeaderAuth",
+          "sendBody": true,
+          "contentType": "form-urlencoded",
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "idalbaran",
+                "value": "={{ $json.idalbaran }}"
+              },
+              {
+                "name": "descripcion",
+                "value": "={{ $json.lineas.descripcion }}"
+              },
+              {
+                "name": "cantidad",
+                "value": "={{ $json.lineas.cantidad }}"
+              },
+              {
+                "name": "codserie",
+                "value": "A"
+              },
+              {
+                "name": "pvpunitario",
+                "value": "={{ $json.lineas.pvpunitario }}"
+              },
+              {
+                "name": "codimpuesto",
+                "value": "=IVA{{ $json.lineas.iva_porcentaje }}"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.4,
+        "position": [
+          2688,
+          160
+        ],
+        "id": "a082d72f-f0ca-4069-9157-8892b945b1a1",
+        "name": "HTTPLinealAlbaranClientes",
+        "alwaysOutputData": false,
+        "credentials": {
+          "httpHeaderAuth": {
+            "id": "qoKa7RcJ4cB8mSzv",
+            "name": "FacturaScript API"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "=https://hazmarca.marketing/slu/api/3/lineaalbaranproveedores",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "httpHeaderAuth",
+          "sendBody": true,
+          "contentType": "form-urlencoded",
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "idalbaran",
+                "value": "={{ $json.idalbaran }}"
+              },
+              {
+                "name": "descripcion",
+                "value": "={{ $json.lineas.descripcion }}"
+              },
+              {
+                "name": "cantidad",
+                "value": "={{ $json.lineas.cantidad }}"
+              },
+              {
+                "name": "codserie",
+                "value": "A"
+              },
+              {
+                "name": "pvpunitario",
+                "value": "={{ $json.lineas.pvpunitario }}"
+              },
+              {
+                "name": "codimpuesto",
+                "value": "=IVA{{ $json.lineas.iva_porcentaje }}"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.4,
+        "position": [
+          2688,
+          -176
+        ],
+        "id": "06c2fe7e-0e84-497d-8656-81e0889cd125",
+        "name": "HTTPLinealAlbaranProveedores",
+        "alwaysOutputData": false,
+        "credentials": {
+          "httpHeaderAuth": {
+            "id": "qoKa7RcJ4cB8mSzv",
+            "name": "FacturaScript API"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "move",
+          "fileId": {
+            "__rl": true,
+            "value": "={{ $('Loop Over Items').item.json.id }}",
+            "mode": "id"
+          },
+          "driveId": {
+            "__rl": true,
+            "mode": "list",
+            "value": "My Drive"
+          },
+          "folderId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "1YRz3QiDLvsB6MZ-IN209SFGwmhgSHkHL"
+          }
+        },
+        "type": "n8n-nodes-base.googleDrive",
+        "typeVersion": 3,
+        "position": [
+          2944,
+          336
+        ],
+        "id": "1205868d-0679-41c1-91ac-1b818972c4e0",
+        "name": "Move file1",
+        "credentials": {
+          "googleDriveOAuth2Api": {
+            "id": "kjAHWBgsL4LvNzuN",
+            "name": "Google Drive account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "=https://hazmarca.marketing/slu/api/3/clientes",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "httpHeaderAuth",
+          "sendBody": true,
+          "contentType": "form-urlencoded",
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "nombre",
+                "value": "={{ $('Switch').item.json.emisor_nombre }}"
+              },
+              {
+                "name": "cifnif",
+                "value": "={{ $('Switch').item.json.emisor_nif }}"
+              },
+              {
+                "name": "razonsocial",
+                "value": "={{ $('Switch').item.json.emisor_nombre }}"
+              },
+              {
+                "name": "personafisica",
+                "value": "false"
+              },
+              {
+                "name": "tipoidfiscal",
+                "value": "CIF"
+              }
+            ]
+          },
+          "options": {
+            "pagination": {
+              "pagination": {
+                "parameters": {
+                  "parameters": [
+                    {
+                      "name": "offset",
+                      "value": "={{ $pageCount * 50 }}"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.4,
+        "position": [
+          1600,
+          272
+        ],
+        "id": "3d486711-c347-45c1-a76b-fae9bf36b4fc",
+        "name": "HTTPClientesCrear",
+        "alwaysOutputData": true,
+        "credentials": {
+          "httpHeaderAuth": {
+            "id": "qoKa7RcJ4cB8mSzv",
+            "name": "FacturaScript API"
+          }
+        },
+        "disabled": true
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "=https://hazmarca.marketing/slu/api/3/proveedores",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "httpHeaderAuth",
+          "sendBody": true,
+          "contentType": "form-urlencoded",
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "nombre",
+                "value": "={{ $('Switch').item.json.emisor_nombre }}"
+              },
+              {
+                "name": "cifnif",
+                "value": "={{ $('Switch').item.json.emisor_nif }}"
+              },
+              {
+                "name": "razonsocial",
+                "value": "={{ $('Switch').item.json.emisor_nombre }}"
+              },
+              {
+                "name": "personafisica",
+                "value": "false"
+              },
+              {
+                "name": "tipoidfiscal",
+                "value": "CIF"
+              }
+            ]
+          },
+          "options": {
+            "pagination": {
+              "pagination": {
+                "parameters": {
+                  "parameters": [
+                    {
+                      "name": "offset",
+                      "value": "={{ $pageCount * 50 }}"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.4,
+        "position": [
+          1600,
+          -64
+        ],
+        "id": "d6830d5c-4633-4843-bf3a-6d4bfc8caf4d",
+        "name": "HTTPProveedoresCrear",
+        "alwaysOutputData": true,
+        "credentials": {
+          "httpHeaderAuth": {
+            "id": "qoKa7RcJ4cB8mSzv",
+            "name": "FacturaScript API"
+          }
+        },
+        "disabled": true
       }
     ],
     "connections": {
@@ -1940,26 +3032,21 @@
         "main": [
           [
             {
-              "node": "HTTPProveedores",
+              "node": "HTTPProveedor",
               "type": "main",
               "index": 0
             }
           ],
-          [],
           [
             {
-              "node": "Mover a Revisión",
+              "node": "HTTPCliente",
               "type": "main",
               "index": 0
             }
-          ]
-        ]
-      },
-      "HTTPProveedores": {
-        "main": [
+          ],
           [
             {
-              "node": "If",
+              "node": "Mover a Revisión",
               "type": "main",
               "index": 0
             }
@@ -1977,18 +3064,7 @@
           ],
           [
             {
-              "node": "HTTPProveedores1",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "HTTPProveedores1": {
-        "main": [
-          [
-            {
-              "node": "Edit Fields",
+              "node": "HTTPProveedoresCrear",
               "type": "main",
               "index": 0
             }
@@ -2021,7 +3097,7 @@
         "main": [
           [
             {
-              "node": "HTTPLinealAlbaran",
+              "node": "HTTPLinealAlbaranProveedores",
               "type": "main",
               "index": 0
             }
@@ -2057,17 +3133,6 @@
           ]
         ]
       },
-      "HTTPLinealAlbaran": {
-        "main": [
-          [
-            {
-              "node": "Move file",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
       "Loop Over Items": {
         "main": [
           [],
@@ -2090,10 +3155,160 @@
             }
           ]
         ]
+      },
+      "Google Drive Trigger1": {
+        "main": [
+          [
+            {
+              "node": "Download file",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "HTTPProveedor": {
+        "main": [
+          [
+            {
+              "node": "If",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "If2": {
+        "main": [
+          [
+            {
+              "node": "Edit Fields2",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "HTTPClientesCrear",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Edit Fields2": {
+        "main": [
+          [
+            {
+              "node": "HTTPAlbaran1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "HTTPAlbaran1": {
+        "main": [
+          [
+            {
+              "node": "Edit Fields3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Split Out1": {
+        "main": [
+          [
+            {
+              "node": "HTTPLinealAlbaranClientes",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Edit Fields3": {
+        "main": [
+          [
+            {
+              "node": "Split Out1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "HTTPCliente": {
+        "main": [
+          [
+            {
+              "node": "If2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "HTTPLinealAlbaranClientes": {
+        "main": [
+          [
+            {
+              "node": "Move file1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "HTTPLinealAlbaranProveedores": {
+        "main": [
+          [
+            {
+              "node": "Move file",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Move file1": {
+        "main": [
+          [
+            {
+              "node": "Loop Over Items",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "HTTPClientesCrear": {
+        "main": [
+          [
+            {
+              "node": "Edit Fields2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "HTTPProveedoresCrear": {
+        "main": [
+          [
+            {
+              "node": "Edit Fields",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Leandro Martinez",
-    "name": "Version 4a7f16bf",
+    "name": "Version 0fcd9541",
     "description": "",
     "autosaved": true
   },
