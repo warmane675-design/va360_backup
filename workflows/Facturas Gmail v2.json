@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-14T07:12:21.733Z",
+  "updatedAt": "2026-05-18T07:38:00.246Z",
   "createdAt": "2026-05-11T08:28:16.674Z",
   "id": "D4t2vLp7rgaYwpBR",
   "name": "Facturas Gmail v2",
@@ -198,8 +198,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1888,
-        208
+        2224,
+        192
       ],
       "id": "33464eb7-f711-44a8-8061-f9985dfa99c4",
       "name": "Code in JavaScript3"
@@ -222,7 +222,7 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        2416,
+        2752,
         224
       ],
       "id": "19380a42-6d80-4b23-8803-f9ce9c764192",
@@ -243,7 +243,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        2192,
+        2528,
         64
       ],
       "id": "49185e97-12fb-4779-8192-1a551adedb71",
@@ -276,6 +276,39 @@
           "name": "Gmail contacta"
         }
       }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "7678b72c-7afe-42ad-b62c-bbf340fc9e3f",
+              "leftValue": "={{ $json.tipo }}",
+              "rightValue": "=no_es_factura",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1904,
+        208
+      ],
+      "id": "f9d668c0-7cad-4c2e-b619-e8a2ffdd3765",
+      "name": "If1"
     }
   ],
   "connections": {
@@ -388,7 +421,7 @@
       "main": [
         [
           {
-            "node": "Code in JavaScript3",
+            "node": "If1",
             "type": "main",
             "index": 0
           }
@@ -438,6 +471,17 @@
           }
         ]
       ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "settings": {
@@ -451,10 +495,10 @@
   "staticData": {
     "node:Gmail Trigger": {
       "Gmail Trigger": {
-        "lastTimeChecked": 1778752355,
+        "lastTimeChecked": 1779095624,
         "possibleDuplicates": [
-          "19e25e7190c8e254",
-          "19e2195e4e7ec984"
+          "19e3a5cf0a185f8b",
+          "19e3a5a44ae19dd2"
         ]
       }
     }
@@ -466,36 +510,32 @@
     "Gmail Trigger": [
       {
         "json": {
-          "id": "19e1b263443fe2c6",
-          "threadId": "19e1b263443fe2c6",
-          "snippet": "si",
+          "id": "19e2acf3701d8847",
+          "threadId": "19e2acf3701d8847",
+          "snippet": "Hola LEANDRO, La última auditoría del sitio web muestra una caída en la puntuación de la salud de tu sitio. Tómalo como una oportunidad para crecer y mejorar. ¡Estamos aquí para guiarte en cada paso",
           "payload": {
             "mimeType": "multipart/mixed"
           },
-          "sizeEstimate": 74355,
-          "historyId": "24474391",
-          "internalDate": "1778571935000",
+          "sizeEstimate": 1891699,
+          "historyId": "24508270",
+          "internalDate": "1778834682000",
           "labels": [
             {
               "id": "INBOX",
               "name": "INBOX"
             },
             {
-              "id": "IMPORTANT",
-              "name": "IMPORTANT"
-            },
-            {
-              "id": "CATEGORY_PERSONAL",
-              "name": "CATEGORY_PERSONAL"
+              "id": "CATEGORY_UPDATES",
+              "name": "CATEGORY_UPDATES"
             },
             {
               "id": "UNREAD",
               "name": "UNREAD"
             }
           ],
-          "From": "warmane <warmane675@gmail.com>",
-          "Subject": "prueba",
-          "To": "contacta@hazmarca.es"
+          "To": "contacta@hazmarca.es",
+          "From": "SE Ranking <reports@seranking.com>",
+          "Subject": "www.lealmetal.es: ¡Es momento de tomar el control!"
         },
         "pairedItem": {
           "item": 0
@@ -503,7 +543,7 @@
       }
     ]
   },
-  "versionId": "22ceba89-2a3c-46e7-b606-83cd8daf146d",
+  "versionId": "3d941659-c497-479e-a9b2-884c2da6da1a",
   "activeVersionId": "22ceba89-2a3c-46e7-b606-83cd8daf146d",
   "triggerCount": 1,
   "shared": [
