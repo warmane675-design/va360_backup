@@ -1,10 +1,13 @@
 {
-  "updatedAt": "2026-05-12T08:44:46.279Z",
-  "createdAt": "2026-05-11T08:32:35.410Z",
   "id": "CyJoPPg1wehCdckN",
   "name": "Telegram Imagenes",
   "active": true,
+  "activeVersionId": "27721f5e-088a-44b2-bf11-cec8700b2f13",
+  "createdAt": "2026-05-11T08:32:35.410Z",
+  "updatedAt": "2026-05-12T08:44:46.279Z",
   "isArchived": false,
+  "versionId": "27721f5e-088a-44b2-bf11-cec8700b2f13",
+  "triggerCount": 1,
   "nodes": [
     {
       "parameters": {
@@ -794,6 +797,7 @@
       ]
     }
   },
+  "nodeGroups": [],
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate",
@@ -803,9 +807,6 @@
     "availableInMCP": false
   },
   "staticData": null,
-  "meta": {
-    "templateCredsSetupCompleted": true
-  },
   "pinData": {
     "Telegram Trigger": [
       {
@@ -859,21 +860,20 @@
       }
     ]
   },
-  "versionId": "27721f5e-088a-44b2-bf11-cec8700b2f13",
-  "activeVersionId": "27721f5e-088a-44b2-bf11-cec8700b2f13",
-  "triggerCount": 1,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "tags": [],
   "shared": [
     {
-      "updatedAt": "2026-05-11T08:32:35.411Z",
-      "createdAt": "2026-05-11T08:32:35.411Z",
       "role": "workflow:owner",
       "workflowId": "CyJoPPg1wehCdckN",
-      "projectId": "HySVhA2Rl8waskJL"
+      "projectId": "HySVhA2Rl8waskJL",
+      "createdAt": "2026-05-11T08:32:35.411Z",
+      "updatedAt": "2026-05-11T08:32:35.411Z"
     }
   ],
   "activeVersion": {
-    "updatedAt": "2026-05-12T08:04:05.000Z",
-    "createdAt": "2026-05-12T08:02:57.215Z",
     "versionId": "27721f5e-088a-44b2-bf11-cec8700b2f13",
     "workflowId": "CyJoPPg1wehCdckN",
     "nodes": [
@@ -1665,10 +1665,12 @@
         ]
       }
     },
+    "nodeGroups": [],
     "authors": "Leandro Martinez",
     "name": "Version 27721f5e",
     "description": "",
-    "autosaved": true
-  },
-  "tags": []
+    "autosaved": true,
+    "createdAt": "2026-05-12T08:02:57.215Z",
+    "updatedAt": "2026-05-12T08:04:05.000Z"
+  }
 }
