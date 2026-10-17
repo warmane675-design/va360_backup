@@ -1,10 +1,13 @@
 {
-  "updatedAt": "2026-05-11T08:46:09.845Z",
-  "createdAt": "2026-05-11T08:30:27.456Z",
   "id": "KQSAf29hYIApTa6U",
   "name": "Ingesta de documentos",
   "active": false,
+  "activeVersionId": null,
+  "createdAt": "2026-05-11T08:30:27.456Z",
+  "updatedAt": "2026-05-11T08:46:09.845Z",
   "isArchived": false,
+  "versionId": "c410db1b-ebf4-4c6c-888b-fb014b8e7b5b",
+  "triggerCount": 0,
   "nodes": [
     {
       "parameters": {},
@@ -183,12 +186,12 @@
       ]
     }
   },
+  "nodeGroups": [],
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate"
   },
   "staticData": null,
-  "meta": null,
   "pinData": {
     "When clicking ‘Execute workflow’": [
       {
@@ -199,18 +202,16 @@
       }
     ]
   },
-  "versionId": "c410db1b-ebf4-4c6c-888b-fb014b8e7b5b",
-  "activeVersionId": null,
-  "triggerCount": 0,
+  "meta": null,
+  "tags": [],
   "shared": [
     {
-      "updatedAt": "2026-05-11T08:30:27.458Z",
-      "createdAt": "2026-05-11T08:30:27.458Z",
       "role": "workflow:owner",
       "workflowId": "KQSAf29hYIApTa6U",
-      "projectId": "HySVhA2Rl8waskJL"
+      "projectId": "HySVhA2Rl8waskJL",
+      "createdAt": "2026-05-11T08:30:27.458Z",
+      "updatedAt": "2026-05-11T08:30:27.458Z"
     }
   ],
-  "activeVersion": null,
-  "tags": []
+  "activeVersion": null
 }
