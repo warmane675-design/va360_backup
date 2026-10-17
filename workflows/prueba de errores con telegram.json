@@ -1,10 +1,13 @@
 {
-  "updatedAt": "2026-05-11T08:45:43.841Z",
-  "createdAt": "2026-05-11T08:31:50.413Z",
   "id": "l4PF4Ymeu4WwtrkS",
   "name": "prueba de errores con telegram",
   "active": false,
+  "activeVersionId": null,
+  "createdAt": "2026-05-11T08:31:50.413Z",
+  "updatedAt": "2026-05-11T08:45:43.841Z",
   "isArchived": false,
+  "versionId": "069e9010-6f28-4b37-b1db-db7abb8c4bdc",
+  "triggerCount": 0,
   "nodes": [
     {
       "parameters": {},
@@ -75,12 +78,12 @@
       ]
     }
   },
+  "nodeGroups": [],
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate"
   },
   "staticData": null,
-  "meta": null,
   "pinData": {
     "When clicking ‘Execute workflow’": [
       {
@@ -225,18 +228,16 @@
       }
     ]
   },
-  "versionId": "069e9010-6f28-4b37-b1db-db7abb8c4bdc",
-  "activeVersionId": null,
-  "triggerCount": 0,
+  "meta": null,
+  "tags": [],
   "shared": [
     {
-      "updatedAt": "2026-05-11T08:31:50.414Z",
-      "createdAt": "2026-05-11T08:31:50.414Z",
       "role": "workflow:owner",
       "workflowId": "l4PF4Ymeu4WwtrkS",
-      "projectId": "HySVhA2Rl8waskJL"
+      "projectId": "HySVhA2Rl8waskJL",
+      "createdAt": "2026-05-11T08:31:50.414Z",
+      "updatedAt": "2026-05-11T08:31:50.414Z"
     }
   ],
-  "activeVersion": null,
-  "tags": []
+  "activeVersion": null
 }
