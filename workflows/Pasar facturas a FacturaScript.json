@@ -1,10 +1,13 @@
 {
-  "updatedAt": "2026-05-15T07:37:14.350Z",
-  "createdAt": "2026-05-14T06:47:14.479Z",
   "id": "IY1kPe7zBgCpcPHv",
   "name": "Pasar facturas a FacturaScript",
   "active": true,
+  "activeVersionId": "0fcd9541-512f-462c-9555-dd4457ed3c50",
+  "createdAt": "2026-05-14T06:47:14.479Z",
+  "updatedAt": "2026-05-15T07:37:14.350Z",
   "isArchived": false,
+  "versionId": "0fcd9541-512f-462c-9555-dd4457ed3c50",
+  "triggerCount": 2,
   "nodes": [
     {
       "parameters": {
@@ -1419,20 +1422,18 @@
       ]
     }
   },
+  "nodeGroups": [],
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate"
   },
   "staticData": {
     "node:Google Drive Trigger": {
-      "lastTimeChecked": "2026-05-15T07:38:30Z"
+      "lastTimeChecked": "2026-10-17T15:44:15Z"
     },
     "node:Google Drive Trigger1": {
-      "lastTimeChecked": "2026-05-15T07:38:30Z"
+      "lastTimeChecked": "2026-10-17T15:44:15Z"
     }
-  },
-  "meta": {
-    "templateCredsSetupCompleted": true
   },
   "pinData": {
     "Google Drive Trigger": [
@@ -1876,21 +1877,20 @@
       }
     ]
   },
-  "versionId": "0fcd9541-512f-462c-9555-dd4457ed3c50",
-  "activeVersionId": "0fcd9541-512f-462c-9555-dd4457ed3c50",
-  "triggerCount": 2,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "tags": [],
   "shared": [
     {
-      "updatedAt": "2026-05-14T06:47:14.484Z",
-      "createdAt": "2026-05-14T06:47:14.484Z",
       "role": "workflow:owner",
       "workflowId": "IY1kPe7zBgCpcPHv",
-      "projectId": "HySVhA2Rl8waskJL"
+      "projectId": "HySVhA2Rl8waskJL",
+      "createdAt": "2026-05-14T06:47:14.484Z",
+      "updatedAt": "2026-05-14T06:47:14.484Z"
     }
   ],
   "activeVersion": {
-    "updatedAt": "2026-05-15T07:38:31.000Z",
-    "createdAt": "2026-05-15T07:36:28.176Z",
     "versionId": "0fcd9541-512f-462c-9555-dd4457ed3c50",
     "workflowId": "IY1kPe7zBgCpcPHv",
     "nodes": [
@@ -3307,10 +3307,12 @@
         ]
       }
     },
+    "nodeGroups": [],
     "authors": "Leandro Martinez",
     "name": "Version 0fcd9541",
     "description": "",
-    "autosaved": true
-  },
-  "tags": []
+    "autosaved": true,
+    "createdAt": "2026-05-15T07:36:28.176Z",
+    "updatedAt": "2026-05-15T07:38:31.000Z"
+  }
 }
