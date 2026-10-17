@@ -1,10 +1,13 @@
 {
-  "updatedAt": "2026-05-12T08:50:30.067Z",
-  "createdAt": "2026-05-11T08:28:04.622Z",
   "id": "jWOwPrw3rbQy2Doq",
   "name": "Error Workflow",
   "active": true,
+  "activeVersionId": "d0a841cf-a5bd-47a2-98fc-2a5c4fee6c7f",
+  "createdAt": "2026-05-11T08:28:04.622Z",
+  "updatedAt": "2026-05-12T08:50:30.067Z",
   "isArchived": false,
+  "versionId": "d0a841cf-a5bd-47a2-98fc-2a5c4fee6c7f",
+  "triggerCount": 0,
   "nodes": [
     {
       "parameters": {},
@@ -55,30 +58,27 @@
       ]
     }
   },
+  "nodeGroups": [],
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate"
   },
   "staticData": null,
+  "pinData": {},
   "meta": {
     "templateCredsSetupCompleted": true
   },
-  "pinData": {},
-  "versionId": "d0a841cf-a5bd-47a2-98fc-2a5c4fee6c7f",
-  "activeVersionId": "d0a841cf-a5bd-47a2-98fc-2a5c4fee6c7f",
-  "triggerCount": 0,
+  "tags": [],
   "shared": [
     {
-      "updatedAt": "2026-05-11T08:28:04.623Z",
-      "createdAt": "2026-05-11T08:28:04.623Z",
       "role": "workflow:owner",
       "workflowId": "jWOwPrw3rbQy2Doq",
-      "projectId": "HySVhA2Rl8waskJL"
+      "projectId": "HySVhA2Rl8waskJL",
+      "createdAt": "2026-05-11T08:28:04.623Z",
+      "updatedAt": "2026-05-11T08:28:04.623Z"
     }
   ],
   "activeVersion": {
-    "updatedAt": "2026-05-12T08:33:50.000Z",
-    "createdAt": "2026-05-12T08:33:38.322Z",
     "versionId": "d0a841cf-a5bd-47a2-98fc-2a5c4fee6c7f",
     "workflowId": "jWOwPrw3rbQy2Doq",
     "nodes": [
@@ -131,10 +131,12 @@
         ]
       }
     },
+    "nodeGroups": [],
     "authors": "Leandro Martinez",
     "name": "Version d0a841cf",
     "description": "",
-    "autosaved": true
-  },
-  "tags": []
+    "autosaved": true,
+    "createdAt": "2026-05-12T08:33:38.322Z",
+    "updatedAt": "2026-05-12T08:33:50.000Z"
+  }
 }
