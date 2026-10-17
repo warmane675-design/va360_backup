@@ -1,10 +1,13 @@
 {
-  "updatedAt": "2026-05-18T07:23:29.998Z",
-  "createdAt": "2026-05-18T07:13:15.198Z",
   "id": "bPjBSkvFVctVewzP",
   "name": "D reset",
   "active": true,
+  "activeVersionId": "f46952aa-3be4-4765-b6f6-60289585eb73",
+  "createdAt": "2026-05-18T07:13:15.198Z",
+  "updatedAt": "2026-05-18T07:23:29.998Z",
   "isArchived": false,
+  "versionId": "f46952aa-3be4-4765-b6f6-60289585eb73",
+  "triggerCount": 1,
   "nodes": [
     {
       "parameters": {
@@ -187,6 +190,7 @@
       ]
     }
   },
+  "nodeGroups": [],
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate",
@@ -197,26 +201,27 @@
   },
   "staticData": {
     "node:Schedule Trigger": {
-      "recurrenceRules": []
+      "recurrenceRules": [
+        null
+      ],
+      "recurrenceRuleSignatures": [
+        null
+      ]
     }
   },
-  "meta": null,
   "pinData": {},
-  "versionId": "f46952aa-3be4-4765-b6f6-60289585eb73",
-  "activeVersionId": "f46952aa-3be4-4765-b6f6-60289585eb73",
-  "triggerCount": 1,
+  "meta": null,
+  "tags": [],
   "shared": [
     {
-      "updatedAt": "2026-05-18T07:13:15.204Z",
-      "createdAt": "2026-05-18T07:13:15.204Z",
       "role": "workflow:owner",
       "workflowId": "bPjBSkvFVctVewzP",
-      "projectId": "HySVhA2Rl8waskJL"
+      "projectId": "HySVhA2Rl8waskJL",
+      "createdAt": "2026-05-18T07:13:15.204Z",
+      "updatedAt": "2026-05-18T07:13:15.204Z"
     }
   ],
   "activeVersion": {
-    "updatedAt": "2026-05-18T07:23:23.000Z",
-    "createdAt": "2026-05-18T07:22:50.882Z",
     "versionId": "f46952aa-3be4-4765-b6f6-60289585eb73",
     "workflowId": "bPjBSkvFVctVewzP",
     "nodes": [
@@ -401,10 +406,12 @@
         ]
       }
     },
+    "nodeGroups": [],
     "authors": "Leandro Martinez",
     "name": "Version f46952aa",
     "description": "",
-    "autosaved": false
-  },
-  "tags": []
+    "autosaved": false,
+    "createdAt": "2026-05-18T07:22:50.882Z",
+    "updatedAt": "2026-05-18T07:23:23.000Z"
+  }
 }
