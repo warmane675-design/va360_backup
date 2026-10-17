@@ -1,10 +1,13 @@
 {
-  "updatedAt": "2026-05-11T08:47:11.440Z",
-  "createdAt": "2026-05-11T08:26:49.957Z",
   "id": "lJDZCmj3VuNML2SB",
   "name": "BD n8n y crear variables",
   "active": false,
+  "activeVersionId": null,
+  "createdAt": "2026-05-11T08:26:49.957Z",
+  "updatedAt": "2026-05-11T08:47:11.440Z",
   "isArchived": false,
+  "versionId": "4f12dc9f-e5f4-476b-b8a8-489ab7b617e2",
+  "triggerCount": 0,
   "nodes": [
     {
       "parameters": {
@@ -147,12 +150,12 @@
       ]
     }
   },
+  "nodeGroups": [],
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate"
   },
   "staticData": null,
-  "meta": null,
   "pinData": {
     "On form submission": [
       {
@@ -169,18 +172,16 @@
       }
     ]
   },
-  "versionId": "4f12dc9f-e5f4-476b-b8a8-489ab7b617e2",
-  "activeVersionId": null,
-  "triggerCount": 0,
+  "meta": null,
+  "tags": [],
   "shared": [
     {
-      "updatedAt": "2026-05-11T08:26:49.958Z",
-      "createdAt": "2026-05-11T08:26:49.958Z",
       "role": "workflow:owner",
       "workflowId": "lJDZCmj3VuNML2SB",
-      "projectId": "HySVhA2Rl8waskJL"
+      "projectId": "HySVhA2Rl8waskJL",
+      "createdAt": "2026-05-11T08:26:49.958Z",
+      "updatedAt": "2026-05-11T08:26:49.958Z"
     }
   ],
-  "activeVersion": null,
-  "tags": []
+  "activeVersion": null
 }
