@@ -1,10 +1,13 @@
 {
-  "updatedAt": "2026-05-12T11:21:27.739Z",
-  "createdAt": "2026-05-11T08:27:53.530Z",
   "id": "4eu1H4NS8OVsu2dm",
   "name": "crear base de datos en notion",
   "active": false,
+  "activeVersionId": null,
+  "createdAt": "2026-05-11T08:27:53.530Z",
+  "updatedAt": "2026-05-12T11:21:27.739Z",
   "isArchived": false,
+  "versionId": "5c4ad834-a59f-489b-83db-71ed8b05d9c7",
+  "triggerCount": 0,
   "nodes": [
     {
       "parameters": {
@@ -179,12 +182,12 @@
       ]
     }
   },
+  "nodeGroups": [],
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate"
   },
   "staticData": null,
-  "meta": null,
   "pinData": {
     "Analyze document": [
       {
@@ -207,18 +210,16 @@
       }
     ]
   },
-  "versionId": "5c4ad834-a59f-489b-83db-71ed8b05d9c7",
-  "activeVersionId": null,
-  "triggerCount": 0,
+  "meta": null,
+  "tags": [],
   "shared": [
     {
-      "updatedAt": "2026-05-11T08:27:53.531Z",
-      "createdAt": "2026-05-11T08:27:53.531Z",
       "role": "workflow:owner",
       "workflowId": "4eu1H4NS8OVsu2dm",
-      "projectId": "HySVhA2Rl8waskJL"
+      "projectId": "HySVhA2Rl8waskJL",
+      "createdAt": "2026-05-11T08:27:53.531Z",
+      "updatedAt": "2026-05-11T08:27:53.531Z"
     }
   ],
-  "activeVersion": null,
-  "tags": []
+  "activeVersion": null
 }
