@@ -1,10 +1,13 @@
 {
-  "updatedAt": "2026-05-12T11:25:14.920Z",
-  "createdAt": "2026-05-11T08:31:09.320Z",
   "id": "XROvWbWEwmr4euQ8",
   "name": "primer agente",
   "active": false,
+  "activeVersionId": null,
+  "createdAt": "2026-05-11T08:31:09.320Z",
+  "updatedAt": "2026-05-12T11:25:14.920Z",
   "isArchived": false,
+  "versionId": "162d8d87-8496-4b9f-b7c1-879e56254137",
+  "triggerCount": 0,
   "nodes": [
     {
       "parameters": {
@@ -252,12 +255,12 @@
       ]
     }
   },
+  "nodeGroups": [],
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate"
   },
   "staticData": null,
-  "meta": null,
   "pinData": {
     "Telegram Trigger": [
       {
@@ -288,18 +291,16 @@
       }
     ]
   },
-  "versionId": "162d8d87-8496-4b9f-b7c1-879e56254137",
-  "activeVersionId": null,
-  "triggerCount": 0,
+  "meta": null,
+  "tags": [],
   "shared": [
     {
-      "updatedAt": "2026-05-11T08:31:09.326Z",
-      "createdAt": "2026-05-11T08:31:09.326Z",
       "role": "workflow:owner",
       "workflowId": "XROvWbWEwmr4euQ8",
-      "projectId": "HySVhA2Rl8waskJL"
+      "projectId": "HySVhA2Rl8waskJL",
+      "createdAt": "2026-05-11T08:31:09.326Z",
+      "updatedAt": "2026-05-11T08:31:09.326Z"
     }
   ],
-  "activeVersion": null,
-  "tags": []
+  "activeVersion": null
 }
