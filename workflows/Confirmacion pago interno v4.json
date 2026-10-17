@@ -1,10 +1,13 @@
 {
-  "updatedAt": "2026-05-13T11:37:23.482Z",
-  "createdAt": "2026-05-13T11:30:08.555Z",
   "id": "MyLBQaKHAhPezFVc",
   "name": "Confirmacion pago interno v4",
   "active": true,
+  "activeVersionId": "f25501b9-9342-4a1b-9308-b883d4d61040",
+  "createdAt": "2026-05-13T11:30:08.555Z",
+  "updatedAt": "2026-05-13T11:37:23.482Z",
   "isArchived": false,
+  "versionId": "f25501b9-9342-4a1b-9308-b883d4d61040",
+  "triggerCount": 1,
   "nodes": [
     {
       "parameters": {
@@ -301,6 +304,7 @@
       ]
     }
   },
+  "nodeGroups": [],
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate",
@@ -310,9 +314,6 @@
     "availableInMCP": false
   },
   "staticData": null,
-  "meta": {
-    "templateCredsSetupCompleted": true
-  },
   "pinData": {
     "Webhook": [
       {
@@ -361,21 +362,27 @@
       }
     ]
   },
-  "versionId": "f25501b9-9342-4a1b-9308-b883d4d61040",
-  "activeVersionId": "f25501b9-9342-4a1b-9308-b883d4d61040",
-  "triggerCount": 1,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "tags": [
+    {
+      "id": "1RdtjEkS3P0u2ppX",
+      "name": "v4",
+      "createdAt": "2026-05-11T09:01:50.331Z",
+      "updatedAt": "2026-05-11T09:01:50.331Z"
+    }
+  ],
   "shared": [
     {
-      "updatedAt": "2026-05-13T11:30:08.558Z",
-      "createdAt": "2026-05-13T11:30:08.558Z",
       "role": "workflow:owner",
       "workflowId": "MyLBQaKHAhPezFVc",
-      "projectId": "HySVhA2Rl8waskJL"
+      "projectId": "HySVhA2Rl8waskJL",
+      "createdAt": "2026-05-13T11:30:08.558Z",
+      "updatedAt": "2026-05-13T11:30:08.558Z"
     }
   ],
   "activeVersion": {
-    "updatedAt": "2026-05-13T11:37:56.000Z",
-    "createdAt": "2026-05-13T11:37:23.483Z",
     "versionId": "f25501b9-9342-4a1b-9308-b883d4d61040",
     "workflowId": "MyLBQaKHAhPezFVc",
     "nodes": [
@@ -674,17 +681,12 @@
         ]
       }
     },
+    "nodeGroups": [],
     "authors": "Leandro Martinez",
     "name": "Version f25501b9",
     "description": "",
-    "autosaved": true
-  },
-  "tags": [
-    {
-      "updatedAt": "2026-05-11T09:01:50.331Z",
-      "createdAt": "2026-05-11T09:01:50.331Z",
-      "id": "1RdtjEkS3P0u2ppX",
-      "name": "v4"
-    }
-  ]
+    "autosaved": true,
+    "createdAt": "2026-05-13T11:37:23.483Z",
+    "updatedAt": "2026-05-13T11:37:56.000Z"
+  }
 }
