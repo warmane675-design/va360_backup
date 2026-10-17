@@ -1,10 +1,13 @@
 {
-  "updatedAt": "2026-05-11T08:46:04.552Z",
-  "createdAt": "2026-05-11T08:30:37.211Z",
   "id": "A9hRSIdB1EJdf2Ge",
   "name": "Manychat",
   "active": false,
+  "activeVersionId": null,
+  "createdAt": "2026-05-11T08:30:37.211Z",
+  "updatedAt": "2026-05-11T08:46:04.552Z",
   "isArchived": false,
+  "versionId": "6bbf3bac-63b5-4ad7-9d4f-2aa60fc3d243",
+  "triggerCount": 0,
   "nodes": [
     {
       "parameters": {
@@ -167,12 +170,12 @@
       ]
     }
   },
+  "nodeGroups": [],
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate"
   },
   "staticData": null,
-  "meta": null,
   "pinData": {
     "mensaje_instagram": [
       {
@@ -206,18 +209,16 @@
       }
     ]
   },
-  "versionId": "6bbf3bac-63b5-4ad7-9d4f-2aa60fc3d243",
-  "activeVersionId": null,
-  "triggerCount": 0,
+  "meta": null,
+  "tags": [],
   "shared": [
     {
-      "updatedAt": "2026-05-11T08:30:37.212Z",
-      "createdAt": "2026-05-11T08:30:37.212Z",
       "role": "workflow:owner",
       "workflowId": "A9hRSIdB1EJdf2Ge",
-      "projectId": "HySVhA2Rl8waskJL"
+      "projectId": "HySVhA2Rl8waskJL",
+      "createdAt": "2026-05-11T08:30:37.212Z",
+      "updatedAt": "2026-05-11T08:30:37.212Z"
     }
   ],
-  "activeVersion": null,
-  "tags": []
+  "activeVersion": null
 }
