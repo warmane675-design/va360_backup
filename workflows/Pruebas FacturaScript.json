@@ -1,10 +1,13 @@
 {
-  "updatedAt": "2026-05-12T10:45:57.478Z",
-  "createdAt": "2026-05-11T09:32:03.413Z",
   "id": "szRubO0grfGzlKbv",
   "name": "Pruebas FacturaScript",
   "active": false,
+  "activeVersionId": null,
+  "createdAt": "2026-05-11T09:32:03.413Z",
+  "updatedAt": "2026-05-12T10:45:57.478Z",
   "isArchived": false,
+  "versionId": "ea0270d3-116b-40f7-8e28-96afed030a23",
+  "triggerCount": 0,
   "nodes": [
     {
       "parameters": {},
@@ -124,25 +127,23 @@
       ]
     }
   },
+  "nodeGroups": [],
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate"
   },
   "staticData": null,
-  "meta": null,
   "pinData": {},
-  "versionId": "ea0270d3-116b-40f7-8e28-96afed030a23",
-  "activeVersionId": null,
-  "triggerCount": 0,
+  "meta": null,
+  "tags": [],
   "shared": [
     {
-      "updatedAt": "2026-05-11T09:32:03.416Z",
-      "createdAt": "2026-05-11T09:32:03.416Z",
       "role": "workflow:owner",
       "workflowId": "szRubO0grfGzlKbv",
-      "projectId": "HySVhA2Rl8waskJL"
+      "projectId": "HySVhA2Rl8waskJL",
+      "createdAt": "2026-05-11T09:32:03.416Z",
+      "updatedAt": "2026-05-11T09:32:03.416Z"
     }
   ],
-  "activeVersion": null,
-  "tags": []
+  "activeVersion": null
 }
