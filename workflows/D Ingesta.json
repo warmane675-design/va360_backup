@@ -1,10 +1,13 @@
 {
-  "updatedAt": "2026-05-15T11:24:30.704Z",
-  "createdAt": "2026-05-15T08:14:05.692Z",
   "id": "yyQHHc07a2fUsUBi",
   "name": "D Ingesta",
   "active": true,
+  "activeVersionId": "b4a335e0-9e6b-4937-90ef-56f96f2754f8",
+  "createdAt": "2026-05-15T08:14:05.692Z",
+  "updatedAt": "2026-05-15T11:24:30.704Z",
   "isArchived": false,
+  "versionId": "b4a335e0-9e6b-4937-90ef-56f96f2754f8",
+  "triggerCount": 1,
   "nodes": [
     {
       "parameters": {
@@ -198,6 +201,7 @@
       ]
     }
   },
+  "nodeGroups": [],
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate",
@@ -207,25 +211,21 @@
     "availableInMCP": false
   },
   "staticData": null,
+  "pinData": {},
   "meta": {
     "templateCredsSetupCompleted": true
   },
-  "pinData": {},
-  "versionId": "b4a335e0-9e6b-4937-90ef-56f96f2754f8",
-  "activeVersionId": "b4a335e0-9e6b-4937-90ef-56f96f2754f8",
-  "triggerCount": 1,
+  "tags": [],
   "shared": [
     {
-      "updatedAt": "2026-05-15T08:14:05.694Z",
-      "createdAt": "2026-05-15T08:14:05.694Z",
       "role": "workflow:owner",
       "workflowId": "yyQHHc07a2fUsUBi",
-      "projectId": "HySVhA2Rl8waskJL"
+      "projectId": "HySVhA2Rl8waskJL",
+      "createdAt": "2026-05-15T08:14:05.694Z",
+      "updatedAt": "2026-05-15T08:14:05.694Z"
     }
   ],
   "activeVersion": {
-    "updatedAt": "2026-05-15T11:25:06.000Z",
-    "createdAt": "2026-05-15T11:24:30.705Z",
     "versionId": "b4a335e0-9e6b-4937-90ef-56f96f2754f8",
     "workflowId": "yyQHHc07a2fUsUBi",
     "nodes": [
@@ -421,10 +421,12 @@
         ]
       }
     },
+    "nodeGroups": [],
     "authors": "Leandro Martinez",
     "name": "Version b4a335e0",
     "description": "",
-    "autosaved": true
-  },
-  "tags": []
+    "autosaved": true,
+    "createdAt": "2026-05-15T11:24:30.705Z",
+    "updatedAt": "2026-05-15T11:25:06.000Z"
+  }
 }
