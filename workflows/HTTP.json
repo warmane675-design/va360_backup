@@ -1,10 +1,13 @@
 {
-  "updatedAt": "2026-05-11T08:46:17.295Z",
-  "createdAt": "2026-05-11T08:30:02.104Z",
   "id": "NE3Mu1QGQjcjOSI2",
   "name": "HTTP",
   "active": false,
+  "activeVersionId": null,
+  "createdAt": "2026-05-11T08:30:02.104Z",
+  "updatedAt": "2026-05-11T08:46:17.295Z",
   "isArchived": false,
+  "versionId": "16376bf2-313e-489d-9ec6-4f006bf0a265",
+  "triggerCount": 0,
   "nodes": [
     {
       "parameters": {},
@@ -114,25 +117,23 @@
       ]
     }
   },
+  "nodeGroups": [],
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate"
   },
   "staticData": null,
-  "meta": null,
   "pinData": {},
-  "versionId": "16376bf2-313e-489d-9ec6-4f006bf0a265",
-  "activeVersionId": null,
-  "triggerCount": 0,
+  "meta": null,
+  "tags": [],
   "shared": [
     {
-      "updatedAt": "2026-05-11T08:30:02.105Z",
-      "createdAt": "2026-05-11T08:30:02.105Z",
       "role": "workflow:owner",
       "workflowId": "NE3Mu1QGQjcjOSI2",
-      "projectId": "HySVhA2Rl8waskJL"
+      "projectId": "HySVhA2Rl8waskJL",
+      "createdAt": "2026-05-11T08:30:02.105Z",
+      "updatedAt": "2026-05-11T08:30:02.105Z"
     }
   ],
-  "activeVersion": null,
-  "tags": []
+  "activeVersion": null
 }
