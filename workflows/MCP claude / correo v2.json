@@ -1,10 +1,13 @@
 {
-  "updatedAt": "2026-05-12T08:45:00.809Z",
-  "createdAt": "2026-05-11T08:33:13.777Z",
   "id": "zaQoLeEailx1wBmK",
   "name": "MCP claude / correo v2",
   "active": true,
+  "activeVersionId": "b94f560c-7eba-4874-9602-b456313665b6",
+  "createdAt": "2026-05-11T08:33:13.777Z",
+  "updatedAt": "2026-05-12T08:45:00.809Z",
   "isArchived": false,
+  "versionId": "b94f560c-7eba-4874-9602-b456313665b6",
+  "triggerCount": 1,
   "nodes": [
     {
       "parameters": {
@@ -59,6 +62,7 @@
       ]
     }
   },
+  "nodeGroups": [],
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate",
@@ -68,25 +72,21 @@
     "availableInMCP": false
   },
   "staticData": null,
+  "pinData": {},
   "meta": {
     "templateCredsSetupCompleted": true
   },
-  "pinData": {},
-  "versionId": "b94f560c-7eba-4874-9602-b456313665b6",
-  "activeVersionId": "b94f560c-7eba-4874-9602-b456313665b6",
-  "triggerCount": 1,
+  "tags": [],
   "shared": [
     {
-      "updatedAt": "2026-05-11T08:33:13.778Z",
-      "createdAt": "2026-05-11T08:33:13.778Z",
       "role": "workflow:owner",
       "workflowId": "zaQoLeEailx1wBmK",
-      "projectId": "HySVhA2Rl8waskJL"
+      "projectId": "HySVhA2Rl8waskJL",
+      "createdAt": "2026-05-11T08:33:13.778Z",
+      "updatedAt": "2026-05-11T08:33:13.778Z"
     }
   ],
   "activeVersion": {
-    "updatedAt": "2026-05-12T07:50:33.000Z",
-    "createdAt": "2026-05-12T07:50:29.693Z",
     "versionId": "b94f560c-7eba-4874-9602-b456313665b6",
     "workflowId": "zaQoLeEailx1wBmK",
     "nodes": [
@@ -143,10 +143,12 @@
         ]
       }
     },
+    "nodeGroups": [],
     "authors": "Leandro Martinez",
     "name": "Version b94f560c",
     "description": "",
-    "autosaved": true
-  },
-  "tags": []
+    "autosaved": true,
+    "createdAt": "2026-05-12T07:50:29.693Z",
+    "updatedAt": "2026-05-12T07:50:33.000Z"
+  }
 }
