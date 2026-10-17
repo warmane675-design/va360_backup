@@ -1,10 +1,13 @@
 {
-  "updatedAt": "2026-05-11T08:46:35.616Z",
-  "createdAt": "2026-05-11T08:29:07.574Z",
   "id": "kPyQKPad5MVFRcRz",
   "name": "Fracturacity a Excel",
   "active": false,
+  "activeVersionId": null,
+  "createdAt": "2026-05-11T08:29:07.574Z",
+  "updatedAt": "2026-05-11T08:46:35.616Z",
   "isArchived": false,
+  "versionId": "8546f419-9cca-455a-9238-bb539828a489",
+  "triggerCount": 0,
   "nodes": [
     {
       "parameters": {},
@@ -267,12 +270,12 @@
       ]
     }
   },
+  "nodeGroups": [],
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate"
   },
   "staticData": null,
-  "meta": null,
   "pinData": {
     "When clicking ‘Execute workflow’": [
       {
@@ -283,18 +286,16 @@
       }
     ]
   },
-  "versionId": "8546f419-9cca-455a-9238-bb539828a489",
-  "activeVersionId": null,
-  "triggerCount": 0,
+  "meta": null,
+  "tags": [],
   "shared": [
     {
-      "updatedAt": "2026-05-11T08:29:07.575Z",
-      "createdAt": "2026-05-11T08:29:07.575Z",
       "role": "workflow:owner",
       "workflowId": "kPyQKPad5MVFRcRz",
-      "projectId": "HySVhA2Rl8waskJL"
+      "projectId": "HySVhA2Rl8waskJL",
+      "createdAt": "2026-05-11T08:29:07.575Z",
+      "updatedAt": "2026-05-11T08:29:07.575Z"
     }
   ],
-  "activeVersion": null,
-  "tags": []
+  "activeVersion": null
 }
