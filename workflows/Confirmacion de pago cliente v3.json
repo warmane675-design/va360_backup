@@ -1,10 +1,13 @@
 {
-  "updatedAt": "2026-05-12T08:41:53.374Z",
-  "createdAt": "2026-05-11T08:26:59.304Z",
   "id": "yqM7j235DDoxpRah",
   "name": "Confirmacion de pago cliente v3",
   "active": false,
+  "activeVersionId": null,
+  "createdAt": "2026-05-11T08:26:59.304Z",
+  "updatedAt": "2026-05-12T08:41:53.374Z",
   "isArchived": false,
+  "versionId": "b12638ce-a27f-4c98-b4c8-981a1c5bebfa",
+  "triggerCount": 1,
   "nodes": [
     {
       "parameters": {
@@ -365,6 +368,7 @@
       ]
     }
   },
+  "nodeGroups": [],
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate",
@@ -374,9 +378,6 @@
     "availableInMCP": false
   },
   "staticData": null,
-  "meta": {
-    "templateCredsSetupCompleted": true
-  },
   "pinData": {
     "Webhook": [
       {
@@ -425,18 +426,18 @@
       }
     ]
   },
-  "versionId": "b12638ce-a27f-4c98-b4c8-981a1c5bebfa",
-  "activeVersionId": null,
-  "triggerCount": 1,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "tags": [],
   "shared": [
     {
-      "updatedAt": "2026-05-11T08:26:59.305Z",
-      "createdAt": "2026-05-11T08:26:59.305Z",
       "role": "workflow:owner",
       "workflowId": "yqM7j235DDoxpRah",
-      "projectId": "HySVhA2Rl8waskJL"
+      "projectId": "HySVhA2Rl8waskJL",
+      "createdAt": "2026-05-11T08:26:59.305Z",
+      "updatedAt": "2026-05-11T08:26:59.305Z"
     }
   ],
-  "activeVersion": null,
-  "tags": []
+  "activeVersion": null
 }
