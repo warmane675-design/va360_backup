@@ -1,10 +1,13 @@
 {
-  "updatedAt": "2026-05-12T08:36:47.631Z",
-  "createdAt": "2026-05-11T08:27:22.888Z",
   "id": "EoW6VS01P9xo6hXY",
   "name": "Confirmacion pago interno v3",
   "active": false,
+  "activeVersionId": null,
+  "createdAt": "2026-05-11T08:27:22.888Z",
+  "updatedAt": "2026-05-12T08:36:47.631Z",
   "isArchived": false,
+  "versionId": "d8b05ae1-a414-4400-9078-a4c7d86601b9",
+  "triggerCount": 1,
   "nodes": [
     {
       "parameters": {
@@ -301,6 +304,7 @@
       ]
     }
   },
+  "nodeGroups": [],
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate",
@@ -310,9 +314,6 @@
     "availableInMCP": false
   },
   "staticData": null,
-  "meta": {
-    "templateCredsSetupCompleted": true
-  },
   "pinData": {
     "Webhook": [
       {
@@ -360,18 +361,18 @@
       }
     ]
   },
-  "versionId": "d8b05ae1-a414-4400-9078-a4c7d86601b9",
-  "activeVersionId": null,
-  "triggerCount": 1,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "tags": [],
   "shared": [
     {
-      "updatedAt": "2026-05-11T08:27:22.890Z",
-      "createdAt": "2026-05-11T08:27:22.890Z",
       "role": "workflow:owner",
       "workflowId": "EoW6VS01P9xo6hXY",
-      "projectId": "HySVhA2Rl8waskJL"
+      "projectId": "HySVhA2Rl8waskJL",
+      "createdAt": "2026-05-11T08:27:22.890Z",
+      "updatedAt": "2026-05-11T08:27:22.890Z"
     }
   ],
-  "activeVersion": null,
-  "tags": []
+  "activeVersion": null
 }
