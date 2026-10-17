@@ -1,10 +1,13 @@
 {
-  "updatedAt": "2026-05-12T08:42:10.289Z",
-  "createdAt": "2026-05-11T08:31:30.249Z",
   "id": "6WPxQeYlPWlb91Fj",
   "name": "Proforma y correo v3",
   "active": false,
+  "activeVersionId": null,
+  "createdAt": "2026-05-11T08:31:30.249Z",
+  "updatedAt": "2026-05-12T08:42:10.289Z",
   "isArchived": false,
+  "versionId": "4a066515-6884-4530-a778-9b8dd905e3c0",
+  "triggerCount": 1,
   "nodes": [
     {
       "parameters": {
@@ -596,6 +599,7 @@
       ]
     }
   },
+  "nodeGroups": [],
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate",
@@ -609,22 +613,19 @@
       "recurrenceRules": []
     }
   },
+  "pinData": {},
   "meta": {
     "templateCredsSetupCompleted": true
   },
-  "pinData": {},
-  "versionId": "4a066515-6884-4530-a778-9b8dd905e3c0",
-  "activeVersionId": null,
-  "triggerCount": 1,
+  "tags": [],
   "shared": [
     {
-      "updatedAt": "2026-05-11T08:31:30.251Z",
-      "createdAt": "2026-05-11T08:31:30.251Z",
       "role": "workflow:owner",
       "workflowId": "6WPxQeYlPWlb91Fj",
-      "projectId": "HySVhA2Rl8waskJL"
+      "projectId": "HySVhA2Rl8waskJL",
+      "createdAt": "2026-05-11T08:31:30.251Z",
+      "updatedAt": "2026-05-11T08:31:30.251Z"
     }
   ],
-  "activeVersion": null,
-  "tags": []
+  "activeVersion": null
 }
