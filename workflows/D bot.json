@@ -1,10 +1,13 @@
 {
-  "updatedAt": "2026-05-15T17:37:06.489Z",
-  "createdAt": "2026-05-15T08:43:26.187Z",
   "id": "KJjabIjGFR7WwGLT",
   "name": "D bot",
   "active": true,
+  "activeVersionId": "0d634d28-5e60-445c-8861-891923c899a0",
+  "createdAt": "2026-05-15T08:43:26.187Z",
+  "updatedAt": "2026-05-15T17:37:06.489Z",
   "isArchived": false,
+  "versionId": "0d634d28-5e60-445c-8861-891923c899a0",
+  "triggerCount": 1,
   "nodes": [
     {
       "parameters": {
@@ -571,6 +574,7 @@
       ]
     }
   },
+  "nodeGroups": [],
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate",
@@ -583,9 +587,6 @@
     "node:Schedule Trigger": {
       "recurrenceRules": []
     }
-  },
-  "meta": {
-    "templateCredsSetupCompleted": true
   },
   "pinData": {
     "Schedule Trigger": [
@@ -633,21 +634,20 @@
       }
     ]
   },
-  "versionId": "0d634d28-5e60-445c-8861-891923c899a0",
-  "activeVersionId": "0d634d28-5e60-445c-8861-891923c899a0",
-  "triggerCount": 1,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "tags": [],
   "shared": [
     {
-      "updatedAt": "2026-05-15T08:43:26.189Z",
-      "createdAt": "2026-05-15T08:43:26.189Z",
       "role": "workflow:owner",
       "workflowId": "KJjabIjGFR7WwGLT",
-      "projectId": "HySVhA2Rl8waskJL"
+      "projectId": "HySVhA2Rl8waskJL",
+      "createdAt": "2026-05-15T08:43:26.189Z",
+      "updatedAt": "2026-05-15T08:43:26.189Z"
     }
   ],
   "activeVersion": {
-    "updatedAt": "2026-05-15T17:37:00.000Z",
-    "createdAt": "2026-05-15T17:36:02.497Z",
     "versionId": "0d634d28-5e60-445c-8861-891923c899a0",
     "workflowId": "KJjabIjGFR7WwGLT",
     "nodes": [
@@ -1216,10 +1216,12 @@
         ]
       }
     },
+    "nodeGroups": [],
     "authors": "Leandro Martinez",
     "name": "Version 0d634d28",
     "description": "",
-    "autosaved": true
-  },
-  "tags": []
+    "autosaved": true,
+    "createdAt": "2026-05-15T17:36:02.497Z",
+    "updatedAt": "2026-05-15T17:37:00.000Z"
+  }
 }
