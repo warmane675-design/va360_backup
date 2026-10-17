@@ -1,10 +1,13 @@
 {
-  "updatedAt": "2026-05-12T08:48:15.711Z",
-  "createdAt": "2026-05-11T08:26:25.284Z",
   "id": "TUisRI5uKuS0AwSW",
   "name": "Backup Workflows",
   "active": true,
+  "activeVersionId": "8326a1a4-0fdf-49b7-a05d-5d3e7f50bdb4",
+  "createdAt": "2026-05-11T08:26:25.284Z",
+  "updatedAt": "2026-05-12T08:48:15.711Z",
   "isArchived": false,
+  "versionId": "8326a1a4-0fdf-49b7-a05d-5d3e7f50bdb4",
+  "triggerCount": 1,
   "nodes": [
     {
       "parameters": {},
@@ -532,6 +535,7 @@
       ]
     }
   },
+  "nodeGroups": [],
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate",
@@ -542,28 +546,29 @@
   },
   "staticData": {
     "node:Schedule Trigger": {
-      "recurrenceRules": []
+      "recurrenceRules": [
+        null
+      ],
+      "recurrenceRuleSignatures": [
+        null
+      ]
     }
   },
+  "pinData": {},
   "meta": {
     "templateCredsSetupCompleted": true
   },
-  "pinData": {},
-  "versionId": "8326a1a4-0fdf-49b7-a05d-5d3e7f50bdb4",
-  "activeVersionId": "8326a1a4-0fdf-49b7-a05d-5d3e7f50bdb4",
-  "triggerCount": 1,
+  "tags": [],
   "shared": [
     {
-      "updatedAt": "2026-05-11T08:26:25.294Z",
-      "createdAt": "2026-05-11T08:26:25.294Z",
       "role": "workflow:owner",
       "workflowId": "TUisRI5uKuS0AwSW",
-      "projectId": "HySVhA2Rl8waskJL"
+      "projectId": "HySVhA2Rl8waskJL",
+      "createdAt": "2026-05-11T08:26:25.294Z",
+      "updatedAt": "2026-05-11T08:26:25.294Z"
     }
   ],
   "activeVersion": {
-    "updatedAt": "2026-05-12T08:48:16.000Z",
-    "createdAt": "2026-05-12T08:48:15.711Z",
     "versionId": "8326a1a4-0fdf-49b7-a05d-5d3e7f50bdb4",
     "workflowId": "TUisRI5uKuS0AwSW",
     "nodes": [
@@ -1093,10 +1098,12 @@
         ]
       }
     },
+    "nodeGroups": [],
     "authors": "Leandro Martinez",
     "name": "Version 8326a1a4",
     "description": "",
-    "autosaved": false
-  },
-  "tags": []
+    "autosaved": false,
+    "createdAt": "2026-05-12T08:48:15.711Z",
+    "updatedAt": "2026-05-12T08:48:16.000Z"
+  }
 }
