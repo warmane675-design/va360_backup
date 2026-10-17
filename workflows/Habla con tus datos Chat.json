@@ -1,10 +1,13 @@
 {
-  "updatedAt": "2026-05-11T08:46:27.760Z",
-  "createdAt": "2026-05-11T08:29:40.129Z",
   "id": "dcRA7vUZNhFHTgFO",
   "name": "Habla con tus datos Chat",
   "active": false,
+  "activeVersionId": null,
+  "createdAt": "2026-05-11T08:29:40.129Z",
+  "updatedAt": "2026-05-11T08:46:27.760Z",
   "isArchived": false,
+  "versionId": "9613018b-337b-47d7-aef9-1d9fd4a961fa",
+  "triggerCount": 0,
   "nodes": [
     {
       "parameters": {
@@ -188,25 +191,23 @@
       ]
     }
   },
+  "nodeGroups": [],
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate"
   },
   "staticData": null,
-  "meta": null,
   "pinData": {},
-  "versionId": "9613018b-337b-47d7-aef9-1d9fd4a961fa",
-  "activeVersionId": null,
-  "triggerCount": 0,
+  "meta": null,
+  "tags": [],
   "shared": [
     {
-      "updatedAt": "2026-05-11T08:29:40.130Z",
-      "createdAt": "2026-05-11T08:29:40.130Z",
       "role": "workflow:owner",
       "workflowId": "dcRA7vUZNhFHTgFO",
-      "projectId": "HySVhA2Rl8waskJL"
+      "projectId": "HySVhA2Rl8waskJL",
+      "createdAt": "2026-05-11T08:29:40.130Z",
+      "updatedAt": "2026-05-11T08:29:40.130Z"
     }
   ],
-  "activeVersion": null,
-  "tags": []
+  "activeVersion": null
 }
