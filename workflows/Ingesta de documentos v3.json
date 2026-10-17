@@ -1,10 +1,13 @@
 {
-  "updatedAt": "2026-05-12T08:43:59.289Z",
-  "createdAt": "2026-05-11T08:30:18.505Z",
   "id": "jHaT8NMujVTOE67f",
   "name": "Ingesta de documentos v3",
   "active": true,
+  "activeVersionId": "a0e04dbc-f5ca-4ec2-981c-d273a6e9904b",
+  "createdAt": "2026-05-11T08:30:18.505Z",
+  "updatedAt": "2026-05-12T08:43:59.289Z",
   "isArchived": false,
+  "versionId": "a0e04dbc-f5ca-4ec2-981c-d273a6e9904b",
+  "triggerCount": 1,
   "nodes": [
     {
       "parameters": {
@@ -183,6 +186,7 @@
       ]
     }
   },
+  "nodeGroups": [],
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate",
@@ -193,28 +197,24 @@
   },
   "staticData": {
     "node:Google Drive Trigger": {
-      "lastTimeChecked": "2026-05-12T08:43:59Z"
+      "lastTimeChecked": "2026-10-17T15:44:17Z"
     }
   },
+  "pinData": {},
   "meta": {
     "templateCredsSetupCompleted": true
   },
-  "pinData": {},
-  "versionId": "a0e04dbc-f5ca-4ec2-981c-d273a6e9904b",
-  "activeVersionId": "a0e04dbc-f5ca-4ec2-981c-d273a6e9904b",
-  "triggerCount": 1,
+  "tags": [],
   "shared": [
     {
-      "updatedAt": "2026-05-11T08:30:18.508Z",
-      "createdAt": "2026-05-11T08:30:18.508Z",
       "role": "workflow:owner",
       "workflowId": "jHaT8NMujVTOE67f",
-      "projectId": "HySVhA2Rl8waskJL"
+      "projectId": "HySVhA2Rl8waskJL",
+      "createdAt": "2026-05-11T08:30:18.508Z",
+      "updatedAt": "2026-05-11T08:30:18.508Z"
     }
   ],
   "activeVersion": {
-    "updatedAt": "2026-05-12T08:13:07.000Z",
-    "createdAt": "2026-05-12T08:12:44.936Z",
     "versionId": "a0e04dbc-f5ca-4ec2-981c-d273a6e9904b",
     "workflowId": "jHaT8NMujVTOE67f",
     "nodes": [
@@ -395,10 +395,12 @@
         ]
       }
     },
+    "nodeGroups": [],
     "authors": "Leandro Martinez",
     "name": "Version a0e04dbc",
     "description": "",
-    "autosaved": true
-  },
-  "tags": []
+    "autosaved": true,
+    "createdAt": "2026-05-12T08:12:44.936Z",
+    "updatedAt": "2026-05-12T08:13:07.000Z"
+  }
 }
