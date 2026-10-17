@@ -1,10 +1,13 @@
 {
-  "updatedAt": "2026-05-12T08:43:39.770Z",
-  "createdAt": "2026-05-11T08:30:56.813Z",
   "id": "PHW5Jq9HXvonE1d4",
   "name": "Post wordpress v2",
   "active": false,
+  "activeVersionId": null,
+  "createdAt": "2026-05-11T08:30:56.813Z",
+  "updatedAt": "2026-05-12T08:43:39.770Z",
   "isArchived": false,
+  "versionId": "d9b29760-9c81-44c9-825d-438fac5c839d",
+  "triggerCount": 0,
   "nodes": [
     {
       "parameters": {},
@@ -564,6 +567,7 @@
       ]
     }
   },
+  "nodeGroups": [],
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate",
@@ -573,20 +577,17 @@
     "availableInMCP": false
   },
   "staticData": null,
-  "meta": null,
   "pinData": {},
-  "versionId": "d9b29760-9c81-44c9-825d-438fac5c839d",
-  "activeVersionId": null,
-  "triggerCount": 0,
+  "meta": null,
+  "tags": [],
   "shared": [
     {
-      "updatedAt": "2026-05-11T08:30:56.814Z",
-      "createdAt": "2026-05-11T08:30:56.814Z",
       "role": "workflow:owner",
       "workflowId": "PHW5Jq9HXvonE1d4",
-      "projectId": "HySVhA2Rl8waskJL"
+      "projectId": "HySVhA2Rl8waskJL",
+      "createdAt": "2026-05-11T08:30:56.814Z",
+      "updatedAt": "2026-05-11T08:30:56.814Z"
     }
   ],
-  "activeVersion": null,
-  "tags": []
+  "activeVersion": null
 }
