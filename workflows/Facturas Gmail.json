@@ -1,10 +1,13 @@
 {
-  "updatedAt": "2026-05-11T08:46:44.699Z",
-  "createdAt": "2026-05-11T08:28:33.126Z",
   "id": "mVBsogTRYzEgUbtG",
   "name": "Facturas Gmail",
   "active": false,
+  "activeVersionId": null,
+  "createdAt": "2026-05-11T08:28:33.126Z",
+  "updatedAt": "2026-05-11T08:46:44.699Z",
   "isArchived": false,
+  "versionId": "a108b49c-a60b-4686-85ce-ed1998433cd2",
+  "triggerCount": 0,
   "nodes": [
     {
       "parameters": {},
@@ -410,12 +413,12 @@
       ]
     }
   },
+  "nodeGroups": [],
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate"
   },
   "staticData": null,
-  "meta": null,
   "pinData": {
     "Gmail Trigger": [
       {
@@ -457,18 +460,16 @@
       }
     ]
   },
-  "versionId": "a108b49c-a60b-4686-85ce-ed1998433cd2",
-  "activeVersionId": null,
-  "triggerCount": 0,
+  "meta": null,
+  "tags": [],
   "shared": [
     {
-      "updatedAt": "2026-05-11T08:28:33.128Z",
-      "createdAt": "2026-05-11T08:28:33.128Z",
       "role": "workflow:owner",
       "workflowId": "mVBsogTRYzEgUbtG",
-      "projectId": "HySVhA2Rl8waskJL"
+      "projectId": "HySVhA2Rl8waskJL",
+      "createdAt": "2026-05-11T08:28:33.128Z",
+      "updatedAt": "2026-05-11T08:28:33.128Z"
     }
   ],
-  "activeVersion": null,
-  "tags": []
+  "activeVersion": null
 }
