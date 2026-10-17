@@ -1,10 +1,13 @@
 {
-  "updatedAt": "2026-05-18T08:49:48.657Z",
-  "createdAt": "2026-05-11T09:01:57.952Z",
   "id": "nY61MZnAwAYOEI1L",
   "name": "Fracturacity a Excel v4",
   "active": false,
+  "activeVersionId": null,
+  "createdAt": "2026-05-11T09:01:57.952Z",
+  "updatedAt": "2026-05-18T08:49:48.657Z",
   "isArchived": false,
+  "versionId": "4f7a740a-5d8c-4813-8a37-5e3dc0c003ae",
+  "triggerCount": 0,
   "nodes": [
     {
       "parameters": {
@@ -458,6 +461,7 @@
       ]
     }
   },
+  "nodeGroups": [],
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate",
@@ -467,29 +471,26 @@
     "callerPolicy": "workflowsFromSameOwner"
   },
   "staticData": null,
+  "pinData": {},
   "meta": {
     "templateCredsSetupCompleted": true
   },
-  "pinData": {},
-  "versionId": "4f7a740a-5d8c-4813-8a37-5e3dc0c003ae",
-  "activeVersionId": null,
-  "triggerCount": 0,
-  "shared": [
-    {
-      "updatedAt": "2026-05-11T09:01:57.955Z",
-      "createdAt": "2026-05-11T09:01:57.955Z",
-      "role": "workflow:owner",
-      "workflowId": "nY61MZnAwAYOEI1L",
-      "projectId": "HySVhA2Rl8waskJL"
-    }
-  ],
-  "activeVersion": null,
   "tags": [
     {
-      "updatedAt": "2026-05-11T09:01:50.331Z",
-      "createdAt": "2026-05-11T09:01:50.331Z",
       "id": "1RdtjEkS3P0u2ppX",
-      "name": "v4"
+      "name": "v4",
+      "createdAt": "2026-05-11T09:01:50.331Z",
+      "updatedAt": "2026-05-11T09:01:50.331Z"
     }
-  ]
+  ],
+  "shared": [
+    {
+      "role": "workflow:owner",
+      "workflowId": "nY61MZnAwAYOEI1L",
+      "projectId": "HySVhA2Rl8waskJL",
+      "createdAt": "2026-05-11T09:01:57.955Z",
+      "updatedAt": "2026-05-11T09:01:57.955Z"
+    }
+  ],
+  "activeVersion": null
 }
