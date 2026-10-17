@@ -1,10 +1,13 @@
 {
-  "updatedAt": "2026-05-11T08:46:59.673Z",
-  "createdAt": "2026-05-11T08:27:44.363Z",
   "id": "aDevJyhOVS0ef1EK",
   "name": "Confirmacion pago interno",
   "active": false,
+  "activeVersionId": null,
+  "createdAt": "2026-05-11T08:27:44.363Z",
+  "updatedAt": "2026-05-11T08:46:59.673Z",
   "isArchived": false,
+  "versionId": "e5c45a6a-4856-4a79-b1c9-bc80124e034d",
+  "triggerCount": 0,
   "nodes": [
     {
       "parameters": {
@@ -267,25 +270,23 @@
       ]
     }
   },
+  "nodeGroups": [],
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate"
   },
   "staticData": null,
-  "meta": null,
   "pinData": {},
-  "versionId": "e5c45a6a-4856-4a79-b1c9-bc80124e034d",
-  "activeVersionId": null,
-  "triggerCount": 0,
+  "meta": null,
+  "tags": [],
   "shared": [
     {
-      "updatedAt": "2026-05-11T08:27:44.364Z",
-      "createdAt": "2026-05-11T08:27:44.364Z",
       "role": "workflow:owner",
       "workflowId": "aDevJyhOVS0ef1EK",
-      "projectId": "HySVhA2Rl8waskJL"
+      "projectId": "HySVhA2Rl8waskJL",
+      "createdAt": "2026-05-11T08:27:44.364Z",
+      "updatedAt": "2026-05-11T08:27:44.364Z"
     }
   ],
-  "activeVersion": null,
-  "tags": []
+  "activeVersion": null
 }
