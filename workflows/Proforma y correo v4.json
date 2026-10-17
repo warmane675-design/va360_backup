@@ -1,10 +1,13 @@
 {
-  "updatedAt": "2026-05-13T11:24:14.343Z",
-  "createdAt": "2026-05-13T10:11:20.548Z",
   "id": "91yQRRzF8uWtnuLK",
   "name": "Proforma y correo v4",
   "active": false,
+  "activeVersionId": null,
+  "createdAt": "2026-05-13T10:11:20.548Z",
+  "updatedAt": "2026-05-18T08:54:36.810Z",
   "isArchived": false,
+  "versionId": "d8deadae-2b71-4820-95fd-e6e8f1062e3a",
+  "triggerCount": 0,
   "nodes": [
     {
       "parameters": {
@@ -587,6 +590,7 @@
       ]
     }
   },
+  "nodeGroups": [],
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate",
@@ -599,9 +603,6 @@
     "node:Trigger diario": {
       "recurrenceRules": []
     }
-  },
-  "meta": {
-    "templateCredsSetupCompleted": true
   },
   "pinData": {
     "Trigger diario": [
@@ -625,25 +626,25 @@
       }
     ]
   },
-  "versionId": "d8deadae-2b71-4820-95fd-e6e8f1062e3a",
-  "activeVersionId": null,
-  "triggerCount": 0,
-  "shared": [
-    {
-      "updatedAt": "2026-05-13T10:11:20.553Z",
-      "createdAt": "2026-05-13T10:11:20.553Z",
-      "role": "workflow:owner",
-      "workflowId": "91yQRRzF8uWtnuLK",
-      "projectId": "HySVhA2Rl8waskJL"
-    }
-  ],
-  "activeVersion": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
   "tags": [
     {
-      "updatedAt": "2026-05-11T09:01:50.331Z",
-      "createdAt": "2026-05-11T09:01:50.331Z",
       "id": "1RdtjEkS3P0u2ppX",
-      "name": "v4"
+      "name": "v4",
+      "createdAt": "2026-05-11T09:01:50.331Z",
+      "updatedAt": "2026-05-11T09:01:50.331Z"
     }
-  ]
+  ],
+  "shared": [
+    {
+      "role": "workflow:owner",
+      "workflowId": "91yQRRzF8uWtnuLK",
+      "projectId": "HySVhA2Rl8waskJL",
+      "createdAt": "2026-05-13T10:11:20.553Z",
+      "updatedAt": "2026-05-13T10:11:20.553Z"
+    }
+  ],
+  "activeVersion": null
 }
