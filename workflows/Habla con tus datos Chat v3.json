@@ -1,10 +1,13 @@
 {
-  "updatedAt": "2026-05-12T14:08:11.198Z",
-  "createdAt": "2026-05-11T08:29:29.280Z",
   "id": "3pmhMn56F8ZCXAL3",
   "name": "Habla con tus datos Chat v3",
   "active": true,
+  "activeVersionId": "87198de8-4b6c-462b-8915-a0ead8ae3371",
+  "createdAt": "2026-05-11T08:29:29.280Z",
+  "updatedAt": "2026-05-12T14:08:11.198Z",
   "isArchived": false,
+  "versionId": "9437064e-f0a5-4eb5-bd94-b25c78d03ba2",
+  "triggerCount": 1,
   "nodes": [
     {
       "parameters": {
@@ -212,6 +215,7 @@
       ]
     }
   },
+  "nodeGroups": [],
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate",
@@ -221,25 +225,21 @@
     "availableInMCP": false
   },
   "staticData": null,
+  "pinData": {},
   "meta": {
     "templateCredsSetupCompleted": true
   },
-  "pinData": {},
-  "versionId": "9437064e-f0a5-4eb5-bd94-b25c78d03ba2",
-  "activeVersionId": "87198de8-4b6c-462b-8915-a0ead8ae3371",
-  "triggerCount": 1,
+  "tags": [],
   "shared": [
     {
-      "updatedAt": "2026-05-11T08:29:29.285Z",
-      "createdAt": "2026-05-11T08:29:29.285Z",
       "role": "workflow:owner",
       "workflowId": "3pmhMn56F8ZCXAL3",
-      "projectId": "HySVhA2Rl8waskJL"
+      "projectId": "HySVhA2Rl8waskJL",
+      "createdAt": "2026-05-11T08:29:29.285Z",
+      "updatedAt": "2026-05-11T08:29:29.285Z"
     }
   ],
   "activeVersion": {
-    "updatedAt": "2026-05-12T08:16:31.000Z",
-    "createdAt": "2026-05-12T08:16:28.908Z",
     "versionId": "87198de8-4b6c-462b-8915-a0ead8ae3371",
     "workflowId": "3pmhMn56F8ZCXAL3",
     "nodes": [
@@ -449,10 +449,12 @@
         ]
       }
     },
+    "nodeGroups": [],
     "authors": "Leandro Martinez",
     "name": "Version 87198de8",
     "description": "",
-    "autosaved": true
-  },
-  "tags": []
+    "autosaved": true,
+    "createdAt": "2026-05-12T08:16:28.908Z",
+    "updatedAt": "2026-05-12T08:16:31.000Z"
+  }
 }
