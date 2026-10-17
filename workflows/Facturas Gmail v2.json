@@ -1,10 +1,13 @@
 {
-  "updatedAt": "2026-05-18T07:38:00.246Z",
-  "createdAt": "2026-05-11T08:28:16.674Z",
   "id": "D4t2vLp7rgaYwpBR",
   "name": "Facturas Gmail v2",
   "active": true,
+  "activeVersionId": "22ceba89-2a3c-46e7-b606-83cd8daf146d",
+  "createdAt": "2026-05-11T08:28:16.674Z",
+  "updatedAt": "2026-05-18T07:38:00.246Z",
   "isArchived": false,
+  "versionId": "3d941659-c497-479e-a9b2-884c2da6da1a",
+  "triggerCount": 1,
   "nodes": [
     {
       "parameters": {},
@@ -484,6 +487,7 @@
       ]
     }
   },
+  "nodeGroups": [],
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate",
@@ -495,16 +499,13 @@
   "staticData": {
     "node:Gmail Trigger": {
       "Gmail Trigger": {
-        "lastTimeChecked": 1779095624,
+        "lastTimeChecked": 1792067083,
         "possibleDuplicates": [
-          "19e3a5cf0a185f8b",
-          "19e3a5a44ae19dd2"
+          "1a13f85c17ff418d",
+          "1a13f694ef59ff30"
         ]
       }
     }
-  },
-  "meta": {
-    "templateCredsSetupCompleted": true
   },
   "pinData": {
     "Gmail Trigger": [
@@ -543,21 +544,20 @@
       }
     ]
   },
-  "versionId": "3d941659-c497-479e-a9b2-884c2da6da1a",
-  "activeVersionId": "22ceba89-2a3c-46e7-b606-83cd8daf146d",
-  "triggerCount": 1,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "tags": [],
   "shared": [
     {
-      "updatedAt": "2026-05-11T08:28:16.686Z",
-      "createdAt": "2026-05-11T08:28:16.686Z",
       "role": "workflow:owner",
       "workflowId": "D4t2vLp7rgaYwpBR",
-      "projectId": "HySVhA2Rl8waskJL"
+      "projectId": "HySVhA2Rl8waskJL",
+      "createdAt": "2026-05-11T08:28:16.686Z",
+      "updatedAt": "2026-05-11T08:28:16.686Z"
     }
   ],
   "activeVersion": {
-    "updatedAt": "2026-05-14T10:22:12.000Z",
-    "createdAt": "2026-05-12T07:44:24.595Z",
     "versionId": "22ceba89-2a3c-46e7-b606-83cd8daf146d",
     "workflowId": "D4t2vLp7rgaYwpBR",
     "nodes": [
@@ -995,10 +995,12 @@
         ]
       }
     },
+    "nodeGroups": [],
     "authors": "Leandro Martinez",
     "name": "Version 22ceba89",
     "description": "",
-    "autosaved": true
-  },
-  "tags": []
+    "autosaved": true,
+    "createdAt": "2026-05-12T07:44:24.595Z",
+    "updatedAt": "2026-05-14T10:22:12.000Z"
+  }
 }
